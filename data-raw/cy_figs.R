@@ -29,7 +29,7 @@ library(digest) #--for anonymizing names
 
 # FIXED SEPARATION OF NAMES, don't separate hyphenated names (like Maria Salas-Fernandez)
 # BUT, she's listed as Mari?
-saltidy <- read_csv("../_data/_tidy/td_rawsals.csv") %>%
+saltidy <- read_csv("./data-raw/_tidy/td_rawsals.csv") %>%
     #--deal with dates
   mutate(fiscal_year = as.numeric(fiscal_year),
          base_salary_date = lubridate::ymd_hms(base_salary_date),
@@ -67,19 +67,18 @@ saltidy <- read_csv("../_data/_tidy/td_rawsals.csv") %>%
   
   separate(name, into = c("last_name", "first_name", "other"), sep = " ") 
 
-
-cyd_depts %>%
-  filter(last_name == "salas-fernandez")
-
 cyd_depts <- 
-  read_csv("../_data/_tidy/td_empl-dept-key.csv") %>%
+  read_csv("./data-raw/_tidy/td_empl-dept-key.csv") %>%
   
   # why are there 3 ag/biosys eng? simplify them
   mutate(dept = recode(dept,
                        "ag/biosys eng-a" = "ag/biosys eng",
                        "ag/biosys eng-e" = "ag/biosys eng"))
 
-cyd_orgs <- read_csv("../_data/_tidy/td_org-dept-key.csv")
+cyd_depts %>%
+  filter(last_name == "salas-fernandez")
+
+cyd_orgs <- read_csv("./data-raw/_tidy/td_org-dept-key.csv")
 
 #--PROBLEM: we only have 2 names from Cynthia - so adams sarah l and adams sarah k both get grouped with adams sarah.
 # how many times is this a problem?
@@ -165,7 +164,8 @@ saldeptprofs <-
 saldeptprofs %>%
   filter(dept == "agronomy") %>%
   filter(gender == "F") ->a
-  
+
+saldeptprofs %>%  
   group_by(fiscal_year, pos_simp, gender) %>%
   summarise(n = n()) %>%
   complete(fiscal_year, pos_simp, gender, fill = list(n = 0)) %>%

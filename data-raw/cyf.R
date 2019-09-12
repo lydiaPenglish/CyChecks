@@ -55,7 +55,7 @@ library("tidyverse")
 #-separate names into first and last (to merge w/our dept info) *not sure about this yet*
 #-filter out when we don't have a position or a gender
 
-cyd_salsraw <- read_csv("_data/_tidy/td_rawsals.csv")
+cyd_salsraw <- read_csv("data-raw/_tidy/td_rawsals.csv")
 #salraw2 <- salraw %>% filter(fiscal_year == 2015)
 
 
@@ -118,7 +118,7 @@ tibble(name = c("Mary D", "Mary D", "Mary A")) %>%
 
 
 cyd_dept <- 
-  read_csv("_data/_tidy/td_empl-dept-key.csv") %>%
+  read_csv("data-raw/_tidy/td_empl-dept-key.csv") %>%
   
   # why are there 3 ag/biosys eng?
   mutate(dept = recode(dept,
@@ -132,7 +132,7 @@ cyd_dept %>%
   unique()
 
 # NOTE: future improvement, if it doesn't appear in this list it should get lumped into another one (ex. ag/biosys eng)
-cyd_college <- read_csv("_data/_tidy/td_org-dept-key.csv")
+cyd_college <- read_csv("data-raw/_tidy/td_org-dept-key.csv")
 
 #--PROBLEM: we only have 2 names from Cynthia - so adams sarah l and adams sarah k both get grouped with adams sarah.
 # how many times is this a problem?

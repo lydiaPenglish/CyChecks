@@ -34,4 +34,4 @@ url <- sprintf("https://data.iowa.gov/resource/s3p7-wy6w.json?%s&$limit=%d&$offs
 
 salraw <- tibble::as_tibble(fromJSON(url))
 
-salraw %>% write_csv("_data/_tidy/td_rawsals.csv")
+salraw %>% write_csv("data-raw/_tidy/td_rawsals.csv")

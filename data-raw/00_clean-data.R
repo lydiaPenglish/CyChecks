@@ -31,7 +31,7 @@ setwd(here())
 
 # Clean and write dept-org info -------------------------------------------
 
-orgraw <- read_excel("_data/_raw/Employees with Department and Org 4-8-19.xlsx")
+orgraw <- read_excel("data-raw/_raw/Employees with Department and Org 4-8-19.xlsx")
 
 # just keep org and dept as a key
 org <- 
@@ -44,7 +44,7 @@ org <-
   distinct() %>%
   arrange(college, dept)
 
-org %>% write_csv("_data/_tidy/td_org-dept-key.csv")
+org %>% write_csv("data-raw/_tidy/td_org-dept-key.csv")
 
 
 # read name-dept data from tabs-------------------------------------------
@@ -53,12 +53,12 @@ org %>% write_csv("_data/_tidy/td_org-dept-key.csv")
 #-- the last tab is not in the same format as the others, must be dealt with separately, or we get a 
 
 tyear <- c(2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018)
-rawdat <- read_excel("_data/_raw/January snapshot data for GN 2012-2019.xlsx", sheet = 1) %>%
+rawdat <- read_excel("data-raw/_raw/January snapshot data for GN 2012-2019.xlsx", sheet = 1) %>%
   mutate(year  = tyear[1])
 
 for (i in 2:length(tyear)){
   
-  tdat <- read_excel("_data/_raw/January snapshot data for GN 2012-2019.xlsx", sheet = i) %>%
+  tdat <- read_excel("data-raw/_raw/January snapshot data for GN 2012-2019.xlsx", sheet = i) %>%
     mutate(year  = tyear[i])
 
   rawdat <- rawdat %>%
@@ -80,7 +80,7 @@ dat <-
   arrange(fiscal_year, dept, last_name, first_name)
 
 dat %>%
-  write_csv("_data/_tidy/td_empl-dept-key.csv")
+  write_csv("data-raw/_tidy/td_empl-dept-key.csv")
 
 # What if there is more than one sarah adams?
 filter(dat, first_name == "sarah" & last_name == "adams")
