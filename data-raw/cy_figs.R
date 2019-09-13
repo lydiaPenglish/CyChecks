@@ -163,7 +163,7 @@ saldeptprofs <-
 
 saldeptprofs %>%
   filter(dept == "agronomy") %>%
-  filter(gender == "F") ->a
+  filter(gender == "F") ->a ## what's happening here? LE wondering....
 
 saldeptprofs %>%  
   group_by(fiscal_year, pos_simp, gender) %>%
@@ -177,4 +177,13 @@ saldeptprofs %>%
   facet_grid(~pos_simp)
 
 
+# Lydia's attempt with ggalluvial
+saldeptprofs %>%
+  filter(dept == "agronomy") %>%
+  group_by(fiscal_year, pos_simp, gender) %>%
+  summarise(n = n()) %>%
+  ggplot(aes(fiscal_year, n, alluvium = gender))+
+  ggalluvial::geom_alluvium(aes(fill = gender, colour = gender))+
+  theme_bw()+
+  facet_wrap(~pos_simp)
 
