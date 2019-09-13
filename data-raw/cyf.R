@@ -5,17 +5,22 @@
 # last updated: July 31 2019
 #               Aug 29 2019
 #               September 6 2019 (barely, by LE)
+#               Sept 9 2019 (Gina, removing dupes, fixing Maria/Mari Salas-Fernandez)
+#               Sept 13 updated github code to match cybox code
 #
 # purpose: make CyChecks2 functions in a safe place
 # 
 # inputs: 
-# outputs: 
+# outputs: cyd_salprofs in _tidy folder
 #
 # notes: Is there a way to make Lydia's function just give me a single year?
 #        The website give us middle names. Cindy did not. 
 #        I'd like to fix the dupes! (LE)
+#        Make it remove the dupes for now, fix name separation to by by spaces only
+#           Maria Salas-Fernandez is Mari Salas-Fernandez in the database...WTF
 #
 ########################
+
 
 
 rm(list = ls())
@@ -55,27 +60,27 @@ library("tidyverse")
 #-separate names into first and last (to merge w/our dept info) *not sure about this yet*
 #-filter out when we don't have a position or a gender
 
-cyd_salsraw <- read_csv("data-raw/_tidy/td_rawsals.csv")
+cyd_salsraw <- read_csv("_data/_tidy/td_rawsals.csv")
 #salraw2 <- salraw %>% filter(fiscal_year == 2015)
 
 
 cyf_TidySals <- function(mydata = cyd_salsraw){
-
+  
   cyd_salstidy <- 
     
     mydata %>% #--just using this as an example for now
-
-  #--deal with dates
-  mutate(fiscal_year = as.numeric(fiscal_year),
-         base_salary_date = lubridate::ymd_hms(base_salary_date),
-         base_salary_year = lubridate::year(base_salary_date)) %>%
-  
-  #--get rid of unwanted columns
-  select(fiscal_year, base_salary_year, name, gender, position, total_salary_paid, travel_subsistence, base_salary) %>%
-  
-  #--eliminate things that are per hour
-  filter(!grepl("HR", base_salary)) %>%
-  
+    
+    #--deal with dates
+    mutate(fiscal_year = as.numeric(fiscal_year),
+           base_salary_date = lubridate::ymd_hms(base_salary_date),
+           base_salary_year = lubridate::year(base_salary_date)) %>%
+    
+    #--get rid of unwanted columns
+    select(fiscal_year, base_salary_year, name, gender, position, total_salary_paid, travel_subsistence, base_salary) %>%
+    
+    #--eliminate things that are per hour
+    filter(!grepl("HR", base_salary)) %>%
+    
     mutate(
       #--get rid of stupid commas in base_salary, make everything monetary into numeric    
       base_salary = as.numeric(gsub(",", "", base_salary)),
@@ -91,20 +96,29 @@ cyf_TidySals <- function(mydata = cyd_salsraw){
       name = gsub(",", "", name),
       
       position = tolower(position)) %>%
-  
-  #--eliminate people who don't have a position or a gender
-  filter(!grepl("\\*", position),
-         !grepl("\\*", gender))  %>%
-  
-  #--expand the name out, I think we have to
-  
-  separate(name, into = c("last_name", "first_name", "other"))
+    
+    #--eliminate people who don't have a position or a gender
+    filter(!grepl("\\*", position),
+           !grepl("\\*", gender))  %>%
+    
+    #--expand the name out, I think we have to
+    
+    separate(name, into = c("last_name", "first_name", "other"), sep = " ")
   
   return(cyd_salstidy)
   
 }
-    
-cyd_salstidy <- cyf_TidySals()
+
+
+cyd_salstidy <- cyf_TidySals() %>%
+  
+  mutate(first_name = ifelse(last_name == "salas-fernandez", "maria", first_name))
+
+#--WTF, Maria is Mari. Fix it to Maria. What else is wrong...internet.
+cyd_salstidy %>%
+  filter(last_name == "salas-fernandez")
+
+
 
 # cyf_salsdeptmerge -------------------------------------------------------
 # this one will
@@ -118,21 +132,20 @@ tibble(name = c("Mary D", "Mary D", "Mary A")) %>%
 
 
 cyd_dept <- 
-  read_csv("data-raw/_tidy/td_empl-dept-key.csv") %>%
+  read_csv("_data/_tidy/td_empl-dept-key.csv") %>%
   
   # why are there 3 ag/biosys eng?
   mutate(dept = recode(dept,
                        "ag/biosys eng-a" = "ag/biosys eng",
-                       "ag/biosys eng-e" = "ag/biosys eng")) #%>%
-  # just for now
-  #filter(fiscal_year == 2015)
+                       "ag/biosys eng-e" = "ag/biosys eng")) 
 
 cyd_dept %>%
   pull(dept) %>%
   unique()
 
 # NOTE: future improvement, if it doesn't appear in this list it should get lumped into another one (ex. ag/biosys eng)
-cyd_college <- read_csv("data-raw/_tidy/td_org-dept-key.csv")
+cyd_college <- read_csv("_data/_tidy/td_org-dept-key.csv")
+
 
 #--PROBLEM: we only have 2 names from Cynthia - so adams sarah l and adams sarah k both get grouped with adams sarah.
 # how many times is this a problem?
@@ -151,13 +164,40 @@ dupes <-
   distinct() 
 
 
+dupes %>%
+  filter(first_name == "sarah")
+
+
+# create list of names w/duplicates to filter against
+dupes2 <- 
+  cyd_dept %>%
+  group_by(fiscal_year, last_name, first_name) %>%
+  mutate(n = n()) %>%
+  filter(n > 1) %>%
+  arrange(last_name, first_name, dept) %>%
+  ungroup() %>%
+  #--make one 'name' column
+  unite(last_name, first_name, col = "name", sep = "_") %>%
+  select(name) %>%
+  distinct() %>%
+  as_vector()
+
+
+
+cyd_salstidy <- 
+  cyd_salstidy %>%
+  unite(last_name, first_name, col = "name", sep = "_") %>%
+  filter(!name %in% dupes2) %>%
+  separate("name", into = c("last_name", "first_name"))
+
+
 cyf_SalsDeptMerge <- function(mydata = cyd_salstidy, mydept = cyd_dept, mycollege = cyd_college) {
   
   
   cyd_saldept <-
     mydata %>%
     left_join(mydept, by = c("fiscal_year", "last_name", "first_name")) %>%
-  
+    
     select(-base_salary_year) %>%
     
     #--anonymize names
@@ -182,14 +222,18 @@ cyf_SalsDeptMerge <- function(mydata = cyd_salstidy, mydept = cyd_dept, mycolleg
     arrange(fiscal_year, college, dept, position, base_salary)
   
   return(cyd_saldept)
-
+  
 }
 
 cyd_saldept <- cyf_SalsDeptMerge()
 
+
+
+
 # cyf_simpprofs -------------------------------------------------------
 # this one will
 #-make 4 general categories of professors positions
+
 
 
 cy_SimpProfs <- function(mydata = cyd_saldept){
@@ -198,22 +242,39 @@ cy_SimpProfs <- function(mydata = cyd_saldept){
   # assertthat::assert_that("position" %in% names(data))
   # 
   # Define simple categories to keep
-  myprofs <- c("asst prof", "assoc prof", "prof")
   
-  # Filter only prof and simplify
-  cyd_salprofs <-
-    mydata %>%
-    dplyr::filter(grepl("prof", position)) %>%
-    dplyr::mutate(prof_simp = ifelse(position %in% myprofs, position, "OTHER"),
-                  pos_simp = factor(prof_simp, levels = c(myprofs, "OTHER")))
+  # what things are allowed?
+  myprofs = c("asst prof", "assoc prof", "prof", 
+              "distg prof", "prof & chair", "univ prof", "prof emeritus")
+  
+  cyd_salprofs <- 
+    cyd_saldept %>%
+    filter(grepl("prof", position)) %>%
+    mutate(
+      prof_simp = ifelse(position %in% myprofs, position, "other")) %>%
+    mutate(
+      pos_simp = prof_simp) %>%
+    mutate(
+      pos_simp = ifelse(prof_simp == "distg prof", "prof", pos_simp),
+      pos_simp = ifelse(prof_simp == "prof & chair", "prof", pos_simp),
+      pos_simp = ifelse(prof_simp == "prof emeritus", "prof", pos_simp),
+      pos_simp = ifelse(prof_simp == "univ prof", "prof", pos_simp)
+    ) 
+  
   return(cyd_salprofs)
+  
+  
 }
 
 
-cyd_salprofs <- cy_SimpProfs()
+cyd_salprofs <- cy_SimpProfs() %>%
+  ##--I don't want to deal with others right now...
+  filter(pos_simp != "other", 
+         !is.na(dept)) %>%
+  mutate(pos_simp = factor(pos_simp, levels = c("asst prof", "assoc prof", "prof")))
 
 
-
+write_csv(cyd_salprofs, "_data/_tidy/cyd_salprofs.csv")
 
 
 
@@ -230,7 +291,7 @@ cyd_salprofs %>%
   complete(fiscal_year, nesting(prof_simp, gender),
            fill = list(n = 0)) %>%
   
-    ggplot(aes(fiscal_year, n)) + 
+  ggplot(aes(fiscal_year, n)) + 
   geom_point(aes(color = gender)) + 
   geom_line(aes(color = gender)) + 
   facet_grid(~prof_simp)
@@ -249,7 +310,7 @@ cyd_salstidy %>%
   filter(position == "asst prof") %>%
   filter(base_salary == 70878)
 
-# this is a dupe problem....
+
 cyd_dept %>%
   filter(last_name == "jones", first_name == "sarah")
 
@@ -257,9 +318,9 @@ cyd_dept %>%
 
 # stats -------------------------------------------------------------------
 
-  
+
 # where can I even take a ratio?
-  
+
 
 cyd_salsraw %>%
   filter(grepl("JONES SARAH", name))
@@ -270,136 +331,135 @@ cyd_salstidy %>%
   filter(grepl("sarah", first_name))
 
 
-cyd_salprofs %>%
-    group_by(fiscal_year, college, dept, pos_simp, gender) %>%
-    summarise(base_mean = mean(base_salary),
-              #base_var = var(base_salary)
-              ) %>%
-    spread(gender, value = base_mean) %>%
-    mutate(genderdiv = ifelse(
-      is.na(`F`), "noF",
-      ifelse(
-        is.na(`M`), "noM", "both-present")
-    )) %>%
-    
-    filter(college == "college of agriculture & life sciences") %>%
-    filter(pos_simp != "OTHER") %>%
-    
-    ggplot(aes(pos_simp, dept)) + 
-    geom_tile(aes(fill = genderdiv), color = "black") + 
-    scale_fill_manual(values = c("both-present" = "gray50",
-                                 "noF" = "yellow",
-                                 "noM" = "dodgerblue")) +
-    facet_wrap(~college, scales = "free") + 
-    theme(axis.text.x = element_text(angle = 45),
-          ) + 
-    theme_classic()
-
+cyd_saldept %>%
+  group_by(fiscal_year, college, dept, pos_simp, gender) %>%
+  summarise(base_mean = mean(base_salary),
+            #base_var = var(base_salary)
+  ) %>%
+  spread(gender, value = base_mean) %>%
+  mutate(genderdiv = ifelse(
+    is.na(`F`), "noF",
+    ifelse(
+      is.na(`M`), "noM", "both-present")
+  )) %>%
   
+  filter(college == "college of agriculture & life sciences") %>%
+  filter(pos_simp != "OTHER") %>%
+  
+  ggplot(aes(pos_simp, dept)) + 
+  geom_tile(aes(fill = genderdiv), color = "black") + 
+  scale_fill_manual(values = c("both-present" = "gray50",
+                               "noF" = "yellow",
+                               "noM" = "dodgerblue")) +
+  facet_wrap(~college, scales = "free") + 
+  theme(axis.text.x = element_text(angle = 45),
+  ) + 
+  theme_classic()
+
+
 
 # look at ratios ----------------------------------------------------------
 
-  # by position, separate points for each dept
-cyd_salprofs %>%
-    group_by(fiscal_year, college, dept, pos_simp, gender) %>%
-    summarise(base_mean = mean(base_salary),
-              n = n(),
-              #base_var = var(base_salary)
-    ) %>%
-    mutate(n = sum(n)) %>%
-    spread(gender, value = base_mean) %>%
-    mutate(base_rat = M/ `F`,
-           base_lrat = log(base_rat)) %>%
-    
-    ggplot(aes(dept, base_lrat)) + 
-    geom_point(aes(size = n, color = pos_simp)) + 
-    geom_hline(yintercept = 0) +
-    geom_label(x = 50, y = 1.5, label = "Men Make More") +
-    geom_label(x = 50, y = -1, label = "Women Make More") +
-    
-    facet_grid(~pos_simp) + 
-    theme_classic() + 
-    theme(axis.text.x = element_blank())
+# by position, separate points for each dept
+saldeptprofs %>%
+  group_by(fiscal_year, college, dept, pos_simp, gender) %>%
+  summarise(base_mean = mean(base_salary),
+            n = n(),
+            #base_var = var(base_salary)
+  ) %>%
+  mutate(n = sum(n)) %>%
+  spread(gender, value = base_mean) %>%
+  mutate(base_rat = M/ `F`,
+         base_lrat = log(base_rat)) %>%
   
+  ggplot(aes(dept, base_lrat)) + 
+  geom_point(aes(size = n, color = pos_simp)) + 
+  geom_hline(yintercept = 0) +
+  geom_label(x = 50, y = 1.5, label = "Men Make More") +
+  geom_label(x = 50, y = -1, label = "Women Make More") +
   
-  # what is going on with the negative values?
-  # are there professors in the library? or is it pulling 'professionals'?
-  cyd_salprofs %>%
-    group_by(fiscal_year, college, dept, pos_simp, gender) %>%
-    summarise(base_mean = mean(base_salary),
-              n = n(),
-              #base_var = var(base_salary)
-    ) %>%
-    mutate(n = sum(n)) %>%
-    spread(gender, value = base_mean) %>%
-    mutate(base_rat = M/ `F`,
-           base_lrat = log(base_rat)) %>%
-    filter(base_lrat < -0.8)
+  facet_grid(~pos_simp) + 
+  theme_classic() + 
+  theme(axis.text.x = element_blank())
 
+
+# what is going on with the negative values?
+# are there professors in the library? or is it pulling 'professionals'?
+saldeptprofs %>%
+  group_by(fiscal_year, college, dept, pos_simp, gender) %>%
+  summarise(base_mean = mean(base_salary),
+            n = n(),
+            #base_var = var(base_salary)
+  ) %>%
+  mutate(n = sum(n)) %>%
+  spread(gender, value = base_mean) %>%
+  mutate(base_rat = M/ `F`,
+         base_lrat = log(base_rat)) %>%
+  filter(base_lrat < -0.8)
+
+
+
+# by position and college
+
+saldeptprofs %>%
+  filter(dept != "library") %>%
+  group_by(fiscal_year, college, pos_simp, gender) %>%
+  summarise(base_mean = mean(base_salary),
+            n = n(),
+            #base_var = var(base_salary)
+  ) %>%
+  mutate(n = sum(n)) %>%
+  spread(gender, value = base_mean) %>%
+  mutate(base_rat = M/ `F`,
+         base_lrat = log(base_rat)) %>%
   
+  ggplot(aes(college, base_lrat)) + 
+  geom_point(aes(size = n)) + 
+  geom_hline(yintercept = 0) +
+  geom_label(x = 50, y = 1.5, label = "Men Make More") +
+  geom_label(x = 50, y = -1.25, label = "Women Make More") +
   
-  # by position and college
+  facet_grid(~pos_simp) + 
+  theme_classic() + 
+  theme(axis.text.x = element_blank())
+
+# by position only
+
+all_mn <- saldeptprofs %>%
+  filter(dept != "library") %>%
+  group_by(fiscal_year, pos_simp, gender) %>%
+  summarise(base_mean = mean(base_salary),
+            n = n(),
+            #base_var = var(base_salary)
+  ) %>%
+  mutate(n = sum(n)) %>%
+  spread(gender, value = base_mean) %>%
+  mutate(base_rat = M/ `F`,
+         base_lrat = log(base_rat))
+
+all_var <- saldeptprofs %>%
+  filter(dept != "library") %>%
+  group_by(fiscal_year, pos_simp, gender) %>%
+  summarise(base_var = var(base_salary)) %>%
+  spread(gender, value = base_var) %>%
+  rename(varF = `F`,
+         varM = M) 
+
+# Need to get covariance so I can get a standard error bar!
+
+#all <- 
+all_mn %>%
+  left_join(all_var)
+
+
+
+
+ggplot(aes(fiscal_year, base_lrat)) + 
+  geom_point(aes(size = n)) + 
+  geom_hline(yintercept = 0) +
+  geom_label(x = 50, y = 1.5, label = "Men Make More") +
+  geom_label(x = 50, y = -1.25, label = "Women Make More") +
   
-cyd_salprofs %>%
-    filter(dept != "library") %>%
-    group_by(fiscal_year, college, pos_simp, gender) %>%
-    summarise(base_mean = mean(base_salary),
-              n = n(),
-              #base_var = var(base_salary)
-    ) %>%
-    mutate(n = sum(n)) %>%
-    spread(gender, value = base_mean) %>%
-    mutate(base_rat = M/ `F`,
-           base_lrat = log(base_rat)) %>%
-    
-    ggplot(aes(college, base_lrat)) + 
-    geom_point(aes(size = n)) + 
-    geom_hline(yintercept = 0) +
-    geom_label(x = 50, y = 1.5, label = "Men Make More") +
-    geom_label(x = 50, y = -1.25, label = "Women Make More") +
-    
-    facet_grid(~pos_simp) + 
-    theme_classic() + 
-    theme(axis.text.x = element_blank())
-  
-  # by position only
-  
-  all_mn <- cyd_salprofs %>%
-    filter(dept != "library") %>%
-    group_by(fiscal_year, pos_simp, gender) %>%
-    summarise(base_mean = mean(base_salary),
-              n = n(),
-              #base_var = var(base_salary)
-    ) %>%
-    mutate(n = sum(n)) %>%
-    spread(gender, value = base_mean) %>%
-    mutate(base_rat = M/ `F`,
-           base_lrat = log(base_rat))
-  
-  all_var <- cyd_salprofs %>%
-    filter(dept != "library") %>%
-    group_by(fiscal_year, pos_simp, gender) %>%
-    summarise(base_var = var(base_salary)) %>%
-    spread(gender, value = base_var) %>%
-    rename(varF = `F`,
-           varM = M) 
-  
-  # Need to get covariance so I can get a standard error bar!
-  
-  #all <- 
-    all_mn %>%
-    left_join(all_var)
-  
-  
-  
-  
-    ggplot(aes(fiscal_year, base_lrat)) + 
-    geom_point(aes(size = n)) + 
-    geom_hline(yintercept = 0) +
-    geom_label(x = 50, y = 1.5, label = "Men Make More") +
-    geom_label(x = 50, y = -1.25, label = "Women Make More") +
-    
-    facet_grid(~pos_simp) + 
-    theme_classic() + 
-    theme(axis.text.x = element_blank())
-  
+  facet_grid(~pos_simp) + 
+  theme_classic() + 
+  theme(axis.text.x = element_blank())

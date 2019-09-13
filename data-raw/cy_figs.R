@@ -19,155 +19,21 @@ library(tidyverse)
 library(janitor) #--cleans things nicely
 library(readxl) #--reads excel spreadsheets
 library(here) #--helps w/wd things
-#library(fuzzyjoin) ##--merge by inexact matches (like smith jill with smith jill h)
-
-library(digest) #--for anonymizing names
-
-## NOTE all this shit is just bc I don't have internet at my house so I don't have the updated code
-# Ignore this and just get the figure code at the end
 
 
-# FIXED SEPARATION OF NAMES, don't separate hyphenated names (like Maria Salas-Fernandez)
-# BUT, she's listed as Mari?
-saltidy <- read_csv("./data-raw/_tidy/td_rawsals.csv") %>%
-    #--deal with dates
-  mutate(fiscal_year = as.numeric(fiscal_year),
-         base_salary_date = lubridate::ymd_hms(base_salary_date),
-         base_salary_year = lubridate::year(base_salary_date)) %>%
-  
-  #--keep only desired columns
-  select(fiscal_year, base_salary_year, 
-         name, gender, position, 
-         total_salary_paid, travel_subsistence, base_salary) %>%
-  
-  #--eliminate entries that are per hour (concentrate on profs)
-  filter(!grepl("HR", base_salary)) %>%
-  
-    mutate(
-      #--get rid of stupid commas in base_salary, make everything monetary into numeric    
-      base_salary = as.numeric(gsub(",", "", base_salary)),
-      total_salary_paid = as.numeric(total_salary_paid),
-      travel_subsistence = as.numeric(travel_subsistence),
-      
-      #--get rid of any white space in character cols
-      position = stringr::str_trim(position, side = "right"),
-      name = stringr::str_trim(name, side = "right"),
-      
-      #--make name lower case, get rid of commas
-      name = tolower(name),
-      name = gsub(",", "", name),
-      
-      position = tolower(position)) %>%
-  
-  #--eliminate people who don't have a position or a gender
-  filter(!grepl("\\*", position),
-         !grepl("\\*", gender))  %>%
-  
-  #--expand the name out, I think we have to
-  
-  separate(name, into = c("last_name", "first_name", "other"), sep = " ") 
-
-cyd_depts <- 
-  read_csv("./data-raw/_tidy/td_empl-dept-key.csv") %>%
-  
-  # why are there 3 ag/biosys eng? simplify them
-  mutate(dept = recode(dept,
-                       "ag/biosys eng-a" = "ag/biosys eng",
-                       "ag/biosys eng-e" = "ag/biosys eng"))
-
-cyd_depts %>%
-  filter(last_name == "salas-fernandez")
-
-cyd_orgs <- read_csv("./data-raw/_tidy/td_org-dept-key.csv")
-
-#--PROBLEM: we only have 2 names from Cynthia - so adams sarah l and adams sarah k both get grouped with adams sarah.
-# how many times is this a problem?
-# 66 people have the same name as someone else. I have no idea what to do with them. 
-# I guess remove them? Keep them? No idea. For now we keep them. 
-dupes <- 
-  cyd_depts %>%
-  group_by(fiscal_year, last_name, first_name) %>%
-  mutate(n = n()) %>%
-  filter(n > 1) %>%
-  arrange(last_name, first_name, dept) %>%
-  ungroup() %>%
-  unite(last_name, first_name, col = "name", sep = "_") %>%
-  select(name) %>%
-  distinct() 
-  
-# remove dupes
-dupes <- 
-  cyd_depts %>%
-  group_by(fiscal_year, last_name, first_name) %>%
-  mutate(n = n()) %>%
-  filter(n > 1) %>%
-  arrange(last_name, first_name, dept) %>%
-  ungroup() %>%
-  unite(last_name, first_name, col = "name", sep = "_") %>%
-  select(name) %>%
-  distinct() 
-
-dupesv <- as_vector(dupes)
-#dupesv2 <- c("abasht_behnam", "abate_sarah")
-
-saltidy2 <- 
-  saltidy %>%
-  unite(last_name, first_name, col = "name", sep = "_") %>%
-  filter(!name %in% dupesv) %>%
-  separate("name", into = c("last_name", "first_name"))
-
-
-saldept <- 
-  saltidy2 %>%
-  left_join(cyd_depts, by = c("fiscal_year", "last_name", "first_name")) %>%
-  select(-base_salary_year) %>%
-  #--anonymize names
-  unite(last_name, first_name, other, col = "name") %>%
-  mutate(anon = name %>% map(digest)) %>%
-  unnest() %>%
-  
-  # add college
-  left_join(cyd_orgs, by = "dept") %>%
-  select(fiscal_year, college, dept, anon, name,
-         position, gender, 
-         base_salary, total_salary_paid, travel_subsistence) %>%
-  arrange(fiscal_year, college, dept, position, base_salary)
-
-
-
-# NOTE: profs are effed. need to allow for more as 'prof' -----------------
-
-
-# what things are allowed?
-myprofs = c("asst prof", "assoc prof", "prof", 
-            "distg prof", "prof & chair", "univ prof", "prof emeritus")
-
-saldeptprofs <- 
-  saldept %>%
-  filter(grepl("prof", position)) %>%
-  mutate(
-    prof_simp = ifelse(position %in% myprofs, position, "other")) %>%
-  mutate(
-    pos_simp = prof_simp) %>%
-  mutate(
-    pos_simp = ifelse(prof_simp == "distg prof", "prof", pos_simp),
-    pos_simp = ifelse(prof_simp == "prof & chair", "prof", pos_simp),
-    pos_simp = ifelse(prof_simp == "prof emeritus", "prof", pos_simp),
-    pos_simp = ifelse(prof_simp == "univ prof", "prof", pos_simp)
-    ) %>%
-  filter(pos_simp != "other") %>%
+cyd_salprofs <- read_csv("data-raw/_tidy/cyd_salprofs.csv") %>%
   mutate(pos_simp = factor(pos_simp, levels = c("asst prof", "assoc prof", "prof")))
+
 
 
 # look at agroomy dept ----------------------------------------------------
 
-saldeptprofs %>%
+cyd_salprofs %>%
   filter(dept == "agronomy") %>%
-  filter(gender == "F") ->a ## what's happening here? LE wondering....
-
-saldeptprofs %>%  
+  
   group_by(fiscal_year, pos_simp, gender) %>%
   summarise(n = n()) %>%
+  ungroup() %>%
   complete(fiscal_year, pos_simp, gender, fill = list(n = 0)) %>%
   
   
@@ -177,8 +43,136 @@ saldeptprofs %>%
   facet_grid(~pos_simp)
 
 
+cyd_salprofs %>%
+  filter(dept == "agronomy") %>%
+  
+  ggplot(aes(fiscal_year, pos_simp)) + 
+  geom_line(aes(group = anon, color = gender)) + 
+  facet_grid(~gender)
+
+library(ggalluvial)
+
+
+cyd_salprofs %>%
+  filter(dept == "agronomy") %>%
+  
+  group_by(pos_simp, gender) %>%
+  summarise(n = n()) %>%
+  ungroup() %>%
+  complete(pos_simp, gender, fill = list(n = 0)) %>%
+  
+  
+  ggplot(aes(y = n, 
+             axis1 = gender, 
+             axis2 = pos_simp)) +
+  geom_alluvium(aes(fill = gender), width = 1/12) +
+  geom_stratum(width = 1/12, fill = "black", color = "grey") +
+  geom_label(stat = "stratum", label.strata = TRUE) +
+  scale_x_discrete(limits = c("Gender", "Dept"), expand = c(.05, .05)) +
+  scale_fill_brewer(type = "qual", palette = "Set1") +
+  ggtitle("Dept of Agronomy Faculty")
+
+
+cyd_salprofs %>%
+  filter(dept == "agronomy") %>%
+  mutate(year = paste0("Y", fiscal_year)) %>%
+  
+  group_by(year, pos_simp, gender) %>%
+  mutate(n = n()) %>%
+  ungroup() %>%
+  select(fiscal_year, anon, gender, pos_simp, n) %>%
+  complete(pos_simp, gender, fill = list(n = 0)) %>%
+  
+  ggplot(aes(x = fiscal_year,
+             stratum = gender,
+             alluvium = anon,
+             y = n,
+             fill = gender)) +
+  #scale_x_discrete(expand = c(.1, .1)) +
+  #geom_lode() +
+  geom_flow() #+ 
+#geom_stratum() #+ 
+#geom_text(stat = "stratum")
+
+
+# mitch had an idea -------------------------------------------------------
+
+library(ggthemes)
+
+cyd_salprofs %>%
+  filter(dept == "agronomy",
+         fiscal_year == 2018) %>%
+  mutate(year = as.character(fiscal_year),
+         salary = ifelse(total_salary_paid <50000, "<50k",
+                         ifelse(total_salary_paid > 50000 & total_salary_paid <=100000, "50-100k",
+                                ifelse(total_salary_paid >100000 & total_salary_paid <=150000, "100-150k",
+                                       ifelse(total_salary_paid>150000 & total_salary_paid<=200000, "150-200k",
+                                              ifelse( total_salary_paid>200000, ">200k",  total_salary_paid))))),
+         salary = factor(salary, levels = c("<50k","50-100k","100-150k","150-200k",">200k")),
+         gender = factor(gender, levels = c("M","F")))%>%
+  group_by(pos_simp, gender, year, salary) %>%
+  summarise(n = n()) %>%
+  ungroup() %>%
+  complete(year, pos_simp, gender, fill = list(n = 0)) %>%
+
+  ggplot(aes(y = n,
+             axis1 = gender, 
+             axis2 = pos_simp,
+             axis3 = salary)) +
+  geom_alluvium(aes(fill = gender), width = 1/12) +
+  geom_stratum(width = 1/12, fill = "grey25", color = "grey") +
+  geom_label(stat = "stratum", label.strata = TRUE) +
+  scale_x_discrete(limits = c("Gender", "Annual Salary", "Position"), expand = c(.05, .05)) +
+  #scale_fill_brewer(type = "qual", palette = "Set1") +
+  scale_fill_manual(values = c("darkblue", "darkred"))+
+  labs(y = "Employees", fill = "")+
+  ggtitle("Dept of Agronomy Faculty")+
+  theme_base()+
+  theme(plot.background = element_blank(),
+        legend.position = "none")
+
+
+cyd_salprofs %>%
+  filter(gender == "F", pos_simp == "asst prof", fiscal_year == 2018, dept ==agronomy)
+
+
+
+# eliminate anon? add a 'general public' delineation? ---------------------
+
+
+dum <- tibble(
+  year = c(rep(2009, 4), rep(2010, 5)),
+  pos = c("prof", "prof", "asc", "st", "prof", "prof", "asc", "asc", "ast"),
+  gender = c("m", "m", "f", "m", "m", "m", "f", "m", "m"),
+  name = c(1, 2, 3, 4, 1, 2, 3, 4, 5)
+)
+
+dum %>%
+  unite(name, gender, col = "name_gen") %>%
+  complete(year, name_gen, fill = list(pos = "public")) %>%
+  separate(name_gen, into = c("name", "gen"), remove = F) %>%
+  
+  group_by(year, pos, gen) %>%
+  mutate(n = n()) %>%
+  
+  ggplot(aes(x =year,
+             stratum = pos,
+             alluvium = name_gen,
+             y = n,
+             fill = gen)) +
+  #scale_x_discrete(expand = c(.1, .1)) +
+  #geom_lode() +
+  geom_flow() #+ 
+geom_stratum(stat = "stratum") #+ 
+geom_text(stat = "stratum")
+
+data(vaccinations)
+vaccinations
+
+
+
 # Lydia's attempt with ggalluvial
-saldeptprofs %>%
+cyd_salprofs %>%
   filter(dept == "agronomy") %>%
   group_by(fiscal_year, pos_simp, gender) %>%
   summarise(n = n()) %>%
