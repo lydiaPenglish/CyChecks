@@ -2,9 +2,9 @@
 # author: Gina
 # created: Sept 11 2019
 #
-# last updated: 
+# last updated: sept 14 (looking at gender ratios, who has improved?)
 #
-# purpose: make a graph for kendall
+# purpose: make a graph for kendall, or whoever
 # 
 # inputs: 
 # outputs: 
@@ -16,6 +16,7 @@
 
 rm(list = ls())
 library(tidyverse)
+library(ggthemes)
 library(janitor) #--cleans things nicely
 library(readxl) #--reads excel spreadsheets
 library(here) #--helps w/wd things
@@ -23,6 +24,112 @@ library(here) #--helps w/wd things
 
 cyd_salprofs <- read_csv("data-raw/_tidy/cyd_salprofs.csv") %>%
   mutate(pos_simp = factor(pos_simp, levels = c("asst prof", "assoc prof", "prof")))
+
+
+
+# look at who has improved the most in gender rep -------------------------
+
+cyd_ratios <- 
+  cyd_salprofs %>%
+  group_by(fiscal_year, college, dept, gender) %>%
+  summarise(n = n()) %>%
+  spread(gender, value = n) %>%
+  replace(is.na(.), 0) %>%
+  mutate(ratio = `F`/`M`) %>%
+  select(-M, -`F`) %>%
+  ungroup() %>%
+  filter(grepl("college of", college))
+
+
+#--note, this didn't work. 
+library(broom)
+
+myf_lm <- function(mydata = data){
+  
+  myres <- 
+    tidy(anova(lm(data = data, ratio ~ fiscal_year))) %>%
+    filter(term == "fiscal_year") %>%
+    pull(p.value)
+  
+  return(round(myres, 3))
+}
+
+cyd_slopes <- 
+  cyd_ratios %>%
+  nest(fiscal_year, ratio) %>%
+  mutate(mdl = data %>% map(myf_lm)) %>%
+  unnest(mdl) 
+
+# ok no one has improved, using a linear model. 
+cyd_slopes %>%
+  select(-data) %>%
+  arrange(mdl)
+
+#--just take the difference btwn 2011 and 2018
+
+cyd_ratios %>%
+  filter(fiscal_year %in% c(2011, 2018)) %>%
+  spread(fiscal_year, ratio) %>%
+  mutate(diff = (`2018` - `2011`),
+         pct = (`2018` - `2011`)/`2011`,
+         
+         ratrat = log(`2018` / `2011`),
+         verd = ifelse(diff < 0, "dec", "inc")) %>%
+  mutate(college = ifelse(is.na(verd), "Has a Gender Missing", college),
+         diff = ifelse(is.na(verd), 0, diff)) %>%
+ggplot(aes(reorder(dept, diff), diff)) + 
+  geom_col(aes(fill = verd)) + 
+  coord_flip() +
+  guides(fill = F) +
+  ggtitle("Change in F:M Ratio of Faculty 2011-2018") +
+  labs(x = NULL,
+       y = "diff",
+       fill = NULL) + 
+  theme_base() + 
+  facet_wrap(~college, scales = "free")
+  
+
+#--diff from 1 for 2011 and 2018 (1 is perfect parity)
+
+
+cyd_ratios %>%
+  filter(fiscal_year %in% c(2011, 2018)) %>%
+  spread(fiscal_year, ratio) %>%
+  mutate(
+    f1_11 = `2011`,
+    f1_18 = `2018`,
+    diff = f1_18 - f1_11,
+    verd = ifelse(diff < 0, "dec", "inc")
+  ) %>%
+  mutate(
+    college = ifelse(is.na(verd), "Has a Gender Missing", college),
+    diff = ifelse(is.na(verd), 0, diff)
+  ) %>%
+  ggplot(aes(reorder(dept, diff), diff)) +
+  geom_col(aes(fill = f1_11)) +
+  coord_flip() +
+  #guides(fill = F) +
+  ggtitle("Change in F:M Ratio Faculty From 2011-2018") +
+  labs(x = NULL,
+       y = "diff",
+       fill = "2011 Ratio") +
+  theme_base() +
+  facet_wrap( ~ college, scales = "free") +
+  scale_fill_gradient2(low = "red",
+                       mid = "white",
+                       high = "blue",
+                      midpoint = 1)
+
+
+
+
+
+  #replace(is.na(.), 0) %>%
+  filter(dept == "agronomy") %>%
+  ggplot(aes(fiscal_year, ratio)) + 
+  geom_jitter(aes(color = pos_simp))
+
+
 
 
 
@@ -255,4 +362,7 @@ cyd_salprofs %>%
   ggalluvial::geom_alluvium(aes(fill = gender, colour = gender))+
   theme_bw()+
   facet_wrap(~pos_simp)
+
+
+
 
