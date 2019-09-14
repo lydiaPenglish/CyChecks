@@ -103,7 +103,7 @@ specprofs = c("distg prof", "prof & chair", "univ prof", "prof emeritus")
 
 
 cyd_shinyalluv <- cyd_salprofs %>%
-  filter(dept == "agronomy") %>%
+  #filter(dept == "agronomy") %>%
   
   #--make a special prof category
   mutate(
@@ -139,9 +139,10 @@ cyd_shinyalluv <- cyd_salprofs %>%
                     levels = c("Asst Prof", "Assoc Prof", "Full Prof", "Named Prof"))
   ) %>%
   
-  group_by(pos_pretty, gender, fiscal_year, sal_cat) %>%
+  group_by(dept, pos_pretty, gender, fiscal_year, sal_cat) %>%
   summarise(n = n())
   
+
 
 write_csv(cyd_shinyalluv, "data-raw/_tidy/cyd_shinyalluv.csv")
   
@@ -149,6 +150,8 @@ write_csv(cyd_shinyalluv, "data-raw/_tidy/cyd_shinyalluv.csv")
 #ungroup() %>%
   #complete(fiscal_year, pos_simp2, gender, fill = list(n = 0)) %>%
 
+cyd_shinyalluv %>%
+  filter(dept == "agronomy", fiscal_year == 2018) %>%
   ggplot(aes(y = n,
              axis1 = gender, 
              axis2 = pos_pretty,
@@ -166,7 +169,9 @@ write_csv(cyd_shinyalluv, "data-raw/_tidy/cyd_shinyalluv.csv")
   
   theme_base()+
   theme(plot.background = element_blank(),
-        legend.position = "none") + 
+        legend.position = "none",
+        strip.text = element_text(size = rel(1.2), color = "white"),
+        strip.background = element_rect(fill = "gray25")) + 
   facet_wrap(~fiscal_year)
 
 

@@ -1,88 +1,3790 @@
-pos_pretty,gender,fiscal_year,sal_cat,n
-Asst Prof,F,2011,50-100K,1
-Asst Prof,F,2012,50-100K,1
-Asst Prof,F,2013,50-100K,1
-Asst Prof,F,2014,50-100K,1
-Asst Prof,M,2011,50-100K,2
-Asst Prof,M,2012,50-100K,2
-Asst Prof,M,2013,50-100K,2
-Asst Prof,M,2013,100-150K,1
-Asst Prof,M,2014,50-100K,3
-Asst Prof,M,2014,100-150K,1
-Asst Prof,M,2015,50-100K,2
-Asst Prof,M,2015,100-150K,1
-Asst Prof,M,2016,50-100K,4
-Asst Prof,M,2016,100-150K,1
-Asst Prof,M,2017,50-100K,4
-Asst Prof,M,2018,50-100K,4
-Assoc Prof,F,2015,100-150K,1
-Assoc Prof,F,2016,100-150K,1
-Assoc Prof,F,2017,100-150K,1
-Assoc Prof,F,2018,100-150K,1
-Assoc Prof,M,2011,50-100K,3
-Assoc Prof,M,2012,50-100K,3
-Assoc Prof,M,2012,100-150K,1
-Assoc Prof,M,2013,50-100K,2
-Assoc Prof,M,2013,100-150K,2
-Assoc Prof,M,2014,50-100K,1
-Assoc Prof,M,2014,100-150K,2
-Assoc Prof,M,2015,50-100K,1
-Assoc Prof,M,2015,100-150K,3
-Assoc Prof,M,2016,50-100K,1
-Assoc Prof,M,2016,100-150K,3
-Assoc Prof,M,2017,50-100K,1
-Assoc Prof,M,2017,100-150K,3
-Assoc Prof,M,2018,100-150K,3
-Full Prof,F,2011,50-100K,2
-Full Prof,F,2011,100-150K,1
-Full Prof,F,2012,50-100K,1
-Full Prof,F,2012,100-150K,2
-Full Prof,F,2013,100-150K,3
-Full Prof,F,2014,100-150K,3
-Full Prof,F,2015,100-150K,3
-Full Prof,F,2016,100-150K,3
-Full Prof,F,2017,100-150K,3
-Full Prof,F,2018,100-150K,3
-Full Prof,M,2011,50-100K,4
-Full Prof,M,2011,100-150K,19
-Full Prof,M,2011,>150K,2
-Full Prof,M,2012,50-100K,4
-Full Prof,M,2012,100-150K,17
-Full Prof,M,2012,>150K,2
-Full Prof,M,2013,50-100K,3
-Full Prof,M,2013,100-150K,14
-Full Prof,M,2013,>150K,1
-Full Prof,M,2014,50-100K,2
-Full Prof,M,2014,100-150K,17
-Full Prof,M,2014,>150K,1
-Full Prof,M,2015,50-100K,1
-Full Prof,M,2015,100-150K,18
-Full Prof,M,2015,>150K,1
-Full Prof,M,2016,50-100K,1
-Full Prof,M,2016,100-150K,17
-Full Prof,M,2016,>150K,1
-Full Prof,M,2017,50-100K,1
-Full Prof,M,2017,100-150K,17
-Full Prof,M,2017,>150K,1
-Full Prof,M,2018,100-150K,17
-Full Prof,M,2018,>150K,1
-Named Prof,M,2011,100-150K,1
-Named Prof,M,2011,>150K,3
-Named Prof,M,2012,50-100K,1
-Named Prof,M,2012,100-150K,1
-Named Prof,M,2012,>150K,3
-Named Prof,M,2013,50-100K,1
-Named Prof,M,2013,100-150K,2
-Named Prof,M,2013,>150K,3
-Named Prof,M,2014,50-100K,1
-Named Prof,M,2014,100-150K,2
-Named Prof,M,2014,>150K,3
-Named Prof,M,2015,50-100K,1
-Named Prof,M,2015,100-150K,2
-Named Prof,M,2015,>150K,3
-Named Prof,M,2016,100-150K,4
-Named Prof,M,2016,>150K,3
-Named Prof,M,2017,100-150K,3
-Named Prof,M,2017,>150K,3
-Named Prof,M,2018,100-150K,1
-Named Prof,M,2018,>150K,3
+dept,pos_pretty,gender,fiscal_year,sal_cat,n
+accounting,Asst Prof,F,2011,100-150K,1
+accounting,Asst Prof,F,2012,100-150K,1
+accounting,Asst Prof,F,2013,>150K,2
+accounting,Asst Prof,F,2014,>150K,2
+accounting,Asst Prof,F,2015,>150K,2
+accounting,Asst Prof,F,2016,>150K,2
+accounting,Asst Prof,F,2017,>150K,3
+accounting,Asst Prof,F,2018,>150K,3
+accounting,Asst Prof,M,2011,100-150K,4
+accounting,Asst Prof,M,2012,100-150K,4
+accounting,Asst Prof,M,2013,100-150K,4
+accounting,Asst Prof,M,2014,100-150K,1
+accounting,Asst Prof,M,2014,>150K,2
+accounting,Asst Prof,M,2015,100-150K,1
+accounting,Asst Prof,M,2015,>150K,3
+accounting,Asst Prof,M,2016,>150K,3
+accounting,Asst Prof,M,2017,>150K,1
+accounting,Assoc Prof,F,2011,100-150K,1
+accounting,Assoc Prof,F,2011,>150K,1
+accounting,Assoc Prof,F,2012,100-150K,1
+accounting,Assoc Prof,F,2012,>150K,1
+accounting,Assoc Prof,F,2013,100-150K,1
+accounting,Assoc Prof,F,2013,>150K,2
+accounting,Assoc Prof,F,2014,>150K,3
+accounting,Assoc Prof,F,2015,>150K,3
+accounting,Assoc Prof,F,2016,>150K,3
+accounting,Assoc Prof,F,2017,>150K,3
+accounting,Assoc Prof,F,2018,>150K,4
+accounting,Assoc Prof,M,2011,NA,1
+accounting,Assoc Prof,M,2012,>150K,1
+accounting,Assoc Prof,M,2013,<50K,1
+accounting,Assoc Prof,M,2013,>150K,1
+accounting,Assoc Prof,M,2014,>150K,1
+accounting,Assoc Prof,M,2016,>150K,1
+accounting,Assoc Prof,M,2017,>150K,2
+accounting,Assoc Prof,M,2018,>150K,3
+accounting,Full Prof,F,2011,>150K,1
+accounting,Full Prof,F,2012,>150K,1
+accounting,Full Prof,F,2013,>150K,1
+accounting,Full Prof,F,2014,>150K,1
+accounting,Full Prof,F,2015,>150K,1
+accounting,Full Prof,F,2016,>150K,1
+accounting,Full Prof,F,2017,50-100K,1
+accounting,Full Prof,F,2018,>150K,1
+accounting,Full Prof,M,2015,>150K,1
+accounting,Full Prof,M,2016,>150K,1
+accounting,Full Prof,M,2017,>150K,1
+accounting,Named Prof,M,2018,>150K,1
+aerospace eng,Asst Prof,F,2013,50-100K,1
+aerospace eng,Asst Prof,F,2014,50-100K,1
+aerospace eng,Asst Prof,F,2015,50-100K,1
+aerospace eng,Asst Prof,F,2016,50-100K,1
+aerospace eng,Asst Prof,F,2018,50-100K,1
+aerospace eng,Asst Prof,M,2011,50-100K,2
+aerospace eng,Asst Prof,M,2011,NA,1
+aerospace eng,Asst Prof,M,2012,50-100K,3
+aerospace eng,Asst Prof,M,2013,50-100K,5
+aerospace eng,Asst Prof,M,2014,50-100K,4
+aerospace eng,Asst Prof,M,2015,50-100K,6
+aerospace eng,Asst Prof,M,2016,50-100K,6
+aerospace eng,Asst Prof,M,2016,100-150K,1
+aerospace eng,Asst Prof,M,2017,50-100K,5
+aerospace eng,Asst Prof,M,2017,100-150K,1
+aerospace eng,Asst Prof,M,2018,50-100K,4
+aerospace eng,Assoc Prof,M,2011,50-100K,4
+aerospace eng,Assoc Prof,M,2011,100-150K,1
+aerospace eng,Assoc Prof,M,2012,50-100K,5
+aerospace eng,Assoc Prof,M,2012,100-150K,1
+aerospace eng,Assoc Prof,M,2013,50-100K,5
+aerospace eng,Assoc Prof,M,2014,50-100K,4
+aerospace eng,Assoc Prof,M,2014,100-150K,2
+aerospace eng,Assoc Prof,M,2015,50-100K,3
+aerospace eng,Assoc Prof,M,2015,100-150K,3
+aerospace eng,Assoc Prof,M,2016,50-100K,1
+aerospace eng,Assoc Prof,M,2016,100-150K,6
+aerospace eng,Assoc Prof,M,2017,50-100K,1
+aerospace eng,Assoc Prof,M,2017,100-150K,5
+aerospace eng,Assoc Prof,M,2018,50-100K,1
+aerospace eng,Assoc Prof,M,2018,100-150K,5
+aerospace eng,Full Prof,F,2013,>150K,1
+aerospace eng,Full Prof,F,2014,>150K,1
+aerospace eng,Full Prof,F,2015,>150K,1
+aerospace eng,Full Prof,F,2016,>150K,1
+aerospace eng,Full Prof,M,2011,100-150K,11
+aerospace eng,Full Prof,M,2011,>150K,1
+aerospace eng,Full Prof,M,2012,100-150K,9
+aerospace eng,Full Prof,M,2012,>150K,2
+aerospace eng,Full Prof,M,2013,100-150K,9
+aerospace eng,Full Prof,M,2013,>150K,2
+aerospace eng,Full Prof,M,2014,100-150K,8
+aerospace eng,Full Prof,M,2014,>150K,2
+aerospace eng,Full Prof,M,2015,100-150K,7
+aerospace eng,Full Prof,M,2015,>150K,3
+aerospace eng,Full Prof,M,2016,100-150K,5
+aerospace eng,Full Prof,M,2016,>150K,4
+aerospace eng,Full Prof,M,2017,100-150K,4
+aerospace eng,Full Prof,M,2017,>150K,4
+aerospace eng,Full Prof,M,2018,100-150K,2
+aerospace eng,Full Prof,M,2018,>150K,5
+aerospace eng,Named Prof,M,2011,>150K,1
+aerospace eng,Named Prof,M,2012,>150K,1
+aerospace eng,Named Prof,M,2013,>150K,1
+aerospace eng,Named Prof,M,2014,>150K,1
+aerospace eng,Named Prof,M,2015,>150K,1
+aerospace eng,Named Prof,M,2016,>150K,1
+aerospace eng,Named Prof,M,2018,>150K,1
+aeshm,Asst Prof,F,2011,50-100K,3
+aeshm,Asst Prof,F,2012,50-100K,4
+aeshm,Asst Prof,F,2013,50-100K,8
+aeshm,Asst Prof,F,2014,50-100K,7
+aeshm,Asst Prof,F,2015,50-100K,5
+aeshm,Asst Prof,F,2016,50-100K,6
+aeshm,Asst Prof,F,2017,50-100K,6
+aeshm,Asst Prof,F,2018,50-100K,4
+aeshm,Asst Prof,M,2011,50-100K,3
+aeshm,Asst Prof,M,2012,50-100K,4
+aeshm,Asst Prof,M,2013,50-100K,4
+aeshm,Asst Prof,M,2014,50-100K,2
+aeshm,Asst Prof,M,2015,50-100K,2
+aeshm,Asst Prof,M,2016,50-100K,2
+aeshm,Asst Prof,M,2017,50-100K,2
+aeshm,Asst Prof,M,2018,50-100K,2
+aeshm,Assoc Prof,F,2011,50-100K,2
+aeshm,Assoc Prof,F,2011,NA,1
+aeshm,Assoc Prof,F,2012,50-100K,3
+aeshm,Assoc Prof,F,2013,50-100K,2
+aeshm,Assoc Prof,F,2014,50-100K,2
+aeshm,Assoc Prof,F,2015,50-100K,3
+aeshm,Assoc Prof,F,2016,50-100K,3
+aeshm,Assoc Prof,F,2017,50-100K,2
+aeshm,Assoc Prof,F,2018,50-100K,4
+aeshm,Assoc Prof,M,2014,50-100K,2
+aeshm,Assoc Prof,M,2015,50-100K,3
+aeshm,Assoc Prof,M,2015,100-150K,1
+aeshm,Assoc Prof,M,2016,50-100K,3
+aeshm,Assoc Prof,M,2016,100-150K,1
+aeshm,Assoc Prof,M,2017,50-100K,4
+aeshm,Assoc Prof,M,2017,100-150K,1
+aeshm,Assoc Prof,M,2018,50-100K,4
+aeshm,Assoc Prof,M,2018,100-150K,1
+aeshm,Full Prof,F,2011,50-100K,2
+aeshm,Full Prof,F,2011,100-150K,1
+aeshm,Full Prof,F,2012,50-100K,2
+aeshm,Full Prof,F,2012,100-150K,1
+aeshm,Full Prof,F,2013,50-100K,1
+aeshm,Full Prof,F,2013,100-150K,2
+aeshm,Full Prof,F,2014,100-150K,2
+aeshm,Full Prof,F,2015,100-150K,3
+aeshm,Full Prof,F,2016,100-150K,2
+aeshm,Full Prof,F,2017,50-100K,1
+aeshm,Full Prof,F,2017,100-150K,1
+aeshm,Full Prof,F,2018,50-100K,1
+aeshm,Full Prof,F,2018,100-150K,1
+aeshm,Full Prof,M,2017,>150K,1
+aeshm,Full Prof,M,2018,>150K,1
+aeshm,Named Prof,F,2017,>150K,1
+aeshm,Named Prof,F,2018,>150K,1
+aeshm,Named Prof,M,2011,>150K,1
+aeshm,Named Prof,M,2012,>150K,1
+aeshm,Named Prof,M,2013,>150K,1
+aeshm,Named Prof,M,2014,>150K,1
+aeshm,Named Prof,M,2015,>150K,1
+aeshm,Named Prof,M,2016,>150K,1
+ag & ls admin,Asst Prof,M,2013,100-150K,1
+ag & ls admin,Asst Prof,M,2014,100-150K,1
+ag & ls admin,Asst Prof,M,2015,100-150K,1
+ag education/st,Asst Prof,F,2016,50-100K,1
+ag education/st,Asst Prof,F,2017,50-100K,1
+ag education/st,Asst Prof,F,2018,50-100K,2
+ag education/st,Asst Prof,M,2011,50-100K,4
+ag education/st,Asst Prof,M,2012,50-100K,2
+ag education/st,Asst Prof,M,2013,50-100K,2
+ag education/st,Asst Prof,M,2014,50-100K,2
+ag education/st,Asst Prof,M,2015,50-100K,2
+ag education/st,Asst Prof,M,2016,50-100K,1
+ag education/st,Asst Prof,M,2017,50-100K,1
+ag education/st,Asst Prof,M,2018,50-100K,2
+ag education/st,Assoc Prof,F,2018,50-100K,1
+ag education/st,Assoc Prof,M,2011,100-150K,1
+ag education/st,Assoc Prof,M,2012,50-100K,1
+ag education/st,Assoc Prof,M,2012,100-150K,1
+ag education/st,Assoc Prof,M,2013,50-100K,1
+ag education/st,Assoc Prof,M,2013,100-150K,1
+ag education/st,Assoc Prof,M,2014,50-100K,1
+ag education/st,Assoc Prof,M,2014,100-150K,1
+ag education/st,Assoc Prof,M,2015,50-100K,1
+ag education/st,Full Prof,M,2011,100-150K,2
+ag education/st,Full Prof,M,2012,100-150K,1
+ag education/st,Full Prof,M,2013,100-150K,1
+ag education/st,Full Prof,M,2014,100-150K,1
+ag education/st,Full Prof,M,2015,100-150K,1
+ag education/st,Full Prof,M,2016,100-150K,2
+ag education/st,Full Prof,M,2017,100-150K,1
+ag education/st,Full Prof,M,2018,100-150K,1
+ag education/st,Named Prof,M,2016,100-150K,1
+ag education/st,Named Prof,M,2017,100-150K,1
+ag education/st,Named Prof,M,2018,100-150K,1
+ag exp stn adm,Asst Prof,M,2011,100-150K,1
+ag exp stn adm,Asst Prof,M,2012,100-150K,1
+ag/biosys eng,Asst Prof,F,2011,50-100K,1
+ag/biosys eng,Asst Prof,F,2012,50-100K,1
+ag/biosys eng,Asst Prof,F,2012,NA,1
+ag/biosys eng,Asst Prof,F,2013,50-100K,2
+ag/biosys eng,Asst Prof,F,2014,50-100K,1
+ag/biosys eng,Asst Prof,F,2015,50-100K,3
+ag/biosys eng,Asst Prof,F,2016,50-100K,3
+ag/biosys eng,Asst Prof,F,2017,50-100K,3
+ag/biosys eng,Asst Prof,F,2018,50-100K,2
+ag/biosys eng,Asst Prof,M,2011,50-100K,3
+ag/biosys eng,Asst Prof,M,2012,50-100K,4
+ag/biosys eng,Asst Prof,M,2013,50-100K,3
+ag/biosys eng,Asst Prof,M,2014,50-100K,2
+ag/biosys eng,Asst Prof,M,2015,50-100K,2
+ag/biosys eng,Asst Prof,M,2016,50-100K,2
+ag/biosys eng,Asst Prof,M,2017,50-100K,3
+ag/biosys eng,Asst Prof,M,2018,50-100K,3
+ag/biosys eng,Assoc Prof,F,2014,100-150K,1
+ag/biosys eng,Assoc Prof,F,2015,100-150K,1
+ag/biosys eng,Assoc Prof,F,2016,100-150K,1
+ag/biosys eng,Assoc Prof,F,2017,100-150K,1
+ag/biosys eng,Assoc Prof,F,2018,50-100K,1
+ag/biosys eng,Assoc Prof,F,2018,100-150K,1
+ag/biosys eng,Assoc Prof,M,2011,50-100K,5
+ag/biosys eng,Assoc Prof,M,2011,100-150K,4
+ag/biosys eng,Assoc Prof,M,2012,50-100K,5
+ag/biosys eng,Assoc Prof,M,2012,100-150K,3
+ag/biosys eng,Assoc Prof,M,2013,50-100K,4
+ag/biosys eng,Assoc Prof,M,2013,100-150K,5
+ag/biosys eng,Assoc Prof,M,2014,50-100K,5
+ag/biosys eng,Assoc Prof,M,2014,100-150K,3
+ag/biosys eng,Assoc Prof,M,2015,<50K,1
+ag/biosys eng,Assoc Prof,M,2015,50-100K,5
+ag/biosys eng,Assoc Prof,M,2015,100-150K,4
+ag/biosys eng,Assoc Prof,M,2016,<50K,1
+ag/biosys eng,Assoc Prof,M,2016,50-100K,4
+ag/biosys eng,Assoc Prof,M,2016,100-150K,4
+ag/biosys eng,Assoc Prof,M,2017,<50K,1
+ag/biosys eng,Assoc Prof,M,2017,50-100K,4
+ag/biosys eng,Assoc Prof,M,2017,100-150K,3
+ag/biosys eng,Assoc Prof,M,2018,<50K,1
+ag/biosys eng,Assoc Prof,M,2018,50-100K,4
+ag/biosys eng,Assoc Prof,M,2018,100-150K,3
+ag/biosys eng,Full Prof,M,2011,100-150K,7
+ag/biosys eng,Full Prof,M,2012,100-150K,8
+ag/biosys eng,Full Prof,M,2013,50-100K,1
+ag/biosys eng,Full Prof,M,2013,100-150K,6
+ag/biosys eng,Full Prof,M,2013,>150K,1
+ag/biosys eng,Full Prof,M,2014,100-150K,7
+ag/biosys eng,Full Prof,M,2015,100-150K,7
+ag/biosys eng,Full Prof,M,2016,100-150K,7
+ag/biosys eng,Full Prof,M,2016,>150K,2
+ag/biosys eng,Full Prof,M,2017,100-150K,7
+ag/biosys eng,Full Prof,M,2017,>150K,2
+ag/biosys eng,Full Prof,M,2018,100-150K,7
+ag/biosys eng,Full Prof,M,2018,>150K,3
+ag/biosys eng,Named Prof,M,2011,50-100K,1
+ag/biosys eng,Named Prof,M,2011,100-150K,1
+ag/biosys eng,Named Prof,M,2011,>150K,1
+ag/biosys eng,Named Prof,M,2012,50-100K,1
+ag/biosys eng,Named Prof,M,2012,>150K,2
+ag/biosys eng,Named Prof,M,2013,50-100K,1
+ag/biosys eng,Named Prof,M,2013,>150K,2
+ag/biosys eng,Named Prof,M,2014,50-100K,1
+ag/biosys eng,Named Prof,M,2014,100-150K,1
+ag/biosys eng,Named Prof,M,2014,>150K,3
+ag/biosys eng,Named Prof,M,2015,50-100K,1
+ag/biosys eng,Named Prof,M,2015,100-150K,1
+ag/biosys eng,Named Prof,M,2015,>150K,3
+ag/biosys eng,Named Prof,M,2016,50-100K,1
+ag/biosys eng,Named Prof,M,2016,100-150K,1
+ag/biosys eng,Named Prof,M,2016,>150K,3
+ag/biosys eng,Named Prof,M,2017,50-100K,1
+ag/biosys eng,Named Prof,M,2017,100-150K,1
+ag/biosys eng,Named Prof,M,2017,>150K,2
+ag/biosys eng,Named Prof,M,2018,50-100K,1
+ag/biosys eng,Named Prof,M,2018,100-150K,1
+ag/biosys eng,Named Prof,M,2018,>150K,2
+agronomy,Asst Prof,F,2011,50-100K,1
+agronomy,Asst Prof,F,2012,50-100K,1
+agronomy,Asst Prof,F,2013,50-100K,1
+agronomy,Asst Prof,F,2014,50-100K,1
+agronomy,Asst Prof,M,2011,50-100K,2
+agronomy,Asst Prof,M,2012,50-100K,2
+agronomy,Asst Prof,M,2013,50-100K,2
+agronomy,Asst Prof,M,2013,100-150K,1
+agronomy,Asst Prof,M,2014,50-100K,3
+agronomy,Asst Prof,M,2014,100-150K,1
+agronomy,Asst Prof,M,2015,50-100K,2
+agronomy,Asst Prof,M,2015,100-150K,1
+agronomy,Asst Prof,M,2016,50-100K,4
+agronomy,Asst Prof,M,2016,100-150K,1
+agronomy,Asst Prof,M,2017,50-100K,4
+agronomy,Asst Prof,M,2018,50-100K,4
+agronomy,Assoc Prof,F,2015,100-150K,1
+agronomy,Assoc Prof,F,2016,100-150K,1
+agronomy,Assoc Prof,F,2017,100-150K,1
+agronomy,Assoc Prof,F,2018,100-150K,1
+agronomy,Assoc Prof,M,2011,50-100K,3
+agronomy,Assoc Prof,M,2012,50-100K,3
+agronomy,Assoc Prof,M,2012,100-150K,1
+agronomy,Assoc Prof,M,2013,50-100K,2
+agronomy,Assoc Prof,M,2013,100-150K,2
+agronomy,Assoc Prof,M,2014,50-100K,1
+agronomy,Assoc Prof,M,2014,100-150K,2
+agronomy,Assoc Prof,M,2015,50-100K,1
+agronomy,Assoc Prof,M,2015,100-150K,3
+agronomy,Assoc Prof,M,2016,50-100K,1
+agronomy,Assoc Prof,M,2016,100-150K,3
+agronomy,Assoc Prof,M,2017,50-100K,1
+agronomy,Assoc Prof,M,2017,100-150K,3
+agronomy,Assoc Prof,M,2018,100-150K,3
+agronomy,Full Prof,F,2011,50-100K,2
+agronomy,Full Prof,F,2011,100-150K,1
+agronomy,Full Prof,F,2012,50-100K,1
+agronomy,Full Prof,F,2012,100-150K,2
+agronomy,Full Prof,F,2013,100-150K,3
+agronomy,Full Prof,F,2014,100-150K,3
+agronomy,Full Prof,F,2015,100-150K,3
+agronomy,Full Prof,F,2016,100-150K,3
+agronomy,Full Prof,F,2017,100-150K,3
+agronomy,Full Prof,F,2018,100-150K,3
+agronomy,Full Prof,M,2011,50-100K,4
+agronomy,Full Prof,M,2011,100-150K,19
+agronomy,Full Prof,M,2011,>150K,2
+agronomy,Full Prof,M,2012,50-100K,4
+agronomy,Full Prof,M,2012,100-150K,17
+agronomy,Full Prof,M,2012,>150K,2
+agronomy,Full Prof,M,2013,50-100K,3
+agronomy,Full Prof,M,2013,100-150K,14
+agronomy,Full Prof,M,2013,>150K,1
+agronomy,Full Prof,M,2014,50-100K,2
+agronomy,Full Prof,M,2014,100-150K,17
+agronomy,Full Prof,M,2014,>150K,1
+agronomy,Full Prof,M,2015,50-100K,1
+agronomy,Full Prof,M,2015,100-150K,18
+agronomy,Full Prof,M,2015,>150K,1
+agronomy,Full Prof,M,2016,50-100K,1
+agronomy,Full Prof,M,2016,100-150K,17
+agronomy,Full Prof,M,2016,>150K,1
+agronomy,Full Prof,M,2017,50-100K,1
+agronomy,Full Prof,M,2017,100-150K,17
+agronomy,Full Prof,M,2017,>150K,1
+agronomy,Full Prof,M,2018,100-150K,17
+agronomy,Full Prof,M,2018,>150K,1
+agronomy,Named Prof,M,2011,100-150K,1
+agronomy,Named Prof,M,2011,>150K,3
+agronomy,Named Prof,M,2012,50-100K,1
+agronomy,Named Prof,M,2012,100-150K,1
+agronomy,Named Prof,M,2012,>150K,3
+agronomy,Named Prof,M,2013,50-100K,1
+agronomy,Named Prof,M,2013,100-150K,2
+agronomy,Named Prof,M,2013,>150K,3
+agronomy,Named Prof,M,2014,50-100K,1
+agronomy,Named Prof,M,2014,100-150K,2
+agronomy,Named Prof,M,2014,>150K,3
+agronomy,Named Prof,M,2015,50-100K,1
+agronomy,Named Prof,M,2015,100-150K,2
+agronomy,Named Prof,M,2015,>150K,3
+agronomy,Named Prof,M,2016,100-150K,4
+agronomy,Named Prof,M,2016,>150K,3
+agronomy,Named Prof,M,2017,100-150K,3
+agronomy,Named Prof,M,2017,>150K,3
+agronomy,Named Prof,M,2018,100-150K,1
+agronomy,Named Prof,M,2018,>150K,3
+ames laboratory,Named Prof,M,2011,>150K,1
+ames laboratory,Named Prof,M,2012,>150K,1
+ames laboratory,Named Prof,M,2013,>150K,1
+ames laboratory,Named Prof,M,2014,>150K,1
+animal science,Asst Prof,F,2011,50-100K,2
+animal science,Asst Prof,F,2012,50-100K,2
+animal science,Asst Prof,F,2013,50-100K,3
+animal science,Asst Prof,F,2014,50-100K,3
+animal science,Asst Prof,F,2015,50-100K,2
+animal science,Asst Prof,F,2017,50-100K,1
+animal science,Asst Prof,F,2018,50-100K,1
+animal science,Asst Prof,M,2011,50-100K,4
+animal science,Asst Prof,M,2012,50-100K,4
+animal science,Asst Prof,M,2013,50-100K,4
+animal science,Asst Prof,M,2014,50-100K,1
+animal science,Asst Prof,M,2015,50-100K,2
+animal science,Asst Prof,M,2016,50-100K,2
+animal science,Asst Prof,M,2017,50-100K,1
+animal science,Asst Prof,M,2018,50-100K,2
+animal science,Assoc Prof,F,2011,50-100K,2
+animal science,Assoc Prof,F,2012,50-100K,2
+animal science,Assoc Prof,F,2012,100-150K,1
+animal science,Assoc Prof,F,2013,50-100K,2
+animal science,Assoc Prof,F,2013,100-150K,1
+animal science,Assoc Prof,F,2014,50-100K,2
+animal science,Assoc Prof,F,2014,100-150K,1
+animal science,Assoc Prof,F,2015,50-100K,2
+animal science,Assoc Prof,F,2015,100-150K,1
+animal science,Assoc Prof,F,2016,50-100K,3
+animal science,Assoc Prof,F,2016,100-150K,1
+animal science,Assoc Prof,F,2017,50-100K,3
+animal science,Assoc Prof,F,2017,100-150K,1
+animal science,Assoc Prof,F,2018,50-100K,3
+animal science,Assoc Prof,F,2018,100-150K,1
+animal science,Assoc Prof,M,2011,50-100K,6
+animal science,Assoc Prof,M,2012,50-100K,5
+animal science,Assoc Prof,M,2012,100-150K,1
+animal science,Assoc Prof,M,2013,50-100K,2
+animal science,Assoc Prof,M,2013,100-150K,2
+animal science,Assoc Prof,M,2014,50-100K,5
+animal science,Assoc Prof,M,2014,100-150K,1
+animal science,Assoc Prof,M,2015,50-100K,4
+animal science,Assoc Prof,M,2015,100-150K,1
+animal science,Assoc Prof,M,2016,50-100K,3
+animal science,Assoc Prof,M,2016,100-150K,2
+animal science,Assoc Prof,M,2017,50-100K,3
+animal science,Assoc Prof,M,2017,100-150K,2
+animal science,Assoc Prof,M,2018,50-100K,2
+animal science,Assoc Prof,M,2018,100-150K,3
+animal science,Full Prof,F,2011,50-100K,1
+animal science,Full Prof,F,2011,100-150K,2
+animal science,Full Prof,F,2012,50-100K,1
+animal science,Full Prof,F,2012,100-150K,2
+animal science,Full Prof,F,2013,50-100K,1
+animal science,Full Prof,F,2013,100-150K,2
+animal science,Full Prof,F,2014,50-100K,1
+animal science,Full Prof,F,2014,100-150K,2
+animal science,Full Prof,F,2015,50-100K,1
+animal science,Full Prof,F,2015,100-150K,3
+animal science,Full Prof,F,2016,100-150K,2
+animal science,Full Prof,F,2016,>150K,1
+animal science,Full Prof,F,2017,100-150K,2
+animal science,Full Prof,F,2018,100-150K,2
+animal science,Full Prof,M,2011,50-100K,8
+animal science,Full Prof,M,2011,100-150K,12
+animal science,Full Prof,M,2011,>150K,2
+animal science,Full Prof,M,2012,50-100K,3
+animal science,Full Prof,M,2012,100-150K,12
+animal science,Full Prof,M,2012,>150K,2
+animal science,Full Prof,M,2012,NA,2
+animal science,Full Prof,M,2013,50-100K,5
+animal science,Full Prof,M,2013,100-150K,10
+animal science,Full Prof,M,2013,>150K,2
+animal science,Full Prof,M,2014,50-100K,3
+animal science,Full Prof,M,2014,100-150K,11
+animal science,Full Prof,M,2014,>150K,1
+animal science,Full Prof,M,2015,50-100K,3
+animal science,Full Prof,M,2015,100-150K,10
+animal science,Full Prof,M,2015,>150K,2
+animal science,Full Prof,M,2016,50-100K,1
+animal science,Full Prof,M,2016,100-150K,9
+animal science,Full Prof,M,2016,>150K,3
+animal science,Full Prof,M,2017,<50K,1
+animal science,Full Prof,M,2017,50-100K,1
+animal science,Full Prof,M,2017,100-150K,7
+animal science,Full Prof,M,2017,>150K,3
+animal science,Full Prof,M,2018,50-100K,1
+animal science,Full Prof,M,2018,100-150K,6
+animal science,Full Prof,M,2018,>150K,3
+animal science,Named Prof,F,2011,>150K,1
+animal science,Named Prof,F,2012,>150K,1
+animal science,Named Prof,F,2013,>150K,1
+animal science,Named Prof,F,2014,>150K,1
+animal science,Named Prof,F,2015,>150K,1
+animal science,Named Prof,F,2016,>150K,1
+animal science,Named Prof,F,2017,>150K,1
+animal science,Named Prof,F,2018,>150K,1
+animal science,Named Prof,M,2011,100-150K,3
+animal science,Named Prof,M,2011,>150K,2
+animal science,Named Prof,M,2012,100-150K,1
+animal science,Named Prof,M,2012,>150K,3
+animal science,Named Prof,M,2013,100-150K,1
+animal science,Named Prof,M,2013,>150K,4
+animal science,Named Prof,M,2014,100-150K,1
+animal science,Named Prof,M,2014,>150K,3
+animal science,Named Prof,M,2015,100-150K,1
+animal science,Named Prof,M,2015,>150K,4
+animal science,Named Prof,M,2016,>150K,5
+animal science,Named Prof,M,2017,>150K,5
+animal science,Named Prof,M,2018,>150K,5
+anthro old,Asst Prof,F,2011,50-100K,2
+anthro old,Asst Prof,F,2012,50-100K,4
+anthro old,Asst Prof,F,2012,NA,1
+anthro old,Asst Prof,F,2013,50-100K,3
+anthro old,Asst Prof,F,2014,50-100K,2
+anthro old,Asst Prof,F,2015,50-100K,2
+anthro old,Asst Prof,M,2011,50-100K,2
+anthro old,Asst Prof,M,2012,50-100K,1
+anthro old,Asst Prof,M,2013,50-100K,1
+anthro old,Asst Prof,M,2014,50-100K,1
+anthro old,Assoc Prof,M,2011,50-100K,1
+anthro old,Assoc Prof,M,2012,50-100K,2
+anthro old,Assoc Prof,M,2013,50-100K,2
+anthro old,Assoc Prof,M,2014,50-100K,2
+anthro old,Assoc Prof,M,2015,50-100K,3
+anthro old,Full Prof,F,2011,50-100K,1
+anthro old,Full Prof,F,2012,100-150K,1
+anthro old,Full Prof,F,2013,100-150K,1
+anthro old,Full Prof,F,2014,100-150K,1
+anthro old,Full Prof,F,2015,100-150K,1
+anthropology,Asst Prof,F,2016,50-100K,2
+anthropology,Assoc Prof,M,2016,50-100K,4
+anthropology,Full Prof,F,2016,100-150K,1
+architecture,Asst Prof,F,2011,50-100K,2
+architecture,Asst Prof,F,2012,50-100K,2
+architecture,Asst Prof,F,2013,50-100K,2
+architecture,Asst Prof,F,2014,50-100K,3
+architecture,Asst Prof,F,2015,50-100K,3
+architecture,Asst Prof,F,2016,<50K,1
+architecture,Asst Prof,F,2016,50-100K,2
+architecture,Asst Prof,F,2017,50-100K,3
+architecture,Asst Prof,F,2018,50-100K,3
+architecture,Asst Prof,M,2012,50-100K,1
+architecture,Asst Prof,M,2013,50-100K,1
+architecture,Asst Prof,M,2014,50-100K,1
+architecture,Asst Prof,M,2015,50-100K,2
+architecture,Asst Prof,M,2016,50-100K,4
+architecture,Asst Prof,M,2017,50-100K,5
+architecture,Asst Prof,M,2018,50-100K,4
+architecture,Assoc Prof,F,2011,50-100K,3
+architecture,Assoc Prof,F,2012,50-100K,3
+architecture,Assoc Prof,F,2013,50-100K,3
+architecture,Assoc Prof,F,2014,50-100K,3
+architecture,Assoc Prof,F,2015,50-100K,4
+architecture,Assoc Prof,F,2016,50-100K,4
+architecture,Assoc Prof,F,2017,50-100K,3
+architecture,Assoc Prof,F,2018,50-100K,3
+architecture,Assoc Prof,M,2011,50-100K,6
+architecture,Assoc Prof,M,2012,50-100K,6
+architecture,Assoc Prof,M,2013,50-100K,6
+architecture,Assoc Prof,M,2014,50-100K,5
+architecture,Assoc Prof,M,2015,50-100K,4
+architecture,Assoc Prof,M,2016,50-100K,1
+architecture,Assoc Prof,M,2017,50-100K,2
+architecture,Assoc Prof,M,2018,50-100K,3
+architecture,Full Prof,F,2011,50-100K,1
+architecture,Full Prof,F,2012,50-100K,1
+architecture,Full Prof,F,2013,50-100K,1
+architecture,Full Prof,F,2014,50-100K,1
+architecture,Full Prof,F,2015,50-100K,1
+architecture,Full Prof,M,2011,<50K,1
+architecture,Full Prof,M,2011,50-100K,4
+architecture,Full Prof,M,2011,100-150K,1
+architecture,Full Prof,M,2012,<50K,1
+architecture,Full Prof,M,2012,50-100K,4
+architecture,Full Prof,M,2012,100-150K,1
+architecture,Full Prof,M,2013,<50K,1
+architecture,Full Prof,M,2013,50-100K,4
+architecture,Full Prof,M,2013,100-150K,2
+architecture,Full Prof,M,2014,50-100K,2
+architecture,Full Prof,M,2014,100-150K,3
+architecture,Full Prof,M,2014,>150K,1
+architecture,Full Prof,M,2015,50-100K,1
+architecture,Full Prof,M,2015,100-150K,5
+architecture,Full Prof,M,2016,50-100K,2
+architecture,Full Prof,M,2016,100-150K,3
+architecture,Full Prof,M,2017,50-100K,3
+architecture,Full Prof,M,2017,100-150K,1
+architecture,Full Prof,M,2018,50-100K,2
+architecture,Full Prof,M,2018,100-150K,1
+architecture,Named Prof,F,2014,100-150K,1
+architecture,Named Prof,F,2015,100-150K,1
+architecture,Named Prof,F,2016,100-150K,1
+architecture,Named Prof,F,2016,>150K,1
+architecture,Named Prof,F,2017,100-150K,1
+architecture,Named Prof,F,2017,>150K,1
+architecture,Named Prof,F,2018,100-150K,1
+architecture,Named Prof,F,2018,>150K,1
+architecture,Named Prof,M,2014,100-150K,1
+architecture,Named Prof,M,2015,100-150K,1
+architecture,Named Prof,M,2016,100-150K,1
+architecture,Named Prof,M,2017,50-100K,1
+architecture,Named Prof,M,2018,50-100K,1
+art/design,Asst Prof,F,2011,<50K,1
+art/design,Asst Prof,F,2011,50-100K,4
+art/design,Assoc Prof,F,2011,50-100K,11
+art/design,Assoc Prof,M,2011,50-100K,12
+art/design,Full Prof,M,2011,50-100K,1
+art/design,Full Prof,M,2011,100-150K,1
+art/visual cult,Asst Prof,F,2015,50-100K,4
+art/visual cult,Asst Prof,F,2016,50-100K,4
+art/visual cult,Asst Prof,F,2017,50-100K,5
+art/visual cult,Asst Prof,F,2018,50-100K,4
+art/visual cult,Asst Prof,M,2015,50-100K,1
+art/visual cult,Asst Prof,M,2016,50-100K,1
+art/visual cult,Asst Prof,M,2017,50-100K,1
+art/visual cult,Asst Prof,M,2018,50-100K,1
+art/visual cult,Assoc Prof,F,2015,50-100K,5
+art/visual cult,Assoc Prof,F,2016,50-100K,5
+art/visual cult,Assoc Prof,F,2017,50-100K,5
+art/visual cult,Assoc Prof,F,2018,50-100K,5
+art/visual cult,Assoc Prof,M,2015,50-100K,4
+art/visual cult,Assoc Prof,M,2016,50-100K,2
+art/visual cult,Assoc Prof,M,2017,50-100K,2
+art/visual cult,Assoc Prof,M,2018,50-100K,1
+art/visual cult,Full Prof,F,2015,50-100K,3
+art/visual cult,Full Prof,F,2016,50-100K,3
+art/visual cult,Full Prof,F,2017,50-100K,1
+art/visual cult,Full Prof,F,2018,50-100K,1
+art/visual cult,Full Prof,M,2015,50-100K,1
+art/visual cult,Full Prof,M,2016,50-100K,3
+art/visual cult,Full Prof,M,2017,50-100K,3
+art/visual cult,Full Prof,M,2018,50-100K,4
+art/visual cult,Named Prof,F,2015,50-100K,1
+art/visual cult,Named Prof,F,2016,50-100K,1
+art/visual cult,Named Prof,F,2017,50-100K,1
+art/visual cult,Named Prof,F,2017,100-150K,1
+art/visual cult,Named Prof,F,2018,50-100K,1
+art/visual cult,Named Prof,F,2018,100-150K,1
+bbmb-agls,Asst Prof,F,2011,50-100K,1
+bbmb-agls,Asst Prof,F,2012,50-100K,1
+bbmb-agls,Asst Prof,F,2013,50-100K,1
+bbmb-agls,Asst Prof,M,2011,50-100K,1
+bbmb-agls,Asst Prof,M,2012,50-100K,1
+bbmb-agls,Asst Prof,M,2013,50-100K,1
+bbmb-agls,Asst Prof,M,2014,50-100K,1
+bbmb-agls,Asst Prof,M,2016,50-100K,1
+bbmb-agls,Asst Prof,M,2017,50-100K,2
+bbmb-agls,Asst Prof,M,2018,50-100K,2
+bbmb-agls,Assoc Prof,F,2011,50-100K,1
+bbmb-agls,Assoc Prof,F,2012,50-100K,1
+bbmb-agls,Assoc Prof,F,2013,50-100K,1
+bbmb-agls,Assoc Prof,F,2014,50-100K,2
+bbmb-agls,Assoc Prof,F,2015,50-100K,2
+bbmb-agls,Assoc Prof,F,2016,50-100K,2
+bbmb-agls,Assoc Prof,F,2017,50-100K,2
+bbmb-agls,Assoc Prof,F,2018,50-100K,2
+bbmb-agls,Assoc Prof,M,2015,50-100K,1
+bbmb-agls,Assoc Prof,M,2016,50-100K,1
+bbmb-agls,Assoc Prof,M,2017,50-100K,1
+bbmb-agls,Assoc Prof,M,2018,50-100K,1
+bbmb-agls,Full Prof,M,2011,50-100K,1
+bbmb-agls,Full Prof,M,2011,100-150K,3
+bbmb-agls,Full Prof,M,2012,50-100K,1
+bbmb-agls,Full Prof,M,2012,100-150K,2
+bbmb-agls,Full Prof,M,2012,>150K,1
+bbmb-agls,Full Prof,M,2013,100-150K,3
+bbmb-agls,Full Prof,M,2013,>150K,1
+bbmb-agls,Full Prof,M,2014,100-150K,3
+bbmb-agls,Full Prof,M,2014,>150K,1
+bbmb-agls,Full Prof,M,2015,100-150K,3
+bbmb-agls,Full Prof,M,2015,>150K,1
+bbmb-agls,Full Prof,M,2016,100-150K,3
+bbmb-agls,Full Prof,M,2016,>150K,2
+bbmb-agls,Full Prof,M,2017,100-150K,3
+bbmb-agls,Full Prof,M,2017,>150K,2
+bbmb-agls,Full Prof,M,2018,100-150K,3
+bbmb-agls,Full Prof,M,2018,>150K,2
+bbmb-agls,Named Prof,M,2011,100-150K,2
+bbmb-agls,Named Prof,M,2012,100-150K,2
+bbmb-agls,Named Prof,M,2013,100-150K,2
+bbmb-agls,Named Prof,M,2014,100-150K,2
+bbmb-agls,Named Prof,M,2015,100-150K,2
+bbmb-agls,Named Prof,M,2016,100-150K,1
+bbmb-agls,Named Prof,M,2017,100-150K,1
+bbmb-agls,Named Prof,M,2018,100-150K,1
+bigmap,Full Prof,M,2011,100-150K,1
+bigmap,Full Prof,M,2012,>150K,1
+bigmap,Full Prof,M,2013,>150K,1
+bigmap,Full Prof,M,2014,>150K,1
+bigmap,Full Prof,M,2015,>150K,1
+bigmap,Full Prof,M,2016,>150K,1
+bigmap,Full Prof,M,2017,>150K,1
+bioch/bioph-las,Asst Prof,F,2014,50-100K,1
+bioch/bioph-las,Asst Prof,F,2015,50-100K,1
+bioch/bioph-las,Asst Prof,F,2016,50-100K,1
+bioch/bioph-las,Asst Prof,F,2017,50-100K,1
+bioch/bioph-las,Asst Prof,F,2018,50-100K,1
+bioch/bioph-las,Asst Prof,M,2011,50-100K,1
+bioch/bioph-las,Asst Prof,M,2013,50-100K,1
+bioch/bioph-las,Asst Prof,M,2014,50-100K,2
+bioch/bioph-las,Asst Prof,M,2015,50-100K,2
+bioch/bioph-las,Asst Prof,M,2016,50-100K,2
+bioch/bioph-las,Asst Prof,M,2017,50-100K,2
+bioch/bioph-las,Asst Prof,M,2018,50-100K,2
+bioch/bioph-las,Assoc Prof,M,2012,50-100K,1
+bioch/bioph-las,Assoc Prof,M,2013,50-100K,1
+bioch/bioph-las,Assoc Prof,M,2014,50-100K,1
+bioch/bioph-las,Assoc Prof,M,2015,50-100K,1
+bioch/bioph-las,Assoc Prof,M,2016,50-100K,1
+bioch/bioph-las,Assoc Prof,M,2017,50-100K,2
+bioch/bioph-las,Assoc Prof,M,2018,50-100K,1
+bioch/bioph-las,Full Prof,F,2011,100-150K,2
+bioch/bioph-las,Full Prof,F,2012,100-150K,2
+bioch/bioph-las,Full Prof,F,2013,100-150K,2
+bioch/bioph-las,Full Prof,F,2014,100-150K,2
+bioch/bioph-las,Full Prof,F,2015,100-150K,2
+bioch/bioph-las,Full Prof,F,2016,>150K,1
+bioch/bioph-las,Full Prof,F,2017,>150K,1
+bioch/bioph-las,Full Prof,M,2011,100-150K,6
+bioch/bioph-las,Full Prof,M,2012,100-150K,6
+bioch/bioph-las,Full Prof,M,2013,100-150K,6
+bioch/bioph-las,Full Prof,M,2014,100-150K,6
+bioch/bioph-las,Full Prof,M,2015,100-150K,5
+bioch/bioph-las,Full Prof,M,2016,100-150K,5
+bioch/bioph-las,Full Prof,M,2017,100-150K,5
+bioch/bioph-las,Full Prof,M,2018,50-100K,1
+bioch/bioph-las,Full Prof,M,2018,100-150K,5
+bioch/bioph-las,Named Prof,F,2017,>150K,1
+bioch/bioph-las,Named Prof,F,2018,>150K,2
+biomedical sci,Asst Prof,F,2011,50-100K,1
+biomedical sci,Asst Prof,F,2012,100-150K,1
+biomedical sci,Asst Prof,F,2013,100-150K,1
+biomedical sci,Asst Prof,F,2014,100-150K,1
+biomedical sci,Asst Prof,F,2015,100-150K,1
+biomedical sci,Asst Prof,M,2011,50-100K,2
+biomedical sci,Asst Prof,M,2017,<50K,1
+biomedical sci,Asst Prof,M,2018,50-100K,2
+biomedical sci,Assoc Prof,F,2011,50-100K,2
+biomedical sci,Assoc Prof,F,2012,50-100K,2
+biomedical sci,Assoc Prof,F,2013,50-100K,1
+biomedical sci,Assoc Prof,F,2013,100-150K,1
+biomedical sci,Assoc Prof,F,2014,50-100K,1
+biomedical sci,Assoc Prof,F,2014,100-150K,1
+biomedical sci,Assoc Prof,F,2015,50-100K,1
+biomedical sci,Assoc Prof,F,2015,100-150K,1
+biomedical sci,Assoc Prof,F,2016,100-150K,1
+biomedical sci,Assoc Prof,F,2017,100-150K,1
+biomedical sci,Assoc Prof,F,2018,100-150K,1
+biomedical sci,Assoc Prof,M,2011,50-100K,2
+biomedical sci,Assoc Prof,M,2011,100-150K,3
+biomedical sci,Assoc Prof,M,2012,50-100K,2
+biomedical sci,Assoc Prof,M,2012,100-150K,3
+biomedical sci,Assoc Prof,M,2013,50-100K,2
+biomedical sci,Assoc Prof,M,2013,100-150K,3
+biomedical sci,Assoc Prof,M,2014,50-100K,2
+biomedical sci,Assoc Prof,M,2014,100-150K,2
+biomedical sci,Assoc Prof,M,2015,50-100K,2
+biomedical sci,Assoc Prof,M,2015,100-150K,2
+biomedical sci,Assoc Prof,M,2016,50-100K,1
+biomedical sci,Assoc Prof,M,2016,100-150K,3
+biomedical sci,Assoc Prof,M,2017,<50K,1
+biomedical sci,Assoc Prof,M,2017,50-100K,1
+biomedical sci,Assoc Prof,M,2017,100-150K,3
+biomedical sci,Assoc Prof,M,2018,50-100K,1
+biomedical sci,Assoc Prof,M,2018,100-150K,5
+biomedical sci,Full Prof,F,2016,100-150K,1
+biomedical sci,Full Prof,F,2017,100-150K,1
+biomedical sci,Full Prof,F,2018,>150K,1
+biomedical sci,Full Prof,M,2011,100-150K,6
+biomedical sci,Full Prof,M,2011,>150K,2
+biomedical sci,Full Prof,M,2012,100-150K,6
+biomedical sci,Full Prof,M,2012,>150K,3
+biomedical sci,Full Prof,M,2013,100-150K,5
+biomedical sci,Full Prof,M,2013,>150K,3
+biomedical sci,Full Prof,M,2014,100-150K,5
+biomedical sci,Full Prof,M,2014,>150K,3
+biomedical sci,Full Prof,M,2015,100-150K,5
+biomedical sci,Full Prof,M,2015,>150K,3
+biomedical sci,Full Prof,M,2016,100-150K,4
+biomedical sci,Full Prof,M,2016,>150K,3
+biomedical sci,Full Prof,M,2017,100-150K,3
+biomedical sci,Full Prof,M,2017,>150K,3
+biomedical sci,Full Prof,M,2018,100-150K,3
+biomedical sci,Full Prof,M,2018,>150K,3
+biomedical sci,Named Prof,M,2011,>150K,1
+biomedical sci,Named Prof,M,2012,>150K,1
+biomedical sci,Named Prof,M,2016,>150K,1
+biomedical sci,Named Prof,M,2017,>150K,1
+biomedical sci,Named Prof,M,2018,>150K,1
+business,Full Prof,M,2012,>150K,1
+business,Full Prof,M,2013,>150K,1
+card,Full Prof,M,2011,50-100K,1
+card,Full Prof,M,2012,50-100K,1
+card,Full Prof,M,2013,50-100K,1
+celt,Full Prof,F,2011,100-150K,1
+chem & bio engr,Asst Prof,F,2011,50-100K,1
+chem & bio engr,Asst Prof,F,2012,50-100K,1
+chem & bio engr,Asst Prof,F,2013,50-100K,1
+chem & bio engr,Asst Prof,F,2014,50-100K,1
+chem & bio engr,Asst Prof,F,2015,50-100K,1
+chem & bio engr,Asst Prof,F,2016,50-100K,1
+chem & bio engr,Asst Prof,F,2017,50-100K,1
+chem & bio engr,Asst Prof,F,2018,50-100K,1
+chem & bio engr,Asst Prof,M,2011,50-100K,3
+chem & bio engr,Asst Prof,M,2012,50-100K,2
+chem & bio engr,Asst Prof,M,2013,50-100K,2
+chem & bio engr,Asst Prof,M,2014,50-100K,1
+chem & bio engr,Asst Prof,M,2015,50-100K,2
+chem & bio engr,Asst Prof,M,2016,50-100K,2
+chem & bio engr,Asst Prof,M,2017,50-100K,3
+chem & bio engr,Asst Prof,M,2018,50-100K,4
+chem & bio engr,Assoc Prof,F,2011,50-100K,1
+chem & bio engr,Assoc Prof,F,2012,100-150K,1
+chem & bio engr,Assoc Prof,F,2013,100-150K,1
+chem & bio engr,Assoc Prof,F,2014,50-100K,1
+chem & bio engr,Assoc Prof,F,2014,100-150K,1
+chem & bio engr,Assoc Prof,F,2015,100-150K,2
+chem & bio engr,Assoc Prof,F,2016,100-150K,2
+chem & bio engr,Assoc Prof,F,2017,100-150K,3
+chem & bio engr,Assoc Prof,F,2018,100-150K,3
+chem & bio engr,Assoc Prof,M,2012,100-150K,1
+chem & bio engr,Assoc Prof,M,2013,100-150K,2
+chem & bio engr,Assoc Prof,M,2014,100-150K,3
+chem & bio engr,Assoc Prof,M,2015,100-150K,3
+chem & bio engr,Assoc Prof,M,2016,100-150K,4
+chem & bio engr,Assoc Prof,M,2017,<50K,1
+chem & bio engr,Assoc Prof,M,2017,100-150K,4
+chem & bio engr,Assoc Prof,M,2018,<50K,1
+chem & bio engr,Assoc Prof,M,2018,100-150K,3
+chem & bio engr,Full Prof,F,2011,>150K,1
+chem & bio engr,Full Prof,F,2012,>150K,1
+chem & bio engr,Full Prof,F,2013,>150K,1
+chem & bio engr,Full Prof,F,2014,>150K,1
+chem & bio engr,Full Prof,F,2015,>150K,1
+chem & bio engr,Full Prof,F,2016,>150K,1
+chem & bio engr,Full Prof,F,2017,>150K,1
+chem & bio engr,Full Prof,F,2018,<50K,1
+chem & bio engr,Full Prof,M,2011,100-150K,3
+chem & bio engr,Full Prof,M,2011,>150K,1
+chem & bio engr,Full Prof,M,2012,100-150K,3
+chem & bio engr,Full Prof,M,2012,>150K,1
+chem & bio engr,Full Prof,M,2013,100-150K,2
+chem & bio engr,Full Prof,M,2013,>150K,2
+chem & bio engr,Full Prof,M,2014,100-150K,2
+chem & bio engr,Full Prof,M,2014,>150K,2
+chem & bio engr,Full Prof,M,2015,100-150K,2
+chem & bio engr,Full Prof,M,2015,>150K,1
+chem & bio engr,Full Prof,M,2016,100-150K,2
+chem & bio engr,Full Prof,M,2016,>150K,1
+chem & bio engr,Full Prof,M,2017,100-150K,2
+chem & bio engr,Full Prof,M,2018,100-150K,3
+chem & bio engr,Named Prof,M,2011,100-150K,1
+chem & bio engr,Named Prof,M,2011,>150K,3
+chem & bio engr,Named Prof,M,2012,100-150K,1
+chem & bio engr,Named Prof,M,2012,>150K,3
+chem & bio engr,Named Prof,M,2013,100-150K,1
+chem & bio engr,Named Prof,M,2013,>150K,4
+chem & bio engr,Named Prof,M,2014,100-150K,1
+chem & bio engr,Named Prof,M,2014,>150K,3
+chem & bio engr,Named Prof,M,2015,100-150K,2
+chem & bio engr,Named Prof,M,2015,>150K,3
+chem & bio engr,Named Prof,M,2016,100-150K,2
+chem & bio engr,Named Prof,M,2016,>150K,3
+chem & bio engr,Named Prof,M,2017,100-150K,1
+chem & bio engr,Named Prof,M,2017,>150K,4
+chem & bio engr,Named Prof,M,2018,>150K,5
+chemistry,Asst Prof,F,2011,50-100K,1
+chemistry,Asst Prof,F,2012,50-100K,1
+chemistry,Asst Prof,F,2016,50-100K,1
+chemistry,Asst Prof,F,2017,50-100K,1
+chemistry,Asst Prof,F,2018,50-100K,2
+chemistry,Asst Prof,M,2011,50-100K,2
+chemistry,Asst Prof,M,2012,50-100K,5
+chemistry,Asst Prof,M,2013,50-100K,5
+chemistry,Asst Prof,M,2014,50-100K,5
+chemistry,Asst Prof,M,2015,50-100K,4
+chemistry,Asst Prof,M,2016,50-100K,6
+chemistry,Asst Prof,M,2017,50-100K,4
+chemistry,Asst Prof,M,2018,50-100K,4
+chemistry,Assoc Prof,F,2013,50-100K,1
+chemistry,Assoc Prof,F,2014,50-100K,1
+chemistry,Assoc Prof,F,2015,50-100K,1
+chemistry,Assoc Prof,F,2016,50-100K,1
+chemistry,Assoc Prof,M,2011,50-100K,2
+chemistry,Assoc Prof,M,2012,50-100K,2
+chemistry,Assoc Prof,M,2013,50-100K,1
+chemistry,Assoc Prof,M,2014,50-100K,1
+chemistry,Assoc Prof,M,2015,50-100K,2
+chemistry,Assoc Prof,M,2016,50-100K,1
+chemistry,Assoc Prof,M,2017,50-100K,2
+chemistry,Assoc Prof,M,2018,50-100K,3
+chemistry,Assoc Prof,M,2018,100-150K,1
+chemistry,Full Prof,F,2011,100-150K,2
+chemistry,Full Prof,F,2011,>150K,1
+chemistry,Full Prof,F,2012,100-150K,1
+chemistry,Full Prof,F,2012,>150K,1
+chemistry,Full Prof,F,2013,100-150K,1
+chemistry,Full Prof,F,2013,>150K,1
+chemistry,Full Prof,F,2014,100-150K,1
+chemistry,Full Prof,F,2015,100-150K,1
+chemistry,Full Prof,F,2016,100-150K,1
+chemistry,Full Prof,F,2017,50-100K,1
+chemistry,Full Prof,F,2017,100-150K,1
+chemistry,Full Prof,F,2018,100-150K,1
+chemistry,Full Prof,M,2011,50-100K,2
+chemistry,Full Prof,M,2011,100-150K,5
+chemistry,Full Prof,M,2012,50-100K,2
+chemistry,Full Prof,M,2012,100-150K,4
+chemistry,Full Prof,M,2013,50-100K,3
+chemistry,Full Prof,M,2013,100-150K,3
+chemistry,Full Prof,M,2014,50-100K,2
+chemistry,Full Prof,M,2014,100-150K,4
+chemistry,Full Prof,M,2015,50-100K,2
+chemistry,Full Prof,M,2015,100-150K,4
+chemistry,Full Prof,M,2016,50-100K,2
+chemistry,Full Prof,M,2016,100-150K,6
+chemistry,Full Prof,M,2017,50-100K,2
+chemistry,Full Prof,M,2017,100-150K,4
+chemistry,Full Prof,M,2018,50-100K,2
+chemistry,Full Prof,M,2018,100-150K,4
+chemistry,Named Prof,F,2011,>150K,1
+chemistry,Named Prof,F,2012,>150K,1
+chemistry,Named Prof,F,2013,>150K,1
+chemistry,Named Prof,F,2014,>150K,1
+chemistry,Named Prof,F,2015,>150K,1
+chemistry,Named Prof,F,2016,>150K,1
+chemistry,Named Prof,F,2017,>150K,1
+chemistry,Named Prof,F,2018,100-150K,1
+chemistry,Named Prof,F,2018,>150K,1
+chemistry,Named Prof,M,2011,100-150K,2
+chemistry,Named Prof,M,2011,>150K,2
+chemistry,Named Prof,M,2011,NA,1
+chemistry,Named Prof,M,2012,100-150K,2
+chemistry,Named Prof,M,2012,>150K,2
+chemistry,Named Prof,M,2012,NA,1
+chemistry,Named Prof,M,2013,100-150K,2
+chemistry,Named Prof,M,2013,>150K,2
+chemistry,Named Prof,M,2014,100-150K,2
+chemistry,Named Prof,M,2014,>150K,2
+chemistry,Named Prof,M,2015,100-150K,2
+chemistry,Named Prof,M,2015,>150K,2
+chemistry,Named Prof,M,2016,100-150K,2
+chemistry,Named Prof,M,2016,>150K,2
+chemistry,Named Prof,M,2017,100-150K,2
+chemistry,Named Prof,M,2017,>150K,2
+chemistry,Named Prof,M,2018,100-150K,2
+chemistry,Named Prof,M,2018,>150K,2
+civ/con/env eng,Asst Prof,F,2011,50-100K,2
+civ/con/env eng,Asst Prof,F,2012,50-100K,1
+civ/con/env eng,Asst Prof,F,2013,50-100K,2
+civ/con/env eng,Asst Prof,F,2014,50-100K,2
+civ/con/env eng,Asst Prof,F,2015,<50K,1
+civ/con/env eng,Asst Prof,F,2015,50-100K,3
+civ/con/env eng,Asst Prof,F,2016,50-100K,5
+civ/con/env eng,Asst Prof,F,2017,50-100K,6
+civ/con/env eng,Asst Prof,F,2018,50-100K,5
+civ/con/env eng,Asst Prof,M,2011,50-100K,2
+civ/con/env eng,Asst Prof,M,2012,50-100K,2
+civ/con/env eng,Asst Prof,M,2013,50-100K,2
+civ/con/env eng,Asst Prof,M,2014,50-100K,3
+civ/con/env eng,Asst Prof,M,2015,50-100K,3
+civ/con/env eng,Asst Prof,M,2016,50-100K,2
+civ/con/env eng,Asst Prof,M,2017,50-100K,2
+civ/con/env eng,Asst Prof,M,2018,50-100K,5
+civ/con/env eng,Assoc Prof,F,2011,100-150K,1
+civ/con/env eng,Assoc Prof,F,2012,50-100K,1
+civ/con/env eng,Assoc Prof,F,2013,50-100K,1
+civ/con/env eng,Assoc Prof,F,2013,100-150K,1
+civ/con/env eng,Assoc Prof,F,2014,100-150K,1
+civ/con/env eng,Assoc Prof,F,2015,100-150K,1
+civ/con/env eng,Assoc Prof,F,2016,100-150K,1
+civ/con/env eng,Assoc Prof,F,2017,100-150K,1
+civ/con/env eng,Assoc Prof,F,2018,50-100K,1
+civ/con/env eng,Assoc Prof,F,2018,100-150K,1
+civ/con/env eng,Assoc Prof,M,2011,50-100K,5
+civ/con/env eng,Assoc Prof,M,2011,100-150K,2
+civ/con/env eng,Assoc Prof,M,2012,50-100K,5
+civ/con/env eng,Assoc Prof,M,2012,100-150K,1
+civ/con/env eng,Assoc Prof,M,2013,50-100K,4
+civ/con/env eng,Assoc Prof,M,2013,100-150K,2
+civ/con/env eng,Assoc Prof,M,2014,50-100K,2
+civ/con/env eng,Assoc Prof,M,2014,100-150K,4
+civ/con/env eng,Assoc Prof,M,2015,50-100K,3
+civ/con/env eng,Assoc Prof,M,2015,100-150K,5
+civ/con/env eng,Assoc Prof,M,2016,50-100K,3
+civ/con/env eng,Assoc Prof,M,2016,100-150K,6
+civ/con/env eng,Assoc Prof,M,2017,50-100K,2
+civ/con/env eng,Assoc Prof,M,2017,100-150K,7
+civ/con/env eng,Assoc Prof,M,2018,50-100K,2
+civ/con/env eng,Assoc Prof,M,2018,100-150K,6
+civ/con/env eng,Full Prof,F,2011,100-150K,1
+civ/con/env eng,Full Prof,F,2012,100-150K,1
+civ/con/env eng,Full Prof,F,2013,100-150K,2
+civ/con/env eng,Full Prof,F,2014,100-150K,1
+civ/con/env eng,Full Prof,F,2015,100-150K,1
+civ/con/env eng,Full Prof,F,2016,100-150K,1
+civ/con/env eng,Full Prof,F,2017,100-150K,1
+civ/con/env eng,Full Prof,F,2018,100-150K,1
+civ/con/env eng,Full Prof,M,2011,100-150K,7
+civ/con/env eng,Full Prof,M,2012,100-150K,8
+civ/con/env eng,Full Prof,M,2012,>150K,1
+civ/con/env eng,Full Prof,M,2013,100-150K,7
+civ/con/env eng,Full Prof,M,2013,>150K,2
+civ/con/env eng,Full Prof,M,2014,100-150K,5
+civ/con/env eng,Full Prof,M,2014,>150K,4
+civ/con/env eng,Full Prof,M,2015,100-150K,4
+civ/con/env eng,Full Prof,M,2015,>150K,3
+civ/con/env eng,Full Prof,M,2016,100-150K,4
+civ/con/env eng,Full Prof,M,2016,>150K,3
+civ/con/env eng,Full Prof,M,2017,100-150K,4
+civ/con/env eng,Full Prof,M,2017,>150K,2
+civ/con/env eng,Full Prof,M,2018,100-150K,4
+civ/con/env eng,Full Prof,M,2018,>150K,3
+civ/con/env eng,Named Prof,M,2011,>150K,1
+civ/con/env eng,Named Prof,M,2013,>150K,1
+civ/con/env eng,Named Prof,M,2014,>150K,1
+civ/con/env eng,Named Prof,M,2015,>150K,1
+civ/con/env eng,Named Prof,M,2016,>150K,1
+civ/con/env eng,Named Prof,M,2017,>150K,1
+commun/reg plan,Asst Prof,F,2011,50-100K,1
+commun/reg plan,Asst Prof,F,2012,50-100K,2
+commun/reg plan,Asst Prof,F,2013,50-100K,1
+commun/reg plan,Asst Prof,F,2014,50-100K,1
+commun/reg plan,Asst Prof,F,2015,50-100K,2
+commun/reg plan,Asst Prof,F,2016,50-100K,4
+commun/reg plan,Asst Prof,F,2017,50-100K,3
+commun/reg plan,Asst Prof,F,2018,50-100K,2
+commun/reg plan,Asst Prof,M,2011,50-100K,1
+commun/reg plan,Asst Prof,M,2012,50-100K,2
+commun/reg plan,Asst Prof,M,2013,50-100K,3
+commun/reg plan,Asst Prof,M,2014,50-100K,2
+commun/reg plan,Asst Prof,M,2015,50-100K,1
+commun/reg plan,Asst Prof,M,2016,50-100K,1
+commun/reg plan,Asst Prof,M,2017,50-100K,1
+commun/reg plan,Asst Prof,M,2018,50-100K,1
+commun/reg plan,Assoc Prof,F,2011,50-100K,2
+commun/reg plan,Assoc Prof,F,2012,50-100K,2
+commun/reg plan,Assoc Prof,F,2013,50-100K,1
+commun/reg plan,Assoc Prof,F,2014,50-100K,1
+commun/reg plan,Assoc Prof,F,2015,50-100K,1
+commun/reg plan,Assoc Prof,F,2016,50-100K,1
+commun/reg plan,Assoc Prof,F,2017,50-100K,1
+commun/reg plan,Assoc Prof,F,2018,50-100K,2
+commun/reg plan,Assoc Prof,F,2018,100-150K,1
+commun/reg plan,Assoc Prof,M,2011,50-100K,2
+commun/reg plan,Assoc Prof,M,2011,100-150K,1
+commun/reg plan,Assoc Prof,M,2012,100-150K,1
+commun/reg plan,Assoc Prof,M,2013,100-150K,1
+commun/reg plan,Assoc Prof,M,2014,50-100K,1
+commun/reg plan,Assoc Prof,M,2014,100-150K,1
+commun/reg plan,Assoc Prof,M,2015,50-100K,1
+commun/reg plan,Assoc Prof,M,2015,100-150K,1
+commun/reg plan,Assoc Prof,M,2015,>150K,1
+commun/reg plan,Assoc Prof,M,2016,50-100K,2
+commun/reg plan,Assoc Prof,M,2017,50-100K,2
+commun/reg plan,Assoc Prof,M,2018,50-100K,2
+commun/reg plan,Full Prof,F,2013,50-100K,1
+commun/reg plan,Full Prof,F,2014,50-100K,1
+commun/reg plan,Full Prof,F,2015,50-100K,1
+commun/reg plan,Full Prof,F,2016,100-150K,1
+commun/reg plan,Full Prof,F,2017,100-150K,1
+commun/reg plan,Full Prof,F,2018,100-150K,1
+commun/reg plan,Full Prof,M,2011,100-150K,1
+commun/reg plan,Full Prof,M,2012,50-100K,1
+commun/reg plan,Full Prof,M,2013,100-150K,1
+commun/reg plan,Named Prof,M,2014,100-150K,1
+commun/reg plan,Named Prof,M,2015,100-150K,1
+commun/reg plan,Named Prof,M,2016,100-150K,1
+commun/reg plan,Named Prof,M,2017,100-150K,1
+commun/reg plan,Named Prof,M,2018,100-150K,1
+communities ext,Assoc Prof,F,2013,100-150K,1
+communities ext,Assoc Prof,F,2014,100-150K,1
+communities ext,Assoc Prof,F,2015,100-150K,1
+communities ext,Assoc Prof,F,2016,100-150K,1
+communities ext,Assoc Prof,F,2017,100-150K,1
+computer sc,Asst Prof,F,2014,50-100K,1
+computer sc,Asst Prof,F,2015,50-100K,1
+computer sc,Asst Prof,F,2016,50-100K,1
+computer sc,Asst Prof,F,2017,50-100K,1
+computer sc,Asst Prof,F,2018,100-150K,1
+computer sc,Asst Prof,M,2011,50-100K,2
+computer sc,Asst Prof,M,2012,50-100K,1
+computer sc,Asst Prof,M,2015,50-100K,1
+computer sc,Asst Prof,M,2016,50-100K,1
+computer sc,Asst Prof,M,2017,50-100K,1
+computer sc,Asst Prof,M,2018,50-100K,3
+computer sc,Asst Prof,M,2018,100-150K,1
+computer sc,Assoc Prof,F,2011,50-100K,3
+computer sc,Assoc Prof,F,2012,50-100K,2
+computer sc,Assoc Prof,F,2012,100-150K,1
+computer sc,Assoc Prof,F,2013,50-100K,2
+computer sc,Assoc Prof,F,2014,50-100K,2
+computer sc,Assoc Prof,F,2014,100-150K,1
+computer sc,Assoc Prof,F,2015,50-100K,2
+computer sc,Assoc Prof,F,2016,50-100K,2
+computer sc,Assoc Prof,F,2017,50-100K,2
+computer sc,Assoc Prof,F,2018,50-100K,1
+computer sc,Assoc Prof,F,2018,100-150K,1
+computer sc,Assoc Prof,M,2011,50-100K,9
+computer sc,Assoc Prof,M,2011,100-150K,1
+computer sc,Assoc Prof,M,2012,50-100K,10
+computer sc,Assoc Prof,M,2012,100-150K,1
+computer sc,Assoc Prof,M,2013,50-100K,9
+computer sc,Assoc Prof,M,2013,100-150K,1
+computer sc,Assoc Prof,M,2014,50-100K,6
+computer sc,Assoc Prof,M,2014,100-150K,4
+computer sc,Assoc Prof,M,2015,50-100K,6
+computer sc,Assoc Prof,M,2015,100-150K,3
+computer sc,Assoc Prof,M,2016,50-100K,3
+computer sc,Assoc Prof,M,2016,100-150K,4
+computer sc,Assoc Prof,M,2017,50-100K,3
+computer sc,Assoc Prof,M,2017,100-150K,4
+computer sc,Assoc Prof,M,2018,50-100K,3
+computer sc,Assoc Prof,M,2018,100-150K,4
+computer sc,Full Prof,F,2011,100-150K,1
+computer sc,Full Prof,F,2012,100-150K,1
+computer sc,Full Prof,F,2013,100-150K,1
+computer sc,Full Prof,F,2014,100-150K,1
+computer sc,Full Prof,F,2015,100-150K,2
+computer sc,Full Prof,F,2016,100-150K,2
+computer sc,Full Prof,F,2017,100-150K,2
+computer sc,Full Prof,F,2018,100-150K,2
+computer sc,Full Prof,M,2011,100-150K,7
+computer sc,Full Prof,M,2012,100-150K,6
+computer sc,Full Prof,M,2012,>150K,1
+computer sc,Full Prof,M,2013,100-150K,5
+computer sc,Full Prof,M,2013,>150K,2
+computer sc,Full Prof,M,2014,100-150K,4
+computer sc,Full Prof,M,2014,>150K,3
+computer sc,Full Prof,M,2015,100-150K,5
+computer sc,Full Prof,M,2015,>150K,2
+computer sc,Full Prof,M,2016,100-150K,6
+computer sc,Full Prof,M,2016,>150K,2
+computer sc,Full Prof,M,2017,100-150K,6
+computer sc,Full Prof,M,2017,>150K,3
+computer sc,Full Prof,M,2018,100-150K,6
+computer sc,Full Prof,M,2018,>150K,3
+computer sc,Named Prof,M,2011,>150K,1
+computer sc,Named Prof,M,2012,>150K,1
+computer sc,Named Prof,M,2014,>150K,1
+computer sc,Named Prof,M,2015,>150K,1
+computer sc,Named Prof,M,2016,>150K,1
+computer sc,Named Prof,M,2017,>150K,1
+computer sc,Named Prof,M,2018,>150K,1
+ctr crops ut rs,Full Prof,M,2011,>150K,1
+ctr crops ut rs,Full Prof,M,2012,>150K,1
+ctr crops ut rs,Full Prof,M,2013,>150K,1
+ctr crops ut rs,Full Prof,M,2014,>150K,1
+ctr sust env tc,Named Prof,M,2011,>150K,1
+ctr sust env tc,Named Prof,M,2012,>150K,1
+ctr tch learn,Assoc Prof,M,2011,50-100K,1
+ctr tch learn,Named Prof,F,2011,100-150K,1
+curr/instr,Asst Prof,F,2011,50-100K,3
+curr/instr,Asst Prof,M,2011,50-100K,1
+curr/instr,Assoc Prof,F,2011,50-100K,5
+curr/instr,Assoc Prof,M,2011,50-100K,2
+curr/instr,Full Prof,M,2011,100-150K,1
+curr/instr,Named Prof,M,2011,100-150K,1
+econ dev/indust,Full Prof,M,2018,>150K,1
+economics-agls,Asst Prof,F,2011,100-150K,1
+economics-agls,Asst Prof,F,2012,100-150K,1
+economics-agls,Asst Prof,F,2013,100-150K,2
+economics-agls,Asst Prof,F,2014,100-150K,2
+economics-agls,Asst Prof,F,2015,100-150K,2
+economics-agls,Asst Prof,F,2016,100-150K,2
+economics-agls,Asst Prof,F,2017,100-150K,2
+economics-agls,Asst Prof,M,2011,100-150K,2
+economics-agls,Asst Prof,M,2012,100-150K,1
+economics-agls,Asst Prof,M,2012,NA,1
+economics-agls,Asst Prof,M,2013,100-150K,2
+economics-agls,Asst Prof,M,2014,100-150K,3
+economics-agls,Asst Prof,M,2015,100-150K,3
+economics-agls,Asst Prof,M,2016,100-150K,5
+economics-agls,Asst Prof,M,2017,100-150K,5
+economics-agls,Asst Prof,M,2018,100-150K,4
+economics-agls,Assoc Prof,F,2018,100-150K,2
+economics-agls,Assoc Prof,M,2011,50-100K,1
+economics-agls,Assoc Prof,M,2011,100-150K,1
+economics-agls,Assoc Prof,M,2012,50-100K,1
+economics-agls,Assoc Prof,M,2012,100-150K,2
+economics-agls,Assoc Prof,M,2013,50-100K,1
+economics-agls,Assoc Prof,M,2013,100-150K,2
+economics-agls,Assoc Prof,M,2014,50-100K,1
+economics-agls,Assoc Prof,M,2014,100-150K,2
+economics-agls,Assoc Prof,M,2015,100-150K,3
+economics-agls,Assoc Prof,M,2016,100-150K,3
+economics-agls,Assoc Prof,M,2017,100-150K,3
+economics-agls,Assoc Prof,M,2018,100-150K,5
+economics-agls,Full Prof,F,2011,100-150K,1
+economics-agls,Full Prof,F,2011,>150K,1
+economics-agls,Full Prof,F,2012,>150K,1
+economics-agls,Full Prof,F,2013,>150K,1
+economics-agls,Full Prof,F,2014,>150K,1
+economics-agls,Full Prof,F,2015,>150K,1
+economics-agls,Full Prof,F,2016,>150K,1
+economics-agls,Full Prof,F,2017,>150K,1
+economics-agls,Full Prof,M,2011,100-150K,9
+economics-agls,Full Prof,M,2011,>150K,5
+economics-agls,Full Prof,M,2012,100-150K,8
+economics-agls,Full Prof,M,2012,>150K,5
+economics-agls,Full Prof,M,2013,100-150K,6
+economics-agls,Full Prof,M,2013,>150K,6
+economics-agls,Full Prof,M,2014,50-100K,1
+economics-agls,Full Prof,M,2014,100-150K,2
+economics-agls,Full Prof,M,2014,>150K,7
+economics-agls,Full Prof,M,2015,50-100K,1
+economics-agls,Full Prof,M,2015,100-150K,4
+economics-agls,Full Prof,M,2015,>150K,6
+economics-agls,Full Prof,M,2016,50-100K,1
+economics-agls,Full Prof,M,2016,100-150K,3
+economics-agls,Full Prof,M,2016,>150K,5
+economics-agls,Full Prof,M,2017,50-100K,1
+economics-agls,Full Prof,M,2017,100-150K,3
+economics-agls,Full Prof,M,2017,>150K,3
+economics-agls,Full Prof,M,2018,50-100K,1
+economics-agls,Full Prof,M,2018,100-150K,2
+economics-agls,Full Prof,M,2018,>150K,4
+economics-agls,Named Prof,F,2013,>150K,1
+economics-agls,Named Prof,F,2014,>150K,1
+economics-agls,Named Prof,F,2015,>150K,1
+economics-agls,Named Prof,F,2016,>150K,1
+economics-agls,Named Prof,F,2017,>150K,1
+economics-agls,Named Prof,F,2018,>150K,1
+economics-agls,Named Prof,M,2011,>150K,1
+economics-agls,Named Prof,M,2012,>150K,1
+economics-agls,Named Prof,M,2013,>150K,1
+economics-agls,Named Prof,M,2014,>150K,1
+economics-agls,Named Prof,M,2015,>150K,1
+economics-agls,Named Prof,M,2016,>150K,1
+economics-agls,Named Prof,M,2017,>150K,2
+economics-agls,Named Prof,M,2018,>150K,2
+economics-las,Asst Prof,M,2011,100-150K,1
+economics-las,Asst Prof,M,2012,100-150K,1
+economics-las,Asst Prof,M,2013,100-150K,1
+economics-las,Asst Prof,M,2014,100-150K,1
+economics-las,Asst Prof,M,2015,100-150K,1
+economics-las,Asst Prof,M,2016,100-150K,2
+economics-las,Asst Prof,M,2018,100-150K,1
+economics-las,Assoc Prof,F,2011,100-150K,2
+economics-las,Assoc Prof,F,2012,100-150K,2
+economics-las,Assoc Prof,F,2013,100-150K,2
+economics-las,Assoc Prof,F,2014,100-150K,2
+economics-las,Assoc Prof,F,2015,100-150K,1
+economics-las,Assoc Prof,F,2016,100-150K,1
+economics-las,Assoc Prof,F,2017,100-150K,1
+economics-las,Assoc Prof,F,2018,100-150K,1
+economics-las,Assoc Prof,M,2011,50-100K,1
+economics-las,Assoc Prof,M,2011,100-150K,4
+economics-las,Assoc Prof,M,2012,50-100K,1
+economics-las,Assoc Prof,M,2012,100-150K,3
+economics-las,Assoc Prof,M,2013,50-100K,1
+economics-las,Assoc Prof,M,2013,100-150K,3
+economics-las,Assoc Prof,M,2014,50-100K,1
+economics-las,Assoc Prof,M,2014,100-150K,3
+economics-las,Assoc Prof,M,2015,50-100K,1
+economics-las,Assoc Prof,M,2015,100-150K,3
+economics-las,Assoc Prof,M,2016,50-100K,1
+economics-las,Assoc Prof,M,2016,100-150K,2
+economics-las,Assoc Prof,M,2016,>150K,1
+economics-las,Assoc Prof,M,2017,50-100K,1
+economics-las,Assoc Prof,M,2017,100-150K,1
+economics-las,Assoc Prof,M,2018,50-100K,1
+economics-las,Full Prof,F,2011,100-150K,1
+economics-las,Full Prof,F,2012,>150K,1
+economics-las,Full Prof,F,2013,>150K,2
+economics-las,Full Prof,F,2014,>150K,2
+economics-las,Full Prof,F,2015,>150K,2
+economics-las,Full Prof,F,2016,>150K,2
+economics-las,Full Prof,F,2017,>150K,1
+economics-las,Full Prof,F,2018,>150K,1
+economics-las,Full Prof,M,2011,100-150K,4
+economics-las,Full Prof,M,2012,100-150K,2
+economics-las,Full Prof,M,2013,100-150K,1
+economics-las,Full Prof,M,2013,>150K,1
+economics-las,Full Prof,M,2014,100-150K,2
+economics-las,Full Prof,M,2014,>150K,2
+economics-las,Full Prof,M,2015,100-150K,1
+economics-las,Full Prof,M,2015,>150K,2
+economics-las,Full Prof,M,2016,100-150K,1
+economics-las,Full Prof,M,2016,>150K,2
+economics-las,Full Prof,M,2017,100-150K,1
+economics-las,Full Prof,M,2017,>150K,3
+economics-las,Full Prof,M,2018,100-150K,1
+economics-las,Full Prof,M,2018,>150K,3
+economics-las,Named Prof,M,2011,>150K,2
+economics-las,Named Prof,M,2012,>150K,2
+economics-las,Named Prof,M,2013,>150K,2
+economics-las,Named Prof,M,2014,>150K,2
+economics-las,Named Prof,M,2015,>150K,2
+economics-las,Named Prof,M,2016,>150K,3
+economics-las,Named Prof,M,2017,>150K,3
+economics-las,Named Prof,M,2018,>150K,2
+ed ldshp pol st,Asst Prof,F,2011,50-100K,2
+ed ldshp pol st,Asst Prof,M,2011,50-100K,1
+ed ldshp pol st,Assoc Prof,M,2011,50-100K,1
+ed ldshp pol st,Full Prof,F,2011,50-100K,1
+ed ldshp pol st,Named Prof,F,2011,50-100K,1
+ed ldshp pol st,Named Prof,M,2011,100-150K,1
+eeob-agls,Asst Prof,F,2015,50-100K,1
+eeob-agls,Asst Prof,F,2017,50-100K,1
+eeob-agls,Asst Prof,F,2018,50-100K,1
+eeob-agls,Assoc Prof,F,2011,50-100K,1
+eeob-agls,Assoc Prof,F,2012,50-100K,1
+eeob-agls,Assoc Prof,F,2013,50-100K,1
+eeob-agls,Assoc Prof,F,2014,50-100K,1
+eeob-agls,Assoc Prof,F,2015,50-100K,1
+eeob-agls,Assoc Prof,F,2016,50-100K,2
+eeob-agls,Assoc Prof,F,2017,50-100K,2
+eeob-agls,Assoc Prof,F,2018,50-100K,1
+eeob-agls,Assoc Prof,F,2018,100-150K,1
+eeob-agls,Full Prof,F,2013,100-150K,1
+eeob-agls,Full Prof,F,2014,100-150K,1
+eeob-agls,Full Prof,F,2015,100-150K,1
+eeob-agls,Full Prof,F,2016,100-150K,1
+eeob-agls,Full Prof,M,2011,100-150K,3
+eeob-agls,Full Prof,M,2012,100-150K,3
+eeob-agls,Full Prof,M,2013,100-150K,2
+eeob-agls,Full Prof,M,2014,100-150K,2
+eeob-agls,Full Prof,M,2015,100-150K,2
+eeob-agls,Full Prof,M,2016,100-150K,1
+eeob-agls,Full Prof,M,2017,100-150K,1
+eeob-agls,Full Prof,M,2018,100-150K,2
+eeob-las,Asst Prof,F,2011,50-100K,3
+eeob-las,Asst Prof,F,2012,50-100K,3
+eeob-las,Asst Prof,F,2013,50-100K,2
+eeob-las,Asst Prof,F,2014,50-100K,1
+eeob-las,Asst Prof,F,2015,50-100K,1
+eeob-las,Asst Prof,F,2016,<50K,1
+eeob-las,Asst Prof,F,2016,50-100K,2
+eeob-las,Asst Prof,F,2017,50-100K,3
+eeob-las,Asst Prof,F,2018,50-100K,3
+eeob-las,Asst Prof,M,2011,50-100K,2
+eeob-las,Asst Prof,M,2012,50-100K,2
+eeob-las,Asst Prof,M,2013,50-100K,1
+eeob-las,Asst Prof,M,2014,50-100K,1
+eeob-las,Asst Prof,M,2015,50-100K,1
+eeob-las,Asst Prof,M,2016,50-100K,2
+eeob-las,Asst Prof,M,2017,50-100K,2
+eeob-las,Asst Prof,M,2018,50-100K,2
+eeob-las,Assoc Prof,F,2011,50-100K,1
+eeob-las,Assoc Prof,F,2012,50-100K,1
+eeob-las,Assoc Prof,F,2013,50-100K,1
+eeob-las,Assoc Prof,F,2014,50-100K,2
+eeob-las,Assoc Prof,F,2015,50-100K,1
+eeob-las,Assoc Prof,M,2011,50-100K,8
+eeob-las,Assoc Prof,M,2012,50-100K,6
+eeob-las,Assoc Prof,M,2013,50-100K,5
+eeob-las,Assoc Prof,M,2014,50-100K,6
+eeob-las,Assoc Prof,M,2015,50-100K,4
+eeob-las,Assoc Prof,M,2016,50-100K,4
+eeob-las,Assoc Prof,M,2017,50-100K,4
+eeob-las,Assoc Prof,M,2018,50-100K,4
+eeob-las,Full Prof,F,2011,50-100K,2
+eeob-las,Full Prof,F,2011,100-150K,1
+eeob-las,Full Prof,F,2012,50-100K,2
+eeob-las,Full Prof,F,2012,100-150K,1
+eeob-las,Full Prof,F,2013,100-150K,1
+eeob-las,Full Prof,F,2014,100-150K,1
+eeob-las,Full Prof,F,2015,100-150K,1
+eeob-las,Full Prof,F,2016,50-100K,1
+eeob-las,Full Prof,F,2016,100-150K,1
+eeob-las,Full Prof,F,2017,50-100K,1
+eeob-las,Full Prof,F,2017,100-150K,1
+eeob-las,Full Prof,F,2018,50-100K,1
+eeob-las,Full Prof,F,2018,100-150K,1
+eeob-las,Full Prof,M,2011,50-100K,4
+eeob-las,Full Prof,M,2011,100-150K,1
+eeob-las,Full Prof,M,2012,50-100K,6
+eeob-las,Full Prof,M,2012,100-150K,1
+eeob-las,Full Prof,M,2013,50-100K,7
+eeob-las,Full Prof,M,2013,100-150K,1
+eeob-las,Full Prof,M,2014,50-100K,4
+eeob-las,Full Prof,M,2014,100-150K,4
+eeob-las,Full Prof,M,2015,50-100K,4
+eeob-las,Full Prof,M,2015,100-150K,5
+eeob-las,Full Prof,M,2016,50-100K,3
+eeob-las,Full Prof,M,2016,100-150K,5
+eeob-las,Full Prof,M,2017,50-100K,3
+eeob-las,Full Prof,M,2017,100-150K,3
+eeob-las,Full Prof,M,2018,50-100K,2
+eeob-las,Full Prof,M,2018,100-150K,2
+eeob-las,Named Prof,M,2011,>150K,1
+eeob-las,Named Prof,M,2017,100-150K,3
+eeob-las,Named Prof,M,2018,100-150K,2
+eeob-las,Named Prof,M,2018,>150K,1
+elec eng/cp eng,Asst Prof,M,2011,50-100K,14
+elec eng/cp eng,Asst Prof,M,2012,50-100K,9
+elec eng/cp eng,Asst Prof,M,2013,50-100K,6
+elec eng/cp eng,Asst Prof,M,2014,50-100K,2
+elec eng/cp eng,Asst Prof,M,2015,50-100K,2
+elec eng/cp eng,Asst Prof,M,2016,<50K,1
+elec eng/cp eng,Asst Prof,M,2016,50-100K,3
+elec eng/cp eng,Asst Prof,M,2017,50-100K,4
+elec eng/cp eng,Asst Prof,M,2018,<50K,1
+elec eng/cp eng,Asst Prof,M,2018,50-100K,5
+elec eng/cp eng,Assoc Prof,F,2011,50-100K,1
+elec eng/cp eng,Assoc Prof,F,2011,100-150K,1
+elec eng/cp eng,Assoc Prof,F,2012,50-100K,1
+elec eng/cp eng,Assoc Prof,F,2013,100-150K,1
+elec eng/cp eng,Assoc Prof,F,2014,100-150K,1
+elec eng/cp eng,Assoc Prof,F,2015,100-150K,1
+elec eng/cp eng,Assoc Prof,M,2011,50-100K,5
+elec eng/cp eng,Assoc Prof,M,2011,100-150K,8
+elec eng/cp eng,Assoc Prof,M,2012,50-100K,9
+elec eng/cp eng,Assoc Prof,M,2012,100-150K,9
+elec eng/cp eng,Assoc Prof,M,2013,50-100K,11
+elec eng/cp eng,Assoc Prof,M,2013,100-150K,9
+elec eng/cp eng,Assoc Prof,M,2014,50-100K,10
+elec eng/cp eng,Assoc Prof,M,2014,100-150K,13
+elec eng/cp eng,Assoc Prof,M,2015,50-100K,6
+elec eng/cp eng,Assoc Prof,M,2015,100-150K,15
+elec eng/cp eng,Assoc Prof,M,2016,50-100K,5
+elec eng/cp eng,Assoc Prof,M,2016,100-150K,12
+elec eng/cp eng,Assoc Prof,M,2017,50-100K,5
+elec eng/cp eng,Assoc Prof,M,2017,100-150K,9
+elec eng/cp eng,Assoc Prof,M,2018,50-100K,4
+elec eng/cp eng,Assoc Prof,M,2018,100-150K,9
+elec eng/cp eng,Full Prof,F,2011,100-150K,1
+elec eng/cp eng,Full Prof,F,2012,100-150K,2
+elec eng/cp eng,Full Prof,F,2013,100-150K,1
+elec eng/cp eng,Full Prof,F,2013,>150K,1
+elec eng/cp eng,Full Prof,F,2014,100-150K,1
+elec eng/cp eng,Full Prof,F,2014,>150K,1
+elec eng/cp eng,Full Prof,F,2015,100-150K,1
+elec eng/cp eng,Full Prof,F,2016,100-150K,2
+elec eng/cp eng,Full Prof,F,2017,100-150K,2
+elec eng/cp eng,Full Prof,F,2018,100-150K,2
+elec eng/cp eng,Full Prof,M,2011,100-150K,5
+elec eng/cp eng,Full Prof,M,2011,>150K,3
+elec eng/cp eng,Full Prof,M,2012,100-150K,5
+elec eng/cp eng,Full Prof,M,2012,>150K,4
+elec eng/cp eng,Full Prof,M,2013,100-150K,6
+elec eng/cp eng,Full Prof,M,2013,>150K,3
+elec eng/cp eng,Full Prof,M,2014,100-150K,7
+elec eng/cp eng,Full Prof,M,2014,>150K,3
+elec eng/cp eng,Full Prof,M,2015,100-150K,9
+elec eng/cp eng,Full Prof,M,2015,>150K,3
+elec eng/cp eng,Full Prof,M,2016,100-150K,8
+elec eng/cp eng,Full Prof,M,2016,>150K,4
+elec eng/cp eng,Full Prof,M,2017,100-150K,10
+elec eng/cp eng,Full Prof,M,2017,>150K,4
+elec eng/cp eng,Full Prof,M,2018,100-150K,10
+elec eng/cp eng,Full Prof,M,2018,>150K,4
+elec eng/cp eng,Named Prof,F,2015,>150K,1
+elec eng/cp eng,Named Prof,F,2016,>150K,1
+elec eng/cp eng,Named Prof,F,2017,>150K,1
+elec eng/cp eng,Named Prof,F,2018,>150K,1
+elec eng/cp eng,Named Prof,M,2011,100-150K,1
+elec eng/cp eng,Named Prof,M,2011,>150K,1
+elec eng/cp eng,Named Prof,M,2012,100-150K,1
+elec eng/cp eng,Named Prof,M,2012,>150K,1
+elec eng/cp eng,Named Prof,M,2013,100-150K,1
+elec eng/cp eng,Named Prof,M,2014,100-150K,1
+elec eng/cp eng,Named Prof,M,2014,>150K,1
+elec eng/cp eng,Named Prof,M,2015,100-150K,1
+elec eng/cp eng,Named Prof,M,2015,>150K,1
+elec eng/cp eng,Named Prof,M,2016,>150K,4
+elec eng/cp eng,Named Prof,M,2017,>150K,5
+elec eng/cp eng,Named Prof,M,2018,>150K,5
+engineering adm,Full Prof,M,2016,>150K,1
+english,Asst Prof,F,2011,50-100K,2
+english,Asst Prof,F,2012,50-100K,6
+english,Asst Prof,F,2013,50-100K,9
+english,Asst Prof,F,2014,50-100K,9
+english,Asst Prof,F,2015,50-100K,6
+english,Asst Prof,F,2016,50-100K,5
+english,Asst Prof,F,2017,50-100K,3
+english,Asst Prof,F,2018,50-100K,2
+english,Asst Prof,M,2011,50-100K,5
+english,Asst Prof,M,2012,50-100K,3
+english,Asst Prof,M,2013,50-100K,3
+english,Asst Prof,M,2014,50-100K,3
+english,Asst Prof,M,2015,50-100K,2
+english,Asst Prof,M,2016,50-100K,4
+english,Asst Prof,M,2017,50-100K,4
+english,Asst Prof,M,2018,50-100K,6
+english,Assoc Prof,F,2011,50-100K,10
+english,Assoc Prof,F,2012,50-100K,9
+english,Assoc Prof,F,2013,50-100K,8
+english,Assoc Prof,F,2014,50-100K,8
+english,Assoc Prof,F,2015,50-100K,9
+english,Assoc Prof,F,2016,50-100K,9
+english,Assoc Prof,F,2017,50-100K,8
+english,Assoc Prof,F,2018,50-100K,11
+english,Assoc Prof,M,2011,50-100K,7
+english,Assoc Prof,M,2012,<50K,1
+english,Assoc Prof,M,2012,50-100K,7
+english,Assoc Prof,M,2013,50-100K,6
+english,Assoc Prof,M,2014,50-100K,6
+english,Assoc Prof,M,2015,50-100K,7
+english,Assoc Prof,M,2016,50-100K,5
+english,Assoc Prof,M,2017,50-100K,4
+english,Assoc Prof,M,2018,50-100K,3
+english,Full Prof,F,2011,50-100K,2
+english,Full Prof,F,2012,50-100K,2
+english,Full Prof,F,2013,50-100K,2
+english,Full Prof,F,2014,50-100K,3
+english,Full Prof,F,2015,50-100K,4
+english,Full Prof,F,2016,50-100K,3
+english,Full Prof,F,2017,50-100K,4
+english,Full Prof,F,2018,50-100K,3
+english,Full Prof,F,2018,100-150K,1
+english,Full Prof,M,2011,50-100K,5
+english,Full Prof,M,2012,50-100K,4
+english,Full Prof,M,2013,50-100K,2
+english,Full Prof,M,2013,100-150K,1
+english,Full Prof,M,2014,50-100K,2
+english,Full Prof,M,2014,100-150K,2
+english,Full Prof,M,2015,50-100K,2
+english,Full Prof,M,2015,100-150K,2
+english,Full Prof,M,2016,50-100K,3
+english,Full Prof,M,2016,100-150K,3
+english,Full Prof,M,2017,50-100K,3
+english,Full Prof,M,2017,100-150K,3
+english,Full Prof,M,2018,50-100K,2
+english,Full Prof,M,2018,100-150K,2
+english,Named Prof,F,2011,50-100K,1
+english,Named Prof,F,2011,100-150K,2
+english,Named Prof,F,2012,50-100K,1
+english,Named Prof,F,2012,100-150K,2
+english,Named Prof,F,2013,100-150K,3
+english,Named Prof,F,2014,100-150K,3
+english,Named Prof,F,2015,100-150K,2
+english,Named Prof,F,2016,100-150K,2
+english,Named Prof,F,2017,100-150K,2
+english,Named Prof,F,2018,100-150K,1
+english,Named Prof,M,2011,50-100K,1
+english,Named Prof,M,2018,100-150K,1
+entomology,Asst Prof,F,2011,50-100K,1
+entomology,Asst Prof,F,2012,50-100K,1
+entomology,Asst Prof,M,2011,50-100K,1
+entomology,Asst Prof,M,2012,50-100K,1
+entomology,Asst Prof,M,2013,50-100K,1
+entomology,Assoc Prof,F,2011,50-100K,1
+entomology,Assoc Prof,F,2012,50-100K,1
+entomology,Assoc Prof,F,2013,50-100K,2
+entomology,Assoc Prof,F,2014,50-100K,1
+entomology,Assoc Prof,F,2015,50-100K,1
+entomology,Assoc Prof,F,2016,50-100K,1
+entomology,Assoc Prof,F,2017,50-100K,1
+entomology,Assoc Prof,F,2018,50-100K,1
+entomology,Assoc Prof,M,2011,50-100K,2
+entomology,Assoc Prof,M,2012,50-100K,1
+entomology,Assoc Prof,M,2013,50-100K,1
+entomology,Assoc Prof,M,2014,50-100K,2
+entomology,Assoc Prof,M,2015,50-100K,2
+entomology,Assoc Prof,M,2016,50-100K,2
+entomology,Assoc Prof,M,2017,50-100K,1
+entomology,Assoc Prof,M,2018,50-100K,1
+entomology,Full Prof,F,2011,100-150K,1
+entomology,Full Prof,F,2012,100-150K,1
+entomology,Full Prof,F,2013,100-150K,1
+entomology,Full Prof,F,2014,100-150K,1
+entomology,Full Prof,F,2015,100-150K,1
+entomology,Full Prof,M,2011,50-100K,2
+entomology,Full Prof,M,2011,100-150K,1
+entomology,Full Prof,M,2012,50-100K,2
+entomology,Full Prof,M,2012,100-150K,1
+entomology,Full Prof,M,2013,50-100K,2
+entomology,Full Prof,M,2013,100-150K,1
+entomology,Full Prof,M,2014,50-100K,1
+entomology,Full Prof,M,2014,100-150K,2
+entomology,Full Prof,M,2015,50-100K,1
+entomology,Full Prof,M,2015,100-150K,2
+entomology,Full Prof,M,2016,50-100K,1
+entomology,Full Prof,M,2016,100-150K,2
+entomology,Full Prof,M,2017,50-100K,1
+entomology,Full Prof,M,2017,100-150K,2
+entomology,Full Prof,M,2018,100-150K,3
+entomology,Named Prof,F,2012,>150K,1
+entomology,Named Prof,F,2013,>150K,1
+entomology,Named Prof,F,2014,>150K,1
+entomology,Named Prof,F,2015,>150K,1
+entomology,Named Prof,F,2016,>150K,1
+entomology,Named Prof,F,2017,>150K,1
+entomology,Named Prof,F,2018,>150K,1
+entomology,Named Prof,M,2011,100-150K,1
+entomology,Named Prof,M,2012,100-150K,1
+entomology,Named Prof,M,2013,>150K,1
+entomology,Named Prof,M,2014,100-150K,1
+entomology,Named Prof,M,2015,100-150K,1
+entomology,Named Prof,M,2016,100-150K,1
+entomology,Named Prof,M,2017,100-150K,1
+entomology,Named Prof,M,2018,100-150K,1
+fac plan/mgmt,Assoc Prof,M,2012,NA,1
+finance,Asst Prof,F,2011,100-150K,3
+finance,Asst Prof,F,2012,100-150K,2
+finance,Asst Prof,F,2012,NA,1
+finance,Asst Prof,F,2013,100-150K,2
+finance,Asst Prof,F,2013,>150K,1
+finance,Asst Prof,F,2014,100-150K,1
+finance,Asst Prof,F,2014,>150K,2
+finance,Asst Prof,F,2015,100-150K,1
+finance,Asst Prof,F,2015,>150K,1
+finance,Asst Prof,M,2011,100-150K,3
+finance,Asst Prof,M,2011,>150K,1
+finance,Asst Prof,M,2012,100-150K,2
+finance,Asst Prof,M,2013,100-150K,2
+finance,Asst Prof,M,2013,>150K,1
+finance,Asst Prof,M,2014,100-150K,1
+finance,Asst Prof,M,2014,>150K,3
+finance,Asst Prof,M,2015,100-150K,1
+finance,Asst Prof,M,2015,>150K,5
+finance,Asst Prof,M,2016,>150K,5
+finance,Asst Prof,M,2017,>150K,4
+finance,Asst Prof,M,2018,>150K,2
+finance,Assoc Prof,F,2011,100-150K,1
+finance,Assoc Prof,F,2012,100-150K,1
+finance,Assoc Prof,F,2013,100-150K,1
+finance,Assoc Prof,F,2014,100-150K,1
+finance,Assoc Prof,F,2015,100-150K,1
+finance,Assoc Prof,F,2015,>150K,1
+finance,Assoc Prof,F,2016,100-150K,1
+finance,Assoc Prof,F,2016,>150K,4
+finance,Assoc Prof,F,2017,100-150K,1
+finance,Assoc Prof,F,2017,>150K,4
+finance,Assoc Prof,F,2018,<50K,1
+finance,Assoc Prof,F,2018,100-150K,1
+finance,Assoc Prof,F,2018,>150K,3
+finance,Assoc Prof,M,2011,>150K,1
+finance,Assoc Prof,M,2012,>150K,2
+finance,Assoc Prof,M,2013,>150K,2
+finance,Assoc Prof,M,2014,>150K,2
+finance,Assoc Prof,M,2015,>150K,2
+finance,Assoc Prof,M,2016,>150K,3
+finance,Assoc Prof,M,2017,>150K,3
+finance,Assoc Prof,M,2018,>150K,3
+finance,Full Prof,M,2011,>150K,3
+finance,Full Prof,M,2012,>150K,3
+finance,Full Prof,M,2013,100-150K,1
+finance,Full Prof,M,2013,>150K,2
+finance,Full Prof,M,2014,100-150K,1
+finance,Full Prof,M,2014,>150K,2
+finance,Full Prof,M,2015,100-150K,1
+finance,Full Prof,M,2015,>150K,1
+finance,Full Prof,M,2016,100-150K,1
+finance,Full Prof,M,2016,>150K,1
+finance,Full Prof,M,2017,>150K,2
+finance,Full Prof,M,2018,>150K,2
+finance,Named Prof,M,2011,>150K,1
+finance,Named Prof,M,2012,>150K,1
+finance,Named Prof,M,2013,>150K,1
+finance,Named Prof,M,2014,>150K,1
+finance,Named Prof,M,2015,>150K,1
+finance,Named Prof,M,2016,>150K,1
+finance,Named Prof,M,2017,>150K,1
+finance,Named Prof,M,2018,>150K,1
+food sc/hn-agls,Asst Prof,F,2013,50-100K,2
+food sc/hn-agls,Asst Prof,F,2014,50-100K,3
+food sc/hn-agls,Asst Prof,F,2015,50-100K,3
+food sc/hn-agls,Asst Prof,F,2016,50-100K,4
+food sc/hn-agls,Asst Prof,F,2017,50-100K,3
+food sc/hn-agls,Asst Prof,F,2018,50-100K,3
+food sc/hn-agls,Asst Prof,M,2011,50-100K,1
+food sc/hn-agls,Asst Prof,M,2012,50-100K,1
+food sc/hn-agls,Asst Prof,M,2013,50-100K,1
+food sc/hn-agls,Asst Prof,M,2018,<50K,1
+food sc/hn-agls,Assoc Prof,F,2011,50-100K,1
+food sc/hn-agls,Assoc Prof,F,2012,50-100K,1
+food sc/hn-agls,Assoc Prof,F,2013,50-100K,1
+food sc/hn-agls,Assoc Prof,F,2017,100-150K,1
+food sc/hn-agls,Assoc Prof,F,2018,100-150K,1
+food sc/hn-agls,Assoc Prof,M,2011,50-100K,3
+food sc/hn-agls,Assoc Prof,M,2012,50-100K,3
+food sc/hn-agls,Assoc Prof,M,2013,50-100K,3
+food sc/hn-agls,Assoc Prof,M,2014,50-100K,4
+food sc/hn-agls,Assoc Prof,M,2015,50-100K,4
+food sc/hn-agls,Assoc Prof,M,2015,100-150K,1
+food sc/hn-agls,Assoc Prof,M,2016,50-100K,3
+food sc/hn-agls,Assoc Prof,M,2016,100-150K,1
+food sc/hn-agls,Assoc Prof,M,2017,50-100K,3
+food sc/hn-agls,Assoc Prof,M,2017,100-150K,1
+food sc/hn-agls,Assoc Prof,M,2018,50-100K,2
+food sc/hn-agls,Assoc Prof,M,2018,100-150K,1
+food sc/hn-agls,Full Prof,F,2011,50-100K,1
+food sc/hn-agls,Full Prof,F,2012,50-100K,1
+food sc/hn-agls,Full Prof,F,2013,50-100K,1
+food sc/hn-agls,Full Prof,F,2014,100-150K,1
+food sc/hn-agls,Full Prof,F,2015,100-150K,1
+food sc/hn-agls,Full Prof,F,2016,100-150K,1
+food sc/hn-agls,Full Prof,F,2017,100-150K,1
+food sc/hn-agls,Full Prof,F,2018,100-150K,1
+food sc/hn-agls,Full Prof,F,2018,>150K,1
+food sc/hn-agls,Full Prof,M,2011,50-100K,1
+food sc/hn-agls,Full Prof,M,2012,50-100K,1
+food sc/hn-agls,Full Prof,M,2013,50-100K,1
+food sc/hn-agls,Full Prof,M,2013,100-150K,1
+food sc/hn-agls,Full Prof,M,2014,100-150K,1
+food sc/hn-agls,Full Prof,M,2015,100-150K,1
+food sc/hn-agls,Full Prof,M,2016,100-150K,2
+food sc/hn-agls,Full Prof,M,2016,>150K,1
+food sc/hn-agls,Full Prof,M,2017,100-150K,2
+food sc/hn-agls,Full Prof,M,2017,>150K,1
+food sc/hn-agls,Full Prof,M,2018,100-150K,2
+food sc/hn-agls,Full Prof,M,2018,>150K,1
+food sc/hn-agls,Named Prof,F,2011,>150K,1
+food sc/hn-agls,Named Prof,F,2012,>150K,1
+food sc/hn-agls,Named Prof,F,2013,>150K,1
+food sc/hn-agls,Named Prof,F,2014,>150K,1
+food sc/hn-agls,Named Prof,F,2015,>150K,1
+food sc/hn-agls,Named Prof,F,2016,<50K,1
+food sc/hn-agls,Named Prof,F,2016,>150K,1
+food sc/hn-agls,Named Prof,F,2017,<50K,1
+food sc/hn-agls,Named Prof,F,2017,>150K,1
+food sc/hn-agls,Named Prof,F,2018,<50K,1
+food sc/hn-agls,Named Prof,M,2011,50-100K,1
+food sc/hn-agls,Named Prof,M,2012,50-100K,1
+food sc/hn-agls,Named Prof,M,2013,100-150K,1
+food sc/hn-agls,Named Prof,M,2014,100-150K,1
+food sc/hn-agls,Named Prof,M,2015,100-150K,1
+food sc/hn-agls,Named Prof,M,2016,100-150K,1
+food sc/hn-agls,Named Prof,M,2017,100-150K,1
+food sc/hn-agls,Named Prof,M,2018,100-150K,1
+food sc/hn-hsci,Asst Prof,F,2011,50-100K,1
+food sc/hn-hsci,Asst Prof,F,2012,50-100K,1
+food sc/hn-hsci,Asst Prof,F,2013,50-100K,1
+food sc/hn-hsci,Asst Prof,F,2014,50-100K,1
+food sc/hn-hsci,Asst Prof,F,2016,50-100K,1
+food sc/hn-hsci,Asst Prof,F,2017,50-100K,1
+food sc/hn-hsci,Asst Prof,F,2018,50-100K,2
+food sc/hn-hsci,Asst Prof,M,2011,50-100K,1
+food sc/hn-hsci,Asst Prof,M,2011,NA,1
+food sc/hn-hsci,Asst Prof,M,2012,50-100K,2
+food sc/hn-hsci,Asst Prof,M,2013,50-100K,2
+food sc/hn-hsci,Asst Prof,M,2014,50-100K,1
+food sc/hn-hsci,Asst Prof,M,2015,50-100K,1
+food sc/hn-hsci,Asst Prof,M,2016,50-100K,2
+food sc/hn-hsci,Asst Prof,M,2017,50-100K,3
+food sc/hn-hsci,Asst Prof,M,2018,50-100K,3
+food sc/hn-hsci,Assoc Prof,F,2011,50-100K,6
+food sc/hn-hsci,Assoc Prof,F,2012,50-100K,5
+food sc/hn-hsci,Assoc Prof,F,2013,50-100K,5
+food sc/hn-hsci,Assoc Prof,F,2014,50-100K,5
+food sc/hn-hsci,Assoc Prof,F,2015,50-100K,6
+food sc/hn-hsci,Assoc Prof,F,2016,50-100K,4
+food sc/hn-hsci,Assoc Prof,F,2017,50-100K,3
+food sc/hn-hsci,Assoc Prof,F,2017,100-150K,1
+food sc/hn-hsci,Assoc Prof,F,2018,50-100K,3
+food sc/hn-hsci,Assoc Prof,F,2018,100-150K,1
+food sc/hn-hsci,Assoc Prof,M,2014,50-100K,1
+food sc/hn-hsci,Assoc Prof,M,2015,50-100K,2
+food sc/hn-hsci,Assoc Prof,M,2016,50-100K,2
+food sc/hn-hsci,Assoc Prof,M,2017,50-100K,2
+food sc/hn-hsci,Assoc Prof,M,2018,50-100K,2
+food sc/hn-hsci,Full Prof,F,2011,100-150K,1
+food sc/hn-hsci,Full Prof,F,2012,50-100K,1
+food sc/hn-hsci,Full Prof,F,2012,100-150K,1
+food sc/hn-hsci,Full Prof,F,2013,50-100K,1
+food sc/hn-hsci,Full Prof,F,2014,50-100K,1
+food sc/hn-hsci,Full Prof,F,2015,50-100K,1
+food sc/hn-hsci,Full Prof,F,2016,100-150K,3
+food sc/hn-hsci,Full Prof,F,2017,100-150K,3
+food sc/hn-hsci,Full Prof,F,2018,100-150K,3
+food sc/hn-hsci,Full Prof,M,2011,50-100K,1
+food sc/hn-hsci,Full Prof,M,2012,50-100K,1
+food sc/hn-hsci,Full Prof,M,2013,50-100K,1
+food sc/hn-hsci,Full Prof,M,2014,50-100K,1
+food sc/hn-hsci,Full Prof,M,2015,100-150K,1
+food sc/hn-hsci,Full Prof,M,2016,100-150K,1
+food sc/hn-hsci,Full Prof,M,2017,100-150K,1
+food sc/hn-hsci,Full Prof,M,2018,100-150K,1
+food sc/hn-hsci,Named Prof,F,2011,100-150K,1
+food sc/hn-hsci,Named Prof,F,2011,>150K,1
+food sc/hn-hsci,Named Prof,F,2012,100-150K,1
+food sc/hn-hsci,Named Prof,F,2012,>150K,1
+food sc/hn-hsci,Named Prof,F,2013,100-150K,1
+food sc/hn-hsci,Named Prof,F,2013,>150K,1
+food sc/hn-hsci,Named Prof,F,2014,100-150K,1
+food sc/hn-hsci,Named Prof,F,2015,100-150K,1
+food sc/hn-hsci,Named Prof,F,2016,100-150K,1
+gdcb-agls,Asst Prof,F,2012,50-100K,1
+gdcb-agls,Asst Prof,F,2013,50-100K,1
+gdcb-agls,Asst Prof,F,2014,50-100K,2
+gdcb-agls,Asst Prof,F,2015,50-100K,2
+gdcb-agls,Asst Prof,F,2016,50-100K,2
+gdcb-agls,Asst Prof,F,2017,50-100K,2
+gdcb-agls,Asst Prof,F,2018,50-100K,1
+gdcb-agls,Assoc Prof,F,2014,100-150K,1
+gdcb-agls,Assoc Prof,F,2016,100-150K,1
+gdcb-agls,Assoc Prof,F,2017,100-150K,1
+gdcb-agls,Assoc Prof,F,2018,50-100K,1
+gdcb-agls,Assoc Prof,F,2018,100-150K,1
+gdcb-agls,Assoc Prof,M,2011,50-100K,3
+gdcb-agls,Assoc Prof,M,2012,50-100K,3
+gdcb-agls,Assoc Prof,M,2013,50-100K,3
+gdcb-agls,Assoc Prof,M,2014,50-100K,3
+gdcb-agls,Assoc Prof,M,2015,50-100K,3
+gdcb-agls,Assoc Prof,M,2016,50-100K,3
+gdcb-agls,Assoc Prof,M,2017,50-100K,1
+gdcb-agls,Assoc Prof,M,2018,50-100K,1
+gdcb-agls,Full Prof,M,2011,50-100K,2
+gdcb-agls,Full Prof,M,2011,100-150K,3
+gdcb-agls,Full Prof,M,2012,100-150K,5
+gdcb-agls,Full Prof,M,2013,100-150K,5
+gdcb-agls,Full Prof,M,2014,100-150K,4
+gdcb-agls,Full Prof,M,2015,100-150K,4
+gdcb-agls,Full Prof,M,2016,100-150K,4
+gdcb-agls,Full Prof,M,2017,100-150K,6
+gdcb-agls,Full Prof,M,2018,100-150K,5
+gdcb-agls,Named Prof,M,2014,100-150K,1
+gdcb-agls,Named Prof,M,2015,100-150K,1
+gdcb-agls,Named Prof,M,2016,>150K,1
+gdcb-agls,Named Prof,M,2017,>150K,1
+gdcb-agls,Named Prof,M,2018,>150K,1
+gdcb-las,Asst Prof,F,2011,50-100K,1
+gdcb-las,Asst Prof,F,2012,50-100K,1
+gdcb-las,Asst Prof,F,2013,50-100K,1
+gdcb-las,Asst Prof,F,2014,50-100K,1
+gdcb-las,Asst Prof,F,2015,50-100K,2
+gdcb-las,Asst Prof,F,2016,50-100K,2
+gdcb-las,Asst Prof,F,2017,50-100K,2
+gdcb-las,Asst Prof,F,2018,50-100K,1
+gdcb-las,Asst Prof,M,2011,50-100K,3
+gdcb-las,Asst Prof,M,2012,50-100K,3
+gdcb-las,Asst Prof,M,2013,50-100K,3
+gdcb-las,Asst Prof,M,2014,50-100K,3
+gdcb-las,Asst Prof,M,2015,50-100K,3
+gdcb-las,Asst Prof,M,2016,50-100K,4
+gdcb-las,Asst Prof,M,2017,50-100K,3
+gdcb-las,Asst Prof,M,2018,50-100K,2
+gdcb-las,Assoc Prof,F,2011,50-100K,1
+gdcb-las,Assoc Prof,M,2011,50-100K,2
+gdcb-las,Assoc Prof,M,2012,50-100K,2
+gdcb-las,Assoc Prof,M,2013,50-100K,3
+gdcb-las,Assoc Prof,M,2014,50-100K,3
+gdcb-las,Assoc Prof,M,2015,50-100K,2
+gdcb-las,Assoc Prof,M,2016,50-100K,2
+gdcb-las,Assoc Prof,M,2017,50-100K,2
+gdcb-las,Assoc Prof,M,2018,50-100K,1
+gdcb-las,Full Prof,F,2011,100-150K,2
+gdcb-las,Full Prof,F,2012,50-100K,1
+gdcb-las,Full Prof,F,2012,100-150K,2
+gdcb-las,Full Prof,F,2013,50-100K,1
+gdcb-las,Full Prof,F,2013,100-150K,2
+gdcb-las,Full Prof,F,2014,100-150K,3
+gdcb-las,Full Prof,F,2015,100-150K,2
+gdcb-las,Full Prof,F,2016,100-150K,1
+gdcb-las,Full Prof,F,2016,>150K,1
+gdcb-las,Full Prof,F,2017,100-150K,1
+gdcb-las,Full Prof,F,2017,>150K,1
+gdcb-las,Full Prof,F,2018,100-150K,1
+gdcb-las,Full Prof,F,2018,>150K,1
+gdcb-las,Full Prof,M,2011,100-150K,1
+gdcb-las,Full Prof,M,2011,>150K,1
+gdcb-las,Full Prof,M,2012,100-150K,1
+gdcb-las,Full Prof,M,2012,>150K,1
+gdcb-las,Full Prof,M,2013,100-150K,1
+gdcb-las,Full Prof,M,2013,>150K,1
+gdcb-las,Full Prof,M,2014,100-150K,1
+gdcb-las,Full Prof,M,2014,>150K,1
+gdcb-las,Full Prof,M,2015,50-100K,1
+gdcb-las,Full Prof,M,2015,100-150K,1
+gdcb-las,Full Prof,M,2016,100-150K,2
+gdcb-las,Full Prof,M,2017,100-150K,2
+gdcb-las,Full Prof,M,2018,100-150K,1
+gdcb-las,Named Prof,F,2015,100-150K,1
+gdcb-las,Named Prof,F,2016,100-150K,1
+gdcb-las,Named Prof,F,2017,100-150K,1
+gdcb-las,Named Prof,F,2018,100-150K,1
+gdcb-las,Named Prof,M,2011,100-150K,1
+gdcb-las,Named Prof,M,2011,>150K,1
+gdcb-las,Named Prof,M,2012,100-150K,1
+gdcb-las,Named Prof,M,2013,100-150K,1
+gdcb-las,Named Prof,M,2014,100-150K,1
+gdcb-las,Named Prof,M,2015,100-150K,1
+gdcb-las,Named Prof,M,2015,>150K,1
+gdcb-las,Named Prof,M,2016,100-150K,1
+gdcb-las,Named Prof,M,2016,>150K,1
+gdcb-las,Named Prof,M,2017,100-150K,1
+gdcb-las,Named Prof,M,2017,>150K,1
+gdcb-las,Named Prof,M,2018,100-150K,1
+gdcb-las,Named Prof,M,2018,>150K,1
+geol/atmosph sc,Asst Prof,F,2011,50-100K,1
+geol/atmosph sc,Asst Prof,F,2013,50-100K,1
+geol/atmosph sc,Asst Prof,F,2014,50-100K,1
+geol/atmosph sc,Asst Prof,F,2015,50-100K,1
+geol/atmosph sc,Asst Prof,F,2016,50-100K,2
+geol/atmosph sc,Asst Prof,F,2017,50-100K,2
+geol/atmosph sc,Asst Prof,F,2018,50-100K,2
+geol/atmosph sc,Asst Prof,M,2011,50-100K,1
+geol/atmosph sc,Asst Prof,M,2012,50-100K,1
+geol/atmosph sc,Asst Prof,M,2013,50-100K,2
+geol/atmosph sc,Asst Prof,M,2014,50-100K,2
+geol/atmosph sc,Asst Prof,M,2015,50-100K,1
+geol/atmosph sc,Asst Prof,M,2016,50-100K,2
+geol/atmosph sc,Asst Prof,M,2017,50-100K,2
+geol/atmosph sc,Asst Prof,M,2018,50-100K,1
+geol/atmosph sc,Assoc Prof,F,2012,50-100K,1
+geol/atmosph sc,Assoc Prof,F,2013,50-100K,1
+geol/atmosph sc,Assoc Prof,F,2014,50-100K,1
+geol/atmosph sc,Assoc Prof,F,2015,50-100K,1
+geol/atmosph sc,Assoc Prof,F,2016,50-100K,1
+geol/atmosph sc,Assoc Prof,F,2017,50-100K,1
+geol/atmosph sc,Assoc Prof,F,2018,50-100K,1
+geol/atmosph sc,Assoc Prof,M,2011,50-100K,1
+geol/atmosph sc,Assoc Prof,M,2012,50-100K,1
+geol/atmosph sc,Assoc Prof,M,2013,50-100K,1
+geol/atmosph sc,Assoc Prof,M,2014,50-100K,1
+geol/atmosph sc,Assoc Prof,M,2015,50-100K,2
+geol/atmosph sc,Assoc Prof,M,2016,50-100K,2
+geol/atmosph sc,Assoc Prof,M,2017,50-100K,2
+geol/atmosph sc,Assoc Prof,M,2018,50-100K,2
+geol/atmosph sc,Full Prof,F,2011,50-100K,1
+geol/atmosph sc,Full Prof,F,2012,50-100K,1
+geol/atmosph sc,Full Prof,F,2013,50-100K,1
+geol/atmosph sc,Full Prof,M,2011,50-100K,7
+geol/atmosph sc,Full Prof,M,2012,50-100K,7
+geol/atmosph sc,Full Prof,M,2013,50-100K,6
+geol/atmosph sc,Full Prof,M,2013,100-150K,1
+geol/atmosph sc,Full Prof,M,2014,50-100K,2
+geol/atmosph sc,Full Prof,M,2014,100-150K,5
+geol/atmosph sc,Full Prof,M,2015,50-100K,2
+geol/atmosph sc,Full Prof,M,2015,100-150K,4
+geol/atmosph sc,Full Prof,M,2016,50-100K,2
+geol/atmosph sc,Full Prof,M,2016,100-150K,3
+geol/atmosph sc,Full Prof,M,2017,50-100K,2
+geol/atmosph sc,Full Prof,M,2017,100-150K,4
+geol/atmosph sc,Full Prof,M,2018,50-100K,2
+geol/atmosph sc,Full Prof,M,2018,100-150K,5
+geol/atmosph sc,Named Prof,M,2011,100-150K,1
+geol/atmosph sc,Named Prof,M,2012,100-150K,1
+geol/atmosph sc,Named Prof,M,2013,100-150K,1
+geol/atmosph sc,Named Prof,M,2014,100-150K,1
+geol/atmosph sc,Named Prof,M,2015,100-150K,1
+geol/atmosph sc,Named Prof,M,2016,100-150K,1
+geol/atmosph sc,Named Prof,M,2018,100-150K,1
+grad college,Asst Prof,F,2015,50-100K,1
+grad college,Asst Prof,F,2016,50-100K,1
+grad college,Asst Prof,F,2017,50-100K,1
+grad college,Asst Prof,F,2018,50-100K,1
+graphic dsn,Asst Prof,F,2012,50-100K,1
+graphic dsn,Asst Prof,F,2013,50-100K,1
+graphic dsn,Asst Prof,F,2014,50-100K,1
+graphic dsn,Asst Prof,F,2015,50-100K,1
+graphic dsn,Asst Prof,F,2016,50-100K,1
+graphic dsn,Asst Prof,F,2017,50-100K,1
+graphic dsn,Asst Prof,M,2013,50-100K,1
+graphic dsn,Asst Prof,M,2014,50-100K,1
+graphic dsn,Asst Prof,M,2015,50-100K,1
+graphic dsn,Asst Prof,M,2016,50-100K,2
+graphic dsn,Asst Prof,M,2017,50-100K,2
+graphic dsn,Assoc Prof,F,2012,50-100K,5
+graphic dsn,Assoc Prof,F,2013,50-100K,3
+graphic dsn,Assoc Prof,F,2014,50-100K,3
+graphic dsn,Assoc Prof,F,2015,50-100K,3
+graphic dsn,Assoc Prof,F,2016,50-100K,3
+graphic dsn,Assoc Prof,F,2017,50-100K,3
+graphic dsn,Assoc Prof,F,2018,50-100K,4
+graphic dsn,Assoc Prof,M,2012,50-100K,3
+graphic dsn,Assoc Prof,M,2013,50-100K,3
+graphic dsn,Assoc Prof,M,2014,50-100K,3
+graphic dsn,Assoc Prof,M,2015,50-100K,3
+graphic dsn,Assoc Prof,M,2016,50-100K,3
+graphic dsn,Assoc Prof,M,2017,50-100K,3
+graphic dsn,Assoc Prof,M,2018,50-100K,4
+graphic dsn,Full Prof,F,2013,50-100K,1
+graphic dsn,Full Prof,F,2014,50-100K,1
+graphic dsn,Full Prof,F,2015,50-100K,1
+graphic dsn,Full Prof,F,2016,50-100K,1
+graphic dsn,Full Prof,F,2018,50-100K,1
+graphic dsn,Full Prof,M,2012,100-150K,1
+graphic dsn,Full Prof,M,2013,100-150K,1
+graphic dsn,Full Prof,M,2014,100-150K,1
+greenlee jrn/cm,Asst Prof,F,2011,50-100K,1
+greenlee jrn/cm,Asst Prof,F,2012,50-100K,1
+greenlee jrn/cm,Asst Prof,F,2013,50-100K,3
+greenlee jrn/cm,Asst Prof,F,2014,50-100K,2
+greenlee jrn/cm,Asst Prof,F,2015,50-100K,4
+greenlee jrn/cm,Asst Prof,F,2016,50-100K,5
+greenlee jrn/cm,Asst Prof,F,2017,50-100K,5
+greenlee jrn/cm,Asst Prof,F,2018,50-100K,3
+greenlee jrn/cm,Asst Prof,M,2011,50-100K,3
+greenlee jrn/cm,Asst Prof,M,2012,50-100K,2
+greenlee jrn/cm,Asst Prof,M,2013,50-100K,2
+greenlee jrn/cm,Asst Prof,M,2014,50-100K,1
+greenlee jrn/cm,Asst Prof,M,2015,50-100K,1
+greenlee jrn/cm,Asst Prof,M,2016,50-100K,1
+greenlee jrn/cm,Asst Prof,M,2017,50-100K,1
+greenlee jrn/cm,Assoc Prof,F,2011,50-100K,2
+greenlee jrn/cm,Assoc Prof,F,2012,50-100K,1
+greenlee jrn/cm,Assoc Prof,F,2013,50-100K,1
+greenlee jrn/cm,Assoc Prof,F,2015,50-100K,1
+greenlee jrn/cm,Assoc Prof,F,2016,50-100K,1
+greenlee jrn/cm,Assoc Prof,F,2018,50-100K,1
+greenlee jrn/cm,Assoc Prof,M,2011,50-100K,5
+greenlee jrn/cm,Assoc Prof,M,2012,50-100K,5
+greenlee jrn/cm,Assoc Prof,M,2013,50-100K,4
+greenlee jrn/cm,Assoc Prof,M,2014,50-100K,5
+greenlee jrn/cm,Assoc Prof,M,2015,50-100K,6
+greenlee jrn/cm,Assoc Prof,M,2016,50-100K,6
+greenlee jrn/cm,Assoc Prof,M,2017,50-100K,5
+greenlee jrn/cm,Assoc Prof,M,2018,50-100K,5
+greenlee jrn/cm,Full Prof,F,2011,<50K,1
+greenlee jrn/cm,Full Prof,F,2011,50-100K,1
+greenlee jrn/cm,Full Prof,F,2012,<50K,1
+greenlee jrn/cm,Full Prof,F,2012,50-100K,1
+greenlee jrn/cm,Full Prof,F,2013,<50K,1
+greenlee jrn/cm,Full Prof,F,2014,<50K,1
+greenlee jrn/cm,Full Prof,F,2014,50-100K,1
+greenlee jrn/cm,Full Prof,F,2015,50-100K,1
+greenlee jrn/cm,Full Prof,F,2016,50-100K,1
+greenlee jrn/cm,Full Prof,F,2017,50-100K,1
+greenlee jrn/cm,Full Prof,F,2018,50-100K,1
+greenlee jrn/cm,Full Prof,M,2011,50-100K,2
+greenlee jrn/cm,Full Prof,M,2012,50-100K,2
+greenlee jrn/cm,Full Prof,M,2013,50-100K,1
+greenlee jrn/cm,Full Prof,M,2014,50-100K,1
+greenlee jrn/cm,Full Prof,M,2017,100-150K,1
+greenlee jrn/cm,Full Prof,M,2018,100-150K,1
+history,Asst Prof,F,2011,50-100K,3
+history,Asst Prof,F,2012,50-100K,3
+history,Asst Prof,F,2013,50-100K,3
+history,Asst Prof,F,2014,50-100K,2
+history,Asst Prof,F,2015,50-100K,1
+history,Asst Prof,F,2016,50-100K,1
+history,Asst Prof,F,2017,50-100K,1
+history,Asst Prof,F,2018,50-100K,1
+history,Asst Prof,M,2011,50-100K,3
+history,Asst Prof,M,2012,50-100K,4
+history,Asst Prof,M,2013,50-100K,2
+history,Asst Prof,M,2014,50-100K,2
+history,Asst Prof,M,2015,50-100K,2
+history,Asst Prof,M,2016,50-100K,4
+history,Asst Prof,M,2017,50-100K,3
+history,Asst Prof,M,2018,50-100K,3
+history,Assoc Prof,F,2011,50-100K,1
+history,Assoc Prof,F,2012,50-100K,1
+history,Assoc Prof,F,2013,50-100K,1
+history,Assoc Prof,F,2014,50-100K,2
+history,Assoc Prof,F,2015,50-100K,2
+history,Assoc Prof,F,2016,50-100K,2
+history,Assoc Prof,F,2017,50-100K,2
+history,Assoc Prof,F,2018,50-100K,2
+history,Assoc Prof,M,2011,50-100K,3
+history,Assoc Prof,M,2012,50-100K,3
+history,Assoc Prof,M,2013,50-100K,4
+history,Assoc Prof,M,2014,50-100K,4
+history,Assoc Prof,M,2015,50-100K,4
+history,Assoc Prof,M,2016,50-100K,4
+history,Assoc Prof,M,2017,50-100K,5
+history,Assoc Prof,M,2018,50-100K,5
+history,Full Prof,F,2015,50-100K,1
+history,Full Prof,F,2016,50-100K,1
+history,Full Prof,F,2017,50-100K,2
+history,Full Prof,F,2018,50-100K,2
+history,Full Prof,M,2011,50-100K,4
+history,Full Prof,M,2012,50-100K,4
+history,Full Prof,M,2013,50-100K,2
+history,Full Prof,M,2014,50-100K,2
+history,Full Prof,M,2015,50-100K,1
+history,Full Prof,M,2016,50-100K,2
+history,Full Prof,M,2017,50-100K,2
+history,Full Prof,M,2018,50-100K,2
+history,Named Prof,M,2017,>150K,1
+history,Named Prof,M,2018,>150K,1
+horticulture,Asst Prof,F,2015,50-100K,1
+horticulture,Asst Prof,F,2016,50-100K,1
+horticulture,Asst Prof,F,2017,50-100K,1
+horticulture,Asst Prof,F,2018,50-100K,1
+horticulture,Asst Prof,M,2012,50-100K,1
+horticulture,Asst Prof,M,2013,50-100K,1
+horticulture,Asst Prof,M,2014,50-100K,2
+horticulture,Asst Prof,M,2015,50-100K,2
+horticulture,Asst Prof,M,2016,50-100K,2
+horticulture,Asst Prof,M,2017,50-100K,2
+horticulture,Asst Prof,M,2018,50-100K,2
+horticulture,Assoc Prof,F,2011,50-100K,1
+horticulture,Assoc Prof,F,2012,50-100K,1
+horticulture,Assoc Prof,F,2013,50-100K,1
+horticulture,Assoc Prof,F,2014,50-100K,1
+horticulture,Assoc Prof,F,2015,50-100K,1
+horticulture,Assoc Prof,F,2016,50-100K,1
+horticulture,Assoc Prof,F,2017,50-100K,1
+horticulture,Assoc Prof,F,2018,50-100K,1
+horticulture,Assoc Prof,M,2011,50-100K,3
+horticulture,Assoc Prof,M,2012,50-100K,2
+horticulture,Assoc Prof,M,2013,50-100K,1
+horticulture,Assoc Prof,M,2014,50-100K,1
+horticulture,Assoc Prof,M,2015,50-100K,1
+horticulture,Assoc Prof,M,2016,50-100K,1
+horticulture,Assoc Prof,M,2017,50-100K,2
+horticulture,Assoc Prof,M,2018,50-100K,1
+horticulture,Full Prof,F,2011,100-150K,1
+horticulture,Full Prof,F,2012,100-150K,1
+horticulture,Full Prof,F,2013,100-150K,1
+horticulture,Full Prof,F,2014,100-150K,1
+horticulture,Full Prof,F,2015,100-150K,1
+horticulture,Full Prof,F,2016,100-150K,1
+horticulture,Full Prof,F,2017,100-150K,1
+horticulture,Full Prof,F,2018,100-150K,1
+horticulture,Full Prof,M,2011,50-100K,1
+horticulture,Full Prof,M,2011,100-150K,3
+horticulture,Full Prof,M,2012,50-100K,1
+horticulture,Full Prof,M,2012,100-150K,3
+horticulture,Full Prof,M,2013,100-150K,3
+horticulture,Full Prof,M,2014,100-150K,3
+horticulture,Full Prof,M,2015,100-150K,3
+horticulture,Full Prof,M,2016,100-150K,3
+horticulture,Full Prof,M,2017,100-150K,3
+horticulture,Full Prof,M,2018,50-100K,1
+horticulture,Full Prof,M,2018,100-150K,3
+horticulture,Named Prof,F,2011,100-150K,1
+horticulture,Named Prof,F,2012,100-150K,1
+horticulture,Named Prof,M,2011,100-150K,2
+horticulture,Named Prof,M,2012,100-150K,2
+horticulture,Named Prof,M,2013,100-150K,2
+horticulture,Named Prof,M,2014,100-150K,2
+horticulture,Named Prof,M,2015,100-150K,2
+horticulture,Named Prof,M,2016,>150K,2
+horticulture,Named Prof,M,2017,>150K,2
+horticulture,Named Prof,M,2018,>150K,2
+human dv/fam st,Asst Prof,F,2011,50-100K,2
+human dv/fam st,Asst Prof,F,2012,50-100K,1
+human dv/fam st,Asst Prof,F,2013,50-100K,1
+human dv/fam st,Asst Prof,F,2014,50-100K,5
+human dv/fam st,Asst Prof,F,2015,50-100K,7
+human dv/fam st,Asst Prof,F,2016,<50K,1
+human dv/fam st,Asst Prof,F,2016,50-100K,6
+human dv/fam st,Asst Prof,F,2017,50-100K,7
+human dv/fam st,Asst Prof,F,2018,50-100K,7
+human dv/fam st,Asst Prof,M,2011,50-100K,1
+human dv/fam st,Asst Prof,M,2012,50-100K,2
+human dv/fam st,Asst Prof,M,2013,50-100K,3
+human dv/fam st,Asst Prof,M,2014,50-100K,2
+human dv/fam st,Asst Prof,M,2015,50-100K,2
+human dv/fam st,Asst Prof,M,2016,50-100K,2
+human dv/fam st,Asst Prof,M,2017,50-100K,1
+human dv/fam st,Asst Prof,M,2018,50-100K,1
+human dv/fam st,Assoc Prof,F,2011,50-100K,6
+human dv/fam st,Assoc Prof,F,2011,NA,2
+human dv/fam st,Assoc Prof,F,2012,50-100K,7
+human dv/fam st,Assoc Prof,F,2012,NA,1
+human dv/fam st,Assoc Prof,F,2013,50-100K,6
+human dv/fam st,Assoc Prof,F,2014,50-100K,5
+human dv/fam st,Assoc Prof,F,2015,50-100K,5
+human dv/fam st,Assoc Prof,F,2016,50-100K,4
+human dv/fam st,Assoc Prof,F,2017,50-100K,5
+human dv/fam st,Assoc Prof,F,2018,50-100K,5
+human dv/fam st,Assoc Prof,F,2018,100-150K,1
+human dv/fam st,Assoc Prof,M,2017,50-100K,1
+human dv/fam st,Assoc Prof,M,2018,50-100K,1
+human dv/fam st,Full Prof,F,2011,50-100K,1
+human dv/fam st,Full Prof,F,2011,100-150K,1
+human dv/fam st,Full Prof,F,2012,50-100K,1
+human dv/fam st,Full Prof,F,2012,100-150K,1
+human dv/fam st,Full Prof,F,2013,100-150K,1
+human dv/fam st,Full Prof,F,2013,>150K,1
+human dv/fam st,Full Prof,F,2014,100-150K,1
+human dv/fam st,Full Prof,F,2015,100-150K,1
+human dv/fam st,Full Prof,F,2016,100-150K,2
+human dv/fam st,Full Prof,F,2017,100-150K,3
+human dv/fam st,Full Prof,F,2018,100-150K,2
+human dv/fam st,Full Prof,M,2011,100-150K,2
+human dv/fam st,Full Prof,M,2012,100-150K,2
+human dv/fam st,Full Prof,M,2013,100-150K,3
+human dv/fam st,Full Prof,M,2014,100-150K,3
+human dv/fam st,Full Prof,M,2015,100-150K,3
+human dv/fam st,Full Prof,M,2016,100-150K,2
+human dv/fam st,Full Prof,M,2017,100-150K,2
+human dv/fam st,Full Prof,M,2018,100-150K,2
+human dv/fam st,Named Prof,M,2016,100-150K,1
+human dv/fam st,Named Prof,M,2016,>150K,1
+human dv/fam st,Named Prof,M,2017,100-150K,1
+human dv/fam st,Named Prof,M,2017,>150K,1
+human dv/fam st,Named Prof,M,2018,100-150K,1
+human dv/fam st,Named Prof,M,2018,>150K,1
+human sci ext,Assoc Prof,F,2013,<50K,1
+ia st rs farms,Full Prof,M,2012,100-150K,1
+ia st rs farms,Full Prof,M,2013,100-150K,1
+ia st rs farms,Full Prof,M,2014,>150K,1
+ia st rs farms,Full Prof,M,2015,>150K,1
+ia st rs farms,Full Prof,M,2016,>150K,1
+ind/mfr sys eng,Asst Prof,F,2011,50-100K,1
+ind/mfr sys eng,Asst Prof,F,2012,50-100K,1
+ind/mfr sys eng,Asst Prof,F,2013,50-100K,1
+ind/mfr sys eng,Asst Prof,F,2014,50-100K,2
+ind/mfr sys eng,Asst Prof,F,2015,50-100K,2
+ind/mfr sys eng,Asst Prof,F,2016,50-100K,1
+ind/mfr sys eng,Asst Prof,M,2011,50-100K,2
+ind/mfr sys eng,Asst Prof,M,2012,50-100K,2
+ind/mfr sys eng,Asst Prof,M,2012,100-150K,1
+ind/mfr sys eng,Asst Prof,M,2013,50-100K,1
+ind/mfr sys eng,Asst Prof,M,2013,100-150K,1
+ind/mfr sys eng,Asst Prof,M,2014,100-150K,1
+ind/mfr sys eng,Asst Prof,M,2015,50-100K,1
+ind/mfr sys eng,Asst Prof,M,2015,100-150K,1
+ind/mfr sys eng,Asst Prof,M,2016,50-100K,2
+ind/mfr sys eng,Asst Prof,M,2016,100-150K,1
+ind/mfr sys eng,Asst Prof,M,2017,50-100K,1
+ind/mfr sys eng,Asst Prof,M,2017,100-150K,1
+ind/mfr sys eng,Asst Prof,M,2018,50-100K,2
+ind/mfr sys eng,Assoc Prof,F,2013,100-150K,1
+ind/mfr sys eng,Assoc Prof,F,2014,100-150K,1
+ind/mfr sys eng,Assoc Prof,F,2015,100-150K,1
+ind/mfr sys eng,Assoc Prof,F,2016,100-150K,2
+ind/mfr sys eng,Assoc Prof,F,2017,100-150K,2
+ind/mfr sys eng,Assoc Prof,F,2018,100-150K,1
+ind/mfr sys eng,Assoc Prof,M,2011,50-100K,4
+ind/mfr sys eng,Assoc Prof,M,2011,100-150K,3
+ind/mfr sys eng,Assoc Prof,M,2012,50-100K,2
+ind/mfr sys eng,Assoc Prof,M,2012,100-150K,4
+ind/mfr sys eng,Assoc Prof,M,2013,50-100K,1
+ind/mfr sys eng,Assoc Prof,M,2013,100-150K,7
+ind/mfr sys eng,Assoc Prof,M,2014,50-100K,2
+ind/mfr sys eng,Assoc Prof,M,2014,100-150K,6
+ind/mfr sys eng,Assoc Prof,M,2015,50-100K,2
+ind/mfr sys eng,Assoc Prof,M,2015,100-150K,5
+ind/mfr sys eng,Assoc Prof,M,2016,100-150K,8
+ind/mfr sys eng,Assoc Prof,M,2017,100-150K,8
+ind/mfr sys eng,Assoc Prof,M,2018,100-150K,9
+ind/mfr sys eng,Full Prof,F,2011,50-100K,1
+ind/mfr sys eng,Full Prof,F,2011,100-150K,1
+ind/mfr sys eng,Full Prof,F,2012,50-100K,1
+ind/mfr sys eng,Full Prof,F,2012,100-150K,1
+ind/mfr sys eng,Full Prof,F,2013,50-100K,1
+ind/mfr sys eng,Full Prof,F,2013,100-150K,1
+ind/mfr sys eng,Full Prof,F,2014,50-100K,1
+ind/mfr sys eng,Full Prof,F,2014,100-150K,1
+ind/mfr sys eng,Full Prof,F,2015,100-150K,1
+ind/mfr sys eng,Full Prof,F,2016,100-150K,1
+ind/mfr sys eng,Full Prof,F,2017,100-150K,1
+ind/mfr sys eng,Full Prof,F,2018,100-150K,1
+ind/mfr sys eng,Full Prof,M,2013,100-150K,1
+ind/mfr sys eng,Full Prof,M,2017,>150K,1
+ind/mfr sys eng,Full Prof,M,2018,>150K,1
+ind/mfr sys eng,Named Prof,F,2012,>150K,1
+ind/mfr sys eng,Named Prof,F,2013,>150K,1
+ind/mfr sys eng,Named Prof,F,2014,>150K,1
+indust design,Asst Prof,F,2012,50-100K,1
+indust design,Asst Prof,F,2013,50-100K,1
+indust design,Asst Prof,F,2014,50-100K,1
+indust design,Asst Prof,F,2016,50-100K,1
+indust design,Asst Prof,F,2017,50-100K,1
+indust design,Asst Prof,M,2013,50-100K,1
+indust design,Asst Prof,M,2014,50-100K,2
+indust design,Asst Prof,M,2015,50-100K,2
+indust design,Asst Prof,M,2016,50-100K,2
+indust design,Asst Prof,M,2017,50-100K,2
+indust design,Asst Prof,M,2018,50-100K,2
+indust design,Assoc Prof,F,2013,50-100K,1
+indust design,Assoc Prof,F,2014,50-100K,1
+indust design,Assoc Prof,F,2015,50-100K,1
+indust design,Assoc Prof,M,2017,100-150K,1
+indust design,Assoc Prof,M,2018,100-150K,1
+indust design,Named Prof,M,2012,50-100K,1
+indust design,Named Prof,M,2013,50-100K,1
+indust design,Named Prof,M,2014,100-150K,1
+indust design,Named Prof,M,2015,100-150K,1
+indust design,Named Prof,M,2016,100-150K,1
+indust design,Named Prof,M,2017,100-150K,1
+indust design,Named Prof,M,2018,100-150K,1
+interior dsn,Asst Prof,F,2012,<50K,1
+interior dsn,Asst Prof,F,2012,50-100K,1
+interior dsn,Asst Prof,F,2014,50-100K,3
+interior dsn,Asst Prof,F,2015,50-100K,3
+interior dsn,Asst Prof,F,2016,50-100K,3
+interior dsn,Asst Prof,F,2017,50-100K,2
+interior dsn,Asst Prof,F,2018,50-100K,1
+interior dsn,Assoc Prof,F,2012,50-100K,2
+interior dsn,Assoc Prof,F,2013,50-100K,3
+interior dsn,Assoc Prof,F,2014,50-100K,3
+interior dsn,Assoc Prof,F,2015,50-100K,3
+interior dsn,Assoc Prof,F,2016,50-100K,3
+interior dsn,Assoc Prof,F,2017,50-100K,1
+interior dsn,Assoc Prof,F,2018,50-100K,1
+interior dsn,Assoc Prof,M,2012,50-100K,1
+interior dsn,Assoc Prof,M,2013,50-100K,1
+interior dsn,Assoc Prof,M,2014,50-100K,1
+interior dsn,Assoc Prof,M,2015,50-100K,1
+interior dsn,Assoc Prof,M,2016,50-100K,1
+interior dsn,Assoc Prof,M,2017,50-100K,1
+interior dsn,Named Prof,M,2012,50-100K,1
+interior dsn,Named Prof,M,2013,50-100K,1
+interior dsn,Named Prof,M,2014,50-100K,1
+interior dsn,Named Prof,M,2015,100-150K,1
+interior dsn,Named Prof,M,2016,100-150K,1
+interior dsn,Named Prof,M,2017,100-150K,1
+interior dsn,Named Prof,M,2018,100-150K,1
+intrans,Assoc Prof,M,2014,100-150K,1
+intrans,Full Prof,M,2012,100-150K,1
+intrans,Full Prof,M,2016,<50K,1
+it services acd,Full Prof,M,2011,100-150K,1
+it services acd,Full Prof,M,2012,100-150K,1
+kinesiology,Asst Prof,F,2011,50-100K,3
+kinesiology,Asst Prof,F,2012,50-100K,2
+kinesiology,Asst Prof,F,2013,50-100K,2
+kinesiology,Asst Prof,F,2014,50-100K,2
+kinesiology,Asst Prof,F,2015,50-100K,3
+kinesiology,Asst Prof,F,2016,50-100K,3
+kinesiology,Asst Prof,F,2017,50-100K,2
+kinesiology,Asst Prof,F,2018,50-100K,1
+kinesiology,Asst Prof,M,2011,<50K,1
+kinesiology,Asst Prof,M,2011,50-100K,1
+kinesiology,Asst Prof,M,2012,<50K,1
+kinesiology,Asst Prof,M,2012,50-100K,1
+kinesiology,Asst Prof,M,2013,<50K,1
+kinesiology,Asst Prof,M,2013,50-100K,1
+kinesiology,Asst Prof,M,2014,<50K,1
+kinesiology,Asst Prof,M,2014,50-100K,1
+kinesiology,Asst Prof,M,2015,<50K,1
+kinesiology,Asst Prof,M,2015,50-100K,3
+kinesiology,Asst Prof,M,2016,<50K,1
+kinesiology,Asst Prof,M,2016,50-100K,2
+kinesiology,Asst Prof,M,2017,<50K,1
+kinesiology,Asst Prof,M,2017,50-100K,1
+kinesiology,Asst Prof,M,2018,<50K,1
+kinesiology,Asst Prof,M,2018,50-100K,4
+kinesiology,Assoc Prof,F,2017,50-100K,1
+kinesiology,Assoc Prof,F,2018,50-100K,1
+kinesiology,Assoc Prof,M,2011,50-100K,1
+kinesiology,Assoc Prof,M,2012,50-100K,1
+kinesiology,Assoc Prof,M,2013,50-100K,1
+kinesiology,Assoc Prof,M,2014,50-100K,1
+kinesiology,Assoc Prof,M,2015,50-100K,1
+kinesiology,Assoc Prof,M,2016,50-100K,1
+kinesiology,Assoc Prof,M,2017,50-100K,1
+kinesiology,Assoc Prof,M,2018,50-100K,1
+kinesiology,Full Prof,F,2011,50-100K,1
+kinesiology,Full Prof,F,2012,50-100K,1
+kinesiology,Full Prof,F,2013,100-150K,1
+kinesiology,Full Prof,F,2014,100-150K,1
+kinesiology,Full Prof,F,2015,100-150K,1
+kinesiology,Full Prof,F,2016,100-150K,1
+kinesiology,Full Prof,F,2017,100-150K,1
+kinesiology,Full Prof,F,2018,100-150K,1
+kinesiology,Full Prof,M,2011,50-100K,5
+kinesiology,Full Prof,M,2012,50-100K,5
+kinesiology,Full Prof,M,2013,50-100K,5
+kinesiology,Full Prof,M,2014,50-100K,2
+kinesiology,Full Prof,M,2014,100-150K,3
+kinesiology,Full Prof,M,2015,50-100K,2
+kinesiology,Full Prof,M,2015,100-150K,3
+kinesiology,Full Prof,M,2016,50-100K,1
+kinesiology,Full Prof,M,2016,100-150K,4
+kinesiology,Full Prof,M,2017,50-100K,1
+kinesiology,Full Prof,M,2017,100-150K,4
+kinesiology,Full Prof,M,2018,50-100K,1
+kinesiology,Full Prof,M,2018,100-150K,4
+kinesiology,Named Prof,M,2011,>150K,1
+kinesiology,Named Prof,M,2012,>150K,1
+kinesiology,Named Prof,M,2013,>150K,1
+kinesiology,Named Prof,M,2014,>150K,1
+kinesiology,Named Prof,M,2015,>150K,1
+kinesiology,Named Prof,M,2016,>150K,1
+kinesiology,Named Prof,M,2017,>150K,1
+kinesiology,Named Prof,M,2018,>150K,1
+lab animal rsrc,Named Prof,M,2011,NA,1
+lab animal rsrc,Named Prof,M,2012,NA,1
+landscape arch,Asst Prof,F,2011,50-100K,1
+landscape arch,Asst Prof,F,2012,50-100K,2
+landscape arch,Asst Prof,F,2013,50-100K,3
+landscape arch,Asst Prof,F,2014,50-100K,3
+landscape arch,Asst Prof,F,2015,50-100K,3
+landscape arch,Asst Prof,F,2016,50-100K,3
+landscape arch,Asst Prof,F,2017,50-100K,2
+landscape arch,Asst Prof,F,2018,50-100K,2
+landscape arch,Asst Prof,M,2012,50-100K,1
+landscape arch,Asst Prof,M,2013,50-100K,1
+landscape arch,Asst Prof,M,2014,50-100K,1
+landscape arch,Asst Prof,M,2015,50-100K,1
+landscape arch,Asst Prof,M,2016,50-100K,1
+landscape arch,Asst Prof,M,2017,50-100K,1
+landscape arch,Asst Prof,M,2018,50-100K,1
+landscape arch,Assoc Prof,F,2011,<50K,1
+landscape arch,Assoc Prof,F,2011,50-100K,2
+landscape arch,Assoc Prof,F,2012,<50K,1
+landscape arch,Assoc Prof,F,2012,50-100K,2
+landscape arch,Assoc Prof,F,2013,<50K,1
+landscape arch,Assoc Prof,F,2013,50-100K,2
+landscape arch,Assoc Prof,F,2014,<50K,1
+landscape arch,Assoc Prof,F,2014,50-100K,2
+landscape arch,Assoc Prof,F,2015,50-100K,2
+landscape arch,Assoc Prof,F,2016,50-100K,2
+landscape arch,Assoc Prof,F,2017,50-100K,3
+landscape arch,Assoc Prof,F,2018,50-100K,3
+landscape arch,Assoc Prof,M,2011,50-100K,2
+landscape arch,Assoc Prof,M,2012,50-100K,2
+landscape arch,Assoc Prof,M,2013,50-100K,2
+landscape arch,Assoc Prof,M,2014,50-100K,1
+landscape arch,Assoc Prof,M,2014,100-150K,1
+landscape arch,Assoc Prof,M,2015,50-100K,1
+landscape arch,Assoc Prof,M,2015,100-150K,1
+landscape arch,Assoc Prof,M,2016,100-150K,1
+landscape arch,Full Prof,F,2011,<50K,1
+landscape arch,Full Prof,F,2012,<50K,1
+landscape arch,Full Prof,F,2013,50-100K,1
+landscape arch,Full Prof,F,2014,50-100K,1
+landscape arch,Full Prof,F,2015,50-100K,2
+landscape arch,Full Prof,F,2016,100-150K,2
+landscape arch,Full Prof,F,2017,100-150K,2
+landscape arch,Full Prof,F,2018,100-150K,2
+landscape arch,Full Prof,M,2011,50-100K,1
+landscape arch,Full Prof,M,2011,100-150K,1
+landscape arch,Full Prof,M,2017,100-150K,1
+landscape arch,Full Prof,M,2018,100-150K,1
+landscape arch,Named Prof,M,2015,100-150K,1
+lbrl art/sc adm,Full Prof,M,2011,100-150K,1
+lbrl art/sc adm,Full Prof,M,2012,100-150K,1
+lbrl art/sc adm,Full Prof,M,2012,>150K,1
+lbrl art/sc adm,Full Prof,M,2013,100-150K,1
+lbrl art/sc adm,Full Prof,M,2014,100-150K,1
+lbrl art/sc adm,Full Prof,M,2015,100-150K,1
+lbrl art/sc adm,Full Prof,M,2016,100-150K,1
+lbrl art/sc adm,Full Prof,M,2017,100-150K,1
+lbrl art/sc adm,Full Prof,M,2018,100-150K,1
+lbrl art/sc cds,Assoc Prof,M,2011,50-100K,1
+lbrl art/sc cds,Assoc Prof,M,2012,50-100K,1
+lbrl art/sc cds,Assoc Prof,M,2013,50-100K,1
+lbrl art/sc cds,Assoc Prof,M,2014,50-100K,1
+lbrl art/sc cds,Assoc Prof,M,2015,50-100K,1
+lbrl art/sc cds,Assoc Prof,M,2016,50-100K,1
+lbrl art/sc cds,Assoc Prof,M,2017,50-100K,1
+lbrl art/sc cds,Assoc Prof,M,2018,50-100K,1
+lbrl art/sc cds,Full Prof,M,2011,50-100K,1
+lbrl art/sc cds,Full Prof,M,2012,50-100K,1
+lbrl art/sc cds,Full Prof,M,2013,50-100K,1
+lbrl art/sc cds,Full Prof,M,2014,50-100K,1
+library,Asst Prof,F,2011,<50K,2
+library,Asst Prof,F,2011,50-100K,2
+library,Asst Prof,F,2012,<50K,1
+library,Asst Prof,F,2012,50-100K,3
+library,Asst Prof,F,2013,50-100K,2
+library,Asst Prof,F,2014,50-100K,2
+library,Asst Prof,F,2015,50-100K,1
+library,Asst Prof,F,2016,50-100K,1
+library,Asst Prof,F,2017,50-100K,1
+library,Asst Prof,F,2018,50-100K,1
+library,Asst Prof,M,2011,50-100K,2
+library,Asst Prof,M,2012,50-100K,1
+library,Assoc Prof,F,2011,<50K,1
+library,Assoc Prof,F,2011,50-100K,9
+library,Assoc Prof,F,2012,50-100K,9
+library,Assoc Prof,F,2013,50-100K,7
+library,Assoc Prof,F,2014,50-100K,6
+library,Assoc Prof,F,2015,50-100K,4
+library,Assoc Prof,F,2016,50-100K,4
+library,Assoc Prof,F,2017,50-100K,3
+library,Assoc Prof,F,2018,50-100K,1
+library,Assoc Prof,M,2011,50-100K,5
+library,Assoc Prof,M,2012,50-100K,5
+library,Assoc Prof,M,2013,50-100K,5
+library,Assoc Prof,M,2014,<50K,1
+library,Assoc Prof,M,2014,50-100K,1
+library,Full Prof,F,2011,NA,1
+library,Full Prof,F,2015,>150K,1
+library,Full Prof,F,2018,50-100K,1
+library,Full Prof,M,2011,50-100K,1
+library,Full Prof,M,2012,50-100K,1
+library,Full Prof,M,2013,50-100K,1
+library,Full Prof,M,2014,50-100K,1
+library,Full Prof,M,2015,50-100K,2
+library,Full Prof,M,2016,50-100K,2
+library,Full Prof,M,2017,50-100K,2
+library,Full Prof,M,2018,50-100K,2
+management,Asst Prof,F,2011,100-150K,1
+management,Asst Prof,F,2014,100-150K,1
+management,Asst Prof,F,2015,100-150K,1
+management,Asst Prof,F,2016,100-150K,1
+management,Asst Prof,F,2017,100-150K,1
+management,Asst Prof,F,2018,100-150K,1
+management,Asst Prof,F,2018,>150K,1
+management,Asst Prof,M,2011,100-150K,2
+management,Asst Prof,M,2012,100-150K,2
+management,Asst Prof,M,2013,100-150K,2
+management,Asst Prof,M,2014,100-150K,2
+management,Asst Prof,M,2015,100-150K,1
+management,Asst Prof,M,2016,100-150K,1
+management,Asst Prof,M,2017,100-150K,2
+management,Asst Prof,M,2017,>150K,1
+management,Asst Prof,M,2017,NA,1
+management,Asst Prof,M,2018,100-150K,1
+management,Asst Prof,M,2018,>150K,3
+management,Assoc Prof,F,2011,100-150K,1
+management,Assoc Prof,F,2012,100-150K,1
+management,Assoc Prof,F,2013,100-150K,1
+management,Assoc Prof,F,2014,100-150K,1
+management,Assoc Prof,F,2015,100-150K,1
+management,Assoc Prof,F,2016,100-150K,2
+management,Assoc Prof,F,2017,100-150K,1
+management,Assoc Prof,M,2011,100-150K,3
+management,Assoc Prof,M,2012,100-150K,3
+management,Assoc Prof,M,2013,100-150K,4
+management,Assoc Prof,M,2014,100-150K,4
+management,Assoc Prof,M,2014,>150K,1
+management,Assoc Prof,M,2015,100-150K,4
+management,Assoc Prof,M,2015,>150K,3
+management,Assoc Prof,M,2016,100-150K,1
+management,Assoc Prof,M,2016,>150K,5
+management,Assoc Prof,M,2017,100-150K,1
+management,Assoc Prof,M,2017,>150K,4
+management,Assoc Prof,M,2018,100-150K,1
+management,Assoc Prof,M,2018,>150K,3
+management,Full Prof,F,2018,>150K,1
+management,Full Prof,M,2011,>150K,1
+management,Full Prof,M,2012,100-150K,2
+management,Full Prof,M,2012,>150K,1
+management,Full Prof,M,2013,>150K,2
+management,Full Prof,M,2014,>150K,2
+management,Named Prof,F,2011,>150K,1
+management,Named Prof,F,2012,>150K,1
+management,Named Prof,F,2013,50-100K,1
+management,Named Prof,F,2014,50-100K,1
+management,Named Prof,F,2015,50-100K,1
+management,Named Prof,M,2011,>150K,4
+management,Named Prof,M,2012,>150K,3
+management,Named Prof,M,2013,50-100K,1
+management,Named Prof,M,2013,>150K,2
+management,Named Prof,M,2014,100-150K,1
+management,Named Prof,M,2014,>150K,2
+management,Named Prof,M,2015,100-150K,1
+management,Named Prof,M,2015,>150K,1
+management,Named Prof,M,2016,>150K,1
+management,Named Prof,M,2017,>150K,2
+management,Named Prof,M,2018,>150K,2
+marketing,Asst Prof,F,2011,100-150K,3
+marketing,Asst Prof,F,2012,100-150K,3
+marketing,Asst Prof,F,2013,100-150K,2
+marketing,Asst Prof,F,2014,100-150K,3
+marketing,Asst Prof,F,2015,100-150K,2
+marketing,Asst Prof,F,2016,100-150K,2
+marketing,Asst Prof,F,2017,100-150K,1
+marketing,Asst Prof,F,2018,>150K,1
+marketing,Asst Prof,M,2011,100-150K,3
+marketing,Asst Prof,M,2012,100-150K,2
+marketing,Asst Prof,M,2013,100-150K,2
+marketing,Asst Prof,M,2014,100-150K,2
+marketing,Asst Prof,M,2015,100-150K,1
+marketing,Asst Prof,M,2015,>150K,1
+marketing,Asst Prof,M,2016,>150K,2
+marketing,Asst Prof,M,2017,>150K,2
+marketing,Asst Prof,M,2018,>150K,1
+marketing,Assoc Prof,F,2017,>150K,2
+marketing,Assoc Prof,F,2018,>150K,2
+marketing,Assoc Prof,M,2011,100-150K,1
+marketing,Assoc Prof,M,2011,>150K,1
+marketing,Assoc Prof,M,2012,100-150K,1
+marketing,Assoc Prof,M,2012,>150K,1
+marketing,Assoc Prof,M,2013,100-150K,1
+marketing,Assoc Prof,M,2013,>150K,1
+marketing,Assoc Prof,M,2014,100-150K,1
+marketing,Assoc Prof,M,2014,>150K,1
+marketing,Assoc Prof,M,2015,100-150K,1
+marketing,Assoc Prof,M,2015,>150K,1
+marketing,Assoc Prof,M,2016,100-150K,1
+marketing,Assoc Prof,M,2016,>150K,1
+marketing,Assoc Prof,M,2017,100-150K,1
+marketing,Assoc Prof,M,2017,>150K,1
+marketing,Assoc Prof,M,2018,>150K,2
+marketing,Full Prof,M,2011,100-150K,1
+marketing,Full Prof,M,2011,>150K,3
+marketing,Full Prof,M,2012,100-150K,1
+marketing,Full Prof,M,2012,>150K,2
+marketing,Full Prof,M,2013,100-150K,1
+marketing,Full Prof,M,2013,>150K,2
+marketing,Full Prof,M,2014,100-150K,1
+marketing,Full Prof,M,2014,>150K,2
+marketing,Full Prof,M,2015,100-150K,1
+marketing,Full Prof,M,2015,>150K,2
+marketing,Full Prof,M,2016,100-150K,1
+marketing,Full Prof,M,2016,>150K,3
+marketing,Full Prof,M,2017,100-150K,1
+marketing,Full Prof,M,2017,>150K,3
+marketing,Full Prof,M,2018,100-150K,1
+marketing,Full Prof,M,2018,>150K,3
+marketing,Named Prof,M,2012,>150K,1
+marketing,Named Prof,M,2013,>150K,1
+marketing,Named Prof,M,2014,>150K,1
+material sc/eng,Asst Prof,F,2012,50-100K,1
+material sc/eng,Asst Prof,F,2013,50-100K,1
+material sc/eng,Asst Prof,F,2014,50-100K,1
+material sc/eng,Asst Prof,F,2015,50-100K,1
+material sc/eng,Asst Prof,F,2016,50-100K,1
+material sc/eng,Asst Prof,M,2011,50-100K,1
+material sc/eng,Asst Prof,M,2012,50-100K,2
+material sc/eng,Asst Prof,M,2013,50-100K,2
+material sc/eng,Asst Prof,M,2014,50-100K,1
+material sc/eng,Asst Prof,M,2015,50-100K,2
+material sc/eng,Asst Prof,M,2016,50-100K,2
+material sc/eng,Asst Prof,M,2017,50-100K,4
+material sc/eng,Asst Prof,M,2018,50-100K,4
+material sc/eng,Assoc Prof,F,2011,50-100K,1
+material sc/eng,Assoc Prof,M,2011,50-100K,3
+material sc/eng,Assoc Prof,M,2012,50-100K,2
+material sc/eng,Assoc Prof,M,2012,100-150K,1
+material sc/eng,Assoc Prof,M,2013,50-100K,1
+material sc/eng,Assoc Prof,M,2014,50-100K,1
+material sc/eng,Assoc Prof,M,2016,100-150K,2
+material sc/eng,Assoc Prof,M,2017,100-150K,1
+material sc/eng,Assoc Prof,M,2017,>150K,1
+material sc/eng,Assoc Prof,M,2018,>150K,1
+material sc/eng,Full Prof,F,2011,100-150K,1
+material sc/eng,Full Prof,F,2012,100-150K,1
+material sc/eng,Full Prof,F,2013,100-150K,1
+material sc/eng,Full Prof,F,2014,100-150K,1
+material sc/eng,Full Prof,F,2014,>150K,1
+material sc/eng,Full Prof,F,2015,100-150K,1
+material sc/eng,Full Prof,F,2015,>150K,1
+material sc/eng,Full Prof,F,2016,100-150K,1
+material sc/eng,Full Prof,F,2016,>150K,1
+material sc/eng,Full Prof,F,2017,100-150K,1
+material sc/eng,Full Prof,F,2018,100-150K,1
+material sc/eng,Full Prof,M,2011,<50K,1
+material sc/eng,Full Prof,M,2011,100-150K,2
+material sc/eng,Full Prof,M,2011,>150K,2
+material sc/eng,Full Prof,M,2012,100-150K,3
+material sc/eng,Full Prof,M,2012,>150K,2
+material sc/eng,Full Prof,M,2013,100-150K,3
+material sc/eng,Full Prof,M,2013,>150K,3
+material sc/eng,Full Prof,M,2014,100-150K,2
+material sc/eng,Full Prof,M,2014,>150K,4
+material sc/eng,Full Prof,M,2015,100-150K,2
+material sc/eng,Full Prof,M,2015,>150K,3
+material sc/eng,Full Prof,M,2016,100-150K,2
+material sc/eng,Full Prof,M,2016,>150K,3
+material sc/eng,Full Prof,M,2017,100-150K,2
+material sc/eng,Full Prof,M,2017,>150K,4
+material sc/eng,Full Prof,M,2018,100-150K,2
+material sc/eng,Full Prof,M,2018,>150K,5
+material sc/eng,Named Prof,F,2012,>150K,1
+material sc/eng,Named Prof,F,2013,>150K,1
+material sc/eng,Named Prof,F,2014,>150K,1
+material sc/eng,Named Prof,M,2011,100-150K,3
+material sc/eng,Named Prof,M,2011,>150K,1
+material sc/eng,Named Prof,M,2012,50-100K,1
+material sc/eng,Named Prof,M,2012,100-150K,3
+material sc/eng,Named Prof,M,2013,100-150K,4
+material sc/eng,Named Prof,M,2014,100-150K,2
+material sc/eng,Named Prof,M,2014,>150K,2
+material sc/eng,Named Prof,M,2015,100-150K,2
+material sc/eng,Named Prof,M,2015,>150K,2
+material sc/eng,Named Prof,M,2016,100-150K,1
+material sc/eng,Named Prof,M,2016,>150K,3
+material sc/eng,Named Prof,M,2017,100-150K,1
+material sc/eng,Named Prof,M,2017,>150K,2
+material sc/eng,Named Prof,M,2018,100-150K,1
+material sc/eng,Named Prof,M,2018,>150K,2
+mathematics,Asst Prof,F,2011,50-100K,1
+mathematics,Asst Prof,F,2012,50-100K,2
+mathematics,Asst Prof,F,2013,50-100K,1
+mathematics,Asst Prof,F,2014,50-100K,1
+mathematics,Asst Prof,F,2015,50-100K,1
+mathematics,Asst Prof,F,2016,50-100K,1
+mathematics,Asst Prof,F,2017,50-100K,1
+mathematics,Asst Prof,M,2011,50-100K,1
+mathematics,Asst Prof,M,2012,50-100K,2
+mathematics,Asst Prof,M,2013,50-100K,4
+mathematics,Asst Prof,M,2014,50-100K,5
+mathematics,Asst Prof,M,2015,<50K,1
+mathematics,Asst Prof,M,2015,50-100K,4
+mathematics,Asst Prof,M,2016,50-100K,7
+mathematics,Asst Prof,M,2017,50-100K,7
+mathematics,Asst Prof,M,2018,50-100K,4
+mathematics,Assoc Prof,F,2011,50-100K,3
+mathematics,Assoc Prof,F,2012,50-100K,2
+mathematics,Assoc Prof,F,2013,50-100K,3
+mathematics,Assoc Prof,F,2014,50-100K,1
+mathematics,Assoc Prof,F,2015,50-100K,1
+mathematics,Assoc Prof,F,2016,50-100K,2
+mathematics,Assoc Prof,F,2017,50-100K,2
+mathematics,Assoc Prof,F,2018,50-100K,2
+mathematics,Assoc Prof,F,2018,100-150K,1
+mathematics,Assoc Prof,M,2011,50-100K,8
+mathematics,Assoc Prof,M,2012,50-100K,9
+mathematics,Assoc Prof,M,2013,50-100K,9
+mathematics,Assoc Prof,M,2014,50-100K,8
+mathematics,Assoc Prof,M,2015,50-100K,7
+mathematics,Assoc Prof,M,2016,50-100K,8
+mathematics,Assoc Prof,M,2017,50-100K,6
+mathematics,Assoc Prof,M,2018,50-100K,8
+mathematics,Assoc Prof,M,2018,100-150K,1
+mathematics,Assoc Prof,M,2018,NA,1
+mathematics,Full Prof,F,2011,50-100K,1
+mathematics,Full Prof,F,2012,50-100K,1
+mathematics,Full Prof,F,2013,50-100K,1
+mathematics,Full Prof,F,2014,100-150K,1
+mathematics,Full Prof,F,2015,100-150K,1
+mathematics,Full Prof,F,2016,100-150K,1
+mathematics,Full Prof,F,2017,100-150K,1
+mathematics,Full Prof,F,2018,100-150K,1
+mathematics,Full Prof,M,2011,<50K,1
+mathematics,Full Prof,M,2011,50-100K,13
+mathematics,Full Prof,M,2011,100-150K,1
+mathematics,Full Prof,M,2012,<50K,1
+mathematics,Full Prof,M,2012,50-100K,11
+mathematics,Full Prof,M,2012,100-150K,2
+mathematics,Full Prof,M,2013,50-100K,9
+mathematics,Full Prof,M,2013,100-150K,6
+mathematics,Full Prof,M,2014,50-100K,4
+mathematics,Full Prof,M,2014,100-150K,8
+mathematics,Full Prof,M,2015,50-100K,3
+mathematics,Full Prof,M,2015,100-150K,8
+mathematics,Full Prof,M,2016,50-100K,2
+mathematics,Full Prof,M,2016,100-150K,8
+mathematics,Full Prof,M,2017,50-100K,3
+mathematics,Full Prof,M,2017,100-150K,9
+mathematics,Full Prof,M,2018,50-100K,3
+mathematics,Full Prof,M,2018,100-150K,7
+mathematics,Named Prof,M,2011,50-100K,1
+mathematics,Named Prof,M,2011,>150K,1
+mathematics,Named Prof,M,2012,50-100K,1
+mathematics,Named Prof,M,2012,>150K,1
+mathematics,Named Prof,M,2013,50-100K,2
+mathematics,Named Prof,M,2014,100-150K,2
+mathematics,Named Prof,M,2015,100-150K,1
+mathematics,Named Prof,M,2016,100-150K,1
+mathematics,Named Prof,M,2018,>150K,1
+mcroelc rs ctr,Assoc Prof,M,2011,100-150K,1
+mcroelc rs ctr,Assoc Prof,M,2012,100-150K,1
+mcroelc rs ctr,Assoc Prof,M,2013,100-150K,1
+mcroelc rs ctr,Full Prof,M,2011,>150K,1
+mcroelc rs ctr,Full Prof,M,2012,>150K,1
+mcroelc rs ctr,Full Prof,M,2013,>150K,1
+mechanical eng,Asst Prof,F,2011,50-100K,1
+mechanical eng,Asst Prof,F,2012,50-100K,2
+mechanical eng,Asst Prof,F,2013,50-100K,3
+mechanical eng,Asst Prof,F,2014,50-100K,3
+mechanical eng,Asst Prof,F,2015,50-100K,4
+mechanical eng,Asst Prof,F,2016,50-100K,4
+mechanical eng,Asst Prof,F,2017,50-100K,5
+mechanical eng,Asst Prof,F,2018,50-100K,5
+mechanical eng,Asst Prof,M,2011,50-100K,3
+mechanical eng,Asst Prof,M,2012,50-100K,4
+mechanical eng,Asst Prof,M,2013,50-100K,5
+mechanical eng,Asst Prof,M,2014,<50K,1
+mechanical eng,Asst Prof,M,2014,50-100K,4
+mechanical eng,Asst Prof,M,2015,50-100K,9
+mechanical eng,Asst Prof,M,2016,50-100K,11
+mechanical eng,Asst Prof,M,2017,50-100K,11
+mechanical eng,Asst Prof,M,2018,50-100K,11
+mechanical eng,Assoc Prof,F,2018,50-100K,1
+mechanical eng,Assoc Prof,F,2018,100-150K,1
+mechanical eng,Assoc Prof,M,2011,50-100K,6
+mechanical eng,Assoc Prof,M,2011,100-150K,3
+mechanical eng,Assoc Prof,M,2012,50-100K,6
+mechanical eng,Assoc Prof,M,2012,100-150K,3
+mechanical eng,Assoc Prof,M,2013,50-100K,4
+mechanical eng,Assoc Prof,M,2013,100-150K,6
+mechanical eng,Assoc Prof,M,2014,50-100K,2
+mechanical eng,Assoc Prof,M,2014,100-150K,6
+mechanical eng,Assoc Prof,M,2015,50-100K,2
+mechanical eng,Assoc Prof,M,2015,100-150K,3
+mechanical eng,Assoc Prof,M,2016,50-100K,1
+mechanical eng,Assoc Prof,M,2016,100-150K,3
+mechanical eng,Assoc Prof,M,2017,50-100K,1
+mechanical eng,Assoc Prof,M,2017,100-150K,3
+mechanical eng,Assoc Prof,M,2018,50-100K,3
+mechanical eng,Assoc Prof,M,2018,100-150K,3
+mechanical eng,Full Prof,F,2011,>150K,1
+mechanical eng,Full Prof,F,2012,>150K,1
+mechanical eng,Full Prof,F,2013,>150K,1
+mechanical eng,Full Prof,F,2014,>150K,1
+mechanical eng,Full Prof,F,2015,>150K,1
+mechanical eng,Full Prof,F,2016,>150K,1
+mechanical eng,Full Prof,F,2017,>150K,1
+mechanical eng,Full Prof,F,2018,>150K,1
+mechanical eng,Full Prof,M,2011,50-100K,1
+mechanical eng,Full Prof,M,2011,100-150K,3
+mechanical eng,Full Prof,M,2011,>150K,1
+mechanical eng,Full Prof,M,2012,50-100K,1
+mechanical eng,Full Prof,M,2012,100-150K,4
+mechanical eng,Full Prof,M,2012,>150K,1
+mechanical eng,Full Prof,M,2013,100-150K,4
+mechanical eng,Full Prof,M,2013,>150K,1
+mechanical eng,Full Prof,M,2014,100-150K,6
+mechanical eng,Full Prof,M,2014,>150K,1
+mechanical eng,Full Prof,M,2015,100-150K,6
+mechanical eng,Full Prof,M,2015,>150K,3
+mechanical eng,Full Prof,M,2016,100-150K,6
+mechanical eng,Full Prof,M,2016,>150K,3
+mechanical eng,Full Prof,M,2017,100-150K,6
+mechanical eng,Full Prof,M,2017,>150K,3
+mechanical eng,Full Prof,M,2018,100-150K,5
+mechanical eng,Full Prof,M,2018,>150K,4
+mechanical eng,Named Prof,F,2013,>150K,1
+mechanical eng,Named Prof,F,2014,>150K,1
+mechanical eng,Named Prof,F,2015,>150K,1
+mechanical eng,Named Prof,F,2016,>150K,1
+mechanical eng,Named Prof,F,2017,>150K,1
+mechanical eng,Named Prof,F,2018,>150K,1
+mechanical eng,Named Prof,M,2012,>150K,1
+mechanical eng,Named Prof,M,2013,>150K,2
+mechanical eng,Named Prof,M,2014,>150K,2
+mechanical eng,Named Prof,M,2015,>150K,2
+mechanical eng,Named Prof,M,2016,>150K,2
+mechanical eng,Named Prof,M,2017,>150K,2
+mechanical eng,Named Prof,M,2018,>150K,2
+microbiology,Asst Prof,F,2016,50-100K,1
+microbiology,Asst Prof,F,2017,50-100K,1
+microbiology,Asst Prof,F,2018,50-100K,1
+music & theatre,Asst Prof,F,2014,50-100K,1
+music & theatre,Asst Prof,F,2015,50-100K,1
+music & theatre,Asst Prof,F,2016,50-100K,2
+music & theatre,Asst Prof,F,2017,50-100K,2
+music & theatre,Asst Prof,F,2018,50-100K,1
+music & theatre,Asst Prof,M,2011,50-100K,3
+music & theatre,Asst Prof,M,2012,50-100K,3
+music & theatre,Asst Prof,M,2013,50-100K,2
+music & theatre,Asst Prof,M,2014,50-100K,2
+music & theatre,Asst Prof,M,2016,50-100K,1
+music & theatre,Asst Prof,M,2017,50-100K,1
+music & theatre,Asst Prof,M,2018,50-100K,1
+music & theatre,Assoc Prof,F,2011,50-100K,2
+music & theatre,Assoc Prof,F,2012,50-100K,2
+music & theatre,Assoc Prof,F,2013,50-100K,2
+music & theatre,Assoc Prof,F,2014,50-100K,2
+music & theatre,Assoc Prof,F,2015,50-100K,2
+music & theatre,Assoc Prof,F,2016,50-100K,2
+music & theatre,Assoc Prof,F,2017,50-100K,2
+music & theatre,Assoc Prof,F,2018,50-100K,3
+music & theatre,Assoc Prof,M,2011,50-100K,5
+music & theatre,Assoc Prof,M,2012,50-100K,4
+music & theatre,Assoc Prof,M,2013,50-100K,4
+music & theatre,Assoc Prof,M,2014,50-100K,4
+music & theatre,Assoc Prof,M,2015,50-100K,6
+music & theatre,Assoc Prof,M,2016,50-100K,6
+music & theatre,Assoc Prof,M,2017,50-100K,6
+music & theatre,Assoc Prof,M,2018,50-100K,4
+music & theatre,Full Prof,F,2011,50-100K,1
+music & theatre,Full Prof,F,2012,50-100K,1
+music & theatre,Full Prof,F,2013,50-100K,1
+music & theatre,Full Prof,F,2014,50-100K,1
+music & theatre,Full Prof,F,2015,50-100K,1
+music & theatre,Full Prof,F,2016,50-100K,1
+music & theatre,Full Prof,F,2017,50-100K,1
+music & theatre,Full Prof,M,2011,50-100K,5
+music & theatre,Full Prof,M,2012,50-100K,5
+music & theatre,Full Prof,M,2013,50-100K,5
+music & theatre,Full Prof,M,2014,50-100K,4
+music & theatre,Full Prof,M,2015,50-100K,4
+music & theatre,Full Prof,M,2016,50-100K,4
+music & theatre,Full Prof,M,2017,50-100K,4
+music & theatre,Full Prof,M,2018,50-100K,5
+music & theatre,Named Prof,M,2011,50-100K,2
+music & theatre,Named Prof,M,2012,50-100K,1
+music & theatre,Named Prof,M,2013,100-150K,1
+music & theatre,Named Prof,M,2014,100-150K,1
+music & theatre,Named Prof,M,2015,100-150K,1
+music & theatre,Named Prof,M,2016,100-150K,1
+nat res ecl/mgt,Asst Prof,F,2011,50-100K,2
+nat res ecl/mgt,Asst Prof,F,2012,50-100K,2
+nat res ecl/mgt,Asst Prof,F,2013,50-100K,1
+nat res ecl/mgt,Asst Prof,F,2018,50-100K,1
+nat res ecl/mgt,Asst Prof,M,2011,50-100K,3
+nat res ecl/mgt,Asst Prof,M,2012,50-100K,3
+nat res ecl/mgt,Asst Prof,M,2013,50-100K,3
+nat res ecl/mgt,Asst Prof,M,2014,50-100K,2
+nat res ecl/mgt,Asst Prof,M,2015,50-100K,3
+nat res ecl/mgt,Asst Prof,M,2016,50-100K,4
+nat res ecl/mgt,Asst Prof,M,2017,50-100K,4
+nat res ecl/mgt,Asst Prof,M,2018,50-100K,3
+nat res ecl/mgt,Assoc Prof,F,2011,50-100K,1
+nat res ecl/mgt,Assoc Prof,F,2012,50-100K,1
+nat res ecl/mgt,Assoc Prof,F,2013,50-100K,1
+nat res ecl/mgt,Assoc Prof,F,2014,50-100K,1
+nat res ecl/mgt,Assoc Prof,F,2015,50-100K,1
+nat res ecl/mgt,Assoc Prof,F,2016,50-100K,1
+nat res ecl/mgt,Assoc Prof,F,2017,50-100K,1
+nat res ecl/mgt,Assoc Prof,F,2018,50-100K,1
+nat res ecl/mgt,Assoc Prof,M,2011,50-100K,3
+nat res ecl/mgt,Assoc Prof,M,2012,50-100K,4
+nat res ecl/mgt,Assoc Prof,M,2013,50-100K,5
+nat res ecl/mgt,Assoc Prof,M,2014,50-100K,4
+nat res ecl/mgt,Assoc Prof,M,2015,50-100K,3
+nat res ecl/mgt,Assoc Prof,M,2016,50-100K,4
+nat res ecl/mgt,Assoc Prof,M,2017,50-100K,4
+nat res ecl/mgt,Assoc Prof,M,2018,50-100K,4
+nat res ecl/mgt,Full Prof,F,2011,50-100K,1
+nat res ecl/mgt,Full Prof,F,2012,50-100K,1
+nat res ecl/mgt,Full Prof,F,2013,100-150K,1
+nat res ecl/mgt,Full Prof,F,2014,100-150K,1
+nat res ecl/mgt,Full Prof,F,2015,100-150K,1
+nat res ecl/mgt,Full Prof,M,2011,50-100K,1
+nat res ecl/mgt,Full Prof,M,2011,100-150K,1
+nat res ecl/mgt,Full Prof,M,2012,50-100K,1
+nat res ecl/mgt,Full Prof,M,2012,100-150K,1
+nat res ecl/mgt,Full Prof,M,2013,100-150K,2
+nat res ecl/mgt,Full Prof,M,2014,50-100K,1
+nat res ecl/mgt,Full Prof,M,2014,100-150K,2
+nat res ecl/mgt,Full Prof,M,2015,<50K,1
+nat res ecl/mgt,Full Prof,M,2015,50-100K,2
+nat res ecl/mgt,Full Prof,M,2015,100-150K,2
+nat res ecl/mgt,Full Prof,M,2016,50-100K,2
+nat res ecl/mgt,Full Prof,M,2016,100-150K,2
+nat res ecl/mgt,Full Prof,M,2017,50-100K,2
+nat res ecl/mgt,Full Prof,M,2017,100-150K,2
+nat res ecl/mgt,Full Prof,M,2018,50-100K,1
+nat res ecl/mgt,Full Prof,M,2018,100-150K,3
+nat res ecl/mgt,Named Prof,M,2011,100-150K,1
+nat res ecl/mgt,Named Prof,M,2012,100-150K,1
+nat res ecl/mgt,Named Prof,M,2013,100-150K,1
+nat res ecl/mgt,Named Prof,M,2014,100-150K,1
+nat res ecl/mgt,Named Prof,M,2015,100-150K,1
+nat res ecl/mgt,Named Prof,M,2016,100-150K,1
+nat res ecl/mgt,Named Prof,M,2017,100-150K,1
+nat res ecl/mgt,Named Prof,M,2018,100-150K,1
+phil/relig st,Asst Prof,F,2011,50-100K,1
+phil/relig st,Asst Prof,F,2013,50-100K,1
+phil/relig st,Asst Prof,F,2014,50-100K,1
+phil/relig st,Asst Prof,F,2015,50-100K,3
+phil/relig st,Asst Prof,F,2016,50-100K,3
+phil/relig st,Asst Prof,F,2017,50-100K,1
+phil/relig st,Asst Prof,F,2018,50-100K,1
+phil/relig st,Asst Prof,M,2011,50-100K,1
+phil/relig st,Asst Prof,M,2011,NA,1
+phil/relig st,Asst Prof,M,2012,50-100K,4
+phil/relig st,Asst Prof,M,2013,50-100K,5
+phil/relig st,Asst Prof,M,2014,50-100K,4
+phil/relig st,Asst Prof,M,2015,50-100K,5
+phil/relig st,Asst Prof,M,2016,50-100K,4
+phil/relig st,Asst Prof,M,2017,50-100K,1
+phil/relig st,Asst Prof,M,2018,50-100K,2
+phil/relig st,Assoc Prof,F,2011,50-100K,4
+phil/relig st,Assoc Prof,F,2012,50-100K,4
+phil/relig st,Assoc Prof,F,2013,50-100K,4
+phil/relig st,Assoc Prof,F,2014,50-100K,4
+phil/relig st,Assoc Prof,F,2015,50-100K,4
+phil/relig st,Assoc Prof,F,2016,50-100K,3
+phil/relig st,Assoc Prof,F,2017,50-100K,3
+phil/relig st,Assoc Prof,F,2018,50-100K,3
+phil/relig st,Assoc Prof,M,2011,50-100K,2
+phil/relig st,Assoc Prof,M,2012,50-100K,2
+phil/relig st,Assoc Prof,M,2013,50-100K,1
+phil/relig st,Assoc Prof,M,2014,50-100K,3
+phil/relig st,Assoc Prof,M,2015,50-100K,3
+phil/relig st,Assoc Prof,M,2016,50-100K,3
+phil/relig st,Assoc Prof,M,2017,50-100K,5
+phil/relig st,Assoc Prof,M,2018,50-100K,5
+phil/relig st,Full Prof,M,2011,50-100K,3
+phil/relig st,Full Prof,M,2012,50-100K,3
+phil/relig st,Full Prof,M,2013,50-100K,3
+phil/relig st,Full Prof,M,2014,50-100K,2
+phil/relig st,Full Prof,M,2014,100-150K,1
+phil/relig st,Full Prof,M,2015,50-100K,2
+phil/relig st,Full Prof,M,2015,100-150K,1
+phil/relig st,Full Prof,M,2016,50-100K,1
+phil/relig st,Full Prof,M,2016,100-150K,2
+phil/relig st,Full Prof,M,2017,50-100K,1
+phil/relig st,Full Prof,M,2017,100-150K,2
+phil/relig st,Full Prof,M,2018,50-100K,1
+phil/relig st,Full Prof,M,2018,100-150K,1
+phil/relig st,Named Prof,M,2011,50-100K,1
+phil/relig st,Named Prof,M,2012,50-100K,1
+phil/relig st,Named Prof,M,2013,100-150K,1
+phil/relig st,Named Prof,M,2014,50-100K,1
+phil/relig st,Named Prof,M,2014,100-150K,1
+phil/relig st,Named Prof,M,2015,50-100K,1
+phil/relig st,Named Prof,M,2015,100-150K,1
+phil/relig st,Named Prof,M,2016,50-100K,1
+phil/relig st,Named Prof,M,2016,100-150K,1
+phil/relig st,Named Prof,M,2017,50-100K,1
+phil/relig st,Named Prof,M,2017,100-150K,1
+phil/relig st,Named Prof,M,2018,100-150K,2
+physics/astron,Asst Prof,F,2011,50-100K,2
+physics/astron,Asst Prof,F,2012,50-100K,2
+physics/astron,Asst Prof,F,2013,50-100K,1
+physics/astron,Asst Prof,F,2014,50-100K,2
+physics/astron,Asst Prof,F,2015,50-100K,2
+physics/astron,Asst Prof,F,2016,50-100K,2
+physics/astron,Asst Prof,F,2017,50-100K,1
+physics/astron,Asst Prof,F,2018,50-100K,1
+physics/astron,Asst Prof,M,2011,50-100K,4
+physics/astron,Asst Prof,M,2012,50-100K,4
+physics/astron,Asst Prof,M,2013,50-100K,2
+physics/astron,Asst Prof,M,2014,50-100K,1
+physics/astron,Asst Prof,M,2016,50-100K,3
+physics/astron,Asst Prof,M,2017,50-100K,4
+physics/astron,Asst Prof,M,2018,50-100K,4
+physics/astron,Assoc Prof,F,2013,50-100K,1
+physics/astron,Assoc Prof,F,2014,50-100K,1
+physics/astron,Assoc Prof,F,2015,50-100K,1
+physics/astron,Assoc Prof,F,2016,50-100K,1
+physics/astron,Assoc Prof,F,2017,50-100K,2
+physics/astron,Assoc Prof,F,2018,50-100K,1
+physics/astron,Assoc Prof,M,2011,50-100K,7
+physics/astron,Assoc Prof,M,2012,50-100K,5
+physics/astron,Assoc Prof,M,2013,50-100K,5
+physics/astron,Assoc Prof,M,2014,50-100K,6
+physics/astron,Assoc Prof,M,2015,50-100K,6
+physics/astron,Assoc Prof,M,2016,50-100K,6
+physics/astron,Assoc Prof,M,2017,50-100K,4
+physics/astron,Assoc Prof,M,2018,50-100K,2
+physics/astron,Full Prof,F,2011,50-100K,1
+physics/astron,Full Prof,F,2012,50-100K,1
+physics/astron,Full Prof,F,2013,50-100K,1
+physics/astron,Full Prof,F,2014,50-100K,1
+physics/astron,Full Prof,F,2015,50-100K,1
+physics/astron,Full Prof,F,2016,50-100K,1
+physics/astron,Full Prof,F,2017,50-100K,1
+physics/astron,Full Prof,F,2018,50-100K,1
+physics/astron,Full Prof,F,2018,100-150K,1
+physics/astron,Full Prof,M,2011,50-100K,8
+physics/astron,Full Prof,M,2011,100-150K,8
+physics/astron,Full Prof,M,2011,>150K,1
+physics/astron,Full Prof,M,2012,50-100K,9
+physics/astron,Full Prof,M,2012,100-150K,7
+physics/astron,Full Prof,M,2012,>150K,1
+physics/astron,Full Prof,M,2013,50-100K,10
+physics/astron,Full Prof,M,2013,100-150K,8
+physics/astron,Full Prof,M,2014,50-100K,8
+physics/astron,Full Prof,M,2014,100-150K,8
+physics/astron,Full Prof,M,2015,50-100K,7
+physics/astron,Full Prof,M,2015,100-150K,9
+physics/astron,Full Prof,M,2016,50-100K,3
+physics/astron,Full Prof,M,2016,100-150K,11
+physics/astron,Full Prof,M,2016,>150K,2
+physics/astron,Full Prof,M,2017,50-100K,5
+physics/astron,Full Prof,M,2017,100-150K,10
+physics/astron,Full Prof,M,2017,>150K,2
+physics/astron,Full Prof,M,2018,50-100K,3
+physics/astron,Full Prof,M,2018,100-150K,13
+physics/astron,Full Prof,M,2018,>150K,2
+physics/astron,Named Prof,M,2011,100-150K,3
+physics/astron,Named Prof,M,2011,>150K,3
+physics/astron,Named Prof,M,2012,100-150K,2
+physics/astron,Named Prof,M,2012,>150K,4
+physics/astron,Named Prof,M,2013,100-150K,2
+physics/astron,Named Prof,M,2013,>150K,4
+physics/astron,Named Prof,M,2014,100-150K,2
+physics/astron,Named Prof,M,2014,>150K,3
+physics/astron,Named Prof,M,2015,100-150K,1
+physics/astron,Named Prof,M,2015,>150K,4
+physics/astron,Named Prof,M,2016,100-150K,1
+physics/astron,Named Prof,M,2016,>150K,4
+physics/astron,Named Prof,M,2017,100-150K,1
+physics/astron,Named Prof,M,2017,>150K,4
+physics/astron,Named Prof,M,2018,100-150K,1
+physics/astron,Named Prof,M,2018,>150K,4
+pl path & micro,Asst Prof,F,2011,50-100K,1
+pl path & micro,Asst Prof,M,2012,50-100K,1
+pl path & micro,Asst Prof,M,2013,50-100K,1
+pl path & micro,Asst Prof,M,2014,50-100K,1
+pl path & micro,Asst Prof,M,2015,50-100K,2
+pl path & micro,Asst Prof,M,2016,50-100K,2
+pl path & micro,Asst Prof,M,2016,100-150K,1
+pl path & micro,Asst Prof,M,2017,50-100K,2
+pl path & micro,Asst Prof,M,2018,50-100K,2
+pl path & micro,Assoc Prof,F,2011,50-100K,1
+pl path & micro,Assoc Prof,F,2012,50-100K,2
+pl path & micro,Assoc Prof,F,2013,50-100K,2
+pl path & micro,Assoc Prof,F,2014,50-100K,2
+pl path & micro,Assoc Prof,F,2015,50-100K,2
+pl path & micro,Assoc Prof,F,2016,100-150K,2
+pl path & micro,Assoc Prof,F,2017,100-150K,1
+pl path & micro,Assoc Prof,F,2018,100-150K,1
+pl path & micro,Assoc Prof,M,2011,50-100K,2
+pl path & micro,Assoc Prof,M,2012,50-100K,1
+pl path & micro,Assoc Prof,M,2013,50-100K,1
+pl path & micro,Assoc Prof,M,2014,50-100K,1
+pl path & micro,Assoc Prof,M,2015,50-100K,1
+pl path & micro,Assoc Prof,M,2017,100-150K,2
+pl path & micro,Assoc Prof,M,2018,100-150K,2
+pl path & micro,Full Prof,F,2011,100-150K,1
+pl path & micro,Full Prof,F,2012,100-150K,1
+pl path & micro,Full Prof,F,2013,100-150K,1
+pl path & micro,Full Prof,F,2014,100-150K,1
+pl path & micro,Full Prof,F,2015,100-150K,1
+pl path & micro,Full Prof,F,2016,100-150K,1
+pl path & micro,Full Prof,F,2017,100-150K,2
+pl path & micro,Full Prof,F,2018,100-150K,2
+pl path & micro,Full Prof,M,2011,50-100K,1
+pl path & micro,Full Prof,M,2011,100-150K,7
+pl path & micro,Full Prof,M,2012,50-100K,1
+pl path & micro,Full Prof,M,2012,100-150K,7
+pl path & micro,Full Prof,M,2013,100-150K,8
+pl path & micro,Full Prof,M,2014,100-150K,7
+pl path & micro,Full Prof,M,2015,100-150K,7
+pl path & micro,Full Prof,M,2015,>150K,1
+pl path & micro,Full Prof,M,2016,100-150K,6
+pl path & micro,Full Prof,M,2016,>150K,1
+pl path & micro,Full Prof,M,2017,100-150K,6
+pl path & micro,Full Prof,M,2017,>150K,1
+pl path & micro,Full Prof,M,2018,<50K,1
+pl path & micro,Full Prof,M,2018,100-150K,5
+pl path & micro,Full Prof,M,2018,>150K,1
+pl path & micro,Named Prof,M,2011,>150K,1
+pl path & micro,Named Prof,M,2012,>150K,1
+pl path & micro,Named Prof,M,2013,>150K,1
+pl path & micro,Named Prof,M,2014,>150K,1
+pl path & micro,Named Prof,M,2015,>150K,1
+pl path & micro,Named Prof,M,2016,>150K,1
+plant sc inst,Full Prof,M,2011,>150K,1
+plant sc inst,Full Prof,M,2012,>150K,1
+plant sc inst,Full Prof,M,2013,>150K,1
+plant sc inst,Full Prof,M,2014,>150K,1
+plant sc inst,Full Prof,M,2015,>150K,1
+political sc,Asst Prof,F,2012,50-100K,1
+political sc,Asst Prof,F,2013,50-100K,1
+political sc,Asst Prof,F,2014,50-100K,2
+political sc,Asst Prof,F,2015,50-100K,4
+political sc,Asst Prof,F,2016,50-100K,4
+political sc,Asst Prof,F,2017,50-100K,4
+political sc,Asst Prof,F,2018,<50K,1
+political sc,Asst Prof,F,2018,50-100K,2
+political sc,Asst Prof,M,2011,50-100K,1
+political sc,Asst Prof,M,2014,50-100K,1
+political sc,Asst Prof,M,2015,50-100K,2
+political sc,Asst Prof,M,2016,50-100K,3
+political sc,Asst Prof,M,2017,50-100K,3
+political sc,Asst Prof,M,2018,50-100K,3
+political sc,Assoc Prof,F,2018,50-100K,1
+political sc,Assoc Prof,M,2012,50-100K,1
+political sc,Assoc Prof,M,2013,50-100K,1
+political sc,Assoc Prof,M,2014,50-100K,1
+political sc,Assoc Prof,M,2015,50-100K,1
+political sc,Assoc Prof,M,2016,50-100K,1
+political sc,Assoc Prof,M,2017,50-100K,1
+political sc,Assoc Prof,M,2018,50-100K,2
+political sc,Full Prof,M,2011,50-100K,1
+political sc,Full Prof,M,2011,100-150K,1
+political sc,Full Prof,M,2012,50-100K,1
+political sc,Full Prof,M,2012,100-150K,1
+political sc,Full Prof,M,2013,50-100K,1
+political sc,Full Prof,M,2013,100-150K,1
+political sc,Full Prof,M,2014,50-100K,1
+political sc,Full Prof,M,2014,100-150K,2
+political sc,Full Prof,M,2015,50-100K,1
+political sc,Full Prof,M,2015,100-150K,2
+political sc,Full Prof,M,2016,100-150K,2
+political sc,Full Prof,M,2016,NA,1
+political sc,Full Prof,M,2017,100-150K,2
+political sc,Full Prof,M,2017,NA,1
+political sc,Full Prof,M,2018,100-150K,2
+political sc,Full Prof,M,2018,>150K,1
+political sc,Named Prof,M,2011,100-150K,2
+political sc,Named Prof,M,2012,100-150K,2
+political sc,Named Prof,M,2013,100-150K,2
+political sc,Named Prof,M,2014,100-150K,1
+political sc,Named Prof,M,2015,100-150K,1
+political sc,Named Prof,M,2016,100-150K,1
+political sc,Named Prof,M,2017,100-150K,1
+political sc,Named Prof,M,2018,100-150K,1
+president,Full Prof,M,2012,NA,1
+psychology,Asst Prof,F,2011,50-100K,2
+psychology,Asst Prof,F,2012,50-100K,4
+psychology,Asst Prof,F,2013,50-100K,4
+psychology,Asst Prof,F,2014,50-100K,2
+psychology,Asst Prof,F,2015,50-100K,2
+psychology,Asst Prof,F,2016,50-100K,2
+psychology,Asst Prof,F,2017,50-100K,2
+psychology,Asst Prof,F,2018,50-100K,2
+psychology,Asst Prof,M,2011,50-100K,5
+psychology,Asst Prof,M,2012,50-100K,5
+psychology,Asst Prof,M,2013,50-100K,4
+psychology,Asst Prof,M,2014,50-100K,1
+psychology,Asst Prof,M,2015,50-100K,1
+psychology,Asst Prof,M,2016,50-100K,1
+psychology,Asst Prof,M,2017,50-100K,1
+psychology,Asst Prof,M,2018,50-100K,1
+psychology,Assoc Prof,F,2011,50-100K,3
+psychology,Assoc Prof,F,2012,50-100K,3
+psychology,Assoc Prof,F,2013,50-100K,2
+psychology,Assoc Prof,F,2014,50-100K,1
+psychology,Assoc Prof,F,2015,50-100K,1
+psychology,Assoc Prof,F,2016,50-100K,2
+psychology,Assoc Prof,F,2017,50-100K,2
+psychology,Assoc Prof,F,2018,50-100K,2
+psychology,Assoc Prof,M,2011,50-100K,6
+psychology,Assoc Prof,M,2012,50-100K,5
+psychology,Assoc Prof,M,2013,50-100K,6
+psychology,Assoc Prof,M,2014,50-100K,8
+psychology,Assoc Prof,M,2015,50-100K,9
+psychology,Assoc Prof,M,2016,50-100K,8
+psychology,Assoc Prof,M,2017,50-100K,7
+psychology,Assoc Prof,M,2018,50-100K,6
+psychology,Full Prof,F,2011,50-100K,3
+psychology,Full Prof,F,2012,50-100K,2
+psychology,Full Prof,F,2012,100-150K,1
+psychology,Full Prof,F,2013,50-100K,3
+psychology,Full Prof,F,2013,100-150K,1
+psychology,Full Prof,F,2014,50-100K,4
+psychology,Full Prof,F,2014,100-150K,1
+psychology,Full Prof,F,2015,50-100K,4
+psychology,Full Prof,F,2015,100-150K,1
+psychology,Full Prof,F,2016,50-100K,3
+psychology,Full Prof,F,2016,100-150K,2
+psychology,Full Prof,F,2017,50-100K,3
+psychology,Full Prof,F,2017,100-150K,2
+psychology,Full Prof,F,2018,50-100K,1
+psychology,Full Prof,F,2018,100-150K,2
+psychology,Full Prof,M,2011,50-100K,1
+psychology,Full Prof,M,2011,100-150K,1
+psychology,Full Prof,M,2012,50-100K,1
+psychology,Full Prof,M,2012,NA,1
+psychology,Full Prof,M,2013,50-100K,1
+psychology,Full Prof,M,2013,100-150K,1
+psychology,Full Prof,M,2014,50-100K,1
+psychology,Full Prof,M,2014,100-150K,3
+psychology,Full Prof,M,2015,50-100K,2
+psychology,Full Prof,M,2015,100-150K,1
+psychology,Full Prof,M,2015,>150K,1
+psychology,Full Prof,M,2016,50-100K,3
+psychology,Full Prof,M,2016,100-150K,1
+psychology,Full Prof,M,2016,>150K,1
+psychology,Full Prof,M,2017,50-100K,3
+psychology,Full Prof,M,2017,100-150K,1
+psychology,Full Prof,M,2017,>150K,1
+psychology,Full Prof,M,2018,50-100K,4
+psychology,Full Prof,M,2018,100-150K,1
+psychology,Full Prof,M,2018,>150K,1
+psychology,Named Prof,F,2018,100-150K,1
+psychology,Named Prof,M,2011,>150K,1
+psychology,Named Prof,M,2012,>150K,1
+psychology,Named Prof,M,2013,>150K,1
+psychology,Named Prof,M,2014,>150K,1
+psychology,Named Prof,M,2015,>150K,1
+psychology,Named Prof,M,2016,>150K,1
+psychology,Named Prof,M,2017,>150K,1
+psychology,Named Prof,M,2018,>150K,1
+school of ed,Asst Prof,F,2012,50-100K,7
+school of ed,Asst Prof,F,2013,50-100K,7
+school of ed,Asst Prof,F,2014,50-100K,5
+school of ed,Asst Prof,F,2015,50-100K,10
+school of ed,Asst Prof,F,2016,50-100K,10
+school of ed,Asst Prof,F,2017,50-100K,9
+school of ed,Asst Prof,F,2018,50-100K,10
+school of ed,Asst Prof,M,2012,50-100K,2
+school of ed,Asst Prof,M,2013,50-100K,1
+school of ed,Asst Prof,M,2014,50-100K,1
+school of ed,Asst Prof,M,2015,50-100K,5
+school of ed,Asst Prof,M,2016,50-100K,5
+school of ed,Asst Prof,M,2017,50-100K,5
+school of ed,Asst Prof,M,2018,50-100K,5
+school of ed,Assoc Prof,F,2012,50-100K,6
+school of ed,Assoc Prof,F,2013,50-100K,9
+school of ed,Assoc Prof,F,2014,50-100K,8
+school of ed,Assoc Prof,F,2015,50-100K,10
+school of ed,Assoc Prof,F,2016,50-100K,7
+school of ed,Assoc Prof,F,2017,50-100K,10
+school of ed,Assoc Prof,F,2018,50-100K,11
+school of ed,Assoc Prof,M,2012,50-100K,5
+school of ed,Assoc Prof,M,2013,50-100K,1
+school of ed,Assoc Prof,M,2013,100-150K,1
+school of ed,Assoc Prof,M,2014,50-100K,1
+school of ed,Assoc Prof,M,2015,50-100K,1
+school of ed,Assoc Prof,M,2016,50-100K,3
+school of ed,Assoc Prof,M,2016,100-150K,1
+school of ed,Assoc Prof,M,2017,50-100K,2
+school of ed,Assoc Prof,M,2017,100-150K,1
+school of ed,Assoc Prof,M,2018,50-100K,2
+school of ed,Full Prof,F,2012,50-100K,1
+school of ed,Full Prof,F,2013,50-100K,1
+school of ed,Full Prof,F,2014,<50K,1
+school of ed,Full Prof,F,2014,50-100K,2
+school of ed,Full Prof,F,2015,50-100K,3
+school of ed,Full Prof,F,2016,50-100K,1
+school of ed,Full Prof,F,2016,100-150K,1
+school of ed,Full Prof,F,2017,100-150K,1
+school of ed,Full Prof,F,2018,100-150K,1
+school of ed,Full Prof,M,2012,100-150K,3
+school of ed,Full Prof,M,2013,100-150K,5
+school of ed,Full Prof,M,2014,50-100K,2
+school of ed,Full Prof,M,2014,100-150K,3
+school of ed,Full Prof,M,2015,50-100K,1
+school of ed,Full Prof,M,2015,100-150K,3
+school of ed,Full Prof,M,2016,50-100K,1
+school of ed,Full Prof,M,2016,100-150K,2
+school of ed,Full Prof,M,2017,100-150K,1
+school of ed,Full Prof,M,2018,100-150K,1
+school of ed,Named Prof,F,2012,100-150K,1
+school of ed,Named Prof,F,2013,100-150K,1
+school of ed,Named Prof,F,2014,100-150K,1
+school of ed,Named Prof,F,2015,100-150K,1
+school of ed,Named Prof,F,2016,100-150K,1
+school of ed,Named Prof,M,2012,100-150K,2
+school of ed,Named Prof,M,2013,100-150K,2
+school of ed,Named Prof,M,2014,100-150K,1
+school of ed,Named Prof,M,2015,100-150K,1
+seed sc ctr xp,Assoc Prof,F,2011,50-100K,1
+seed sc ctr xp,Assoc Prof,F,2012,50-100K,1
+seed sc ctr xp,Assoc Prof,F,2013,50-100K,1
+seed sc ctr xp,Assoc Prof,F,2014,50-100K,1
+seed sc ctr xp,Assoc Prof,F,2015,50-100K,1
+seed sc ctr xp,Assoc Prof,F,2016,100-150K,1
+seed sc ctr xp,Full Prof,F,2017,100-150K,1
+seed sc ctr xp,Full Prof,F,2018,100-150K,1
+sociology-agls,Asst Prof,F,2011,50-100K,1
+sociology-agls,Asst Prof,F,2012,50-100K,1
+sociology-agls,Asst Prof,M,2011,50-100K,1
+sociology-agls,Asst Prof,M,2012,50-100K,1
+sociology-agls,Asst Prof,M,2013,50-100K,1
+sociology-agls,Asst Prof,M,2014,50-100K,1
+sociology-agls,Asst Prof,M,2015,50-100K,1
+sociology-agls,Asst Prof,M,2016,50-100K,1
+sociology-agls,Asst Prof,M,2017,50-100K,1
+sociology-agls,Asst Prof,M,2018,50-100K,1
+sociology-agls,Assoc Prof,F,2013,50-100K,1
+sociology-agls,Assoc Prof,F,2014,50-100K,1
+sociology-agls,Assoc Prof,F,2015,50-100K,1
+sociology-agls,Assoc Prof,F,2016,50-100K,1
+sociology-agls,Assoc Prof,F,2017,50-100K,1
+sociology-agls,Assoc Prof,F,2018,50-100K,1
+sociology-agls,Assoc Prof,M,2014,50-100K,1
+sociology-agls,Assoc Prof,M,2015,50-100K,1
+sociology-agls,Assoc Prof,M,2016,50-100K,1
+sociology-agls,Assoc Prof,M,2017,50-100K,1
+sociology-agls,Assoc Prof,M,2018,50-100K,1
+sociology-agls,Full Prof,F,2011,50-100K,2
+sociology-agls,Full Prof,F,2011,100-150K,1
+sociology-agls,Full Prof,F,2012,50-100K,2
+sociology-agls,Full Prof,F,2012,100-150K,1
+sociology-agls,Full Prof,F,2013,50-100K,2
+sociology-agls,Full Prof,F,2013,100-150K,1
+sociology-agls,Full Prof,F,2014,50-100K,2
+sociology-agls,Full Prof,F,2014,100-150K,1
+sociology-agls,Full Prof,F,2015,50-100K,2
+sociology-agls,Full Prof,F,2015,100-150K,1
+sociology-agls,Full Prof,F,2016,50-100K,1
+sociology-agls,Full Prof,F,2016,100-150K,1
+sociology-agls,Full Prof,F,2017,50-100K,1
+sociology-agls,Full Prof,F,2018,50-100K,1
+sociology-agls,Full Prof,M,2011,<50K,1
+sociology-agls,Full Prof,M,2011,100-150K,1
+sociology-agls,Full Prof,M,2012,<50K,1
+sociology-agls,Full Prof,M,2012,100-150K,1
+sociology-agls,Full Prof,M,2013,100-150K,1
+sociology-agls,Full Prof,M,2014,100-150K,1
+sociology-agls,Full Prof,M,2015,100-150K,1
+sociology-agls,Full Prof,M,2016,100-150K,1
+sociology-agls,Full Prof,M,2016,>150K,1
+sociology-agls,Full Prof,M,2017,100-150K,1
+sociology-agls,Full Prof,M,2017,>150K,1
+sociology-agls,Full Prof,M,2018,100-150K,2
+sociology-agls,Named Prof,F,2011,50-100K,1
+sociology-agls,Named Prof,F,2012,50-100K,1
+sociology-agls,Named Prof,M,2011,>150K,1
+sociology-agls,Named Prof,M,2012,>150K,1
+sociology-agls,Named Prof,M,2013,>150K,1
+sociology-agls,Named Prof,M,2014,>150K,1
+sociology-agls,Named Prof,M,2015,>150K,1
+sociology-las,Asst Prof,F,2015,50-100K,1
+sociology-las,Asst Prof,F,2016,50-100K,1
+sociology-las,Asst Prof,F,2017,50-100K,1
+sociology-las,Asst Prof,M,2011,50-100K,1
+sociology-las,Asst Prof,M,2016,50-100K,1
+sociology-las,Asst Prof,M,2017,50-100K,1
+sociology-las,Asst Prof,M,2018,50-100K,1
+sociology-las,Assoc Prof,F,2011,50-100K,4
+sociology-las,Assoc Prof,F,2012,50-100K,3
+sociology-las,Assoc Prof,F,2013,50-100K,3
+sociology-las,Assoc Prof,F,2014,50-100K,1
+sociology-las,Assoc Prof,F,2015,50-100K,1
+sociology-las,Assoc Prof,F,2018,50-100K,1
+sociology-las,Assoc Prof,M,2011,50-100K,4
+sociology-las,Assoc Prof,M,2012,50-100K,3
+sociology-las,Assoc Prof,M,2013,50-100K,3
+sociology-las,Assoc Prof,M,2014,50-100K,3
+sociology-las,Assoc Prof,M,2015,50-100K,3
+sociology-las,Assoc Prof,M,2016,50-100K,3
+sociology-las,Assoc Prof,M,2017,50-100K,2
+sociology-las,Assoc Prof,M,2018,50-100K,1
+sociology-las,Full Prof,F,2011,50-100K,1
+sociology-las,Full Prof,F,2012,50-100K,2
+sociology-las,Full Prof,F,2013,50-100K,2
+sociology-las,Full Prof,F,2014,50-100K,3
+sociology-las,Full Prof,F,2015,50-100K,2
+sociology-las,Full Prof,F,2016,50-100K,3
+sociology-las,Full Prof,F,2017,50-100K,3
+sociology-las,Full Prof,F,2018,50-100K,3
+sociology-las,Full Prof,M,2011,50-100K,2
+sociology-las,Full Prof,M,2012,50-100K,2
+sociology-las,Full Prof,M,2012,100-150K,1
+sociology-las,Full Prof,M,2013,50-100K,1
+sociology-las,Full Prof,M,2013,100-150K,2
+sociology-las,Full Prof,M,2014,50-100K,1
+sociology-las,Full Prof,M,2014,100-150K,2
+sociology-las,Full Prof,M,2015,50-100K,1
+sociology-las,Full Prof,M,2015,100-150K,2
+sociology-las,Full Prof,M,2016,50-100K,1
+sociology-las,Full Prof,M,2016,100-150K,2
+sociology-las,Full Prof,M,2017,50-100K,2
+sociology-las,Full Prof,M,2017,100-150K,2
+sociology-las,Full Prof,M,2018,50-100K,3
+sociology-las,Full Prof,M,2018,100-150K,3
+sociology-las,Named Prof,F,2018,100-150K,1
+sr vp/provost,Full Prof,F,2012,NA,1
+statistics,Asst Prof,F,2011,50-100K,3
+statistics,Asst Prof,F,2012,50-100K,2
+statistics,Asst Prof,F,2013,50-100K,1
+statistics,Asst Prof,F,2014,50-100K,1
+statistics,Asst Prof,F,2015,50-100K,2
+statistics,Asst Prof,F,2016,50-100K,1
+statistics,Asst Prof,F,2017,50-100K,1
+statistics,Asst Prof,F,2018,50-100K,2
+statistics,Asst Prof,M,2011,50-100K,1
+statistics,Asst Prof,M,2012,50-100K,2
+statistics,Asst Prof,M,2013,50-100K,2
+statistics,Asst Prof,M,2014,50-100K,2
+statistics,Asst Prof,M,2015,50-100K,2
+statistics,Asst Prof,M,2016,50-100K,4
+statistics,Asst Prof,M,2017,50-100K,2
+statistics,Asst Prof,M,2018,50-100K,2
+statistics,Assoc Prof,F,2011,50-100K,4
+statistics,Assoc Prof,F,2012,50-100K,5
+statistics,Assoc Prof,F,2013,50-100K,5
+statistics,Assoc Prof,F,2014,50-100K,4
+statistics,Assoc Prof,F,2014,100-150K,1
+statistics,Assoc Prof,F,2015,50-100K,4
+statistics,Assoc Prof,F,2016,50-100K,3
+statistics,Assoc Prof,F,2016,100-150K,2
+statistics,Assoc Prof,F,2017,50-100K,3
+statistics,Assoc Prof,F,2017,100-150K,2
+statistics,Assoc Prof,F,2018,50-100K,2
+statistics,Assoc Prof,F,2018,100-150K,2
+statistics,Assoc Prof,M,2011,50-100K,5
+statistics,Assoc Prof,M,2012,50-100K,5
+statistics,Assoc Prof,M,2013,50-100K,5
+statistics,Assoc Prof,M,2013,100-150K,1
+statistics,Assoc Prof,M,2014,50-100K,4
+statistics,Assoc Prof,M,2014,100-150K,2
+statistics,Assoc Prof,M,2015,50-100K,4
+statistics,Assoc Prof,M,2015,100-150K,2
+statistics,Assoc Prof,M,2016,50-100K,3
+statistics,Assoc Prof,M,2016,100-150K,2
+statistics,Assoc Prof,M,2017,50-100K,4
+statistics,Assoc Prof,M,2017,100-150K,1
+statistics,Assoc Prof,M,2018,50-100K,2
+statistics,Assoc Prof,M,2018,100-150K,2
+statistics,Full Prof,F,2011,100-150K,2
+statistics,Full Prof,F,2012,100-150K,2
+statistics,Full Prof,F,2013,100-150K,3
+statistics,Full Prof,F,2014,100-150K,2
+statistics,Full Prof,F,2015,100-150K,3
+statistics,Full Prof,F,2016,100-150K,2
+statistics,Full Prof,F,2017,100-150K,2
+statistics,Full Prof,F,2018,100-150K,3
+statistics,Full Prof,M,2011,100-150K,4
+statistics,Full Prof,M,2012,100-150K,4
+statistics,Full Prof,M,2012,>150K,1
+statistics,Full Prof,M,2013,100-150K,4
+statistics,Full Prof,M,2013,>150K,1
+statistics,Full Prof,M,2014,100-150K,4
+statistics,Full Prof,M,2014,>150K,1
+statistics,Full Prof,M,2015,100-150K,4
+statistics,Full Prof,M,2016,100-150K,3
+statistics,Full Prof,M,2016,>150K,1
+statistics,Full Prof,M,2017,100-150K,4
+statistics,Full Prof,M,2018,100-150K,4
+statistics,Named Prof,F,2011,100-150K,1
+statistics,Named Prof,F,2012,100-150K,1
+statistics,Named Prof,F,2013,100-150K,1
+statistics,Named Prof,F,2014,>150K,1
+statistics,Named Prof,F,2015,>150K,1
+statistics,Named Prof,F,2016,>150K,1
+statistics,Named Prof,F,2017,>150K,1
+statistics,Named Prof,F,2018,>150K,1
+statistics,Named Prof,M,2011,100-150K,4
+statistics,Named Prof,M,2011,>150K,1
+statistics,Named Prof,M,2012,100-150K,4
+statistics,Named Prof,M,2012,>150K,1
+statistics,Named Prof,M,2013,100-150K,4
+statistics,Named Prof,M,2013,>150K,1
+statistics,Named Prof,M,2014,100-150K,2
+statistics,Named Prof,M,2014,>150K,2
+statistics,Named Prof,M,2015,100-150K,3
+statistics,Named Prof,M,2015,>150K,4
+statistics,Named Prof,M,2016,100-150K,1
+statistics,Named Prof,M,2016,>150K,5
+statistics,Named Prof,M,2017,100-150K,1
+statistics,Named Prof,M,2017,>150K,5
+statistics,Named Prof,M,2018,100-150K,1
+statistics,Named Prof,M,2018,>150K,4
+supply chn mgmt,Asst Prof,F,2011,100-150K,1
+supply chn mgmt,Asst Prof,F,2012,100-150K,1
+supply chn mgmt,Asst Prof,F,2013,100-150K,1
+supply chn mgmt,Asst Prof,F,2014,100-150K,1
+supply chn mgmt,Asst Prof,F,2016,100-150K,1
+supply chn mgmt,Asst Prof,F,2017,100-150K,1
+supply chn mgmt,Asst Prof,F,2018,100-150K,2
+supply chn mgmt,Asst Prof,M,2011,100-150K,6
+supply chn mgmt,Asst Prof,M,2012,100-150K,5
+supply chn mgmt,Asst Prof,M,2013,100-150K,4
+supply chn mgmt,Asst Prof,M,2014,100-150K,3
+supply chn mgmt,Asst Prof,M,2015,100-150K,3
+supply chn mgmt,Asst Prof,M,2016,100-150K,2
+supply chn mgmt,Asst Prof,M,2017,100-150K,2
+supply chn mgmt,Asst Prof,M,2018,100-150K,2
+supply chn mgmt,Assoc Prof,F,2011,100-150K,2
+supply chn mgmt,Assoc Prof,F,2012,100-150K,1
+supply chn mgmt,Assoc Prof,F,2012,>150K,1
+supply chn mgmt,Assoc Prof,F,2013,>150K,1
+supply chn mgmt,Assoc Prof,M,2011,100-150K,7
+supply chn mgmt,Assoc Prof,M,2012,100-150K,7
+supply chn mgmt,Assoc Prof,M,2013,100-150K,9
+supply chn mgmt,Assoc Prof,M,2014,100-150K,8
+supply chn mgmt,Assoc Prof,M,2014,>150K,1
+supply chn mgmt,Assoc Prof,M,2015,100-150K,8
+supply chn mgmt,Assoc Prof,M,2015,>150K,3
+supply chn mgmt,Assoc Prof,M,2016,100-150K,8
+supply chn mgmt,Assoc Prof,M,2016,>150K,4
+supply chn mgmt,Assoc Prof,M,2017,100-150K,5
+supply chn mgmt,Assoc Prof,M,2017,>150K,8
+supply chn mgmt,Assoc Prof,M,2018,100-150K,5
+supply chn mgmt,Assoc Prof,M,2018,>150K,7
+supply chn mgmt,Full Prof,F,2013,100-150K,1
+supply chn mgmt,Full Prof,F,2014,100-150K,1
+supply chn mgmt,Full Prof,F,2014,>150K,1
+supply chn mgmt,Full Prof,F,2015,100-150K,1
+supply chn mgmt,Full Prof,F,2016,100-150K,1
+supply chn mgmt,Full Prof,F,2017,100-150K,1
+supply chn mgmt,Full Prof,F,2017,>150K,1
+supply chn mgmt,Full Prof,F,2018,100-150K,1
+supply chn mgmt,Full Prof,F,2018,>150K,1
+supply chn mgmt,Full Prof,M,2012,>150K,1
+supply chn mgmt,Full Prof,M,2013,>150K,2
+supply chn mgmt,Full Prof,M,2014,>150K,2
+supply chn mgmt,Full Prof,M,2015,>150K,2
+supply chn mgmt,Full Prof,M,2016,>150K,2
+supply chn mgmt,Full Prof,M,2017,>150K,2
+supply chn mgmt,Full Prof,M,2018,>150K,3
+supply chn mgmt,Named Prof,F,2016,>150K,1
+supply chn mgmt,Named Prof,F,2017,>150K,1
+supply chn mgmt,Named Prof,M,2011,>150K,1
+vet clinical sc,Asst Prof,F,2011,100-150K,2
+vet clinical sc,Asst Prof,F,2012,100-150K,5
+vet clinical sc,Asst Prof,F,2013,100-150K,6
+vet clinical sc,Asst Prof,F,2014,100-150K,4
+vet clinical sc,Asst Prof,F,2015,100-150K,3
+vet clinical sc,Asst Prof,F,2016,100-150K,5
+vet clinical sc,Asst Prof,F,2017,100-150K,3
+vet clinical sc,Asst Prof,F,2018,100-150K,4
+vet clinical sc,Asst Prof,M,2011,100-150K,3
+vet clinical sc,Asst Prof,M,2012,100-150K,2
+vet clinical sc,Asst Prof,M,2013,50-100K,1
+vet clinical sc,Asst Prof,M,2013,100-150K,1
+vet clinical sc,Asst Prof,M,2014,100-150K,2
+vet clinical sc,Asst Prof,M,2015,100-150K,3
+vet clinical sc,Asst Prof,M,2016,100-150K,4
+vet clinical sc,Asst Prof,M,2017,100-150K,5
+vet clinical sc,Asst Prof,M,2018,100-150K,6
+vet clinical sc,Assoc Prof,F,2011,100-150K,5
+vet clinical sc,Assoc Prof,F,2012,100-150K,5
+vet clinical sc,Assoc Prof,F,2013,100-150K,4
+vet clinical sc,Assoc Prof,F,2014,<50K,1
+vet clinical sc,Assoc Prof,F,2014,100-150K,3
+vet clinical sc,Assoc Prof,F,2015,100-150K,3
+vet clinical sc,Assoc Prof,F,2016,100-150K,4
+vet clinical sc,Assoc Prof,F,2017,100-150K,5
+vet clinical sc,Assoc Prof,F,2018,100-150K,4
+vet clinical sc,Assoc Prof,M,2011,100-150K,5
+vet clinical sc,Assoc Prof,M,2012,100-150K,5
+vet clinical sc,Assoc Prof,M,2013,100-150K,5
+vet clinical sc,Assoc Prof,M,2014,100-150K,5
+vet clinical sc,Assoc Prof,M,2015,100-150K,3
+vet clinical sc,Assoc Prof,M,2016,100-150K,2
+vet clinical sc,Assoc Prof,M,2017,100-150K,1
+vet clinical sc,Full Prof,F,2011,100-150K,1
+vet clinical sc,Full Prof,F,2011,>150K,1
+vet clinical sc,Full Prof,F,2012,100-150K,1
+vet clinical sc,Full Prof,F,2012,>150K,1
+vet clinical sc,Full Prof,F,2013,100-150K,1
+vet clinical sc,Full Prof,F,2013,>150K,1
+vet clinical sc,Full Prof,F,2014,100-150K,1
+vet clinical sc,Full Prof,F,2014,>150K,1
+vet clinical sc,Full Prof,F,2015,>150K,2
+vet clinical sc,Full Prof,F,2016,100-150K,1
+vet clinical sc,Full Prof,F,2016,>150K,2
+vet clinical sc,Full Prof,F,2017,100-150K,1
+vet clinical sc,Full Prof,F,2017,>150K,2
+vet clinical sc,Full Prof,F,2018,100-150K,1
+vet clinical sc,Full Prof,F,2018,>150K,1
+vet clinical sc,Full Prof,M,2011,50-100K,1
+vet clinical sc,Full Prof,M,2011,100-150K,6
+vet clinical sc,Full Prof,M,2011,>150K,1
+vet clinical sc,Full Prof,M,2012,50-100K,1
+vet clinical sc,Full Prof,M,2012,100-150K,5
+vet clinical sc,Full Prof,M,2012,>150K,2
+vet clinical sc,Full Prof,M,2013,100-150K,5
+vet clinical sc,Full Prof,M,2013,>150K,2
+vet clinical sc,Full Prof,M,2014,100-150K,4
+vet clinical sc,Full Prof,M,2014,>150K,3
+vet clinical sc,Full Prof,M,2015,100-150K,3
+vet clinical sc,Full Prof,M,2015,>150K,4
+vet clinical sc,Full Prof,M,2016,100-150K,3
+vet clinical sc,Full Prof,M,2016,>150K,2
+vet clinical sc,Full Prof,M,2017,100-150K,3
+vet clinical sc,Full Prof,M,2017,>150K,2
+vet clinical sc,Full Prof,M,2018,50-100K,1
+vet clinical sc,Full Prof,M,2018,100-150K,2
+vet clinical sc,Full Prof,M,2018,>150K,1
+vet clinical sc,Named Prof,M,2011,>150K,1
+vet clinical sc,Named Prof,M,2012,>150K,1
+vet clinical sc,Named Prof,M,2015,>150K,1
+vet clinical sc,Named Prof,M,2016,>150K,1
+vet clinical sc,Named Prof,M,2017,>150K,1
+vet clinical sc,Named Prof,M,2018,>150K,1
+vet diag/prod,Asst Prof,F,2011,100-150K,1
+vet diag/prod,Asst Prof,F,2014,100-150K,1
+vet diag/prod,Asst Prof,F,2015,100-150K,1
+vet diag/prod,Asst Prof,F,2016,100-150K,2
+vet diag/prod,Asst Prof,F,2017,100-150K,3
+vet diag/prod,Asst Prof,F,2018,100-150K,3
+vet diag/prod,Asst Prof,M,2011,50-100K,1
+vet diag/prod,Asst Prof,M,2011,100-150K,5
+vet diag/prod,Asst Prof,M,2012,50-100K,3
+vet diag/prod,Asst Prof,M,2012,100-150K,4
+vet diag/prod,Asst Prof,M,2013,50-100K,2
+vet diag/prod,Asst Prof,M,2013,100-150K,5
+vet diag/prod,Asst Prof,M,2014,50-100K,1
+vet diag/prod,Asst Prof,M,2014,100-150K,6
+vet diag/prod,Asst Prof,M,2015,<50K,1
+vet diag/prod,Asst Prof,M,2015,50-100K,2
+vet diag/prod,Asst Prof,M,2015,100-150K,5
+vet diag/prod,Asst Prof,M,2015,NA,1
+vet diag/prod,Asst Prof,M,2016,100-150K,8
+vet diag/prod,Asst Prof,M,2017,100-150K,6
+vet diag/prod,Asst Prof,M,2018,100-150K,4
+vet diag/prod,Assoc Prof,F,2011,50-100K,1
+vet diag/prod,Assoc Prof,F,2011,100-150K,1
+vet diag/prod,Assoc Prof,F,2012,100-150K,2
+vet diag/prod,Assoc Prof,F,2013,100-150K,2
+vet diag/prod,Assoc Prof,F,2014,100-150K,1
+vet diag/prod,Assoc Prof,F,2015,100-150K,1
+vet diag/prod,Assoc Prof,F,2016,100-150K,2
+vet diag/prod,Assoc Prof,F,2017,100-150K,1
+vet diag/prod,Assoc Prof,M,2011,50-100K,1
+vet diag/prod,Assoc Prof,M,2011,100-150K,4
+vet diag/prod,Assoc Prof,M,2012,50-100K,1
+vet diag/prod,Assoc Prof,M,2012,100-150K,6
+vet diag/prod,Assoc Prof,M,2013,50-100K,1
+vet diag/prod,Assoc Prof,M,2013,100-150K,6
+vet diag/prod,Assoc Prof,M,2014,50-100K,1
+vet diag/prod,Assoc Prof,M,2014,100-150K,5
+vet diag/prod,Assoc Prof,M,2015,100-150K,6
+vet diag/prod,Assoc Prof,M,2016,100-150K,7
+vet diag/prod,Assoc Prof,M,2016,>150K,1
+vet diag/prod,Assoc Prof,M,2017,100-150K,6
+vet diag/prod,Assoc Prof,M,2017,>150K,2
+vet diag/prod,Assoc Prof,M,2018,100-150K,6
+vet diag/prod,Assoc Prof,M,2018,>150K,2
+vet diag/prod,Full Prof,F,2013,100-150K,1
+vet diag/prod,Full Prof,F,2014,<50K,1
+vet diag/prod,Full Prof,F,2015,<50K,1
+vet diag/prod,Full Prof,F,2016,<50K,1
+vet diag/prod,Full Prof,F,2017,<50K,1
+vet diag/prod,Full Prof,F,2017,100-150K,1
+vet diag/prod,Full Prof,F,2018,<50K,1
+vet diag/prod,Full Prof,F,2018,100-150K,1
+vet diag/prod,Full Prof,M,2011,100-150K,6
+vet diag/prod,Full Prof,M,2011,>150K,1
+vet diag/prod,Full Prof,M,2012,100-150K,6
+vet diag/prod,Full Prof,M,2013,100-150K,5
+vet diag/prod,Full Prof,M,2013,>150K,1
+vet diag/prod,Full Prof,M,2014,<50K,1
+vet diag/prod,Full Prof,M,2014,100-150K,4
+vet diag/prod,Full Prof,M,2014,>150K,1
+vet diag/prod,Full Prof,M,2015,100-150K,4
+vet diag/prod,Full Prof,M,2015,>150K,1
+vet diag/prod,Full Prof,M,2016,100-150K,4
+vet diag/prod,Full Prof,M,2016,>150K,1
+vet diag/prod,Full Prof,M,2017,100-150K,4
+vet diag/prod,Full Prof,M,2018,100-150K,4
+vet diag/prod,Named Prof,M,2011,>150K,2
+vet diag/prod,Named Prof,M,2012,>150K,2
+vet diag/prod,Named Prof,M,2013,>150K,2
+vet diag/prod,Named Prof,M,2014,>150K,1
+vet diag/prod,Named Prof,M,2015,>150K,1
+vet diag/prod,Named Prof,M,2016,>150K,1
+vet med adm,Full Prof,M,2011,>150K,1
+vet med adm,Full Prof,M,2012,>150K,1
+vet mic/prv med,Asst Prof,F,2011,50-100K,2
+vet mic/prv med,Asst Prof,F,2012,50-100K,1
+vet mic/prv med,Asst Prof,F,2013,50-100K,1
+vet mic/prv med,Asst Prof,F,2014,50-100K,1
+vet mic/prv med,Asst Prof,F,2018,50-100K,1
+vet mic/prv med,Asst Prof,M,2011,50-100K,1
+vet mic/prv med,Asst Prof,M,2012,50-100K,1
+vet mic/prv med,Asst Prof,M,2013,50-100K,1
+vet mic/prv med,Asst Prof,M,2018,50-100K,1
+vet mic/prv med,Assoc Prof,F,2011,50-100K,1
+vet mic/prv med,Assoc Prof,F,2012,50-100K,2
+vet mic/prv med,Assoc Prof,F,2013,50-100K,2
+vet mic/prv med,Assoc Prof,F,2014,50-100K,2
+vet mic/prv med,Assoc Prof,F,2015,50-100K,2
+vet mic/prv med,Assoc Prof,F,2016,50-100K,2
+vet mic/prv med,Assoc Prof,F,2017,50-100K,2
+vet mic/prv med,Assoc Prof,M,2011,50-100K,1
+vet mic/prv med,Assoc Prof,M,2011,100-150K,2
+vet mic/prv med,Assoc Prof,M,2012,50-100K,1
+vet mic/prv med,Assoc Prof,M,2012,100-150K,2
+vet mic/prv med,Assoc Prof,M,2013,50-100K,1
+vet mic/prv med,Assoc Prof,M,2013,100-150K,1
+vet mic/prv med,Assoc Prof,M,2014,50-100K,2
+vet mic/prv med,Assoc Prof,M,2014,100-150K,1
+vet mic/prv med,Assoc Prof,M,2015,50-100K,3
+vet mic/prv med,Assoc Prof,M,2015,100-150K,1
+vet mic/prv med,Assoc Prof,M,2016,50-100K,3
+vet mic/prv med,Assoc Prof,M,2016,100-150K,1
+vet mic/prv med,Assoc Prof,M,2017,50-100K,2
+vet mic/prv med,Assoc Prof,M,2017,100-150K,2
+vet mic/prv med,Assoc Prof,M,2018,50-100K,1
+vet mic/prv med,Assoc Prof,M,2018,100-150K,3
+vet mic/prv med,Full Prof,F,2011,100-150K,1
+vet mic/prv med,Full Prof,F,2012,100-150K,1
+vet mic/prv med,Full Prof,M,2011,50-100K,1
+vet mic/prv med,Full Prof,M,2011,100-150K,5
+vet mic/prv med,Full Prof,M,2012,100-150K,4
+vet mic/prv med,Full Prof,M,2013,100-150K,5
+vet mic/prv med,Full Prof,M,2014,100-150K,5
+vet mic/prv med,Full Prof,M,2015,100-150K,5
+vet mic/prv med,Full Prof,M,2015,>150K,1
+vet mic/prv med,Full Prof,M,2016,100-150K,5
+vet mic/prv med,Full Prof,M,2016,>150K,1
+vet mic/prv med,Full Prof,M,2017,100-150K,4
+vet mic/prv med,Full Prof,M,2017,>150K,1
+vet mic/prv med,Full Prof,M,2018,100-150K,4
+vet mic/prv med,Full Prof,M,2018,>150K,1
+vet mic/prv med,Named Prof,M,2011,100-150K,2
+vet mic/prv med,Named Prof,M,2012,100-150K,2
+vet mic/prv med,Named Prof,M,2013,100-150K,1
+vet mic/prv med,Named Prof,M,2013,>150K,1
+vet mic/prv med,Named Prof,M,2014,100-150K,1
+vet mic/prv med,Named Prof,M,2014,>150K,1
+vet mic/prv med,Named Prof,M,2015,>150K,2
+vet mic/prv med,Named Prof,M,2016,>150K,2
+vet mic/prv med,Named Prof,M,2017,>150K,2
+vet mic/prv med,Named Prof,M,2018,>150K,2
+vet pathology,Asst Prof,F,2011,50-100K,2
+vet pathology,Asst Prof,F,2012,50-100K,1
+vet pathology,Asst Prof,F,2013,50-100K,1
+vet pathology,Asst Prof,F,2014,50-100K,1
+vet pathology,Asst Prof,F,2014,100-150K,1
+vet pathology,Asst Prof,F,2015,50-100K,1
+vet pathology,Asst Prof,F,2015,100-150K,2
+vet pathology,Asst Prof,F,2016,50-100K,1
+vet pathology,Asst Prof,F,2016,100-150K,2
+vet pathology,Asst Prof,F,2017,50-100K,1
+vet pathology,Asst Prof,F,2017,100-150K,1
+vet pathology,Asst Prof,F,2018,100-150K,1
+vet pathology,Asst Prof,M,2011,50-100K,1
+vet pathology,Asst Prof,M,2012,50-100K,1
+vet pathology,Asst Prof,M,2013,50-100K,1
+vet pathology,Asst Prof,M,2014,<50K,1
+vet pathology,Asst Prof,M,2015,100-150K,2
+vet pathology,Asst Prof,M,2016,100-150K,2
+vet pathology,Asst Prof,M,2017,100-150K,2
+vet pathology,Asst Prof,M,2018,100-150K,4
+vet pathology,Assoc Prof,F,2011,50-100K,1
+vet pathology,Assoc Prof,F,2011,100-150K,2
+vet pathology,Assoc Prof,F,2012,50-100K,2
+vet pathology,Assoc Prof,F,2012,100-150K,2
+vet pathology,Assoc Prof,F,2013,100-150K,1
+vet pathology,Assoc Prof,F,2018,50-100K,1
+vet pathology,Assoc Prof,M,2011,50-100K,2
+vet pathology,Assoc Prof,M,2011,100-150K,2
+vet pathology,Assoc Prof,M,2012,50-100K,2
+vet pathology,Assoc Prof,M,2012,100-150K,2
+vet pathology,Assoc Prof,M,2013,50-100K,2
+vet pathology,Assoc Prof,M,2013,100-150K,1
+vet pathology,Assoc Prof,M,2014,50-100K,1
+vet pathology,Assoc Prof,M,2014,100-150K,3
+vet pathology,Assoc Prof,M,2015,100-150K,2
+vet pathology,Full Prof,M,2011,100-150K,1
+vet pathology,Full Prof,M,2012,100-150K,2
+vet pathology,Full Prof,M,2013,100-150K,1
+vet pathology,Full Prof,M,2014,100-150K,1
+vet pathology,Full Prof,M,2015,100-150K,2
+vet pathology,Full Prof,M,2015,>150K,1
+vet pathology,Full Prof,M,2016,100-150K,3
+vet pathology,Full Prof,M,2017,100-150K,3
+vet pathology,Full Prof,M,2018,100-150K,2
+vet pathology,Full Prof,M,2018,>150K,1
+vet pathology,Named Prof,M,2011,100-150K,1
+vet pathology,Named Prof,M,2012,100-150K,1
+vet pathology,Named Prof,M,2013,100-150K,1
+vet pathology,Named Prof,M,2014,100-150K,1
+vet pathology,Named Prof,M,2015,100-150K,1
+vet pathology,Named Prof,M,2016,>150K,1
+vet pathology,Named Prof,M,2017,>150K,1
+vet pathology,Named Prof,M,2018,>150K,1
+vp ext & outrch,Assoc Prof,M,2016,100-150K,1
+vp ext & outrch,Full Prof,M,2018,>150K,1
+world lang/cult,Asst Prof,F,2011,50-100K,2
+world lang/cult,Asst Prof,F,2012,50-100K,2
+world lang/cult,Asst Prof,F,2013,50-100K,1
+world lang/cult,Asst Prof,F,2014,50-100K,2
+world lang/cult,Asst Prof,F,2015,50-100K,3
+world lang/cult,Asst Prof,F,2016,50-100K,2
+world lang/cult,Asst Prof,F,2017,50-100K,5
+world lang/cult,Asst Prof,F,2018,50-100K,3
+world lang/cult,Asst Prof,M,2011,50-100K,1
+world lang/cult,Asst Prof,M,2012,50-100K,2
+world lang/cult,Asst Prof,M,2013,50-100K,2
+world lang/cult,Asst Prof,M,2014,50-100K,2
+world lang/cult,Asst Prof,M,2015,50-100K,2
+world lang/cult,Asst Prof,M,2016,50-100K,2
+world lang/cult,Asst Prof,M,2017,50-100K,2
+world lang/cult,Asst Prof,M,2018,50-100K,1
+world lang/cult,Assoc Prof,F,2011,50-100K,4
+world lang/cult,Assoc Prof,F,2012,50-100K,4
+world lang/cult,Assoc Prof,F,2013,50-100K,4
+world lang/cult,Assoc Prof,F,2014,50-100K,5
+world lang/cult,Assoc Prof,F,2015,50-100K,5
+world lang/cult,Assoc Prof,F,2016,50-100K,6
+world lang/cult,Assoc Prof,F,2017,50-100K,8
+world lang/cult,Assoc Prof,F,2018,50-100K,10
+world lang/cult,Assoc Prof,M,2011,50-100K,3
+world lang/cult,Assoc Prof,M,2012,50-100K,3
+world lang/cult,Assoc Prof,M,2013,50-100K,2
+world lang/cult,Assoc Prof,M,2014,50-100K,2
+world lang/cult,Assoc Prof,M,2015,50-100K,2
+world lang/cult,Assoc Prof,M,2016,50-100K,3
+world lang/cult,Assoc Prof,M,2017,50-100K,6
+world lang/cult,Assoc Prof,M,2018,50-100K,7
+world lang/cult,Full Prof,F,2011,50-100K,2
+world lang/cult,Full Prof,F,2012,50-100K,2
+world lang/cult,Full Prof,F,2013,50-100K,1
+world lang/cult,Full Prof,F,2014,50-100K,1
+world lang/cult,Full Prof,M,2011,50-100K,1
+world lang/cult,Full Prof,M,2012,50-100K,1
+world lang/cult,Full Prof,M,2013,50-100K,2
+world lang/cult,Full Prof,M,2014,50-100K,2
+world lang/cult,Full Prof,M,2015,50-100K,2
+world lang/cult,Full Prof,M,2016,50-100K,1
+world lang/cult,Full Prof,M,2016,100-150K,1
+world lang/cult,Full Prof,M,2017,50-100K,1
+world lang/cult,Full Prof,M,2018,50-100K,1
+world lang/cult,Named Prof,M,2011,50-100K,1
+world lang/cult,Named Prof,M,2012,100-150K,1
+world lang/cult,Named Prof,M,2014,50-100K,1
+world lang/cult,Named Prof,M,2015,50-100K,1
+world lang/cult,Named Prof,M,2016,100-150K,1
+world lang/cult,Named Prof,M,2017,100-150K,2
+world lang/cult,Named Prof,M,2018,100-150K,2
+youth & 4h,Asst Prof,M,2011,100-150K,1
