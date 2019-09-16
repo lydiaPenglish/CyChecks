@@ -60,7 +60,7 @@ cyd_ratios %>%
   #geom_hline(yintercept = 0, color = "red") +
   
   geom_point(aes(size = total, fill = verd), pch = 21, color = "black", stroke = 2) + 
-  geom_segment(aes(x = dept, xend = dept, y = 0, yend = ratio)) + 
+  geom_segment(aes(x = dept, xend = dept, y = 0, yend = ratio), size = 1.1) + 
   geom_point(aes(size = total, fill = verd), pch = 21, color = "black", stroke = 2) + 
   guides(fill = F) +
   coord_flip() + 
@@ -70,12 +70,12 @@ cyd_ratios %>%
   theme(axis.title.x = element_text(size = rel(1.3), face = "bold"), 
           axis.text.y = element_text(colour = mycols, size = rel(1.3), face = "bold"),
         strip.text = element_text(size = rel(1.5), face = "bold")) + 
-  labs(y = "Ratio of Female:Male Faculty\n2018",
+  labs(y = "Ratio of Female:Male\nTenure-Track Faculty ",
        x = NULL,
-       size = "Number of\nFaculty") + 
-  scale_fill_manual(values = c( "blue", "darkred"))
+       size = "Number of\nTenure-track\nFaculty") + 
+  scale_fill_manual(values = c( "blue", "firebrick"))
   
-ggsave("data-raw/fig_FM-ratio.png")
+ggsave("data-raw/fig_FM-ratio.png", width = 10, height = 6)
 
 # look at who has improved the most in gender rep -------------------------
 
