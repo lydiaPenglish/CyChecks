@@ -45,10 +45,6 @@ cyd_ratios <-
 
 # just look at ratios -----------------------------------------------------
 
-library(snakecase)
-
-cyd_ratios %>% pull(college) %>% unique()
-
 
 mycols = c("red", rep("black", 15))
 
