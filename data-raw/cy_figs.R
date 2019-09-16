@@ -3,6 +3,7 @@
 # created: Sept 11 2019
 #
 # last updated: sept 14 (looking at gender ratios, who has improved?)
+#               sept 16 (2018 ratio, agronomy is the worst)
 #
 # purpose: make a graph for kendall, or whoever
 # 
@@ -35,10 +36,52 @@ cyd_ratios <-
   summarise(n = n()) %>%
   spread(gender, value = n) %>%
   replace(is.na(.), 0) %>%
-  mutate(ratio = `F`/`M`) %>%
+  mutate(ratio = `F`/`M`,
+         total = `F` + M) %>%
   select(-M, -`F`) %>%
   ungroup() %>%
   filter(grepl("college of", college))
+
+
+# just look at ratios -----------------------------------------------------
+
+library(snakecase)
+
+cyd_ratios %>% pull(college) %>% unique()
+
+
+mycols = c("red", rep("black", 15))
+
+cyd_ratios %>%
+  filter(fiscal_year == 2018, college == "college of agriculture & life sciences") %>%
+  mutate(verd = ifelse(ratio < 1, "mal", "good"),
+         dept = str_to_title(dept),
+         college = str_to_title(college)) %>%
+  
+  
+  ggplot(aes(reorder(dept, ratio), ratio)) + 
+  geom_hline(yintercept = 1, color = "black", linetype = "dashed") +
+  #geom_hline(yintercept = 0, color = "red") +
+  
+  geom_point(aes(size = total, fill = verd), pch = 21, color = "black", stroke = 2) + 
+  geom_segment(aes(x = dept, xend = dept, y = 0, yend = ratio)) + 
+  geom_point(aes(size = total, fill = verd), pch = 21, color = "black", stroke = 2) + 
+  guides(fill = F) +
+  coord_flip() + 
+  
+  facet_wrap(~college, scales = "free") + 
+  theme_base() +
+  theme(axis.title.x = element_text(size = rel(1.3), face = "bold"), 
+          axis.text.y = element_text(colour = mycols, size = rel(1.3), face = "bold"),
+        strip.text = element_text(size = rel(1.5), face = "bold")) + 
+  labs(y = "Ratio of Female:Male Faculty\n2018",
+       x = NULL,
+       size = "Number of\nFaculty") + 
+  scale_fill_manual(values = c( "blue", "darkred"))
+  
+ggsave("data-raw/fig_FM-ratio.png")
+
+# look at who has improved the most in gender rep -------------------------
 
 
 #--note, this didn't work. 
