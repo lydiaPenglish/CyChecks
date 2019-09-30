@@ -7,6 +7,8 @@
 #               September 6 2019 (barely, by LE)
 #               Sept 9 2019 (Gina, removing dupes, fixing Maria/Mari Salas-Fernandez)
 #               Sept 13 updated github code to match cybox code
+#               Sept 29 added 'named prof' category in prof4_simp column (4 cats now)
+#                        de-anonymized things bc it's easier to trouble shoot at this point
 #
 # purpose: make CyChecks2 functions in a safe place
 # 
@@ -111,10 +113,10 @@ cyf_TidySals <- function(mydata = cyd_salsraw){
 
 
 cyd_salstidy <- cyf_TidySals() %>%
-  
+
+  #--WTF, Maria is Mari. Fix it to Maria. What else is wrong...internet.
   mutate(first_name = ifelse(last_name == "salas-fernandez", "maria", first_name))
 
-#--WTF, Maria is Mari. Fix it to Maria. What else is wrong...internet.
 cyd_salstidy %>%
   filter(last_name == "salas-fernandez")
 
@@ -142,6 +144,10 @@ cyd_dept <-
 cyd_dept %>%
   pull(dept) %>%
   unique()
+
+cyd_dept %>%
+  filter(last_name == "salas-fernandez")
+
 
 # NOTE: future improvement, if it doesn't appear in this list it should get lumped into another one (ex. ag/biosys eng)
 cyd_college <- read_csv("data-raw/_tidy/td_org-dept-key.csv")
@@ -192,11 +198,15 @@ dupes2 <-
 
 
 
-cyd_salstidy <- 
+cyd_salstidy2 <- 
   cyd_salstidy %>%
   unite(last_name, first_name, col = "name", sep = "_") %>%
   filter(!name %in% dupes2) %>%
-  separate("name", into = c("last_name", "first_name"))
+  separate("name", into = c("last_name", "first_name"), sep = "_")
+
+
+cyd_salstidy2 %>%
+  filter(last_name == "salas-fernandez", fiscal_year == 2018) 
 
 
 cyf_SalsDeptMerge <- function(mydata = cyd_salstidy, mydept = cyd_dept, mycollege = cyd_college) {
@@ -209,9 +219,9 @@ cyf_SalsDeptMerge <- function(mydata = cyd_salstidy, mydept = cyd_dept, mycolleg
     select(-base_salary_year) %>%
     
     #--anonymize names
-    unite(last_name, first_name, other, col = "name") %>%
-    mutate(anon = name %>% map(digest)) %>%
-    unnest() %>%
+    unite(last_name, first_name, col = "name", sep = "_") %>%
+    #mutate(anon = name %>% map(digest)) %>%
+    #unnest() %>%
     
     # add college
     left_join(mycollege, by = "dept") %>%
@@ -219,7 +229,8 @@ cyf_SalsDeptMerge <- function(mydata = cyd_salstidy, mydept = cyd_dept, mycolleg
       fiscal_year,
       college,
       dept,
-      anon,
+      #anon,
+      name,
       position,
       gender,
       base_salary,
@@ -233,8 +244,11 @@ cyf_SalsDeptMerge <- function(mydata = cyd_salstidy, mydept = cyd_dept, mycolleg
   
 }
 
-cyd_saldept <- cyf_SalsDeptMerge()
+cyd_saldept <- cyf_SalsDeptMerge(mydata = cyd_salstidy2)
 
+
+cyd_saldept %>%
+  filter(name == "salas-fernandez_maria")
 
 
 
@@ -261,12 +275,12 @@ cy_SimpProfs <- function(mydata = cyd_saldept){
     mutate(
       prof_simp = ifelse(position %in% myprofs, position, "other")) %>%
     mutate(
-      pos_simp = prof_simp) %>%
+      prof4_simp = prof_simp) %>%
     mutate(
-      pos_simp = ifelse(prof_simp == "distg prof", "prof", pos_simp),
-      pos_simp = ifelse(prof_simp == "prof & chair", "prof", pos_simp),
-      pos_simp = ifelse(prof_simp == "prof emeritus", "prof", pos_simp),
-      pos_simp = ifelse(prof_simp == "univ prof", "prof", pos_simp)
+      prof4_simp = ifelse(prof_simp == "distg prof", "named prof", prof4_simp),
+      prof4_simp = ifelse(prof_simp == "prof & chair", "named prof", prof4_simp),
+      prof4_simp = ifelse(prof_simp == "prof emeritus", "named prof", prof4_simp),
+      prof4_simp = ifelse(prof_simp == "univ prof", "named prof", prof4_simp)
     ) 
   
   return(cyd_salprofs)
@@ -276,14 +290,20 @@ cy_SimpProfs <- function(mydata = cyd_saldept){
 
 
 cyd_salprofs <- cy_SimpProfs() %>%
-  ##--I don't want to deal with others right now...
-  filter(pos_simp != "other", 
+
+  #--others are like 'adjunct professor' or 'visiting prof'. They have weird sals.
+  #--dept NA is like transportation
+  filter(prof4_simp != "other", 
          !is.na(dept)) %>%
-  mutate(pos_simp = factor(pos_simp, levels = c("asst prof", "assoc prof", "prof")))
+  mutate(prof4_simp = factor(prof4_simp, levels = c("asst prof", "assoc prof", "prof", "named prof")))
 
 
-write_csv(cyd_salprofs, "_data/_tidy/cyd_salprofs.csv")
+cyd_salprofs %>% write_csv("data-raw/_tidy/cyd_salprofs.csv")
 
+
+cyd_salprofs %>%
+  filter(dept == "agronomy",
+         fiscal_year == 2018)
 
 
 # let's look at this shit -------------------------------------------------
