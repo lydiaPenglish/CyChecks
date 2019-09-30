@@ -1,0 +1,7 @@
+9:55 AM 9/19/2019 LE 
+
+Duplicate names were reconciled using the following methods:
+1. If employees were listed in the current directory with departments and middle initials, those were matched with the directory information (best case scenario). 
+2. If employees are no longer in the current directory (i.e. they have left Iowa state, then they were looked up in archived directories. 
+3. If employees never listed a middle initial, but are still listed in a current or previous directory then their position is matched to their department. 
+4. 
