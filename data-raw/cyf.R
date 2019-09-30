@@ -132,18 +132,21 @@ tibble(name = c("Mary D", "Mary D", "Mary A")) %>%
   mutate(anon = name %>% map(digest)) %>%
   unnest()
 
+# removing these from departments
+patterns <- c("-agls|-las|-hsci")
 
 cyd_dept <- 
   read_csv("data-raw/_tidy/td_empl-dept-key.csv") %>%
   
-  # why are there 3 ag/biosys eng?
+  # recoding redundant departments
   mutate(dept = recode(dept,
                        "ag/biosys eng-a" = "ag/biosys eng",
-                       "ag/biosys eng-e" = "ag/biosys eng")) 
+                       "ag/biosys eng-e" = "ag/biosys eng")) %>%
+  mutate(dept = str_remove_all(dept, patterns)) 
 
-cyd_dept %>%
+depts <- cyd_dept %>%
   pull(dept) %>%
-  unique()
+  unique() 
 
 cyd_dept %>%
   filter(last_name == "salas-fernandez")
@@ -169,6 +172,7 @@ dupes <-
   select(last_name, first_name, dept) %>%
   distinct() 
 
+# using this to reconcile duplicates
 dupes_sal <- 
   cyd_salstidy %>%
   group_by(fiscal_year, last_name, first_name, other) %>%
@@ -178,8 +182,14 @@ dupes_sal <-
   ungroup()%>%
   select(fiscal_year, last_name, first_name, other, position, n)
 
-check_name <- cyd_salstidy %>%
-  filter(last_name == "zimmerman" & first_name == "elizabeth")
+# adding reconciled duplicates back in
+
+good_dupes <- read_csv("data-raw/_raw/duplicate_name_reconciliation.csv")%>%
+  # getting rid of ones I couldn't figure out
+  filter(!grepl(pattern = "^\\**", reason_to_delete)) %>%
+  select(-reason_to_delete)
+
+# hmmmm - how to merge them back in? Can't merge with cyd_dept, bc no middle initial...? 
 
 
 # create list of names w/duplicates to filter against
@@ -196,18 +206,13 @@ dupes2 <-
   distinct() %>%
   as_vector()
 
-
-
 cyd_salstidy2 <- 
   cyd_salstidy %>%
   unite(last_name, first_name, col = "name", sep = "_") %>%
   filter(!name %in% dupes2) %>%
   separate("name", into = c("last_name", "first_name"), sep = "_")
 
-
-cyd_salstidy2 %>%
-  filter(last_name == "salas-fernandez", fiscal_year == 2018) 
-
+# --- Merging everything together
 
 cyf_SalsDeptMerge <- function(mydata = cyd_salstidy, mydept = cyd_dept, mycollege = cyd_college) {
   

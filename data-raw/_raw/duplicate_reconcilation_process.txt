@@ -1,7 +1,11 @@
 9:55 AM 9/19/2019 LE 
 
+The situation:
+We are merging salary information from the government website with directory information from Iowa State. Government data has middle initials, directory information does not. Therefore in certain years some names appear twice - duplicates! 
+
 Duplicate names were reconciled using the following methods:
-1. If employees were listed in the current directory with departments and middle initials, those were matched with the directory information (best case scenario). 
-2. If employees are no longer in the current directory (i.e. they have left Iowa state, then they were looked up in archived directories. 
-3. If employees never listed a middle initial, but are still listed in a current or previous directory then their position is matched to their department. 
-4. 
+1. If employees were listed in the current Iowa State directory with departments and middle initials, those were matched with the given directory information (best case scenario). 
+2. If employees are no longer in the current directory (i.e. they have left Iowa state), then they were looked up in archived directories (still good scenario - although this only works for faculty).
+3. If 1 & 2 didn't work, employees and their departments were googled, which sometimes led to a middle initial being identified. 
+4. If employees never listed a middle initial, but are still listed in a current or previous Iowa State directory then their position is matched to their department and they will be merged by name and position. 
+5. Duplicate employees who's middle initial/identifying feature could not be verified, or who were not in the government data table were removed from analysis. 

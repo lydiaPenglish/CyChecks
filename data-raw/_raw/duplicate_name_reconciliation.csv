@@ -113,23 +113,23 @@ fiscal_year,dept,last_name,first_name,other,n,position,reason_to_delete
 2016,recreation srv,giles,michael,,2,,
 2017,recreation srv,giles,michael,,2,,
 2018,recreation srv,giles,michael,,2,,
-2016,counseling srv,graves,laura,,2,,**ugh can't figure these two out
-2016,receivables,graves,laura,,2,,**ugh can't figure these two out
+2016,counseling srv,graves,laura,,2,,**couldn't verify 
+2016,receivables,graves,laura,,2,,**couldn't verify 
 2011,physics/astron,hill,john,c,2,,
 2012,physics/astron,hill,john,c,2,,
 2013,physics/astron,hill,john,c,2,,
 2011,pl path & micro,hill,john,hemmingson,2,,
 2012,pl path & micro,hill,john,hemmingson,2,,
 2013,pl path & micro,hill,john,hemmingson,2,,
-2016,ames laboratory,johnson,duane,,2,,**couldn't find these matches
+2016,ames laboratory,johnson,duane,,2,,**couldn't verify 
 2018,farm/food/ent d,johnson,duane,k,2,,
 2017,material sc/eng,johnson,duane,dougla,2,,
 2018,material sc/eng,johnson,duane,dougla,2,,
-2016,sm bus dv ctr,johnson,duane,,2,,**couldn't find these matches
-2017,sm bus dv ctr,johnson,duane,,2,,**couldn't find these matches
+2016,sm bus dv ctr,johnson,duane,,2,,**couldn't verify 
+2017,sm bus dv ctr,johnson,duane,,2,,**couldn't verify 
 2016,procurement,johnson,eric,michael,2,,
 2016,vet diag lab,johnson,eric,christo,2,,
-2018,ctr crops ut rs,johnson,janet,,2,,**couldn't find these matches
+2018,ctr crops ut rs,johnson,janet,,2,,**couldn't verify 
 2011,food sc/hn-hsci,johnson,janet,s,2,,
 2012,food sc/hn-hsci,johnson,janet,s,2,,
 2013,food sc/hn-hsci,johnson,janet,s,2,,
@@ -154,11 +154,11 @@ fiscal_year,dept,last_name,first_name,other,n,position,reason_to_delete
 2016,gdcb-las,johnson,jennifer,dia,2,,
 2017,gdcb-las,johnson,jennifer,dia,2,,
 2018,gdcb-las,johnson,jennifer,dia,2,,
-2011,human dv/fam st,johnson,jennifer,,2,,**couldn't find these matches
+2011,human dv/fam st,johnson,jennifer,,2,,**couldn't verify 
 2013,lbrl art/sc adm,johnson,jennifer,dia,2,,
 2014,lbrl art/sc adm,johnson,jennifer,dia,2,,
 2015,lbrl art/sc adm,johnson,jennifer,dia,2,,
-2011,physics/astron,johnson,jennifer,,2,,**couldn't find these matches
+2011,physics/astron,johnson,jennifer,,2,,**couldn't verify 
 2013,ext to ag - ext,johnson,mark,steven,2,field spec iii,
 2014,ext to ag - ext,johnson,mark,steven,2,,
 2015,ext to ag - ext,johnson,mark,steven,2,,
@@ -169,7 +169,7 @@ fiscal_year,dept,last_name,first_name,other,n,position,reason_to_delete
 2016,fac plan/mgmt,johnson,mark,r,2,,**not in cy_salstidy
 2015,dean of stdt,johnson,paul,e,2,,
 2015,stdt health ctr,johnson,paul,michael,2,,
-2012,nut/well res ct,jones,jennifer,,2,,**couldn't find these matches
+2012,nut/well res ct,jones,jennifer,,2,,**couldn't verify 
 2012,vet diag/prod,jones,jennifer,mae,2,,
 2018,agronomy,jones,sarah,elizabet,2,,
 2018,school of ed,jones,sarah,lynette,2,,
@@ -221,11 +221,11 @@ fiscal_year,dept,last_name,first_name,other,n,position,reason_to_delete
 2012,campus din srv,miller,laura,,2,,**not in cy_salstidy
 2013,campus din srv,miller,laura,,3,,**not in cy_salstidy
 2014,campus din srv,miller,laura,,2,,**not in cy_salstidy
-2013,counseling srv,miller,laura,,3,,**couldn't find these matches
-2011,leopold center,miller,laura,,2,,**couldn't find these matches
-2012,leopold center,miller,laura,,2,,**couldn't find these matches
-2013,leopold center,miller,laura,,3,,**couldn't find these matches
-2014,leopold center,miller,laura,,2,,**couldn't find these matches
+2013,counseling srv,miller,laura,,3,,**couldn't verify 
+2011,leopold center,miller,laura,,2,,**couldn't verify 
+2012,leopold center,miller,laura,,2,,**couldn't verify 
+2013,leopold center,miller,laura,,3,,**couldn't verify 
+2014,leopold center,miller,laura,,2,,**couldn't verify 
 2012,architecture,miller,maria,violet,2,,
 2013,architecture,miller,maria,violet,2,,
 2012,civ/con/env eng,miller,maria,catalin,2,,
@@ -268,9 +268,9 @@ fiscal_year,dept,last_name,first_name,other,n,position,reason_to_delete
 2013,animal science,powell,amy,margaret,2,,
 2014,animal science,powell,amy,margaret,2,,
 2015,animal science,powell,amy,margaret,2,,
-2013,campus din srv,powell,amy,,2,,**couldn't find these matches
-2014,campus din srv,powell,amy,,2,,**couldn't find these matches
-2015,campus din srv,powell,amy,,2,,**couldn't find these matches
+2013,campus din srv,powell,amy,,2,,**couldn't verify 
+2014,campus din srv,powell,amy,,2,,**couldn't verify 
+2015,campus din srv,powell,amy,,2,,**couldn't verify 
 2011,english,roberts,david,d,2,,
 2012,english,roberts,david,d,2,,
 2013,english,roberts,david,d,2,,
