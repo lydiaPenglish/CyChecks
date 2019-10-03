@@ -9,6 +9,9 @@
 #               Sept 13 updated github code to match cybox code
 #               Sept 29 added 'named prof' category in prof4_simp column (4 cats now)
 #                        de-anonymized things bc it's easier to trouble shoot at this point
+#               Oct 2 GN; looked at non-merges, there are all kinds of problems including:
+#                           spelling errors, punctuation in names, collaborating professor title
+#                           (probably doesn't have a dept assignment?)
 #
 # purpose: make CyChecks2 functions in a safe place
 # 
@@ -61,6 +64,7 @@ library("tidyverse")
 #-make salaries numeric
 #-separate names into first and last (to merge w/our dept info) *not sure about this yet*
 #-filter out when we don't have a position or a gender
+#-only keep professors (makes trouble shooting name issues easier)
 
 cyd_salsraw <- read_csv("data-raw/_tidy/td_rawsals.csv")
 #salraw2 <- salraw %>% filter(fiscal_year == 2015)
@@ -70,7 +74,7 @@ cyf_TidySals <- function(mydata = cyd_salsraw){
   
   cyd_salstidy <- 
     
-    mydata %>% #--just using this as an example for now
+    mydata %>% 
     
     #--deal with dates
     mutate(fiscal_year = as.numeric(fiscal_year),
@@ -78,7 +82,9 @@ cyf_TidySals <- function(mydata = cyd_salsraw){
            base_salary_year = lubridate::year(base_salary_date)) %>%
     
     #--get rid of unwanted columns
-    select(fiscal_year, base_salary_year, name, gender, position, total_salary_paid, travel_subsistence, base_salary) %>%
+    select(fiscal_year, base_salary_year,
+           name, gender, position, 
+           total_salary_paid, travel_subsistence, base_salary) %>%
     
     #--eliminate things that are per hour
     filter(!grepl("HR", base_salary)) %>%
@@ -103,8 +109,11 @@ cyf_TidySals <- function(mydata = cyd_salsraw){
     filter(!grepl("\\*", position),
            !grepl("\\*", gender))  %>%
     
-    #--expand the name out, I think we have to
+    #--only keep professors
+    filter(grepl("prof", position)) %>%
     
+    
+    #--expand the name out, I think we have to
     separate(name, into = c("last_name", "first_name", "other"), sep = " ")
   
   return(cyd_salstidy)
@@ -112,6 +121,8 @@ cyf_TidySals <- function(mydata = cyd_salsraw){
 }
 
 
+# need to figure out what people we lose due to des moines register typos
+# do it below
 cyd_salstidy <- cyf_TidySals() %>%
 
   #--WTF, Maria is Mari. Fix it to Maria. What else is wrong...internet.
@@ -142,7 +153,10 @@ cyd_dept <-
   mutate(dept = recode(dept,
                        "ag/biosys eng-a" = "ag/biosys eng",
                        "ag/biosys eng-e" = "ag/biosys eng")) %>%
-  mutate(dept = str_remove_all(dept, patterns)) 
+  mutate(dept = str_remove_all(dept, patterns)) %>%
+  
+  #--remove punctuation from people's names (e. anderson should be e anderson)
+  mutate(first_name = str_remove_all(first_name, "[[:punct:]]")) 
 
 depts <- cyd_dept %>%
   pull(dept) %>%
@@ -151,7 +165,110 @@ depts <- cyd_dept %>%
 cyd_dept %>%
   filter(last_name == "salas-fernandez")
 
+######################
+# figure out what names don't match between cyd_dept and cyd_salstidy
+# PROBLEM: THERE'S A SHIT TON OF PROFS WHO DON'T HAVE A DEPT
+# I HAVE NO IDEA HOW TO AUTOMATE THIS.....
+####################
 
+cyd_salstidy %>%
+  filter(fiscal_year > 2010) %>%
+  select(last_name, first_name) %>%
+  unique() %>%
+  full_join(cyd_dept, by = c("last_name", "first_name")) %>%
+  filter(is.na(dept))
+
+fixme_last <- cyd_salstidy %>%
+  filter(fiscal_year > 2010) %>%
+  select(last_name, first_name) %>%
+  unique() %>%
+  full_join(cyd_dept, by = c("last_name", "first_name")) %>%
+  filter(is.na(dept)) %>%
+  pull(last_name)
+
+fixme_first <- cyd_salstidy %>%
+  filter(fiscal_year > 2010) %>%
+  select(last_name, first_name) %>%
+  unique() %>%
+  full_join(cyd_dept, by = c("last_name", "first_name")) %>%
+  filter(is.na(dept)) %>%
+  pull(first_name)
+
+# Is it all mis-spellings? NO. It's all kinds of problems. Fuck. 
+
+# Ajjarapu, yes, des moines register name is shorter
+cyd_salstidy %>%
+  filter(last_name == "ajjarapu") %>%
+  select(fiscal_year, last_name, first_name)
+cyd_dept %>%
+  filter(last_name == "ajjarapu") %>%
+  select(fiscal_year, last_name, first_name)
+
+# misspelling
+cyd_salstidy %>%
+  filter(last_name == fixme_last[2],
+         first_name == fixme_first[2]) %>%
+  select(fiscal_year, last_name, first_name, position)
+
+cyd_dept %>%
+  filter(last_name == fixme_last[2])
+
+
+# lloyd is missing I think
+cyd_salstidy %>%
+  filter(last_name == fixme_last[3],
+         first_name == fixme_first[3]) %>%
+  select(fiscal_year, last_name, first_name, position)
+
+cyd_dept %>%
+  filter(last_name == fixme_last[3]) %>%
+  mutate(fl = str_sub(first_name, 1, 1)) %>%
+  filter(fl == "l") %>%
+  arrange(first_name) %>%
+  filter(first_name != "laura")
+
+
+# alekel d, a professor, no record of her
+cyd_salstidy %>%
+  filter(last_name == "alekel") 
+cyd_dept %>%
+  filter(last_name == "alekel") %>%
+  select(fiscal_year, last_name, first_name)
+
+# What the hell is a collab assoc prof? She is probably missing for a good reason then. 
+cyd_salstidy %>%
+  filter(last_name == "asbjornsen") %>%
+  select(fiscal_year, last_name, first_name, position)
+cyd_dept %>%
+  filter(last_name == "asbjornsen") 
+
+# she doesn't exist
+cyd_salstidy %>%
+  filter(last_name == fixme_last[6],
+         first_name == fixme_first[6]) %>%
+  select(fiscal_year, last_name, first_name, position)
+
+cyd_dept %>%
+  filter(last_name == fixme_last[6]) %>%
+  mutate(first_name_letter = str_sub(first_name, 1, 1)) %>%
+  filter(first_name_letter == "b") %>%
+  arrange(first_name)
+
+# he doesn't exist
+cyd_salstidy %>%
+  filter(last_name == fixme_last[7],
+         first_name == fixme_first[7]) %>%
+  select(fiscal_year, last_name, first_name, position)
+
+cyd_dept %>%
+  filter(last_name == fixme_last[7])
+
+cyd_dept %>%
+  filter(first_name == "gaya")
+
+
+  
+##FUUUUUUUUUUUUUUUUUUUUUUUUUUUUCK
 # NOTE: future improvement, if it doesn't appear in this list it should get lumped into another one (ex. ag/biosys eng)
 cyd_college <- read_csv("data-raw/_tidy/td_org-dept-key.csv")
 
