@@ -64,8 +64,6 @@ for (i in 2:length(tyear)){
   rawdat <- rawdat %>%
     rbind(tdat)
 }
-  
-  
 
 dat <- 
   rawdat %>%
@@ -77,6 +75,10 @@ dat <-
          "fiscal_year" = year) %>%
   filter(!is.na(dept)) %>%
   mutate_if(is_character, tolower) %>%
+  # merging name columns together and then trimming them down to 20 characters long
+  unite(name, last_name, first_name, sep = " ")%>%
+  mutate(name = str_trunc(name, 20, ellipsis = ""))%>%
+  separate(name, c("last_name", "first_name"), sep = " ") %>%
   arrange(fiscal_year, dept, last_name, first_name)
 
 dat %>%

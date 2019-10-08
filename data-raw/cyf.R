@@ -27,7 +27,6 @@
 ########################
 
 
-
 rm(list = ls())
 library(tidyverse)
 library(janitor) #--cleans things nicely
@@ -51,9 +50,6 @@ library("tidyverse")
 # 
 # 
 # url <- sprintf("https://data.iowa.gov/resource/s3p7-wy6w.json?%s&$limit=%d&$offset=%d&$order=:id&department=Iowa%%20State%%20University", token, limit, offset)
-
-
-
 
 
 # cyf_tidysals ------------------------------------------------------------
@@ -121,16 +117,7 @@ cyf_TidySals <- function(mydata = cyd_salsraw){
 }
 
 
-# need to figure out what people we lose due to des moines register typos
-# do it below
-cyd_salstidy <- cyf_TidySals() %>%
-
-  #--WTF, Maria is Mari. Fix it to Maria. What else is wrong...internet. Try an anti-join..!
-  mutate(first_name = ifelse(last_name == "salas-fernandez", "maria", first_name))
-
-cyd_salstidy %>%
-  filter(last_name == "salas-fernandez")
-
+cyd_salstidy <- cyf_TidySals() 
 
 
 # cyf_salsdeptmerge -------------------------------------------------------
@@ -164,19 +151,24 @@ depts <- cyd_dept %>%
 
 cyd_dept %>%
   filter(last_name == "salas-fernandez")
+cyd_salstidy %>%
+  filter(last_name == "salas-fernandez")
 
 ######################
-# figure out what names don't match between cyd_dept and cyd_salstidy
-# PROBLEM: THERE'S A SHIT TON OF PROFS WHO DON'T HAVE A DEPT
-# I HAVE NO IDEA HOW TO AUTOMATE THIS.....
+# Data cleaning to merge cyd_dept and cyd_salstidy
+# PROBLEMS: 
+#   1. spelling doens't match between directory and salstidy
+#         a. names are truncated in the des moines register data - i.e. they have a max of 20 characters in their single column
+#   2. Missing from the directory for no good reason - ex. Lloyd Anderson, should be listed in Animal Science - SEEMS LIKE A LOT OF PEOPLE
 ####################
 
-cyd_salstidy %>%
+problems <- cyd_salstidy %>%
   filter(fiscal_year > 2010) %>%
   select(last_name, first_name) %>%
   unique() %>%
   full_join(cyd_dept, by = c("last_name", "first_name")) %>%
-  filter(is.na(dept))
+  filter(is.na(dept)) %>%
+  arrange(last_name)
 
 fixme_last <- cyd_salstidy %>%
   filter(fiscal_year > 2010) %>%
@@ -194,31 +186,18 @@ fixme_first <- cyd_salstidy %>%
   filter(is.na(dept)) %>%
   pull(first_name)
 
-# Is it all mis-spellings? NO. It's all kinds of problems. Fuck. 
+# Tackling the spelling errors first...I truncated the directory so that it stops after the same amount of characters as
+# the register, but there are still 187 people that aren't merging...are all of them missing from the directory??
 
-# Ajjarapu, yes, des moines register name is shorter
-cyd_salstidy %>%
-  filter(last_name == "ajjarapu") %>%
-  select(fiscal_year, last_name, first_name)
-cyd_dept %>%
-  filter(last_name == "ajjarapu") %>%
-  select(fiscal_year, last_name, first_name)
-
-# misspelling
-cyd_salstidy %>%
-  filter(last_name == fixme_last[2],
-         first_name == fixme_first[2]) %>%
-  select(fiscal_year, last_name, first_name, position)
-
-cyd_dept %>%
-  filter(last_name == fixme_last[2])
-
+# --- messing around w/filtering people -- #
 
 # lloyd is missing I think
 cyd_salstidy %>%
-  filter(last_name == fixme_last[3],
-         first_name == fixme_first[3]) %>%
-  select(fiscal_year, last_name, first_name, position)
+  filter(last_name == "depaula") %>%
+  select(fiscal_year, last_name, first_name, other, position)
+cyd_dept %>%
+  filter(last_name == "depaula") %>%
+  select(fiscal_year, last_name, first_name)
 
 cyd_dept %>%
   filter(last_name == fixme_last[3]) %>%
@@ -227,12 +206,14 @@ cyd_dept %>%
   arrange(first_name) %>%
   filter(first_name != "laura")
 
+andersons <- cyd_dept %>%
+  filter(last_name == "anderson")
 
 # alekel d, a professor, no record of her
 cyd_salstidy %>%
   filter(last_name == "alekel") 
 cyd_dept %>%
-  filter(last_name == "alekel") %>%
+  filter(str_detect(last_name, "^alek")) %>%
   select(fiscal_year, last_name, first_name)
 
 # What the hell is a collab assoc prof? She is probably missing for a good reason then. 
@@ -270,6 +251,8 @@ cyd_dept %>%
   
 ##FUUUUUUUUUUUUUUUUUUUUUUUUUUUUCK
 # NOTE: future improvement, if it doesn't appear in this list it should get lumped into another one (ex. ag/biosys eng)
+
+
 cyd_college <- read_csv("data-raw/_tidy/td_org-dept-key.csv")
 
 
@@ -278,6 +261,10 @@ cyd_college <- read_csv("data-raw/_tidy/td_org-dept-key.csv")
 # 66 people have the same name as someone else. I have no idea what to do with them. 
 # I guess remove them? Keep them? No idea. For now we keep them. 
 # NO!!!!! Let's remove them. 
+
+### solving the duplicate issue ### 
+
+# get duplicates from the department directory
 dupes <- 
   cyd_dept %>%
   group_by(fiscal_year, last_name, first_name) %>%
@@ -289,28 +276,27 @@ dupes <-
   select(last_name, first_name, dept) %>%
   distinct() 
 
-# using this to reconcile duplicates
-dupes_sal <- 
-  cyd_salstidy %>%
-  group_by(fiscal_year, last_name, first_name, other) %>%
-  mutate(n = n()) %>%
-  filter(n > 1) %>%
-  arrange(last_name, first_name, position) %>%
-  ungroup()%>%
-  select(fiscal_year, last_name, first_name, other, position, n)
-
-# adding reconciled duplicates back in
+# dupes are then fixed and added back into sals_tidy
 
 good_dupes <- read_csv("data-raw/_raw/duplicate_name_reconciliation.csv")%>%
   # getting rid of ones I couldn't figure out
   filter(!grepl(pattern = "^\\**", reason_to_delete)) %>%
-  select(-reason_to_delete)
+  select(-c(n, reason_to_delete, fiscal_year))
 
-# hmmmm - how to merge them back in? Can't merge with cyd_dept, bc no middle initial...?
+# right now separately joining by middle initial and by position, since they are different
 
-left_join(cyd_salstidy, good_dupes, by = c("last_name", "first_name", "other"))
+name_pos <- right_join(cyd_salstidy, good_dupes, by = c("last_name", "first_name", "position"), copy = FALSE, keep = FALSE) %>%
+  filter(total_salary_paid > 0) %>%
+  distinct()
 
-# try merge with salstidy and then merge with department info...
+name_mid <- right_join(cyd_salstidy, select(good_dupes, -position), by = c("last_name", "first_name", "other")) %>%
+  filter(total_salary_paid > 0) %>%
+  filter(!is.na(other)) %>%
+  distinct()
+
+all_prof_dupes <- bind_rows(name_pos, name_mid) %>%
+  arrange(fiscal_year, last_name, first_name)
+
 
 # create list of names w/duplicates to filter against
 dupes2 <- 
