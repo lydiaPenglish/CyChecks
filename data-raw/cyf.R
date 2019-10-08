@@ -114,7 +114,7 @@ cyf_TidySals <- function(mydata = cyd_salsraw){
 
 cyd_salstidy <- cyf_TidySals() %>%
 
-  #--WTF, Maria is Mari. Fix it to Maria. What else is wrong...internet.
+  #--WTF, Maria is Mari. Fix it to Maria. What else is wrong...internet. Try an anti-join..!
   mutate(first_name = ifelse(last_name == "salas-fernandez", "maria", first_name))
 
 cyd_salstidy %>%
@@ -189,8 +189,11 @@ good_dupes <- read_csv("data-raw/_raw/duplicate_name_reconciliation.csv")%>%
   filter(!grepl(pattern = "^\\**", reason_to_delete)) %>%
   select(-reason_to_delete)
 
-# hmmmm - how to merge them back in? Can't merge with cyd_dept, bc no middle initial...? 
+# hmmmm - how to merge them back in? Can't merge with cyd_dept, bc no middle initial...?
 
+left_join(cyd_salstidy, good_dupes, by = c("last_name", "first_name", "other"))
+
+# try merge with salstidy and then merge with department info...
 
 # create list of names w/duplicates to filter against
 dupes2 <- 
