@@ -12,6 +12,7 @@
 #               Oct 2 GN; looked at non-merges, there are all kinds of problems including:
 #                           spelling errors, punctuation in names, collaborating professor title
 #                           (probably doesn't have a dept assignment?)
+#               Oct 16 GN: updated prof categories based on Akelo mtg
 #
 # purpose: make CyChecks2 functions in a safe place
 # 
@@ -365,9 +366,13 @@ cyd_saldept %>%
 
 # cyf_simpprofs -------------------------------------------------------
 # this one will
-#-make 4 general categories of professors positions
+#-make 4 general categories of professors positions:
+#  awarded prof, asst, assoc, and prof
 
-
+cyd_saldept %>%
+  filter(!grepl("chair|adj|affil|emer|vstg|chr|clin|collab|res", position)) %>%
+  filter(grepl("prof", position)) %>%
+  pull(position) %>% as.factor() %>% summary()
 
 cy_SimpProfs <- function(mydata = cyd_saldept){
   
@@ -376,23 +381,18 @@ cy_SimpProfs <- function(mydata = cyd_saldept){
   # 
   # Define simple categories to keep
   
-  # what things are allowed?
-  myprofs = c("asst prof", "assoc prof", "prof", 
-              "distg prof", "prof & chair", "univ prof", "prof emeritus")
+  # NOTE: eliminate department chairs, they are weird
+  #       eliminate adjuncts, things with 'adj' or 'affil' or 'emer' or 'vstg', they are paid strangely
   
+  awardprof <- c("distg prof", "univ prof", "morrill prof")
+  # 
   cyd_salprofs <- 
     cyd_saldept %>%
+    filter(!grepl("chair|adj|affil|emer|vstg|chr|clin|collab|res", position)) %>%
     filter(grepl("prof", position)) %>%
+    
     mutate(
-      prof_simp = ifelse(position %in% myprofs, position, "other")) %>%
-    mutate(
-      prof4_simp = prof_simp) %>%
-    mutate(
-      prof4_simp = ifelse(prof_simp == "distg prof", "named prof", prof4_simp),
-      prof4_simp = ifelse(prof_simp == "prof & chair", "named prof", prof4_simp),
-      prof4_simp = ifelse(prof_simp == "prof emeritus", "named prof", prof4_simp),
-      prof4_simp = ifelse(prof_simp == "univ prof", "named prof", prof4_simp)
-    ) 
+      prof_simp = ifelse(position %in% awardprof, "awarded prof", position)) 
   
   return(cyd_salprofs)
   
@@ -401,12 +401,8 @@ cy_SimpProfs <- function(mydata = cyd_saldept){
 
 
 cyd_salprofs <- cy_SimpProfs() %>%
-
-  #--others are like 'adjunct professor' or 'visiting prof'. They have weird sals.
-  #--dept NA is like transportation
-  filter(prof4_simp != "other", 
-         !is.na(dept)) %>%
-  mutate(prof4_simp = factor(prof4_simp, levels = c("asst prof", "assoc prof", "prof", "named prof")))
+filter(!is.na(dept)) %>%
+mutate(prof_simp = factor(prof_simp, levels = c("asst prof", "assoc prof", "prof", "awarded prof")))
 
 
 cyd_salprofs %>% write_csv("data-raw/_tidy/cyd_salprofs.csv")
