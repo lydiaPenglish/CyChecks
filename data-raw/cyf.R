@@ -145,7 +145,7 @@ cyd_dept <-
   mutate(dept = str_remove_all(dept, patterns)) %>%
   
   #--remove punctuation from people's names (e. anderson should be e anderson)
-  mutate(first_name = str_remove_all(first_name, "[[:punct:]]"))%>%
+  mutate(first_name = str_remove_all(first_name, "[[:punct:]]"))
   
 
 depts <- cyd_dept %>%
