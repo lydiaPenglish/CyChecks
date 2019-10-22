@@ -118,7 +118,8 @@ cyf_TidySals <- function(mydata = cyd_salsraw){
 }
 
 
-cyd_salstidy <- cyf_TidySals() 
+cyd_salstidy <- cyf_TidySals() %>%
+  mutate(first_name = str_remove_all(first_name, "[[:punct:]]"))
 
 
 # cyf_salsdeptmerge -------------------------------------------------------
@@ -144,16 +145,13 @@ cyd_dept <-
   mutate(dept = str_remove_all(dept, patterns)) %>%
   
   #--remove punctuation from people's names (e. anderson should be e anderson)
-  mutate(first_name = str_remove_all(first_name, "[[:punct:]]")) 
+  mutate(first_name = str_remove_all(first_name, "[[:punct:]]"))%>%
+  
 
 depts <- cyd_dept %>%
   pull(dept) %>%
   unique() 
 
-cyd_dept %>%
-  filter(last_name == "salas-fernandez")
-cyd_salstidy %>%
-  filter(last_name == "salas-fernandez")
 
 ######################
 # Data cleaning to merge cyd_dept and cyd_salstidy
@@ -165,7 +163,7 @@ cyd_salstidy %>%
 
 problems <- cyd_salstidy %>%
   filter(fiscal_year > 2010) %>%
-  select(last_name, first_name) %>%
+  select(last_name, first_name, position) %>%
   unique() %>%
   full_join(cyd_dept, by = c("last_name", "first_name")) %>%
   filter(is.na(dept)) %>%
@@ -192,13 +190,13 @@ fixme_first <- cyd_salstidy %>%
 
 # --- messing around w/filtering people -- #
 
-# lloyd is missing I think
+# This person changed her name spelling
 cyd_salstidy %>%
-  filter(last_name == "depaula") %>%
+  filter(str_detect(last_name, "^garasky")) %>%
   select(fiscal_year, last_name, first_name, other, position)
 cyd_dept %>%
-  filter(last_name == "depaula") %>%
-  select(fiscal_year, last_name, first_name)
+  filter(str_detect(last_name, "^garasky")) %>%
+  select(fiscal_year, last_name, first_name, dept)
 
 cyd_dept %>%
   filter(last_name == fixme_last[3]) %>%
@@ -208,7 +206,7 @@ cyd_dept %>%
   filter(first_name != "laura")
 
 andersons <- cyd_dept %>%
-  filter(last_name == "anderson")
+  filter(last_name == "")
 
 # alekel d, a professor, no record of her
 cyd_salstidy %>%
@@ -219,10 +217,10 @@ cyd_dept %>%
 
 # What the hell is a collab assoc prof? She is probably missing for a good reason then. 
 cyd_salstidy %>%
-  filter(last_name == "asbjornsen") %>%
+  filter(last_name == "wickrama") %>%
   select(fiscal_year, last_name, first_name, position)
 cyd_dept %>%
-  filter(last_name == "asbjornsen") 
+  filter(last_name == "wickrama") 
 
 # she doesn't exist
 cyd_salstidy %>%
