@@ -160,6 +160,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2011,college of agriculture & life sciences,pl path & micro,whitham_steven,assoc prof,M,84939,102280.48,3291.15,assoc prof
 2011,college of agriculture & life sciences,pl path & micro,leandro_leonor,asst prof,F,77303,76161,3129.18,asst prof
 2011,college of agriculture & life sciences,pl path & micro,braun_edward,prof,M,94969,93566,0,prof
+2011,college of agriculture & life sciences,pl path & micro,yang_xiaobing,prof,M,99894,98418,7770.28,prof
 2011,college of agriculture & life sciences,pl path & micro,beattie_gwyn,prof,F,100414,122402.95,2445.36,prof
 2011,college of agriculture & life sciences,pl path & micro,munkvold_gary,prof,M,100503,132023.99,12819.49,prof
 2011,college of agriculture & life sciences,pl path & micro,nutter_forrest,prof,M,102369,100857,12753.32,prof
@@ -381,12 +382,14 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2011,college of engineering,mechanical eng,luecke_greg,assoc prof,M,92705,116944.27,1968.6,assoc prof
 2011,college of engineering,mechanical eng,subramaniam_shankar,assoc prof,M,95032,120194.83,3128.56,assoc prof
 2011,college of engineering,mechanical eng,winer_eliot,assoc prof,M,95209,124278.67,16406.98,assoc prof
+2011,college of engineering,mechanical eng,kong_songcharng,assoc prof,M,95625,119285,7708.45,assoc prof
 2011,college of engineering,mechanical eng,maxwell_gregory,assoc prof,M,96304,121138.5,3451.81,assoc prof
 2011,college of engineering,mechanical eng,shrotriya_pranav,assoc prof,M,99001,120834.6,1632.19,assoc prof
 2011,college of engineering,mechanical eng,sundararajan_sriram,assoc prof,M,99864,131327.71,2248.35,assoc prof
 2011,college of engineering,mechanical eng,wang_xinwei,assoc prof,M,104980,137173.35,11187.35,assoc prof
 2011,college of engineering,mechanical eng,olsen_michael,assoc prof,M,111000,121444.48,0,assoc prof
 2011,college of engineering,mechanical eng,bryden_kenneth,assoc prof,M,126315,175620,18027.27,assoc prof
+2011,college of engineering,mechanical eng,kim_gapyong,asst prof,M,84100,80975,4653.18,asst prof
 2011,college of engineering,mechanical eng,zhang_song,asst prof,M,84400,109744.43,8996.82,asst prof
 2011,college of engineering,mechanical eng,morrow_william,asst prof,M,85500,93805.55,3315.14,asst prof
 2011,college of engineering,mechanical eng,macdonald_erin,asst prof,F,85750,98583.32,5718.73,asst prof
@@ -405,6 +408,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2011,college of human sciences,aeshm,rajagopal_lakshman,asst prof,M,62400,70297.93,811.8,asst prof
 2011,college of human sciences,aeshm,zheng_tianshu,asst prof,M,66250,68750,712.66,asst prof
 2011,college of human sciences,aeshm,marcketti_sara,asst prof,F,67222,72599.56,1627.64,asst prof
+2011,college of human sciences,aeshm,lee_younga,asst prof,F,67600,65000,1047.09,asst prof
 2011,college of human sciences,aeshm,schrier_thomas,asst prof,M,67925,66313.13,3091.42,asst prof
 2011,college of human sciences,aeshm,tang_liang,asst prof,F,68250,66313.13,236.86,asst prof
 2011,college of human sciences,aeshm,damhorst_mary,prof,F,91814,87906.5,1820.95,prof
@@ -443,6 +447,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2011,college of liberal arts & sciences,chemistry,zhao_yan,assoc prof,M,78470,103080,0,assoc prof
 2011,college of liberal arts & sciences,chemistry,sadow_aaron,assoc prof,M,80895,100879.98,2672.74,assoc prof
 2011,college of liberal arts & sciences,chemistry,fang_ning,asst prof,M,69020,76105.55,3182.24,asst prof
+2011,college of liberal arts & sciences,chemistry,lee_youngjin,asst prof,M,69020,90666.66,2942.04,asst prof
 2011,college of liberal arts & sciences,chemistry,winter_arthur,asst prof,M,69020,71777.78,609.3,asst prof
 2011,college of liberal arts & sciences,chemistry,vela-becerra_javier,asst prof,M,76125,100000.03,4912.15,asst prof
 2011,college of liberal arts & sciences,chemistry,smith_emily,asst prof,F,76633,100249.99,4750.96,asst prof
@@ -467,6 +472,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2011,college of liberal arts & sciences,computer sc,miner_andrew,assoc prof,M,89967,98485.56,1439.89,assoc prof
 2011,college of liberal arts & sciences,computer sc,tian_jin,assoc prof,M,90397,89061,0,assoc prof
 2011,college of liberal arts & sciences,computer sc,cai_ying,assoc prof,M,90709,89368,42,assoc prof
+2011,college of liberal arts & sciences,computer sc,jia_yanbin,assoc prof,M,90885,99491.12,6692.36,assoc prof
 2011,college of liberal arts & sciences,computer sc,zhang_wensheng,assoc prof,M,90932,98234.12,0,assoc prof
 2011,college of liberal arts & sciences,computer sc,ruan_lu,assoc prof,F,91419,90068,1687.79,assoc prof
 2011,college of liberal arts & sciences,computer sc,gadia_shashi,assoc prof,M,91622,90268,42,assoc prof
@@ -533,6 +539,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2011,college of liberal arts & sciences,geol/atmosph sc,gutowski_william,prof,M,89990,118213.35,20485.87,prof
 2011,college of liberal arts & sciences,geol/atmosph sc,spry_paul,prof,M,93256,112295.38,12513.48,prof
 2011,college of liberal arts & sciences,geol/atmosph sc,jacobson_carl,prof,M,97044,121857,7247.37,prof
+2011,college of liberal arts & sciences,geol/atmosph sc,chen_tsingchang,prof,M,104726,137570.68,8313.68,prof
 2011,college of liberal arts & sciences,greenlee jrn/cm,chamberlin_dennis,assoc prof,M,61260,65072.22,6162.84,assoc prof
 2011,college of liberal arts & sciences,greenlee jrn/cm,newell_jonathan,assoc prof,M,64366,70915,2293.08,assoc prof
 2011,college of liberal arts & sciences,greenlee jrn/cm,blevins_jeffrey,assoc prof,M,66041,65065,2425.43,assoc prof
@@ -599,6 +606,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2011,college of liberal arts & sciences,mathematics,johnston_elgin,prof,M,96425,110353.53,4848.37,prof
 2011,college of liberal arts & sciences,mathematics,hou_lisheng,prof,M,104273,102732,0,prof
 2011,college of liberal arts & sciences,mathematics,willson_stephen,univ prof,M,95137,108373.33,2077.01,awarded prof
+2011,college of liberal arts & sciences,music & theatre,tam_tinshi,assoc prof,F,52135,57072.22,0,assoc prof
 2011,college of liberal arts & sciences,music & theatre,creswell_mary,assoc prof,F,55367,54549,1027.35,assoc prof
 2011,college of liberal arts & sciences,music & theatre,hopkins_christopher,assoc prof,M,56199,55368,4356.42,assoc prof
 2011,college of liberal arts & sciences,music & theatre,bovinette_james,assoc prof,M,56584,55748,0,assoc prof
@@ -646,6 +654,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2011,college of liberal arts & sciences,physics/astron,weinstein_amanda,asst prof,F,69020,75555.5,14813.98,asst prof
 2011,college of liberal arts & sciences,physics/astron,johnston_david,distg prof,M,141709,170640.66,0,awarded prof
 2011,college of liberal arts & sciences,physics/astron,canfield_paul,distg prof,M,142843,179944.23,5151.57,awarded prof
+2011,college of liberal arts & sciences,physics/astron,ho_kaiming,distg prof,M,146465,182817,13201.08,awarded prof
 2011,college of liberal arts & sciences,physics/astron,goldman_alan,distg prof,M,172332,214375,15503.12,awarded prof
 2011,college of liberal arts & sciences,physics/astron,soukoulis_costas,distg prof,M,214395,211227,12821.79,awarded prof
 2011,college of liberal arts & sciences,physics/astron,harmon_bruce,distg prof,M,268466,266297,3641.67,awarded prof
@@ -704,6 +713,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2011,college of liberal arts & sciences,statistics,nordman_daniel,assoc prof,M,89726,102777.78,3314.17,assoc prof
 2011,college of liberal arts & sciences,statistics,dorman_karin,assoc prof,F,91492,90139,1601.3,assoc prof
 2011,college of liberal arts & sciences,statistics,zhu_zhengyuan,assoc prof,M,95450,118636.36,7142.53,assoc prof
+2011,college of liberal arts & sciences,statistics,kim_jaekwang,assoc prof,M,101500,133405.2,10681.15,assoc prof
 2011,college of liberal arts & sciences,statistics,genschel_ulrike,asst prof,F,79170,99666.71,5525.87,asst prof
 2011,college of liberal arts & sciences,statistics,roy_vivekananda,asst prof,M,79170,99590.46,2773.79,asst prof
 2011,college of liberal arts & sciences,statistics,yu_cindy,asst prof,F,83129,104650,9103.34,asst prof
@@ -799,6 +809,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2011,college of veterinary medicine,vet diag/prod,madson_darin,asst prof,M,120600,111666.72,2174.6,asst prof
 2011,college of veterinary medicine,vet diag/prod,plummer_paul,asst prof,M,120600,120000,7502.62,asst prof
 2011,college of veterinary medicine,vet diag/prod,hopkins_steven,prof,M,108750,108209,0,prof
+2011,college of veterinary medicine,vet diag/prod,yoon_kyoungjin,prof,M,111563,111008,6207.83,prof
 2011,college of veterinary medicine,vet diag/prod,o'connor_annette,prof,F,116075,110622,13594.79,prof
 2011,college of veterinary medicine,vet diag/prod,zimmerman_jeffrey,prof,M,116284,115705,4536.02,prof
 2011,college of veterinary medicine,vet diag/prod,janke_bruce,prof,M,118249,117661,1624.1,prof
@@ -919,6 +930,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2011,NA,bioch/bioph,johansen_jorgen,prof,M,124211,163166.68,436.73,prof
 2011,NA,bioch/bioph,honzatko_richard,prof,M,128431,126533,2725.93,prof
 2011,NA,bioch/bioph,johansen_kristen,prof,F,129448,170046.71,2976.01,prof
+2011,NA,bioch/bioph,shin_yeonkyun,prof,M,129449,166505.38,506.9,prof
 2011,NA,bioch/bioph,myers_alan,prof,M,134727,134236,3832.23,prof
 2011,NA,ctr sust env tc,brown_robert,distg prof,M,222890,288686.7,8549.65,awarded prof
 2011,NA,ctr tch learn,niederhauser_dale,assoc prof,M,70093,80470.71,6885.95,assoc prof
@@ -1037,6 +1049,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2011,NA,gdcb,vollbrecht_erik,assoc prof,M,80052,105158.76,20365.53,assoc prof
 2011,NA,gdcb,essner_jeffrey,assoc prof,M,80318,75092,1157.9,assoc prof
 2011,NA,gdcb,bassham_diane,assoc prof,F,85674,93860.36,3281.6,assoc prof
+2011,NA,gdcb,chou_huihsien,assoc prof,M,93679,123060,42,assoc prof
 2011,NA,gdcb,kuhlman_julie,asst prof,F,71050,88383.83,598,asst prof
 2011,NA,gdcb,schneider_stephan,asst prof,M,71050,86969.69,1471.29,asst prof
 2011,NA,gdcb,trimarchi_jeffrey,asst prof,M,71050,83611.17,190.68,asst prof
@@ -1253,6 +1266,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2012,college of agriculture & life sciences,pl path & micro,mueller_daren,asst prof,M,87125,82468,11569.39,asst prof
 2012,college of agriculture & life sciences,pl path & micro,braun_edward,prof,M,97818,94969,0,prof
 2012,college of agriculture & life sciences,pl path & micro,whitham_steven,prof,M,100632,96838.84,3191.67,prof
+2012,college of agriculture & life sciences,pl path & micro,yang_xiaobing,prof,M,100893,112199.89,5105.93,prof
 2012,college of agriculture & life sciences,pl path & micro,beattie_gwyn,prof,F,103105,100414,1410.92,prof
 2012,college of agriculture & life sciences,pl path & micro,munkvold_gary,prof,M,103518,139004.03,20620.15,prof
 2012,college of agriculture & life sciences,pl path & micro,nutter_forrest,prof,M,104416,102369,11157.86,prof
@@ -1385,6 +1399,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2012,college of engineering,aerospace eng,durbin_paul,prof,M,162166,169561.67,5520.31,prof
 2012,college of engineering,chem & bio engr,lamm_monica,assoc prof,F,101653,99563,4067.66,assoc prof
 2012,college of engineering,chem & bio engr,vigil_richard,assoc prof,M,104859,114342.22,685.2,assoc prof
+2012,college of engineering,chem & bio engr,tessonnier_jeanphil,asst prof,M,87000,4603.17,0,asst prof
 2012,college of engineering,chem & bio engr,schneider_ian,asst prof,M,88300,89637.67,3950.53,asst prof
 2012,college of engineering,chem & bio engr,jarboe_laura,asst prof,F,89425,104952.77,3374.35,asst prof
 2012,college of engineering,chem & bio engr,cochran_eric,asst prof,M,96510,116488.88,0,asst prof
@@ -1493,6 +1508,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2012,college of engineering,mechanical eng,luecke_greg,assoc prof,M,94096,113569.69,3804.4,assoc prof
 2012,college of engineering,mechanical eng,attinger_daniel,assoc prof,M,97375,105555.55,4098.86,assoc prof
 2012,college of engineering,mechanical eng,subramaniam_shankar,assoc prof,M,97645,100311.56,3141.08,assoc prof
+2012,college of engineering,mechanical eng,kong_songcharng,assoc prof,M,98016,122025,8438.88,assoc prof
 2012,college of engineering,mechanical eng,winer_eliot,assoc prof,M,98303,128945.35,18163.94,assoc prof
 2012,college of engineering,mechanical eng,maxwell_gregory,assoc prof,M,98471,128322.03,3892.81,assoc prof
 2012,college of engineering,mechanical eng,meyer_terrence,assoc prof,M,99435,125022.23,809.35,assoc prof
@@ -1502,6 +1518,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2012,college of engineering,mechanical eng,passalacqua_alberto,asst prof,M,84000,50000,4474.96,asst prof
 2012,college of engineering,mechanical eng,montazami_reza,asst prof,M,84050,91111.11,386.74,asst prof
 2012,college of engineering,mechanical eng,hashemi_nastaran,asst prof,F,86100,84000,1550.66,asst prof
+2012,college of engineering,mechanical eng,kim_gapyong,asst prof,M,86203,84100,3478.9,asst prof
 2012,college of engineering,mechanical eng,morrow_william,asst prof,M,86783,92285.71,1319.93,asst prof
 2012,college of engineering,mechanical eng,macdonald_erin,asst prof,F,87036,90444.44,1644.64,asst prof
 2012,college of engineering,mechanical eng,zhang_song,asst prof,M,87143,103155.55,6753.76,asst prof
@@ -1523,6 +1540,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2012,college of human sciences,aeshm,baytar_fatma,asst prof,F,66400,75833.31,1026.3,asst prof
 2012,college of human sciences,aeshm,brown_eric,asst prof,M,66625,75833.33,2371.46,asst prof
 2012,college of human sciences,aeshm,zheng_tianshu,asst prof,M,67908,79125,0,asst prof
+2012,college of human sciences,aeshm,lee_younga,asst prof,F,69290,68100,1054.05,asst prof
 2012,college of human sciences,aeshm,schrier_thomas,asst prof,M,69623,75217,3352.05,asst prof
 2012,college of human sciences,aeshm,tang_liang,asst prof,F,69959,75075,828.69,asst prof
 2012,college of human sciences,aeshm,damhorst_mary,prof,F,94109,97934.88,4085.41,prof
@@ -1558,6 +1576,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2012,college of human sciences,kinesiology,sharp_rickey,prof,M,97672,128690.9,2794.78,prof
 2012,college of human sciences,kinesiology,kohut_marian,prof,F,99152,127648.2,1870.63,prof
 2012,college of human sciences,school of ed,blumenfeld_warren,assoc prof,M,67008,65374,3294.92,assoc prof
+2012,college of human sciences,school of ed,correia_anapaula,assoc prof,F,69064,88104.03,9447.56,assoc prof
 2012,college of human sciences,school of ed,leigh_patricia,assoc prof,F,70095,71103,4468.81,assoc prof
 2012,college of human sciences,school of ed,carlson_patricia,assoc prof,F,70888,79952,970.04,assoc prof
 2012,college of human sciences,school of ed,niederhauser_dale,assoc prof,M,72897,77881.12,6868.05,assoc prof
@@ -1569,6 +1588,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2012,college of human sciences,school of ed,foegen_anne,assoc prof,F,84209,95236.29,14938.03,assoc prof
 2012,college of human sciences,school of ed,reason_robert,assoc prof,M,97280,121388.89,5481.14,assoc prof
 2012,college of human sciences,school of ed,brooks_jeffrey,assoc prof,M,97782,105555.55,15410.34,assoc prof
+2012,college of human sciences,school of ed,cho_byeongyoung,asst prof,M,61800,69666.66,2461.29,asst prof
 2012,college of human sciences,school of ed,marsh_tyson,asst prof,M,64025,75230,7286.17,asst prof
 2012,college of human sciences,school of ed,roberts_sarah,asst prof,F,64664,69925.55,9182.22,asst prof
 2012,college of human sciences,school of ed,bang_eunjin,asst prof,F,64760,63180,4948.68,asst prof
@@ -1589,6 +1609,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2012,college of liberal arts & sciences,chemistry,zhao_yan,assoc prof,M,80432,100267.2,5272.43,assoc prof
 2012,college of liberal arts & sciences,chemistry,jeffries-el_malika,assoc prof,F,84307,93916.84,4580.27,assoc prof
 2012,college of liberal arts & sciences,chemistry,sadow_aaron,assoc prof,M,88580,107778.33,2826.96,assoc prof
+2012,college of liberal arts & sciences,chemistry,lee_youngjin,asst prof,M,70400,90109.51,2551.59,asst prof
 2012,college of liberal arts & sciences,chemistry,fang_ning,asst prof,M,70573,80523.32,3977.73,asst prof
 2012,college of liberal arts & sciences,chemistry,winter_arthur,asst prof,M,70573,69020,1723.82,asst prof
 2012,college of liberal arts & sciences,chemistry,huang_wenyu,asst prof,M,72420,82833.32,0,asst prof
@@ -1615,6 +1636,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2012,college of liberal arts & sciences,computer sc,tian_jin,assoc prof,M,91880,90397,0,assoc prof
 2012,college of liberal arts & sciences,computer sc,cai_ying,assoc prof,M,92356,90709,2648.91,assoc prof
 2012,college of liberal arts & sciences,computer sc,rajan_hridesh,assoc prof,M,92363,112889.9,7886.3,assoc prof
+2012,college of liberal arts & sciences,computer sc,jia_yanbin,assoc prof,M,92953,95859.56,780.69,assoc prof
 2012,college of liberal arts & sciences,computer sc,ruan_lu,assoc prof,F,93291,91419,47.62,assoc prof
 2012,college of liberal arts & sciences,computer sc,chaudhuri_soma,assoc prof,F,93740,92606,0,assoc prof
 2012,college of liberal arts & sciences,computer sc,gadia_shashi,assoc prof,M,94244,106892.33,260.57,assoc prof
@@ -1680,6 +1702,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2012,college of liberal arts & sciences,geol/atmosph sc,gutowski_william,prof,M,92330,119951.45,16021.6,prof
 2012,college of liberal arts & sciences,geol/atmosph sc,spry_paul,prof,M,95410,103617.77,10293.77,prof
 2012,college of liberal arts & sciences,geol/atmosph sc,jacobson_carl,prof,M,99227,110449.64,4650.44,prof
+2012,college of liberal arts & sciences,geol/atmosph sc,chen_tsingchang,prof,M,106978,141134.68,7820.03,prof
 2012,college of liberal arts & sciences,greenlee jrn/cm,sar_sela,assoc prof,M,60920,61716,3472.41,assoc prof
 2012,college of liberal arts & sciences,greenlee jrn/cm,newell_jonathan,assoc prof,M,66939,65866,1509.77,assoc prof
 2012,college of liberal arts & sciences,greenlee jrn/cm,lee_suman,assoc prof,M,67706,66315,4302.11,assoc prof
@@ -1747,6 +1770,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2012,college of liberal arts & sciences,mathematics,liu_hailiang,prof,M,103663,129070.17,13015.24,prof
 2012,college of liberal arts & sciences,mathematics,hou_lisheng,prof,M,105837,104273,0,prof
 2012,college of liberal arts & sciences,mathematics,willson_stephen,univ prof,M,97752,100344.28,3728.94,awarded prof
+2012,college of liberal arts & sciences,music & theatre,tam_tinshi,assoc prof,F,54220,61186.28,142.83,assoc prof
 2012,college of liberal arts & sciences,music & theatre,creswell_mary,assoc prof,F,56613,55367,466.79,assoc prof
 2012,college of liberal arts & sciences,music & theatre,hopkins_christopher,assoc prof,M,57463,62443.35,935.15,assoc prof
 2012,college of liberal arts & sciences,music & theatre,bovinette_james,assoc prof,M,58847,56584,0,assoc prof
@@ -1790,6 +1814,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2012,college of liberal arts & sciences,physics/astron,wang_jigang,asst prof,M,71781,92526.72,4311.32,asst prof
 2012,college of liberal arts & sciences,physics/astron,weinstein_amanda,asst prof,F,71781,88078.82,10659.88,asst prof
 2012,college of liberal arts & sciences,physics/astron,johnston_david,distg prof,M,144897,173200.7,0,awarded prof
+2012,college of liberal arts & sciences,physics/astron,ho_kaiming,distg prof,M,149761,170624.31,2755.76,awarded prof
 2012,college of liberal arts & sciences,physics/astron,canfield_paul,distg prof,M,156413,177087.36,7406.45,awarded prof
 2012,college of liberal arts & sciences,physics/astron,goldman_alan,distg prof,M,177502,241781,25549.12,awarded prof
 2012,college of liberal arts & sciences,physics/astron,soukoulis_costas,distg prof,M,218338,232764.9,6920.76,awarded prof
@@ -1862,6 +1887,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2012,college of liberal arts & sciences,statistics,maitra_ranjan,prof,M,102997,100675,3067.55,prof
 2012,college of liberal arts & sciences,statistics,kaiser_mark,prof,M,114324,148676.64,1427.24,prof
 2012,college of liberal arts & sciences,statistics,cook_dianne,prof,F,128565,131755.5,2332.66,prof
+2012,college of liberal arts & sciences,statistics,kim_jaekwang,prof,M,130000,135333.32,11883.2,prof
 2012,college of liberal arts & sciences,statistics,morris_max,prof,M,140413,145643.44,941.05,prof
 2012,college of liberal arts & sciences,statistics,chen_song,prof,M,142440,93060.34,2519.32,prof
 2012,college of liberal arts & sciences,statistics,nusser_sarah,prof,F,144723,175933.34,15631.53,prof
@@ -1952,6 +1978,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2012,college of veterinary medicine,vet diag/prod,burrough_eric,asst prof,M,113314,110550,3985.71,asst prof
 2012,college of veterinary medicine,vet diag/prod,madson_darin,asst prof,M,123615,120600,2963.57,asst prof
 2012,college of veterinary medicine,vet diag/prod,plummer_paul,asst prof,M,123736,120600,3665.81,asst prof
+2012,college of veterinary medicine,vet diag/prod,yoon_kyoungjin,prof,M,114352,111563,4028.57,prof
 2012,college of veterinary medicine,vet diag/prod,zimmerman_jeffrey,prof,M,120935,116284,2112.58,prof
 2012,college of veterinary medicine,vet diag/prod,janke_bruce,prof,M,121205,118249,1129.3,prof
 2012,college of veterinary medicine,vet diag/prod,stevenson_gregory,prof,M,127509,125625,0,prof
@@ -2042,6 +2069,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2012,NA,bioch/bioph,peters_reuben,prof,M,130465,125895.85,8383.37,prof
 2012,NA,bioch/bioph,honzatko_richard,prof,M,131641,128431,204.28,prof
 2012,NA,bioch/bioph,johansen_kristen,prof,F,132036,172576.07,770.6,prof
+2012,NA,bioch/bioph,shin_yeonkyun,prof,M,132037,111813.05,1993.65,prof
 2012,NA,bioch/bioph,myers_alan,prof,M,137421,134727,3874.89,prof
 2012,NA,ctr sust env tc,brown_robert,distg prof,M,233048,306353.43,10199.36,awarded prof
 2012,NA,economics,quirmbach_herman,assoc prof,M,79425,44134.14,0,assoc prof
@@ -2120,6 +2148,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2012,NA,food sc/hn,lamsal_buddhi,asst prof,M,77220,86133.9,4988.01,asst prof
 2012,NA,food sc/hn,lanningham-foster_l,asst prof,F,77894,100740.08,683.26,asst prof
 2012,NA,food sc/hn,rowling_matthew,asst prof,M,83992,95543.41,1489.93,asst prof
+2012,NA,food sc/hn,jane-topel_jaylin,distg prof,F,106153,136964.21,9300.69,awarded prof
 2012,NA,food sc/hn,birt_diane,distg prof,F,188274,186235,3071.68,awarded prof
 2012,NA,food sc/hn,reddy_manju,prof,F,91231,93388.88,4435.38,prof
 2012,NA,food sc/hn,wang_tong,prof,F,91837,134761.24,8730.79,prof
@@ -2133,6 +2162,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2012,NA,gdcb,vollbrecht_erik,assoc prof,M,82056,106703.16,8868.12,assoc prof
 2012,NA,gdcb,yin_yanhai,assoc prof,M,82056,88417.78,904.08,assoc prof
 2012,NA,gdcb,essner_jeffrey,assoc prof,M,82326,97709.45,1538.36,assoc prof
+2012,NA,gdcb,chou_huihsien,assoc prof,M,95927,124866.92,0,assoc prof
 2012,NA,gdcb,mcgrail_maura,asst prof,F,71750,69975.86,1209.34,asst prof
 2012,NA,gdcb,kuhlman_julie,asst prof,F,72829,90727.81,227.18,asst prof
 2012,NA,gdcb,schneider_stephan,asst prof,M,72829,86595.36,1599.43,asst prof
@@ -2344,6 +2374,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2013,college of agriculture & life sciences,pl path & micro,robertson_alison,assoc prof,F,92850,90585,2386.28,assoc prof
 2013,college of agriculture & life sciences,pl path & micro,mueller_daren,asst prof,M,89304,87125,13790.06,asst prof
 2013,college of agriculture & life sciences,pl path & micro,braun_edward,prof,M,100263,97818,0,prof
+2013,college of agriculture & life sciences,pl path & micro,yang_xiaobing,prof,M,102407,100893,9614.24,prof
 2013,college of agriculture & life sciences,pl path & micro,nutter_forrest,prof,M,105982,102182.47,15709.43,prof
 2013,college of agriculture & life sciences,pl path & micro,munkvold_gary,prof,M,110765,143524,17820.74,prof
 2013,college of agriculture & life sciences,pl path & micro,beattie_gwyn,prof,F,113415,116279.09,4112.63,prof
@@ -2488,6 +2519,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2013,college of engineering,chem & bio engr,lamm_monica,assoc prof,F,104398,101653,2965.53,assoc prof
 2013,college of engineering,chem & bio engr,vigil_richard,assoc prof,M,107480,104859,4163.34,assoc prof
 2013,college of engineering,chem & bio engr,shao_zengyi,asst prof,M,89435,57999.96,0,asst prof
+2013,college of engineering,chem & bio engr,tessonnier_jeanphil,asst prof,M,89440,116000.04,4309.38,asst prof
 2013,college of engineering,chem & bio engr,schneider_ian,asst prof,M,91000,93205.53,4394.28,asst prof
 2013,college of engineering,chem & bio engr,jarboe_laura,asst prof,F,93005,114265.28,2649.82,asst prof
 2013,college of engineering,chem & bio engr,reilly_peter,distg prof,M,157435,155265,4468.99,awarded prof
@@ -2596,11 +2628,13 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2013,college of engineering,material sc/eng,rajan_krishna,prof,M,167117,229703.19,33782.46,prof
 2013,college of engineering,material sc/eng,lesar_richard,prof,M,187248,231034.23,22129.84,prof
 2013,college of engineering,material sc/eng,genalo_lawrence,univ prof,M,143658,178563.07,9141.53,awarded prof
+2013,college of engineering,mechanical eng,kim_gapyong,assoc prof,M,93389,88285.2,5619.7,assoc prof
 2013,college of engineering,mechanical eng,schwartz_christian,assoc prof,M,96115,109666.66,10350.24,assoc prof
 2013,college of engineering,mechanical eng,luecke_greg,assoc prof,M,96119,125461.42,6748.82,assoc prof
 2013,college of engineering,mechanical eng,maxwell_gregory,assoc prof,M,99702,111401.53,14468.74,assoc prof
 2013,college of engineering,mechanical eng,attinger_daniel,assoc prof,M,99809,111016.88,11927.22,assoc prof
 2013,college of engineering,mechanical eng,subramaniam_shankar,assoc prof,M,100086,112744,3047.93,assoc prof
+2013,college of engineering,mechanical eng,kong_songcharng,assoc prof,M,101104,122352.06,10221.99,assoc prof
 2013,college of engineering,mechanical eng,meyer_terrence,assoc prof,M,102169,124007.61,482.1,assoc prof
 2013,college of engineering,mechanical eng,shrotriya_pranav,assoc prof,M,104979,129873.23,5090.04,assoc prof
 2013,college of engineering,mechanical eng,winer_eliot,assoc prof,M,105007,139070.79,23750.74,assoc prof
@@ -2625,6 +2659,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2013,college of engineering,mechanical eng,vance_judy,prof,F,204155,208536.88,7578.93,prof
 2013,college of engineering,mechanical eng,oliver_james,univ prof,M,187464,254213.49,15924.43,awarded prof
 2013,college of human sciences,aeshm,karpova_elena,assoc prof,F,71658,74436,8770.18,assoc prof
+2013,college of human sciences,aeshm,lee_younga,assoc prof,F,75969,71214.72,2130.49,assoc prof
 2013,college of human sciences,aeshm,wohlsdorf-arendt_sus,assoc prof,F,78630,62382.89,6083.5,assoc prof
 2013,college of human sciences,aeshm,niehm_linda,assoc prof,F,90603,87680,4080,assoc prof
 2013,college of human sciences,aeshm,hurst_jessica,asst prof,F,64244,69436.08,1601.39,asst prof
@@ -2665,12 +2700,14 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2013,college of human sciences,kinesiology,baker_janice,asst prof,F,58403,57034,0,asst prof
 2013,college of human sciences,kinesiology,chen_senlin,asst prof,M,61814,64871.74,1989.36,asst prof
 2013,college of human sciences,kinesiology,vazou_spyridoula,asst prof,F,61814,65975,1421.46,asst prof
+2013,college of human sciences,kinesiology,lee_duckchul,asst prof,M,66560,68611.11,1334.6,asst prof
 2013,college of human sciences,kinesiology,king_douglas,prof,M,83222,90637.94,0,prof
 2013,college of human sciences,kinesiology,derrick_tim,prof,M,87629,81138,0,prof
 2013,college of human sciences,kinesiology,welk_gregory,prof,M,92979,149446.72,4657.29,prof
 2013,college of human sciences,kinesiology,franke_warren,prof,M,97858,106626.92,680.96,prof
 2013,college of human sciences,kinesiology,sharp_rickey,prof,M,99030,130229.37,0,prof
 2013,college of human sciences,kinesiology,kohut_marian,prof,F,101532,127794.72,794.72,prof
+2013,college of human sciences,school of ed,correia_anapaula,assoc prof,F,70791,87864.78,5303.13,assoc prof
 2013,college of human sciences,school of ed,leigh_patricia,assoc prof,F,71497,73145,940.98,assoc prof
 2013,college of human sciences,school of ed,carlson_patricia,assoc prof,F,72660,85065.84,0,assoc prof
 2013,college of human sciences,school of ed,crawford_denise,assoc prof,F,74479,96882.67,6428.9,assoc prof
@@ -2683,6 +2720,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2013,college of human sciences,school of ed,foegen_anne,assoc prof,F,87577,107089.62,18328.23,assoc prof
 2013,college of human sciences,school of ed,reason_robert,assoc prof,M,101171,118897.84,5179.83,assoc prof
 2013,college of human sciences,school of ed,estapa_anne,asst prof,F,63297,67100,1081,asst prof
+2013,college of human sciences,school of ed,cho_byeongyoung,asst prof,M,63345,71413.33,3219.99,asst prof
 2013,college of human sciences,school of ed,roberts_sarah,asst prof,F,65957,79033.84,4327.45,asst prof
 2013,college of human sciences,school of ed,bang_eunjin,asst prof,F,66379,64760,6781.92,asst prof
 2013,college of human sciences,school of ed,nadolny_larysa,asst prof,F,66625,72222.22,628.1,asst prof
@@ -2705,6 +2743,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2013,college of liberal arts & sciences,chemistry,sadow_aaron,assoc prof,M,90380,118106.69,2823.04,assoc prof
 2013,college of liberal arts & sciences,chemistry,winter_arthur,asst prof,M,75338,70573,231.71,asst prof
 2013,college of liberal arts & sciences,chemistry,huang_wenyu,asst prof,M,76230,94285.98,3243.66,asst prof
+2013,college of liberal arts & sciences,chemistry,lee_youngjin,asst prof,M,76335,95783.92,1921.78,asst prof
 2013,college of liberal arts & sciences,chemistry,fang_ning,asst prof,M,76338,74493.77,6022.68,asst prof
 2013,college of liberal arts & sciences,chemistry,chen_jason,asst prof,M,76777,72952,191.31,asst prof
 2013,college of liberal arts & sciences,chemistry,stanley_levi,asst prof,M,79265,91741.72,6694.28,asst prof
@@ -2727,6 +2766,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2013,college of liberal arts & sciences,computer sc,miner_andrew,assoc prof,M,92661,114145.38,4381.33,assoc prof
 2013,college of liberal arts & sciences,computer sc,tian_jin,assoc prof,M,93269,91880,0,assoc prof
 2013,college of liberal arts & sciences,computer sc,cai_ying,assoc prof,M,93421,92356,3163.43,assoc prof
+2013,college of liberal arts & sciences,computer sc,jia_yanbin,assoc prof,M,94290,99149.86,0,assoc prof
 2013,college of liberal arts & sciences,computer sc,ruan_lu,assoc prof,F,94738,93291,791.94,assoc prof
 2013,college of liberal arts & sciences,computer sc,chaudhuri_soma,assoc prof,F,95041,93740,0,assoc prof
 2013,college of liberal arts & sciences,computer sc,rajan_hridesh,assoc prof,M,95670,110835.6,5237.03,assoc prof
@@ -2791,6 +2831,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2013,college of liberal arts & sciences,geol/atmosph sc,gutowski_william,prof,M,94090,123606.73,14548.68,prof
 2013,college of liberal arts & sciences,geol/atmosph sc,spry_paul,prof,M,97016,106011.11,6535.3,prof
 2013,college of liberal arts & sciences,geol/atmosph sc,jacobson_carl,prof,M,100821,123732.2,5041.18,prof
+2013,college of liberal arts & sciences,geol/atmosph sc,chen_tsingchang,prof,M,108558,136694.14,2101.53,prof
 2013,college of liberal arts & sciences,greenlee jrn/cm,newell_jonathan,assoc prof,M,76312,71189,3631.86,assoc prof
 2013,college of liberal arts & sciences,greenlee jrn/cm,lee_suman,assoc prof,M,77099,67706,6131.24,assoc prof
 2013,college of liberal arts & sciences,greenlee jrn/cm,geske_joel,assoc prof,M,81143,92203.77,634.52,assoc prof
@@ -2854,6 +2895,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2013,college of liberal arts & sciences,mathematics,kliemann_wolfgang,prof,M,139520,170025,8012.32,prof
 2013,college of liberal arts & sciences,mathematics,luecke_glenn,prof,M,140651,138481,10459.56,prof
 2013,college of liberal arts & sciences,mathematics,willson_stephen,univ prof,M,99935,97752,2701.73,awarded prof
+2013,college of liberal arts & sciences,music & theatre,tam_tinshi,assoc prof,F,57723,68028.92,0,assoc prof
 2013,college of liberal arts & sciences,music & theatre,creswell_mary,assoc prof,F,59660,56613,577.2,assoc prof
 2013,college of liberal arts & sciences,music & theatre,bovinette_james,assoc prof,M,60936,58847,1809.04,assoc prof
 2013,college of liberal arts & sciences,music & theatre,oakes_gregory,assoc prof,M,61582,52443,1250,assoc prof
@@ -2861,6 +2903,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2013,college of liberal arts & sciences,music & theatre,giles_sonja,assoc prof,F,65108,60057,2306.22,assoc prof
 2013,college of liberal arts & sciences,music & theatre,hopkins_christopher,assoc prof,M,66526,57463,807.74,assoc prof
 2013,college of liberal arts & sciences,music & theatre,dell_brad,asst prof,M,55982,52143,0,asst prof
+2013,college of liberal arts & sciences,music & theatre,huang_meihsuan,asst prof,F,56040,57777.77,2879.05,asst prof
 2013,college of liberal arts & sciences,music & theatre,martinic-jercic_bori,asst prof,M,56040,57777.77,0,asst prof
 2013,college of liberal arts & sciences,music & theatre,harrison_jacob,asst prof,M,57100,54020,813.07,asst prof
 2013,college of liberal arts & sciences,music & theatre,simonson_donald,prof,M,67309,65169,1234.3,prof
@@ -2896,6 +2939,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2013,college of liberal arts & sciences,physics/astron,sivasankar_sanjeevi,asst prof,M,73217,95707.96,9329.44,asst prof
 2013,college of liberal arts & sciences,physics/astron,weinstein_amanda,asst prof,F,73217,92153.75,8657.65,asst prof
 2013,college of liberal arts & sciences,physics/astron,johnston_david,distg prof,M,147215,164216.67,0,awarded prof
+2013,college of liberal arts & sciences,physics/astron,ho_kaiming,distg prof,M,153580,186660.61,1835.75,awarded prof
 2013,college of liberal arts & sciences,physics/astron,canfield_paul,distg prof,M,159541,189433.67,6739.54,awarded prof
 2013,college of liberal arts & sciences,physics/astron,soukoulis_costas,distg prof,M,178640,238337.92,2904.16,awarded prof
 2013,college of liberal arts & sciences,physics/astron,goldman_alan,distg prof,M,182940,236669.32,39705.42,awarded prof
@@ -2969,6 +3013,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2013,college of liberal arts & sciences,statistics,hofmann_heike,prof,F,100025,106636.82,204.21,prof
 2013,college of liberal arts & sciences,statistics,maitra_ranjan,prof,M,112052,102997,2439.49,prof
 2013,college of liberal arts & sciences,statistics,kaiser_mark,prof,M,123396,146080.75,1187.14,prof
+2013,college of liberal arts & sciences,statistics,kim_jaekwang,prof,M,133255,173333.36,11864.41,prof
 2013,college of liberal arts & sciences,statistics,cook_dianne,prof,F,136279,143349.99,1848.17,prof
 2013,college of liberal arts & sciences,statistics,morris_max,prof,M,142801,154788.16,1103.71,prof
 2013,college of liberal arts & sciences,statistics,chen_song,prof,M,145004,96147.03,1314.62,prof
@@ -3055,6 +3100,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2013,college of veterinary medicine,vet diag/prod,gauger_phillip,asst prof,M,120750,115000,1632.58,asst prof
 2013,college of veterinary medicine,vet diag/prod,madson_darin,asst prof,M,126705,123615,2278.47,asst prof
 2013,college of veterinary medicine,vet diag/prod,plummer_paul,asst prof,M,126829,123736,5969,asst prof
+2013,college of veterinary medicine,vet diag/prod,yoon_kyoungjin,prof,M,117554,114352,2297.79,prof
 2013,college of veterinary medicine,vet diag/prod,janke_bruce,prof,M,124235,121205,0,prof
 2013,college of veterinary medicine,vet diag/prod,zimmerman_jeffrey,prof,M,126862,120935,1404.86,prof
 2013,college of veterinary medicine,vet diag/prod,stevenson_gregory,prof,M,130697,127509,1677.3,prof
@@ -3129,6 +3175,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2013,NA,bioch/bioph,johansen_jorgen,prof,M,129102,168926.68,3794.75,prof
 2013,NA,bioch/bioph,peters_reuben,prof,M,133100,159819.89,5025.78,prof
 2013,NA,bioch/bioph,johansen_kristen,prof,F,134676,176048.04,1603.37,prof
+2013,NA,bioch/bioph,shin_yeonkyun,prof,M,134677,88025,322.4,prof
 2013,NA,bioch/bioph,honzatko_richard,prof,M,134800,131641,0,prof
 2013,NA,bioch/bioph,myers_alan,prof,M,139883,137421,4122.36,prof
 2013,NA,economics,quirmbach_herman,assoc prof,M,80219,43378.26,0,assoc prof
@@ -3207,6 +3254,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2013,NA,food sc/hn,hollis_james,asst prof,M,79320,98670,4766.47,asst prof
 2013,NA,food sc/hn,lanningham-foster_l,asst prof,F,80014,80335.43,1423.37,asst prof
 2013,NA,food sc/hn,rowling_matthew,asst prof,M,85983,83992,2320.22,asst prof
+2013,NA,food sc/hn,jane-topel_jaylin,distg prof,F,110153,130278.73,12199.26,awarded prof
 2013,NA,food sc/hn,birt_diane,distg prof,F,185174,188274,2803.6,awarded prof
 2013,NA,food sc/hn,reddy_manju,prof,F,93731,105675.9,17255.16,prof
 2013,NA,food sc/hn,prusa_kenneth,prof,M,95959,92803,0,prof
@@ -3221,6 +3269,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2013,NA,gdcb,essner_jeffrey,assoc prof,M,84583,91473.44,4771.26,assoc prof
 2013,NA,gdcb,vollbrecht_erik,assoc prof,M,85010,109408.03,3510.4,assoc prof
 2013,NA,gdcb,yin_yanhai,assoc prof,M,87604,91173.32,973.23,assoc prof
+2013,NA,gdcb,chou_huihsien,assoc prof,M,97750,127902.76,0,assoc prof
 2013,NA,gdcb,muszynski_michael,asst prof,M,72400,71838.96,2756.9,asst prof
 2013,NA,gdcb,mcgrail_maura,asst prof,F,73475,71750,2691.39,asst prof
 2013,NA,gdcb,kuhlman_julie,asst prof,F,74200,90852.35,1853.71,asst prof
@@ -3425,6 +3474,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2014,college of agriculture & life sciences,pl path & micro,robertson_alison,assoc prof,F,95171,92850,2871.33,assoc prof
 2014,college of agriculture & life sciences,pl path & micro,mueller_daren,asst prof,M,91536,89304,16247.14,asst prof
 2014,college of agriculture & life sciences,pl path & micro,braun_edward,prof,M,102269,100263,0,prof
+2014,college of agriculture & life sciences,pl path & micro,yang_xiaobing,prof,M,104455,110940.99,9199.91,prof
 2014,college of agriculture & life sciences,pl path & micro,nutter_forrest,prof,M,108632,106482,9176.12,prof
 2014,college of agriculture & life sciences,pl path & micro,munkvold_gary,prof,M,113534,152686.81,15473.69,prof
 2014,college of agriculture & life sciences,pl path & micro,beattie_gwyn,prof,F,116250,113415,0,prof
@@ -3572,6 +3622,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2014,college of engineering,chem & bio engr,vigil_richard,assoc prof,M,109845,107480,1124.16,assoc prof
 2014,college of engineering,chem & bio engr,wu_yue,assoc prof,M,120000,13333.33,0,assoc prof
 2014,college of engineering,chem & bio engr,shao_zengyi,asst prof,F,91939,119246.68,3337.3,asst prof
+2014,college of engineering,chem & bio engr,tessonnier_jeanphil,asst prof,M,92123,119253.25,3357.28,asst prof
 2014,college of engineering,chem & bio engr,schneider_ian,asst prof,M,93275,91000,2769.65,asst prof
 2014,college of engineering,chem & bio engr,fox_rodney,distg prof,M,195656,144128.6,36485.55,awarded prof
 2014,college of engineering,chem & bio engr,hebert_kurt,prof,M,137153,134464,0,prof
@@ -3677,16 +3728,19 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2014,college of engineering,material sc/eng,rajan_krishna,prof,M,171462,238891.65,9710.61,prof
 2014,college of engineering,material sc/eng,lesar_richard,prof,M,191742,231284.59,14854.68,prof
 2014,college of engineering,material sc/eng,genalo_lawrence,univ prof,M,147321,191543.99,6966.71,awarded prof
+2014,college of engineering,mechanical eng,kim_gapyong,assoc prof,M,95257,93389,6216.91,assoc prof
 2014,college of engineering,mechanical eng,luecke_greg,assoc prof,M,97801,128158.72,3020.6,assoc prof
 2014,college of engineering,mechanical eng,schwartz_christian,assoc prof,M,98518,128153.44,4105.36,assoc prof
 2014,college of engineering,mechanical eng,maxwell_gregory,assoc prof,M,100948,133353.26,4126.39,assoc prof
 2014,college of engineering,mechanical eng,attinger_daniel,assoc prof,M,102304,105956.67,3844.2,assoc prof
 2014,college of engineering,mechanical eng,meyer_terrence,assoc prof,M,104723,144225.51,7617.53,assoc prof
+2014,college of engineering,mechanical eng,kong_songcharng,assoc prof,M,106159,110513.44,3702.4,assoc prof
 2014,college of engineering,mechanical eng,shrotriya_pranav,assoc prof,M,107603,122475.5,2230.43,assoc prof
 2014,college of engineering,mechanical eng,winer_eliot,assoc prof,M,108682,148009.37,12799.92,assoc prof
 2014,college of engineering,mechanical eng,bryden_kenneth,assoc prof,M,136756,186068.24,10198.15,assoc prof
 2014,college of engineering,mechanical eng,radkowski_rafael,asst prof,M,0,11997,1757.89,asst prof
 2014,college of engineering,mechanical eng,padalkar_sonal,asst prof,F,83000,23369.52,716.19,asst prof
+2014,college of engineering,mechanical eng,hsu_mingchen,asst prof,M,84660,96833.33,9343.77,asst prof
 2014,college of engineering,mechanical eng,sippel_travis,asst prof,M,84660,83000,383.18,asst prof
 2014,college of engineering,mechanical eng,balasubramanian_gane,asst prof,M,86565,103727.55,4453.99,asst prof
 2014,college of engineering,mechanical eng,bhattacharya_sourabh,asst prof,M,87567,115600.03,16865.54,asst prof
@@ -3708,6 +3762,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2014,college of human sciences,aeshm,rajagopal_lakshman,assoc prof,M,73127,68741,440.08,assoc prof
 2014,college of human sciences,aeshm,karpova_elena,assoc prof,F,74090,78938.81,3221.1,assoc prof
 2014,college of human sciences,aeshm,zheng_tianshu,assoc prof,M,77637,83836.74,0,assoc prof
+2014,college of human sciences,aeshm,lee_younga,assoc prof,F,79248,84866.47,3332.93,assoc prof
 2014,college of human sciences,aeshm,wohlsdorf-arendt_sus,assoc prof,F,82775,81288.98,0,assoc prof
 2014,college of human sciences,aeshm,niehm_linda,assoc prof,F,93868,110737,4330.66,assoc prof
 2014,college of human sciences,aeshm,lee_sojung,asst prof,F,67635,77650,2165.55,asst prof
@@ -3746,12 +3801,14 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2014,college of human sciences,kinesiology,chen_senlin,asst prof,M,66359,61814,1550.57,asst prof
 2014,college of human sciences,kinesiology,stegemoller_elizabet,asst prof,F,66625,75833.33,2794.21,asst prof
 2014,college of human sciences,kinesiology,vazou_spyridoula,asst prof,F,67359,72866.17,5885.88,asst prof
+2014,college of human sciences,kinesiology,lee_duckchul,asst prof,M,68224,66560,3471.72,asst prof
 2014,college of human sciences,kinesiology,king_douglas,prof,M,83222,83222,0,prof
 2014,college of human sciences,kinesiology,derrick_tim,prof,M,93820,87629,0,prof
 2014,college of human sciences,kinesiology,welk_gregory,prof,M,102346,164917.02,5322.18,prof
 2014,college of human sciences,kinesiology,kohut_marian,prof,F,104066,106608.66,2316.2,prof
 2014,college of human sciences,kinesiology,franke_warren,prof,M,104304,99489,1407.4,prof
 2014,college of human sciences,kinesiology,sharp_rickey,prof,M,108506,132040.03,0,prof
+2014,college of human sciences,school of ed,correia_anapaula,assoc prof,F,75847,87255.46,5152.78,assoc prof
 2014,college of human sciences,school of ed,carlson_patricia,assoc prof,F,77652,87999.36,0,assoc prof
 2014,college of human sciences,school of ed,marshall_joanne,assoc prof,F,79335,76914,3470.04,assoc prof
 2014,college of human sciences,school of ed,starobin_soko,assoc prof,F,79841,72316,3971.24,assoc prof
@@ -3762,6 +3819,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2014,college of human sciences,school of ed,crawford_denise,assoc prof,F,87270,104305.32,4905.6,assoc prof
 2014,college of human sciences,school of ed,friedel_janice,assoc prof,F,88439,89798.12,9294.17,assoc prof
 2014,college of human sciences,school of ed,estapa_anne,asst prof,F,66740,76296.52,4029.31,asst prof
+2014,college of human sciences,school of ed,cho_byeongyoung,asst prof,M,67601,69679.44,9478.86,asst prof
 2014,college of human sciences,school of ed,bang_eunjin,asst prof,F,68141,66379,6560.67,asst prof
 2014,college of human sciences,school of ed,nadolny_larysa,asst prof,F,68837,67125,6128.76,asst prof
 2014,college of human sciences,school of ed,gansemer-topf_ann,asst prof,F,69170,74637.76,4844.27,asst prof
@@ -3778,6 +3836,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2014,college of human sciences,school of ed,phye_gary,prof,M,115015,148973.51,0,prof
 2014,college of human sciences,school of ed,licklider_barbara,univ prof,F,107393,112506.88,0,awarded prof
 2014,college of human sciences,school of ed,ebbers_larry,univ prof,M,134108,158090.26,6483.16,awarded prof
+2014,college of liberal arts & sciences,chemistry,lee_youngjin,assoc prof,M,82843,97539.29,1895.45,assoc prof
 2014,college of liberal arts & sciences,chemistry,jeffries-el_malika,assoc prof,F,86856,90099.62,968.94,assoc prof
 2014,college of liberal arts & sciences,chemistry,smith_emily,assoc prof,F,88080,100010.22,955.21,assoc prof
 2014,college of liberal arts & sciences,chemistry,sadow_aaron,assoc prof,M,92639,115485.65,0,assoc prof
@@ -3805,6 +3864,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2014,college of liberal arts & sciences,computer sc,tian_jin,assoc prof,M,95189,93269,1646.08,assoc prof
 2014,college of liberal arts & sciences,computer sc,ruan_lu,assoc prof,F,95758,94738,0,assoc prof
 2014,college of liberal arts & sciences,computer sc,chaudhuri_soma,assoc prof,F,96101,95041,0,assoc prof
+2014,college of liberal arts & sciences,computer sc,jia_yanbin,assoc prof,M,96280,95504.47,2983.47,assoc prof
 2014,college of liberal arts & sciences,computer sc,gadia_shashi,assoc prof,M,97333,96293,0,assoc prof
 2014,college of liberal arts & sciences,computer sc,aduri_pavankumar,assoc prof,M,98929,99370.55,347.96,assoc prof
 2014,college of liberal arts & sciences,computer sc,eulenstein_oliver,assoc prof,M,100978,119665.15,1679.18,assoc prof
@@ -3870,6 +3930,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2014,college of liberal arts & sciences,geol/atmosph sc,spry_paul,prof,M,104071,107795.55,15568.13,prof
 2014,college of liberal arts & sciences,geol/atmosph sc,gutowski_william,prof,M,107146,125453.51,17239.87,prof
 2014,college of liberal arts & sciences,geol/atmosph sc,jacobson_carl,prof,M,107777,100821,10029.16,prof
+2014,college of liberal arts & sciences,geol/atmosph sc,chen_tsingchang,prof,M,115180,126938.19,1221.13,prof
 2014,college of liberal arts & sciences,geol/atmosph sc,iverson_neal,prof,M,118226,139476,7521.82,prof
 2014,college of liberal arts & sciences,greenlee jrn/cm,dahlstrom_michael,assoc prof,M,73861,80323,3903.1,assoc prof
 2014,college of liberal arts & sciences,greenlee jrn/cm,lee_suman,assoc prof,M,79037,77099,2679.89,assoc prof
@@ -3929,6 +3990,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2014,college of liberal arts & sciences,mathematics,luecke_glenn,prof,M,143179,140651,2668.96,prof
 2014,college of liberal arts & sciences,mathematics,willson_stephen,univ prof,M,101732,59961,0,awarded prof
 2014,college of liberal arts & sciences,music & theatre,bovinette_james,assoc prof,M,62786,60936,4227.05,assoc prof
+2014,college of liberal arts & sciences,music & theatre,tam_tinshi,assoc prof,F,63173,70550.38,0,assoc prof
 2014,college of liberal arts & sciences,music & theatre,sunderman_robert,assoc prof,M,65759,62259,249.76,assoc prof
 2014,college of liberal arts & sciences,music & theatre,creswell_mary,assoc prof,F,65860,59660,0,assoc prof
 2014,college of liberal arts & sciences,music & theatre,oakes_gregory,assoc prof,M,66132,61582,3785.68,assoc prof
@@ -3938,6 +4000,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2014,college of liberal arts & sciences,music & theatre,royston_natalie,asst prof,F,60305,55530,3774.15,asst prof
 2014,college of liberal arts & sciences,music & theatre,dell_brad,asst prof,M,60982,55982,935.47,asst prof
 2014,college of liberal arts & sciences,music & theatre,harrison_jacob,asst prof,M,61100,57100,78.11,asst prof
+2014,college of liberal arts & sciences,music & theatre,huang_meihsuan,asst prof,F,61240,56040,3749.64,asst prof
 2014,college of liberal arts & sciences,music & theatre,simonson_donald,morrill prof,M,78659,67309,6164.65,awarded prof
 2014,college of liberal arts & sciences,music & theatre,stuart_david,prof,M,76956,83493.75,0,prof
 2014,college of liberal arts & sciences,music & theatre,work_george,prof,M,77099,72149,372.5,prof
@@ -3973,6 +4036,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2014,college of liberal arts & sciences,physics/astron,chen_chunhui,asst prof,M,73056,94144.44,6594.06,asst prof
 2014,college of liberal arts & sciences,physics/astron,weinstein_amanda,asst prof,F,74317,81611.06,14187.66,asst prof
 2014,college of liberal arts & sciences,physics/astron,johnston_david,distg prof,M,149215,164258.06,0,awarded prof
+2014,college of liberal arts & sciences,physics/astron,ho_kaiming,distg prof,M,155880,205179.07,0,awarded prof
 2014,college of liberal arts & sciences,physics/astron,canfield_paul,distg prof,M,172611,197811.82,4326.17,awarded prof
 2014,college of liberal arts & sciences,physics/astron,goldman_alan,distg prof,M,188440,244419.98,22289.91,awarded prof
 2014,college of liberal arts & sciences,physics/astron,soukoulis_costas,distg prof,M,190640,294639.88,346.84,awarded prof
@@ -4046,6 +4110,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2014,college of liberal arts & sciences,statistics,hofmann_heike,prof,F,110026,100025,0,prof
 2014,college of liberal arts & sciences,statistics,maitra_ranjan,prof,M,114446,130727.32,5144.63,prof
 2014,college of liberal arts & sciences,statistics,kaiser_mark,prof,M,125899,153962.39,0,prof
+2014,college of liberal arts & sciences,statistics,kim_jaekwang,prof,M,136181,177673.48,22480.8,prof
 2014,college of liberal arts & sciences,statistics,cook_dianne,prof,F,139005,146648.52,1514.15,prof
 2014,college of liberal arts & sciences,statistics,morris_max,prof,M,145569,142801,0,prof
 2014,college of liberal arts & sciences,statistics,chen_song,prof,M,147904,100190.28,577.85,prof
@@ -4128,6 +4193,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2014,college of veterinary medicine,vet diag/prod,madson_darin,asst prof,M,131773,126705,566.43,asst prof
 2014,college of veterinary medicine,vet diag/prod,janke_bruce,prof,M,0,97357.94,0,prof
 2014,college of veterinary medicine,vet diag/prod,opriessnig_tanja,prof,F,28128,73179.5,3291.85,prof
+2014,college of veterinary medicine,vet diag/prod,yoon_kyoungjin,prof,M,121081,117554,7096.81,prof
 2014,college of veterinary medicine,vet diag/prod,zimmerman_jeffrey,prof,M,130033,126862,3407.64,prof
 2014,college of veterinary medicine,vet diag/prod,stevenson_gregory,prof,M,133311,130697,923.08,prof
 2014,college of veterinary medicine,vet diag/prod,rumbeiha_wilson,prof,M,134601,133269,10488.21,prof
@@ -4200,6 +4266,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2014,NA,bioch/bioph,johansen_kristen,prof,F,137370,179568,156.8,prof
 2014,NA,bioch/bioph,honzatko_richard,prof,M,137496,134800,0,prof
 2014,NA,bioch/bioph,myers_alan,prof,M,142331,139883,413.5,prof
+2014,NA,bioch/bioph,shin_yeonkyun,prof,M,160000,89785,2357.05,prof
 2014,NA,economics,quirmbach_herman,assoc prof,M,81182,48732.23,0,assoc prof
 2014,NA,economics,gallagher_paul,assoc prof,M,99108,113067.49,2747.56,assoc prof
 2014,NA,economics,zhylyevskyy_oleksand,assoc prof,M,114796,125330.62,4309.87,assoc prof
@@ -4278,6 +4345,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2014,NA,food sc/hn,hollis_james,asst prof,M,80959,101295.03,1581.5,asst prof
 2014,NA,food sc/hn,lanningham-foster_l,asst prof,F,81614,103015.86,1657.52,asst prof
 2014,NA,food sc/hn,winham_donna,asst prof,F,86000,9555.55,0,asst prof
+2014,NA,food sc/hn,jane-topel_jaylin,distg prof,F,112356,140751.07,8831.1,awarded prof
 2014,NA,food sc/hn,reddy_manju,prof,F,98756,110933.33,3000.05,prof
 2014,NA,food sc/hn,prusa_kenneth,prof,M,99605,95959,0,prof
 2014,NA,food sc/hn,schalinske_kevin,prof,M,101479,130362.8,2454.43,prof
@@ -4290,6 +4358,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2014,NA,gdcb,yin_yanhai,assoc prof,M,89781,111938.42,1277.84,assoc prof
 2014,NA,gdcb,yang_bing,assoc prof,M,93088,111833.46,2910.17,assoc prof
 2014,NA,gdcb,vollbrecht_erik,assoc prof,M,95211,113846.79,5781.55,assoc prof
+2014,NA,gdcb,chou_huihsien,assoc prof,M,100204,130333.42,0,assoc prof
 2014,NA,gdcb,lawrence_carolyn,assoc prof,F,112476,67222.16,5850.87,assoc prof
 2014,NA,gdcb,nelson_marna,asst prof,F,69523,68327,356.3,asst prof
 2014,NA,gdcb,muszynski_michael,asst prof,M,74210,88488.92,6327.47,asst prof
@@ -4499,6 +4568,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2015,college of agriculture & life sciences,pl path & micro,walley_justin,asst prof,M,85851,42499.94,797.76,asst prof
 2015,college of agriculture & life sciences,pl path & micro,mueller_daren,asst prof,M,92451,91536,14271.01,asst prof
 2015,college of agriculture & life sciences,pl path & micro,braun_edward,prof,M,103292,102269,0,prof
+2015,college of agriculture & life sciences,pl path & micro,yang_xiaobing,prof,M,105500,132104.18,3077.16,prof
 2015,college of agriculture & life sciences,pl path & micro,nutter_forrest,prof,M,109718,108632,1662.73,prof
 2015,college of agriculture & life sciences,pl path & micro,munkvold_gary,prof,M,114669,156378.64,18419.78,prof
 2015,college of agriculture & life sciences,pl path & micro,beattie_gwyn,prof,F,117413,116250,952.24,prof
@@ -4669,6 +4739,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2015,college of engineering,chem & bio engr,wu_yue,assoc prof,M,121200,146666.66,6504.66,assoc prof
 2015,college of engineering,chem & bio engr,panthani_matthew,asst prof,M,90900,100000,965.32,asst prof
 2015,college of engineering,chem & bio engr,shao_zengyi,asst prof,F,92858,122585.3,7460.93,asst prof
+2015,college of engineering,chem & bio engr,tessonnier_jeanphil,asst prof,M,93044,102558.88,5726.82,asst prof
 2015,college of engineering,chem & bio engr,schneider_ian,asst prof,M,94208,93275,3658.82,asst prof
 2015,college of engineering,chem & bio engr,shanks_brent,distg prof,M,193754,247200,8438.96,awarded prof
 2015,college of engineering,chem & bio engr,fox_rodney,distg prof,M,197613,265427.41,37856.66,awarded prof
@@ -4689,6 +4760,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2015,college of engineering,civ/con/env eng,rehmann_chris,assoc prof,M,109080,138000,1200.46,assoc prof
 2015,college of engineering,civ/con/env eng,smadi_omar,assoc prof,M,113625,149999.97,40680.85,assoc prof
 2015,college of engineering,civ/con/env eng,buss_ashley,asst prof,F,0,54600,3750.47,asst prof
+2015,college of engineering,civ/con/env eng,cho_inho,asst prof,M,88375,102083.32,7272.91,asst prof
 2015,college of engineering,civ/con/env eng,turkan_yelda,asst prof,F,89136,117670.64,14747.34,asst prof
 2015,college of engineering,civ/con/env eng,shafei-pamsari_behro,asst prof,M,89890,59333.29,0,asst prof
 2015,college of engineering,civ/con/env eng,dong_jing,asst prof,F,90196,119070.7,19979.75,asst prof
@@ -4775,10 +4847,12 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2015,college of engineering,material sc/eng,mudring_anja,prof,F,170400,215577.7,31341.2,prof
 2015,college of engineering,material sc/eng,lesar_richard,prof,M,193659,255656.04,18265.38,prof
 2015,college of engineering,material sc/eng,genalo_lawrence,univ prof,M,148794,196427.99,7608.13,awarded prof
+2015,college of engineering,mechanical eng,kim_gapyong,assoc prof,M,96210,106795.4,837.76,assoc prof
 2015,college of engineering,mechanical eng,luecke_greg,assoc prof,M,98779,130401.39,2179.29,assoc prof
 2015,college of engineering,mechanical eng,schwartz_christian,assoc prof,M,99503,131357.42,2773.37,assoc prof
 2015,college of engineering,mechanical eng,maxwell_gregory,assoc prof,M,101957,134527.92,8667.49,assoc prof
 2015,college of engineering,mechanical eng,attinger_daniel,assoc prof,M,103327,124899.57,3528.24,assoc prof
+2015,college of engineering,mechanical eng,kong_songcharng,assoc prof,M,107221,120094.21,9123.28,assoc prof
 2015,college of engineering,mechanical eng,winer_eliot,assoc prof,M,109769,154909.33,12612.22,assoc prof
 2015,college of engineering,mechanical eng,michael_james,asst prof,M,83500,49693.94,1545.31,asst prof
 2015,college of engineering,mechanical eng,claussen_jonathan,asst prof,M,83830,96833.34,4953.6,asst prof
@@ -4787,6 +4861,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2015,college of engineering,mechanical eng,padalkar_sonal,asst prof,F,83830,96833.35,3318.81,asst prof
 2015,college of engineering,mechanical eng,radkowski_rafael,asst prof,M,83830,96833.33,3856.85,asst prof
 2015,college of engineering,mechanical eng,sarkar_soumik,asst prof,M,83830,96833.34,10072.12,asst prof
+2015,college of engineering,mechanical eng,hsu_mingchen,asst prof,M,85507,112879.99,13576,asst prof
 2015,college of engineering,mechanical eng,sippel_travis,asst prof,M,85507,89363.33,1318.33,asst prof
 2015,college of engineering,mechanical eng,balasubramanian_gane,asst prof,M,87431,100992.51,8137.53,asst prof
 2015,college of engineering,mechanical eng,bhattacharya_sourabh,asst prof,M,88443,107026.32,35491.18,asst prof
@@ -4810,6 +4885,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2015,college of human sciences,aeshm,rajagopal_lakshman,assoc prof,M,73858,87858.34,4240.79,assoc prof
 2015,college of human sciences,aeshm,hurst_jessica,assoc prof,F,78675,71821,311.94,assoc prof
 2015,college of human sciences,aeshm,karpova_elena,assoc prof,F,79276,81293.11,538.8,assoc prof
+2015,college of human sciences,aeshm,lee_younga,assoc prof,F,80041,81162.2,3384.61,assoc prof
 2015,college of human sciences,aeshm,schrier_thomas,assoc prof,M,81256,73612,2821.47,assoc prof
 2015,college of human sciences,aeshm,tang_liang,assoc prof,F,82928,79017.94,3066.05,assoc prof
 2015,college of human sciences,aeshm,wohlsdorf-arendt_sus,assoc prof,F,83603,84002.97,2327.46,assoc prof
@@ -4824,6 +4900,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2015,college of human sciences,aeshm,olson_eric,asst prof,M,73225,77553.24,3132.69,asst prof
 2015,college of human sciences,aeshm,niehm_linda,prof,F,100481,95368,3852.4,prof
 2015,college of human sciences,aeshm,damhorst_mary,prof,F,103891,120234,1071.81,prof
+2015,college of human sciences,aeshm,fiore_annmarie,prof,F,116325,140127,2406.7,prof
 2015,college of human sciences,aeshm,sanders_eulanda,prof,F,121719,132565,6436.99,prof
 2015,college of human sciences,human dv/fam st,margrett_jennifer,assoc prof,F,80288,98041.83,4816.18,assoc prof
 2015,college of human sciences,human dv/fam st,hughes-belding_kere,assoc prof,F,82032,90244.44,1535.62,assoc prof
@@ -4844,6 +4921,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2015,college of human sciences,human dv/fam st,martin_peter,prof,M,122656,145730.46,1762.25,prof
 2015,college of human sciences,human dv/fam st,russell_daniel,prof,M,123369,122148,3523.6,prof
 2015,college of human sciences,human dv/fam st,fletcher_cynthia,prof,F,132585,131272,2811.83,prof
+2015,college of human sciences,human dv/fam st,hong_gongsoog,prof,F,161962,205994,2562.74,prof
 2015,college of human sciences,kinesiology,gillette_jason,assoc prof,M,79058,86972.22,1020.71,assoc prof
 2015,college of human sciences,kinesiology,smiley-oyen_ann,assoc prof,F,81735,101607.1,2987.44,assoc prof
 2015,college of human sciences,kinesiology,ekkekakis_panteleimo,assoc prof,M,85893,85043,2086.54,assoc prof
@@ -4855,6 +4933,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2015,college of human sciences,kinesiology,stegemoller_elizabet,asst prof,F,67291,84938.82,6201.6,asst prof
 2015,college of human sciences,kinesiology,vazou_spyridoula,asst prof,F,68033,77462.99,1481.65,asst prof
 2015,college of human sciences,kinesiology,shook_robin,asst prof,M,70700,81666.65,9251.37,asst prof
+2015,college of human sciences,kinesiology,lee_duckchul,asst prof,M,70906,74752.82,6383.84,asst prof
 2015,college of human sciences,kinesiology,king_douglas,prof,M,83222,89892.77,0,prof
 2015,college of human sciences,kinesiology,derrick_tim,prof,M,94758,93820,1200.9,prof
 2015,college of human sciences,kinesiology,kohut_marian,prof,F,105107,104066,0,prof
@@ -4862,6 +4941,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2015,college of human sciences,kinesiology,welk_gregory,prof,M,105369,140774.2,4205.81,prof
 2015,college of human sciences,kinesiology,sharp_rickey,prof,M,109591,132618.44,0,prof
 2015,college of human sciences,school of ed,bang_eunjin,assoc prof,F,74522,75643.41,1044.95,assoc prof
+2015,college of human sciences,school of ed,correia_anapaula,assoc prof,F,76605,99214.02,2766.14,assoc prof
 2015,college of human sciences,school of ed,hutchison_amy,assoc prof,F,76790,95167.98,3323.04,assoc prof
 2015,college of human sciences,school of ed,carlson_patricia,assoc prof,F,78429,94045.22,0,assoc prof
 2015,college of human sciences,school of ed,marshall_joanne,assoc prof,F,80128,79335,3847.31,assoc prof
@@ -4898,6 +4978,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2015,college of human sciences,school of ed,licklider_barbara,univ prof,F,108467,118132.33,0,awarded prof
 2015,college of human sciences,school of ed,ebbers_larry,univ prof,M,136242,161793.07,7645.65,awarded prof
 2015,college of liberal arts & sciences,chemistry,winter_arthur,assoc prof,M,82123,89432,3700.4,assoc prof
+2015,college of liberal arts & sciences,chemistry,lee_youngjin,assoc prof,M,83671,96127.66,1413.75,assoc prof
 2015,college of liberal arts & sciences,chemistry,smith_emily,assoc prof,F,88961,107653.33,2529.18,assoc prof
 2015,college of liberal arts & sciences,chemistry,vela-becerra_javier,assoc prof,M,89858,110466.48,1560.44,assoc prof
 2015,college of liberal arts & sciences,chemistry,sadow_aaron,assoc prof,M,93565,123518.66,1986.84,assoc prof
@@ -4929,6 +5010,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2015,college of liberal arts & sciences,computer sc,prabhu_gurpur,assoc prof,M,112321,111209,0,assoc prof
 2015,college of liberal arts & sciences,computer sc,sheaffer_jeremy,asst prof,M,90900,90000,2953.43,asst prof
 2015,college of liberal arts & sciences,computer sc,le_wei,asst prof,F,95950,110833.33,7821.6,asst prof
+2015,college of liberal arts & sciences,computer sc,jia_yanbin,prof,M,102918,106977.77,4103.29,prof
 2015,college of liberal arts & sciences,computer sc,eulenstein_oliver,prof,M,107663,112197.84,2761.41,prof
 2015,college of liberal arts & sciences,computer sc,tavanapong_wallapak,prof,F,110783,115630,50.3,prof
 2015,college of liberal arts & sciences,computer sc,basu_samik,prof,M,114982,119364,3124.61,prof
@@ -4984,6 +5066,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2015,college of liberal arts & sciences,geol/atmosph sc,gallus_william,prof,M,101196,133591.98,5672,prof
 2015,college of liberal arts & sciences,geol/atmosph sc,spry_paul,prof,M,105112,104071,2670.61,prof
 2015,college of liberal arts & sciences,geol/atmosph sc,gutowski_william,prof,M,108217,142861.32,16642.21,prof
+2015,college of liberal arts & sciences,geol/atmosph sc,chen_tsingchang,prof,M,116332,134376.65,234.48,prof
 2015,college of liberal arts & sciences,geol/atmosph sc,iverson_neal,prof,M,119408,105089.76,4011.94,prof
 2015,college of liberal arts & sciences,greenlee jrn/cm,han_gang,assoc prof,M,71447,66086,4757.04,assoc prof
 2015,college of liberal arts & sciences,greenlee jrn/cm,cozma_raluca,assoc prof,F,71954,67088,2658.54,assoc prof
@@ -5042,6 +5125,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2015,college of liberal arts & sciences,mathematics,liu_hailiang,prof,M,133126,161098.66,12224.37,prof
 2015,college of liberal arts & sciences,mathematics,luecke_glenn,prof,M,144611,143179,397.2,prof
 2015,college of liberal arts & sciences,music & theatre,bovinette_james,assoc prof,M,63414,62786,395.88,assoc prof
+2015,college of liberal arts & sciences,music & theatre,tam_tinshi,assoc prof,F,63805,77211.46,3857.53,assoc prof
 2015,college of liberal arts & sciences,music & theatre,dell_brad,assoc prof,M,66292,60982,0,assoc prof
 2015,college of liberal arts & sciences,music & theatre,harrison_jacob,assoc prof,M,66411,63739.34,0,assoc prof
 2015,college of liberal arts & sciences,music & theatre,sunderman_robert,assoc prof,M,66417,67009,247.4,assoc prof
@@ -5049,6 +5133,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2015,college of liberal arts & sciences,music & theatre,oakes_gregory,assoc prof,M,66793,66132,0,assoc prof
 2015,college of liberal arts & sciences,music & theatre,hopkins_christopher,assoc prof,M,67898,67226,8884.77,assoc prof
 2015,college of liberal arts & sciences,music & theatre,giles_sonja,assoc prof,F,70102,69408,2047.53,assoc prof
+2015,college of liberal arts & sciences,music & theatre,huang_meihsuan,asst prof,F,0,63240,6102.25,asst prof
 2015,college of liberal arts & sciences,music & theatre,petefish-schrag_aman,asst prof,F,56560,56000,0,asst prof
 2015,college of liberal arts & sciences,music & theatre,martinic-jercic_bori,asst prof,M,58822,58240,0,asst prof
 2015,college of liberal arts & sciences,music & theatre,royston_natalie,asst prof,F,60908,60305,3286.22,asst prof
@@ -5088,6 +5173,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2015,college of liberal arts & sciences,physics/astron,flint_rebecca,asst prof,F,72973,88305.56,737.78,asst prof
 2015,college of liberal arts & sciences,physics/astron,weinstein_amanda,asst prof,F,75060,83400.1,6185.8,asst prof
 2015,college of liberal arts & sciences,physics/astron,johnston_david,distg prof,M,150707,156603.71,0,awarded prof
+2015,college of liberal arts & sciences,physics/astron,ho_kaiming,distg prof,M,157439,207925.71,1010.2,awarded prof
 2015,college of liberal arts & sciences,physics/astron,canfield_paul,distg prof,M,174337,202832.46,7466.11,awarded prof
 2015,college of liberal arts & sciences,physics/astron,goldman_alan,distg prof,M,190324,251253.4,8683.49,awarded prof
 2015,college of liberal arts & sciences,physics/astron,soukoulis_costas,distg prof,M,192546,253795.65,1787.02,awarded prof
@@ -5169,6 +5255,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2015,college of liberal arts & sciences,statistics,hofmann_heike,prof,F,111127,114683.18,0,prof
 2015,college of liberal arts & sciences,statistics,maitra_ranjan,prof,M,115590,152594.69,2676.82,prof
 2015,college of liberal arts & sciences,statistics,kaiser_mark,prof,M,127159,152604.84,0,prof
+2015,college of liberal arts & sciences,statistics,kim_jaekwang,prof,M,137543,182074.68,18830.67,prof
 2015,college of liberal arts & sciences,statistics,cook_dianne,prof,F,140395,157272.71,1606.83,prof
 2015,college of liberal arts & sciences,statistics,chen_song,prof,M,149383,164586.77,2650.26,prof
 2015,college of liberal arts & sciences,statistics,lorenz_frederick,univ prof,M,129165,127887,4175.14,awarded prof
@@ -5251,6 +5338,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2015,college of veterinary medicine,vet diag/prod,gauger_phillip,asst prof,M,126836,125580,7567.28,asst prof
 2015,college of veterinary medicine,vet diag/prod,plummer_paul,asst prof,M,143925,135208.3,2669.15,asst prof
 2015,college of veterinary medicine,vet diag/prod,opriessnig_tanja,prof,F,28409,28128,6245.64,prof
+2015,college of veterinary medicine,vet diag/prod,yoon_kyoungjin,prof,M,122292,121081,2575.28,prof
 2015,college of veterinary medicine,vet diag/prod,zimmerman_jeffrey,prof,M,131333,130033,2264.83,prof
 2015,college of veterinary medicine,vet diag/prod,stevenson_gregory,prof,M,134644,133311,1546.6,prof
 2015,college of veterinary medicine,vet diag/prod,rumbeiha_wilson,prof,M,135947,134601,8437.09,prof
@@ -5322,6 +5410,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2015,NA,bioch/bioph,johansen_kristen,prof,F,138744,184159.95,1282.88,prof
 2015,NA,bioch/bioph,honzatko_richard,prof,M,138871,137496,1012.23,prof
 2015,NA,bioch/bioph,myers_alan,prof,M,143754,142331,968.04,prof
+2015,NA,bioch/bioph,shin_yeonkyun,prof,M,161600,186666.64,2918.2,prof
 2015,NA,economics,quirmbach_herman,assoc prof,M,81994,46003.17,0,assoc prof
 2015,NA,economics,gallagher_paul,assoc prof,M,100099,117628.18,410.8,assoc prof
 2015,NA,economics,zhylyevskyy_oleksand,assoc prof,M,115944,114796,4123.28,assoc prof
@@ -5401,6 +5490,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2015,NA,food sc/hn,acevedo_nuria,asst prof,F,80851,96482.44,5206.11,asst prof
 2015,NA,food sc/hn,shaw_angela,asst prof,F,81447,80641,2941.26,asst prof
 2015,NA,food sc/hn,winham_donna,asst prof,F,86860,105111.1,2713.46,asst prof
+2015,NA,food sc/hn,jane-topel_jaylin,distg prof,F,113480,149510.85,7268.62,awarded prof
 2015,NA,food sc/hn,reddy_manju,prof,F,99744,98756,7515.45,prof
 2015,NA,food sc/hn,prusa_kenneth,prof,M,100601,99605,0,prof
 2015,NA,food sc/hn,schalinske_kevin,prof,M,102494,134177.72,2909.68,prof
@@ -5412,6 +5502,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2015,NA,gdcb,essner_jeffrey,assoc prof,M,90554,89658,1685.84,assoc prof
 2015,NA,gdcb,yang_bing,assoc prof,M,94019,124117.32,4937.61,assoc prof
 2015,NA,gdcb,vollbrecht_erik,assoc prof,M,96163,126948,12392.69,assoc prof
+2015,NA,gdcb,chou_huihsien,assoc prof,M,101206,133605.46,0,assoc prof
 2015,NA,gdcb,nelson_marna,asst prof,F,74740,95661.63,495.7,asst prof
 2015,NA,gdcb,muszynski_michael,asst prof,M,74952,82455.6,5201.63,asst prof
 2015,NA,gdcb,mcgrail_maura,asst prof,F,76190,92199.54,5649.06,asst prof
@@ -5622,6 +5713,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2016,college of agriculture & life sciences,pl path & micro,peters_nicholas,asst prof,M,85490,41499.95,0,asst prof
 2016,college of agriculture & life sciences,pl path & micro,walley_justin,asst prof,M,88426,85851,4315.15,asst prof
 2016,college of agriculture & life sciences,pl path & micro,mueller_daren,asst prof,M,100078,92451,12395.42,asst prof
+2016,college of agriculture & life sciences,pl path & micro,yang_xiaobing,prof,M,106555,142320.01,2355.98,prof
 2016,college of agriculture & life sciences,pl path & micro,nutter_forrest,prof,M,113558,109718,2102.48,prof
 2016,college of agriculture & life sciences,pl path & micro,munkvold_gary,prof,M,118109,157891.98,10653.83,prof
 2016,college of agriculture & life sciences,pl path & micro,beattie_gwyn,prof,F,120935,127197.44,2132.6,prof
@@ -5796,6 +5888,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2016,college of engineering,chem & bio engr,mansell_thomas,asst prof,M,93150,95000,1428.37,asst prof
 2016,college of engineering,chem & bio engr,panthani_matthew,asst prof,M,94082,116150,2040.08,asst prof
 2016,college of engineering,chem & bio engr,shao_zengyi,asst prof,F,96247,118651.88,8162.9,asst prof
+2016,college of engineering,chem & bio engr,tessonnier_jeanphil,asst prof,M,96533,101169.11,10696.15,asst prof
 2016,college of engineering,chem & bio engr,shanks_brent,distg prof,M,201020,258338.76,6267.56,awarded prof
 2016,college of engineering,chem & bio engr,fox_rodney,distg prof,M,204529,273266.16,44729.09,awarded prof
 2016,college of engineering,chem & bio engr,mallapragada_s,distg prof,F,204980,213840,2215.15,awarded prof
@@ -5819,6 +5912,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2016,college of engineering,civ/con/env eng,cetin_bora,asst prof,M,90557,59333.28,931.78,asst prof
 2016,college of engineering,civ/con/env eng,ikuma_kaoru,asst prof,F,90563,102083.32,717.44,asst prof
 2016,college of engineering,civ/con/env eng,buss_ashley,asst prof,F,91080,94784.04,5076.75,asst prof
+2016,college of engineering,civ/con/env eng,cho_inho,asst prof,M,91468,117833.32,12664.34,asst prof
 2016,college of engineering,civ/con/env eng,shafei-pamsari_behro,asst prof,M,93126,119853.39,13526.19,asst prof
 2016,college of engineering,civ/con/env eng,dong_jing,asst prof,F,93353,120261.38,18026.79,asst prof
 2016,college of engineering,civ/con/env eng,chen_an,asst prof,M,93967,105103.11,4264.53,asst prof
@@ -5908,6 +6002,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2016,college of engineering,material sc/eng,lesar_richard,prof,M,200921,258212,8273.11,prof
 2016,college of engineering,material sc/eng,genalo_lawrence,univ prof,M,154448,198392.04,7677.63,awarded prof
 2016,college of engineering,mechanical eng,luecke_greg,assoc prof,M,98779,131705.32,3036.2,assoc prof
+2016,college of engineering,mechanical eng,kim_gapyong,assoc prof,M,100414,99417,0,assoc prof
 2016,college of engineering,mechanical eng,schwartz_christian,assoc prof,M,103035,132670.74,1432.52,assoc prof
 2016,college of engineering,mechanical eng,attinger_daniel,assoc prof,M,103327,108437.35,2543.8,assoc prof
 2016,college of engineering,mechanical eng,maxwell_gregory,assoc prof,M,105016,132853.1,13510.82,assoc prof
@@ -5922,6 +6017,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2016,college of engineering,mechanical eng,claussen_jonathan,asst prof,M,86513,111773.36,12031.08,asst prof
 2016,college of engineering,mechanical eng,sarkar_soumik,asst prof,M,86513,111773.27,17056.69,asst prof
 2016,college of engineering,mechanical eng,sippel_travis,asst prof,M,88158,92632.54,7046.72,asst prof
+2016,college of engineering,mechanical eng,hsu_mingchen,asst prof,M,88500,114009.39,18038.54,asst prof
 2016,college of engineering,mechanical eng,bhattacharya_sourabh,asst prof,M,90035,93356.5,0,asst prof
 2016,college of engineering,mechanical eng,balasubramanian_gane,asst prof,M,90054,106860.12,5407.39,asst prof
 2016,college of engineering,mechanical eng,passalacqua_alberto,asst prof,M,91139,110654.13,3894.52,asst prof
@@ -5932,6 +6028,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2016,college of engineering,mechanical eng,subramaniam_shankar,prof,M,115083,117292.01,2595.92,prof
 2016,college of engineering,mechanical eng,shrotriya_pranav,prof,M,118356,120681.66,0,prof
 2016,college of engineering,mechanical eng,winer_eliot,prof,M,118972,156358.71,15311.76,prof
+2016,college of engineering,mechanical eng,kong_songcharng,prof,M,120419,41638.09,3158.52,prof
 2016,college of engineering,mechanical eng,wang_xinwei,prof,M,128158,156705.44,8455.94,prof
 2016,college of engineering,mechanical eng,olsen_michael,prof,M,129059,152709.88,985.5,prof
 2016,college of engineering,mechanical eng,bryden_kenneth,prof,M,149910,177757.16,2299.01,prof
@@ -5942,6 +6039,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2016,college of engineering,mechanical eng,oliver_james,univ prof,M,200572,265510.71,194.46,awarded prof
 2016,college of human sciences,aeshm,rajagopal_lakshman,assoc prof,M,74597,80012.85,1492.21,assoc prof
 2016,college of human sciences,aeshm,hurst_jessica,assoc prof,F,81379,87416.72,1033.6,assoc prof
+2016,college of human sciences,aeshm,lee_younga,assoc prof,F,82441,89379.02,5687.33,assoc prof
 2016,college of human sciences,aeshm,karpova_elena,assoc prof,F,83240,87203,691.5,assoc prof
 2016,college of human sciences,aeshm,schrier_thomas,assoc prof,M,85320,89381,2268.54,assoc prof
 2016,college of human sciences,aeshm,tang_liang,assoc prof,F,85416,92049.55,966.02,assoc prof
@@ -5954,16 +6052,19 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2016,college of human sciences,aeshm,mckinney_ellen,asst prof,F,72732,71306,2069.85,asst prof
 2016,college of human sciences,aeshm,jeong_eunha,asst prof,F,72825,70000,0,asst prof
 2016,college of human sciences,aeshm,brown_eric,asst prof,M,73500,73029.84,3691.27,asst prof
+2016,college of human sciences,aeshm,su_chinghui,asst prof,F,76500,75000,4827.28,asst prof
 2016,college of human sciences,aeshm,olson_eric,asst prof,M,76887,86446.12,5639.34,asst prof
 2016,college of human sciences,aeshm,wohlsdorf-arendt_sus,prof,F,93583,97574.65,0,prof
 2016,college of human sciences,aeshm,niehm_linda,prof,F,105064,111645.6,2702.72,prof
 2016,college of human sciences,aeshm,sanders_eulanda,prof,F,125371,121719,3472.69,prof
+2016,college of human sciences,aeshm,fiore_annmarie,univ prof,F,125563,135712.5,1380.34,awarded prof
 2016,college of human sciences,human dv/fam st,margrett_jennifer,assoc prof,F,82909,107050.64,5451.46,assoc prof
 2016,college of human sciences,human dv/fam st,hughes-belding_kere,assoc prof,F,84657,84288,6868.93,assoc prof
 2016,college of human sciences,human dv/fam st,luze_gayle,assoc prof,F,87808,92528.82,1690.4,assoc prof
 2016,college of human sciences,human dv/fam st,shirtcliff_elizabeth,assoc prof,F,89284,114466.72,4779.57,assoc prof
 2016,college of human sciences,human dv/fam st,greder_kimberly,assoc prof,F,99419,96276,12068.36,assoc prof
 2016,college of human sciences,human dv/fam st,bartholomae_suzanne,asst prof,F,34493,67440.47,2585.12,asst prof
+2016,college of human sciences,human dv/fam st,choi_jiyoung,asst prof,F,69010,69977.78,1403.59,asst prof
 2016,college of human sciences,human dv/fam st,zarling_amie,asst prof,F,70740,86717.18,848.59,asst prof
 2016,college of human sciences,human dv/fam st,schofield_thomas,asst prof,M,70887,70887,541.78,asst prof
 2016,college of human sciences,human dv/fam st,gilligan_megan,asst prof,F,71857,76312.62,2315.5,asst prof
@@ -5976,6 +6077,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2016,college of human sciences,human dv/fam st,fox_jonathan,prof,M,114422,127879.17,2295.64,prof
 2016,college of human sciences,human dv/fam st,russell_daniel,prof,M,127764,123369,1017.2,prof
 2016,college of human sciences,human dv/fam st,fletcher_cynthia,prof,F,136761,132585,5586.38,prof
+2016,college of human sciences,human dv/fam st,hong_gongsoog,prof,F,165201,197503.67,0,prof
 2016,college of human sciences,human dv/fam st,martin_peter,univ prof,M,132908,134921.56,2329.68,awarded prof
 2016,college of human sciences,kinesiology,gillette_jason,assoc prof,M,81430,87842.22,1155.75,assoc prof
 2016,college of human sciences,kinesiology,smiley-oyen_ann,assoc prof,F,84187,89010.79,1740.21,assoc prof
@@ -5987,6 +6089,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2016,college of human sciences,kinesiology,chen_senlin,asst prof,M,69634,78193.5,1475.02,asst prof
 2016,college of human sciences,kinesiology,stegemoller_elizabet,asst prof,F,70011,78970.63,4668.29,asst prof
 2016,college of human sciences,kinesiology,vazou_spyridoula,asst prof,F,70674,86175.16,3726.11,asst prof
+2016,college of human sciences,kinesiology,lee_duckchul,asst prof,M,76578,70906,4132.45,asst prof
 2016,college of human sciences,kinesiology,king_douglas,prof,M,84886,91544,0,prof
 2016,college of human sciences,kinesiology,derrick_tim,prof,M,102073,94758,821.12,prof
 2016,college of human sciences,kinesiology,kohut_marian,prof,F,110783,105107,0,prof
@@ -6027,6 +6130,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2016,college of human sciences,school of ed,phye_gary,prof,M,118488,127781.44,0,prof
 2016,college of human sciences,school of ed,licklider_barbara,univ prof,F,110093,86773.54,0,awarded prof
 2016,college of liberal arts & sciences,chemistry,winter_arthur,assoc prof,M,87729,101155.16,372.33,assoc prof
+2016,college of liberal arts & sciences,chemistry,lee_youngjin,assoc prof,M,88311,111561.39,2638.76,assoc prof
 2016,college of liberal arts & sciences,chemistry,smith_emily,assoc prof,F,92301,103787.84,3425.62,assoc prof
 2016,college of liberal arts & sciences,chemistry,vela-becerra_javier,assoc prof,M,93448,117195.85,1599.34,assoc prof
 2016,college of liberal arts & sciences,chemistry,chen_jason,asst prof,M,79095,81731.6,2470.45,asst prof
@@ -6062,6 +6166,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2016,college of liberal arts & sciences,computer sc,le_wei,asst prof,F,99072,127933.42,6044.59,asst prof
 2016,college of liberal arts & sciences,computer sc,aduri_pavankumar,prof,M,108718,116274.7,1271.85,prof
 2016,college of liberal arts & sciences,computer sc,eulenstein_oliver,prof,M,110949,119254.17,1580.96,prof
+2016,college of liberal arts & sciences,computer sc,jia_yanbin,prof,M,111523,108635.67,2523.24,prof
 2016,college of liberal arts & sciences,computer sc,tavanapong_wallapak,prof,F,115272,110783,0,prof
 2016,college of liberal arts & sciences,computer sc,rajan_hridesh,prof,M,118634,143384.33,23465.24,prof
 2016,college of liberal arts & sciences,computer sc,basu_samik,prof,M,119176,140407.2,1699.59,prof
@@ -6118,6 +6223,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2016,college of liberal arts & sciences,geol/atmosph sc,beresnev_igor,prof,M,98620,96220,500,prof
 2016,college of liberal arts & sciences,geol/atmosph sc,gallus_william,prof,M,104096,135428.07,6559.08,prof
 2016,college of liberal arts & sciences,geol/atmosph sc,spry_paul,prof,M,108012,105112,8274.86,prof
+2016,college of liberal arts & sciences,geol/atmosph sc,chen_tsingchang,prof,M,119032,116332,274.77,prof
 2016,college of liberal arts & sciences,geol/atmosph sc,iverson_neal,prof,M,122308,145943.14,7839.97,prof
 2016,college of liberal arts & sciences,greenlee jrn/cm,han_gang,assoc prof,M,73587,71447,2735.81,assoc prof
 2016,college of liberal arts & sciences,greenlee jrn/cm,cozma_raluca,assoc prof,F,74110,78454,3896.69,assoc prof
@@ -6194,7 +6300,9 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2016,college of liberal arts & sciences,music & theatre,svec_christina,asst prof,F,58710,63333.33,4752.9,asst prof
 2016,college of liberal arts & sciences,music & theatre,martinic-jercic_bori,asst prof,M,60572,58822,0,asst prof
 2016,college of liberal arts & sciences,music & theatre,royston_natalie,asst prof,F,62894,60908,1797.41,asst prof
+2016,college of liberal arts & sciences,music & theatre,huang_meihsuan,asst prof,F,63752,61852,0,asst prof
 2016,college of liberal arts & sciences,music & theatre,simonson_donald,morrill prof,M,81896,79721,2220.06,awarded prof
+2016,college of liberal arts & sciences,music & theatre,tam_tinshi,prof,F,71519,78870.15,0,prof
 2016,college of liberal arts & sciences,music & theatre,stuart_david,prof,M,80129,83732.73,0,prof
 2016,college of liberal arts & sciences,music & theatre,work_george,prof,M,80206,77870,0,prof
 2016,college of liberal arts & sciences,music & theatre,cox_jane,prof,F,81929,97098.22,0,prof
@@ -6231,6 +6339,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2016,college of liberal arts & sciences,physics/astron,wetstein_matthew,asst prof,M,84250,96833.33,8376.04,asst prof
 2016,college of liberal arts & sciences,physics/astron,weinstein_amanda,asst prof,F,85000,87570,2167.13,asst prof
 2016,college of liberal arts & sciences,physics/astron,johnston_david,distg prof,M,155207,167452.33,0,awarded prof
+2016,college of liberal arts & sciences,physics/astron,ho_kaiming,distg prof,M,160983,209918.68,2814.43,awarded prof
 2016,college of liberal arts & sciences,physics/astron,canfield_paul,distg prof,M,185501,225660.06,4572.4,awarded prof
 2016,college of liberal arts & sciences,physics/astron,goldman_alan,distg prof,M,194724,232618.24,7485.19,awarded prof
 2016,college of liberal arts & sciences,physics/astron,soukoulis_costas,distg prof,M,197246,249390.03,4126.5,awarded prof
@@ -6314,6 +6423,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2016,college of liberal arts & sciences,statistics,maitra_ranjan,prof,M,118423,154120.09,6832.89,prof
 2016,college of liberal arts & sciences,statistics,dorman_karin,prof,F,123348,131888.09,5047.06,prof
 2016,college of liberal arts & sciences,statistics,kaiser_mark,prof,M,133517,169545.39,2369.99,prof
+2016,college of liberal arts & sciences,statistics,kim_jaekwang,prof,M,141631,183390.71,17298.78,prof
 2016,college of liberal arts & sciences,statistics,chen_song,prof,M,152279,105333.22,6631.56,prof
 2016,college of liberal arts & sciences,statistics,vardeman_stephen,univ prof,M,143742,139929,0,awarded prof
 2016,college of liberal arts & sciences,statistics,koehler_kenneth,univ prof,M,150662,155123.39,0,awarded prof
@@ -6369,6 +6479,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2016,college of veterinary medicine,vet clinical sc,berger_darren,asst prof,M,130320,118473,0,asst prof
 2016,college of veterinary medicine,vet clinical sc,zellner_eric,asst prof,M,133536,80011,590.8,asst prof
 2016,college of veterinary medicine,vet clinical sc,johannes_chad,asst prof,M,134550,134000,3591.5,asst prof
+2016,college of veterinary medicine,vet clinical sc,palerme_jeansebasti,asst prof,M,134550,103409.06,847.47,asst prof
 2016,college of veterinary medicine,vet clinical sc,allbaugh_rachel,asst prof,F,139352,134640,4717.09,asst prof
 2016,college of veterinary medicine,vet clinical sc,ward_jessica,asst prof,F,139725,107386.36,420.9,asst prof
 2016,college of veterinary medicine,vet clinical sc,noxon_james,morrill prof,M,164682,159885,0,awarded prof
@@ -6403,6 +6514,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2016,college of veterinary medicine,vet diag/prod,dohlman_tyler,asst prof,M,119025,107200.66,1071.38,asst prof
 2016,college of veterinary medicine,vet diag/prod,kreuder-krull_amanda,asst prof,F,124200,85217.5,1093.86,asst prof
 2016,college of veterinary medicine,vet diag/prod,opriessnig_tanja,prof,F,44105,39062.75,6373.3,prof
+2016,college of veterinary medicine,vet diag/prod,yoon_kyoungjin,prof,M,126572,122292,7039.15,prof
 2016,college of veterinary medicine,vet diag/prod,zimmerman_jeffrey,prof,M,136025,131333,5006.65,prof
 2016,college of veterinary medicine,vet diag/prod,stevenson_gregory,prof,M,139357,134644,1732.93,prof
 2016,college of veterinary medicine,vet diag/prod,rumbeiha_wilson,prof,M,140705,135947,13494.87,prof
@@ -6474,6 +6586,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2016,NA,bioch/bioph,honzatko_richard,prof,M,142759,138871,890.13,prof
 2016,NA,bioch/bioph,myers_alan,prof,M,147779,143754,0,prof
 2016,NA,bioch/bioph,andreotti_amy,prof,F,166275,184998.9,1761.82,prof
+2016,NA,bioch/bioph,shin_yeonkyun,prof,M,166448,206488.88,4646.11,prof
 2016,NA,economics,quirmbach_herman,assoc prof,M,83226,48565.69,0,assoc prof
 2016,NA,economics,gallagher_paul,assoc prof,M,101852,108319.69,0,assoc prof
 2016,NA,economics,bunzel_helle,assoc prof,F,118819,116202,0,assoc prof
@@ -6571,6 +6684,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2016,NA,gdcb,yang_bing,assoc prof,M,98720,125358.59,4395.22,assoc prof
 2016,NA,gdcb,vollbrecht_erik,assoc prof,M,99150,128217.23,0,assoc prof
 2016,NA,gdcb,essner_jeffrey,assoc prof,M,99156,113072.72,4843.9,assoc prof
+2016,NA,gdcb,chou_huihsien,assoc prof,M,104242,125780,4037.63,assoc prof
 2016,NA,gdcb,dill_carolyn,assoc prof,F,117004,145155.55,11243.47,assoc prof
 2016,NA,gdcb,kuhlman_julie,asst prof,F,76295,93249.44,286.01,asst prof
 2016,NA,gdcb,bai_hua,asst prof,M,77290,49999.98,90.72,asst prof
@@ -6780,6 +6894,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2017,college of agriculture & life sciences,pl path & micro,mueller_daren,assoc prof,M,120078,101327.99,11585.25,assoc prof
 2017,college of agriculture & life sciences,pl path & micro,peters_nicholas,asst prof,M,85490,85490,0,asst prof
 2017,college of agriculture & life sciences,pl path & micro,walley_justin,asst prof,M,88426,98251.1,2165.3,asst prof
+2017,college of agriculture & life sciences,pl path & micro,yang_xiaobing,prof,M,106555,128314.39,0,prof
 2017,college of agriculture & life sciences,pl path & micro,nutter_forrest,prof,M,113558,109525.41,764.52,prof
 2017,college of agriculture & life sciences,pl path & micro,munkvold_gary,prof,M,118109,163478.63,14146.58,prof
 2017,college of agriculture & life sciences,pl path & micro,robertson_alison,prof,F,120736,112236,4791.79,prof
@@ -6838,6 +6953,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2017,college of business,marketing,feng_hui,asst prof,F,147713,194368.11,6962.24,asst prof
 2017,college of business,marketing,zhang_wei,asst prof,M,150086,150086,3452.77,asst prof
 2017,college of business,marketing,gupta_aditya,asst prof,M,154804,189204.92,4758.71,asst prof
+2017,college of business,marketing,lee_juyeon,asst prof,F,165000,9166.67,0,asst prof
 2017,college of business,marketing,agarwal_sanjeev,prof,M,146447,54917.5,0,prof
 2017,college of business,marketing,ramaswami_sridhar,prof,M,186990,200990,1976.23,prof
 2017,college of business,marketing,kim_stephen,prof,M,200000,206840,90.3,prof
@@ -6952,6 +7068,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2017,college of engineering,chem & bio engr,mansell_thomas,asst prof,M,93150,113850,4483.23,asst prof
 2017,college of engineering,chem & bio engr,panthani_matthew,asst prof,M,94082,109762.33,6886.65,asst prof
 2017,college of engineering,chem & bio engr,shao_zengyi,asst prof,F,96247,97583.78,8798.08,asst prof
+2017,college of engineering,chem & bio engr,tessonnier_jeanphil,asst prof,M,96533,107378.82,6614.79,asst prof
 2017,college of engineering,chem & bio engr,shanks_brent,distg prof,M,201020,251782.75,6838.21,awarded prof
 2017,college of engineering,chem & bio engr,narasimhan_balaji,distg prof,M,204276,231657.24,1636.73,awarded prof
 2017,college of engineering,chem & bio engr,fox_rodney,distg prof,M,204529,282487.32,53715.59,awarded prof
@@ -6974,6 +7091,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2017,college of engineering,civ/con/env eng,cetin_bora,asst prof,M,90557,120742.72,2934.6,asst prof
 2017,college of engineering,civ/con/env eng,ikuma_kaoru,asst prof,F,90563,110688.11,1394.36,asst prof
 2017,college of engineering,civ/con/env eng,buss_ashley,asst prof,F,91080,136106.66,12752.09,asst prof
+2017,college of engineering,civ/con/env eng,cho_inho,asst prof,M,91468,108730.11,12434.73,asst prof
 2017,college of engineering,civ/con/env eng,shafei-pamsari_behro,asst prof,M,93126,124167.98,4731.06,asst prof
 2017,college of engineering,civ/con/env eng,dong_jing,asst prof,F,93353,108911.89,7206.84,asst prof
 2017,college of engineering,civ/con/env eng,chen_an,asst prof,M,93967,118459.56,2400.63,asst prof
@@ -7061,6 +7179,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2017,college of engineering,mechanical eng,luecke_greg,assoc prof,M,98779,131705.44,1009.14,assoc prof
 2017,college of engineering,mechanical eng,attinger_daniel,assoc prof,M,103327,132028.97,7434.2,assoc prof
 2017,college of engineering,mechanical eng,schwartz_christian,assoc prof,M,104000,137380.03,5657.25,assoc prof
+2017,college of engineering,mechanical eng,kim_gapyong,assoc prof,M,104500,100414,1132.86,assoc prof
 2017,college of engineering,mechanical eng,maxwell_gregory,assoc prof,M,105016,121850.89,4235.43,assoc prof
 2017,college of engineering,mechanical eng,bentil_sarah,asst prof,F,84000,93333.33,683.56,asst prof
 2017,college of engineering,mechanical eng,hu_chao,asst prof,M,86005,114673.34,8609.7,asst prof
@@ -7074,6 +7193,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2017,college of engineering,mechanical eng,sippel_travis,asst prof,M,88158,93055.67,0,asst prof
 2017,college of engineering,mechanical eng,claussen_jonathan,asst prof,M,88800,115350.71,5780.44,asst prof
 2017,college of engineering,mechanical eng,sarkar_soumik,asst prof,M,88800,115350.72,7516.39,asst prof
+2017,college of engineering,mechanical eng,hsu_mingchen,asst prof,M,90005,113083.44,14163.41,asst prof
 2017,college of engineering,mechanical eng,bhattacharya_sourabh,asst prof,M,90035,88443,0,asst prof
 2017,college of engineering,mechanical eng,passalacqua_alberto,asst prof,M,91139,96202.28,7373.99,asst prof
 2017,college of engineering,mechanical eng,montazami_reza,asst prof,M,91193,91193,184.26,asst prof
@@ -7094,6 +7214,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2017,college of human sciences,aeshm,rajagopal_lakshman,assoc prof,M,76887,82056.66,3968.36,assoc prof
 2017,college of human sciences,aeshm,hurst_jessica,assoc prof,F,81379,83328.8,10,assoc prof
 2017,college of human sciences,aeshm,brown_eric,assoc prof,M,81514,80850,4401.21,assoc prof
+2017,college of human sciences,aeshm,lee_younga,assoc prof,F,82441,92969.59,1415.05,assoc prof
 2017,college of human sciences,aeshm,schrier_thomas,assoc prof,M,85320,85320,3333.78,assoc prof
 2017,college of human sciences,aeshm,tang_liang,assoc prof,F,85416,59933.55,2816.85,assoc prof
 2017,college of human sciences,aeshm,zheng_tianshu,assoc prof,M,88039,102842.22,0,assoc prof
@@ -7105,12 +7226,14 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2017,college of human sciences,aeshm,jeong_eunha,asst prof,F,72825,86916.66,1335.8,asst prof
 2017,college of human sciences,aeshm,reddy-best_kelly,asst prof,F,74000,85511.11,3588.52,asst prof
 2017,college of human sciences,aeshm,chang_wen,asst prof,F,76500,76500,0,asst prof
+2017,college of human sciences,aeshm,su_chinghui,asst prof,F,76500,85000,3539.35,asst prof
 2017,college of human sciences,aeshm,olson_eric,asst prof,M,76887,92121,4049.63,asst prof
 2017,college of human sciences,aeshm,kim_jewoo,asst prof,M,77500,77500,0,asst prof
 2017,college of human sciences,aeshm,karpova_elena,prof,F,92903,91564,1718.1,prof
 2017,college of human sciences,aeshm,wohlsdorf-arendt_sus,prof,F,96297,108551.17,3165.36,prof
 2017,college of human sciences,aeshm,niehm_linda,prof,F,105064,107998.11,6682.48,prof
 2017,college of human sciences,aeshm,bosselman_robert,prof,M,155342,207862,14343.18,prof
+2017,college of human sciences,aeshm,fiore_annmarie,univ prof,F,125563,142641.5,672.6,awarded prof
 2017,college of human sciences,human dv/fam st,gudmunson_clinton,assoc prof,M,78881,81269.12,755.14,assoc prof
 2017,college of human sciences,human dv/fam st,margrett_jennifer,assoc prof,F,82909,105518.13,4142.05,assoc prof
 2017,college of human sciences,human dv/fam st,hughes-belding_kere,assoc prof,F,84657,99047.55,4025.07,assoc prof
@@ -7118,6 +7241,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2017,college of human sciences,human dv/fam st,luze_gayle,assoc prof,F,87808,102442.66,1019.25,assoc prof
 2017,college of human sciences,human dv/fam st,shirtcliff_elizabeth,assoc prof,F,94641,119545.32,3916.65,assoc prof
 2017,college of human sciences,human dv/fam st,greder_kimberly,assoc prof,F,99419,99419,6471.15,assoc prof
+2017,college of human sciences,human dv/fam st,choi_jiyoung,asst prof,F,69700,87345.98,2500.92,asst prof
 2017,college of human sciences,human dv/fam st,lippard_christine,asst prof,F,70505,70805,1648.5,asst prof
 2017,college of human sciences,human dv/fam st,zarling_amie,asst prof,F,70740,82887.27,1179.28,asst prof
 2017,college of human sciences,human dv/fam st,schofield_thomas,asst prof,M,70887,70116.49,1859.53,asst prof
@@ -7135,6 +7259,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2017,college of human sciences,kinesiology,vazou_spyridoula,assoc prof,F,78501,78883.6,2405.99,assoc prof
 2017,college of human sciences,kinesiology,gillette_jason,assoc prof,M,83059,90477.78,1481.89,assoc prof
 2017,college of human sciences,kinesiology,smiley-oyen_ann,assoc prof,F,85029,91202.68,180.99,assoc prof
+2017,college of human sciences,kinesiology,lee_duckchul,assoc prof,M,95000,114943.89,12271.71,assoc prof
 2017,college of human sciences,kinesiology,murdoch_alan,asst prof,M,23809,25395.66,0,asst prof
 2017,college of human sciences,kinesiology,baker_janice,asst prof,F,62875,62875,505.14,asst prof
 2017,college of human sciences,kinesiology,ellingson_laura,asst prof,F,73395,87646.59,1506.47,asst prof
@@ -7179,6 +7304,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2017,college of human sciences,school of ed,reason_robert,prof,M,114265,156679.29,6069.23,prof
 2017,college of liberal arts & sciences,chemistry,huang_wenyu,assoc prof,M,89173,102453.04,3028.54,assoc prof
 2017,college of liberal arts & sciences,chemistry,winter_arthur,assoc prof,M,91429,116971.94,0,assoc prof
+2017,college of liberal arts & sciences,chemistry,lee_youngjin,assoc prof,M,92011,117748.18,3072.34,assoc prof
 2017,college of liberal arts & sciences,chemistry,vela-becerra_javier,assoc prof,M,93448,119905.79,4953.71,assoc prof
 2017,college of liberal arts & sciences,chemistry,anand_robbyn,asst prof,F,81600,99733.19,908.1,asst prof
 2017,college of liberal arts & sciences,chemistry,rossini_aaron,asst prof,M,81600,91599.99,6122.42,asst prof
@@ -7212,6 +7338,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2017,college of liberal arts & sciences,computer sc,le_wei,asst prof,F,99072,132096.07,1624.79,asst prof
 2017,college of liberal arts & sciences,computer sc,aduri_pavankumar,prof,M,108718,126837.81,3644.45,prof
 2017,college of liberal arts & sciences,computer sc,eulenstein_oliver,prof,M,110949,123276.72,7839.1,prof
+2017,college of liberal arts & sciences,computer sc,jia_yanbin,prof,M,111523,136306,2782.55,prof
 2017,college of liberal arts & sciences,computer sc,tavanapong_wallapak,prof,F,115272,115272,794.65,prof
 2017,college of liberal arts & sciences,computer sc,basu_samik,prof,M,119176,119176,0,prof
 2017,college of liberal arts & sciences,computer sc,huang_xiaoqiu,prof,M,119734,139689.73,84.78,prof
@@ -7267,6 +7394,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2017,college of liberal arts & sciences,geol/atmosph sc,simpkins_william,prof,M,103293,132358.15,5738.41,prof
 2017,college of liberal arts & sciences,geol/atmosph sc,gallus_william,prof,M,104096,130698.43,11607.69,prof
 2017,college of liberal arts & sciences,geol/atmosph sc,spry_paul,prof,M,108012,108512,6840.53,prof
+2017,college of liberal arts & sciences,geol/atmosph sc,chen_tsingchang,prof,M,119032,119032,303.58,prof
 2017,college of liberal arts & sciences,geol/atmosph sc,iverson_neal,prof,M,122308,137290.77,5144.85,prof
 2017,college of liberal arts & sciences,greenlee jrn/cm,han_gang,assoc prof,M,73587,73587,1611.71,assoc prof
 2017,college of liberal arts & sciences,greenlee jrn/cm,dahlstrom_michael,assoc prof,M,76835,92357.45,1510.04,assoc prof
@@ -7343,6 +7471,8 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2017,college of liberal arts & sciences,music & theatre,svec_christina,asst prof,F,58710,58710,3577,asst prof
 2017,college of liberal arts & sciences,music & theatre,martinic-jercic_bori,asst prof,M,60572,60572,0,asst prof
 2017,college of liberal arts & sciences,music & theatre,royston_natalie,asst prof,F,62894,69882.24,5905.42,asst prof
+2017,college of liberal arts & sciences,music & theatre,huang_meihsuan,asst prof,F,63752,63752,968.81,asst prof
+2017,college of liberal arts & sciences,music & theatre,tam_tinshi,prof,F,71519,88405.42,0,prof
 2017,college of liberal arts & sciences,music & theatre,work_george,prof,M,80206,80206,0,prof
 2017,college of liberal arts & sciences,music & theatre,cox_jane,prof,F,81929,100135.46,0,prof
 2017,college of liberal arts & sciences,music & theatre,sturm_jonathan,prof,M,83581,83581,1584.78,prof
@@ -7375,6 +7505,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2017,college of liberal arts & sciences,physics/astron,wetstein_matthew,asst prof,M,84250,102972.24,9693.11,asst prof
 2017,college of liberal arts & sciences,physics/astron,orth_peter,asst prof,M,85000,94444.44,4227.39,asst prof
 2017,college of liberal arts & sciences,physics/astron,johnston_david,distg prof,M,155207,181074.06,0,awarded prof
+2017,college of liberal arts & sciences,physics/astron,ho_kaiming,distg prof,M,160983,211131.07,0,awarded prof
 2017,college of liberal arts & sciences,physics/astron,canfield_paul,distg prof,M,185501,233937.55,2227.94,awarded prof
 2017,college of liberal arts & sciences,physics/astron,goldman_alan,distg prof,M,194724,253620.16,5561.08,awarded prof
 2017,college of liberal arts & sciences,physics/astron,soukoulis_costas,distg prof,M,197246,263114.68,8156.64,awarded prof
@@ -7456,6 +7587,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2017,college of liberal arts & sciences,statistics,maitra_ranjan,prof,M,122153,151318.36,1526.4,prof
 2017,college of liberal arts & sciences,statistics,dorman_karin,prof,F,123348,123348,1438.46,prof
 2017,college of liberal arts & sciences,statistics,kaiser_mark,prof,M,137621,155769.84,2498.06,prof
+2017,college of liberal arts & sciences,statistics,kim_jaekwang,prof,M,141631,118025.9,14306.14,prof
 2017,college of liberal arts & sciences,statistics,vardeman_stephen,univ prof,M,143742,151727.67,0,awarded prof
 2017,college of liberal arts & sciences,statistics,koehler_kenneth,univ prof,M,150662,159032.11,1855.66,awarded prof
 2017,college of liberal arts & sciences,statistics,dixon_philip,univ prof,M,157221,157221,3778.15,awarded prof
@@ -7518,6 +7650,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2017,college of veterinary medicine,vet clinical sc,berger_darren,asst prof,M,130320,130320,4216.67,asst prof
 2017,college of veterinary medicine,vet clinical sc,zellner_eric,asst prof,M,133536,133536,3283.63,asst prof
 2017,college of veterinary medicine,vet clinical sc,johannes_chad,asst prof,M,134550,134550,3257.32,asst prof
+2017,college of veterinary medicine,vet clinical sc,palerme_jeansebasti,asst prof,M,135550,134993.17,3891.54,asst prof
 2017,college of veterinary medicine,vet clinical sc,ward_jessica,asst prof,F,139725,139725,5898,asst prof
 2017,college of veterinary medicine,vet clinical sc,noxon_james,morrill prof,M,164682,164682,0,awarded prof
 2017,college of veterinary medicine,vet clinical sc,hoefle_william,prof,M,106981,106981,0,prof
@@ -7550,6 +7683,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2017,college of veterinary medicine,vet diag/prod,kreuder-krull_amanda,asst prof,F,124200,123342.49,5969.49,asst prof
 2017,college of veterinary medicine,vet diag/prod,opriessnig_tanja,prof,F,44105,44105,5881.44,prof
 2017,college of veterinary medicine,vet diag/prod,hartline_suzanne,prof,F,123996,117996,6685.96,prof
+2017,college of veterinary medicine,vet diag/prod,yoon_kyoungjin,prof,M,126572,126572,3472.08,prof
 2017,college of veterinary medicine,vet diag/prod,zimmerman_jeffrey,prof,M,136025,136025,1883.98,prof
 2017,college of veterinary medicine,vet diag/prod,stevenson_gregory,prof,M,139357,139357,1609.42,prof
 2017,college of veterinary medicine,vet diag/prod,rumbeiha_wilson,prof,M,140705,140705,13446.71,prof
@@ -7610,6 +7744,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2017,NA,bioch/bioph,peters_reuben,prof,M,143806,164659.63,4128.3,prof
 2017,NA,bioch/bioph,myers_alan,prof,M,147779,147779,0,prof
 2017,NA,bioch/bioph,andreotti_amy,prof,F,166275,221700.07,910.62,prof
+2017,NA,bioch/bioph,shin_yeonkyun,prof,M,166448,203436.44,455.13,prof
 2017,NA,economics,quirmbach_herman,assoc prof,M,83226,50575.8,0,assoc prof
 2017,NA,economics,gallagher_paul,assoc prof,M,101852,101852,446.86,assoc prof
 2017,NA,economics,bunzel_helle,assoc prof,F,118819,118819,438.22,assoc prof
@@ -7913,6 +8048,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2018,college of agriculture & life sciences,pl path & micro,peters_nicholas,asst prof,M,86345,85490,0,asst prof
 2018,college of agriculture & life sciences,pl path & micro,walley_justin,asst prof,M,92849,89654.17,0,asst prof
 2018,college of agriculture & life sciences,pl path & micro,nutter_forrest,prof,M,0,50226.27,1215.99,prof
+2018,college of agriculture & life sciences,pl path & micro,yang_xiaobing,prof,M,107620,115434.55,551.88,prof
 2018,college of agriculture & life sciences,pl path & micro,robertson_alison,prof,F,121943,120736,4119.79,prof
 2018,college of agriculture & life sciences,pl path & micro,beattie_gwyn,prof,F,127195,138528.68,2902.46,prof
 2018,college of agriculture & life sciences,pl path & micro,whitham_steven,prof,M,130649,152711,3901,prof
@@ -7967,6 +8103,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2018,college of business,marketing,mao_huifang,assoc prof,F,176650,210333.36,4110.49,assoc prof
 2018,college of business,marketing,bommaraju_raghu,asst prof,M,158570,181362.04,3366.06,asst prof
 2018,college of business,marketing,feng_hui,asst prof,F,158570,170388.4,6448.88,asst prof
+2018,college of business,marketing,lee_juyeon,asst prof,F,166650,201666.7,5960.96,asst prof
 2018,college of business,marketing,agarwal_sanjeev,prof,M,147910,109835,0,prof
 2018,college of business,marketing,ramaswami_sridhar,prof,M,197000,208906,3827.52,prof
 2018,college of business,marketing,rosa_jose,prof,M,203381,218467,9539.46,prof
@@ -8065,6 +8202,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2018,college of engineering,aerospace eng,durbin_paul,prof,M,177252,221933.79,3524.62,prof
 2018,college of engineering,aerospace eng,bond_leonard,prof,M,191709,239775.97,6091.25,prof
 2018,college of engineering,chem & bio engr,robbins_lanny,assoc prof,M,20200,20000,0,assoc prof
+2018,college of engineering,chem & bio engr,tessonnier_jeanphil,assoc prof,M,102548,117548.09,5098.94,assoc prof
 2018,college of engineering,chem & bio engr,schneider_ian,assoc prof,M,103141,102120,0,assoc prof
 2018,college of engineering,chem & bio engr,bratlie_kaitlin,assoc prof,F,104445,114901.1,1152.58,assoc prof
 2018,college of engineering,chem & bio engr,jarboe_laura,assoc prof,F,109639,119611.08,684.62,assoc prof
@@ -8098,6 +8236,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2018,college of engineering,civ/con/env eng,perez_michael,asst prof,M,90395,104416.66,6915.56,asst prof
 2018,college of engineering,civ/con/env eng,zheng_junxing,asst prof,M,90395,89500,0,asst prof
 2018,college of engineering,civ/con/env eng,buss_ashley,asst prof,F,91991,121440.08,13855.64,asst prof
+2018,college of engineering,civ/con/env eng,cho_inho,asst prof,M,92383,106418.91,2361.22,asst prof
 2018,college of engineering,civ/con/env eng,day_christopher,asst prof,M,95445,110250,12890.39,asst prof
 2018,college of engineering,civ/con/env eng,ikuma_kaoru,asst prof,F,95469,100625.56,0,asst prof
 2018,college of engineering,civ/con/env eng,cetin_kristen,asst prof,F,95895,119386.72,4126.55,asst prof
@@ -8187,6 +8326,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2018,college of engineering,material sc/eng,akinc_mufit,prof,M,176202,111848.48,3793.58,prof
 2018,college of engineering,material sc/eng,lesar_richard,prof,M,207980,271783.71,8643.32,prof
 2018,college of engineering,material sc/eng,king_alexander,prof,M,275163,319008,1977.84,prof
+2018,college of engineering,mechanical eng,kim_gapyong,assoc prof,M,52773,26125.02,0,assoc prof
 2018,college of engineering,mechanical eng,passalacqua_alberto,assoc prof,M,97100,91139,2400.84,assoc prof
 2018,college of engineering,mechanical eng,montazami_reza,assoc prof,M,97155,105349.36,4085.94,assoc prof
 2018,college of engineering,mechanical eng,mba-wright_mark,assoc prof,M,97297,110615.64,4617.29,assoc prof
@@ -8211,11 +8351,13 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2018,college of engineering,mechanical eng,sarkar_soumik,asst prof,M,89688,118399.97,22387.94,asst prof
 2018,college of engineering,mechanical eng,bhattacharya_sourabh,asst prof,M,90935,90035,5126.7,asst prof
 2018,college of engineering,mechanical eng,claussen_jonathan,asst prof,M,94128,118400.13,5171.09,asst prof
+2018,college of engineering,mechanical eng,hsu_mingchen,asst prof,M,94955,111672.77,10678.77,asst prof
 2018,college of engineering,mechanical eng,bai_xianglan,asst prof,F,96036,118856.21,1720.16,asst prof
 2018,college of engineering,mechanical eng,brown_robert,distg prof,M,260816,364312.13,7925.29,awarded prof
 2018,college of engineering,mechanical eng,subramaniam_shankar,prof,M,116234,138526.08,741.49,prof
 2018,college of engineering,mechanical eng,shrotriya_pranav,prof,M,119540,138506.66,0,prof
 2018,college of engineering,mechanical eng,winer_eliot,prof,M,120162,171629.41,13797.77,prof
+2018,college of engineering,mechanical eng,kong_songcharng,prof,M,121623,107039.12,0,prof
 2018,college of engineering,mechanical eng,wang_xinwei,prof,M,129440,128158,2847.7,prof
 2018,college of engineering,mechanical eng,olsen_michael,prof,M,130350,145191.36,2568.61,prof
 2018,college of engineering,mechanical eng,bryden_kenneth,prof,M,151409,201880.04,6681.22,prof
@@ -8233,17 +8375,20 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2018,college of human sciences,aeshm,tang_liang,assoc prof,F,86270,94859.22,3327.35,assoc prof
 2018,college of human sciences,aeshm,zheng_tianshu,assoc prof,M,88919,96240,0,assoc prof
 2018,college of human sciences,aeshm,song_guowen,assoc prof,M,119071,124441.6,11114.96,assoc prof
+2018,college of human sciences,aeshm,su_chinghui,asst prof,F,0,92650,495.38,asst prof
 2018,college of human sciences,aeshm,lee_sojung,asst prof,F,72116,80420,8495.98,asst prof
 2018,college of human sciences,aeshm,xiang_chunhui,asst prof,F,72803,71262,2678.54,asst prof
 2018,college of human sciences,aeshm,jeong_eunha,asst prof,F,73553,76652,1709.77,asst prof
 2018,college of human sciences,aeshm,reddy-best_kelly,asst prof,F,74740,85511.11,5024.87,asst prof
 2018,college of human sciences,aeshm,chang_wen,asst prof,F,77265,80750,3119.07,asst prof
+2018,college of human sciences,aeshm,tsai_chinhsun,asst prof,M,77316,64951.48,2218.55,asst prof
 2018,college of human sciences,aeshm,olson_eric,asst prof,M,77656,89700.78,1906.83,asst prof
 2018,college of human sciences,aeshm,kim_jewoo,asst prof,M,78275,86111.12,1205.12,asst prof
 2018,college of human sciences,aeshm,karpova_elena,prof,F,93832,99462.83,5034.45,prof
 2018,college of human sciences,aeshm,wohlsdorf-arendt_sus,prof,F,97260,109927,1404.17,prof
 2018,college of human sciences,aeshm,niehm_linda,prof,F,106115,120363.36,8557.3,prof
 2018,college of human sciences,aeshm,bosselman_robert,prof,M,156895,178730.83,5962.9,prof
+2018,college of human sciences,aeshm,fiore_annmarie,univ prof,F,126818,146490.15,5431.11,awarded prof
 2018,college of human sciences,human dv/fam st,gudmunson_clinton,assoc prof,M,79670,87645.55,706.85,assoc prof
 2018,college of human sciences,human dv/fam st,jordan_tera,assoc prof,F,81676,82464.86,1394.63,assoc prof
 2018,college of human sciences,human dv/fam st,margrett_jennifer,assoc prof,F,83738,102815.23,5111.71,assoc prof
@@ -8252,6 +8397,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2018,college of human sciences,human dv/fam st,luze_gayle,assoc prof,F,88686,97564.44,2079.97,assoc prof
 2018,college of human sciences,human dv/fam st,shirtcliff_elizabeth,assoc prof,F,95587,115672.38,2344.44,assoc prof
 2018,college of human sciences,human dv/fam st,greder_kimberly,assoc prof,F,104390,99419,7057.43,assoc prof
+2018,college of human sciences,human dv/fam st,choi_jiyoung,asst prof,F,70397,73870.22,0,asst prof
 2018,college of human sciences,human dv/fam st,lee_daeyong,asst prof,M,71054,78166.66,3265.79,asst prof
 2018,college of human sciences,human dv/fam st,lippard_christine,asst prof,F,71210,75210.88,1032.5,asst prof
 2018,college of human sciences,human dv/fam st,gilligan_megan,asst prof,F,72576,71857,1500,asst prof
@@ -8267,6 +8413,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2018,college of human sciences,human dv/fam st,martin_peter,univ prof,M,134237,152844.34,2034.93,awarded prof
 2018,college of human sciences,kinesiology,vazou_spyridoula,assoc prof,F,79286,89119.49,1241.48,assoc prof
 2018,college of human sciences,kinesiology,gillette_jason,assoc prof,M,83890,92787.77,8445.32,assoc prof
+2018,college of human sciences,kinesiology,lee_duckchul,assoc prof,M,99750,131166.55,4262.02,assoc prof
 2018,college of human sciences,kinesiology,murdoch_alan,asst prof,M,24047,23809,0,asst prof
 2018,college of human sciences,kinesiology,baker_janice,asst prof,F,63504,62875,0,asst prof
 2018,college of human sciences,kinesiology,valentine_rudy,asst prof,M,74129,75336.67,1174.71,asst prof
@@ -8316,6 +8463,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2018,college of liberal arts & sciences,chemistry,stanley_levi,assoc prof,M,91039,99827.66,4566.36,assoc prof
 2018,college of liberal arts & sciences,chemistry,huang_wenyu,assoc prof,M,91865,118897.33,4068.9,assoc prof
 2018,college of liberal arts & sciences,chemistry,winter_arthur,assoc prof,M,93743,121905.39,1028.4,assoc prof
+2018,college of liberal arts & sciences,chemistry,lee_youngjin,assoc prof,M,94331,126681.51,6546.14,assoc prof
 2018,college of liberal arts & sciences,chemistry,vela-becerra_javier,assoc prof,M,95782,125497.41,3654.56,assoc prof
 2018,college of liberal arts & sciences,chemistry,kovnir_kyrylo,assoc prof,M,106050,132352.93,8150.94,assoc prof
 2018,college of liberal arts & sciences,chemistry,potoyan_davit,asst prof,M,80800,93333.32,2108.27,asst prof
@@ -8355,6 +8503,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2018,college of liberal arts & sciences,computer sc,aduri_pavankumar,prof,M,109805,108718,1517.39,prof
 2018,college of liberal arts & sciences,computer sc,eulenstein_oliver,prof,M,116058,86293.66,4910.07,prof
 2018,college of liberal arts & sciences,computer sc,tavanapong_wallapak,prof,F,116425,115272,4701.89,prof
+2018,college of liberal arts & sciences,computer sc,jia_yanbin,prof,M,116638,132765.49,4684.38,prof
 2018,college of liberal arts & sciences,computer sc,basu_samik,prof,M,120368,127373.28,0,prof
 2018,college of liberal arts & sciences,computer sc,huang_xiaoqiu,prof,M,120931,126385.89,556.76,prof
 2018,college of liberal arts & sciences,computer sc,slutzki_giora,prof,M,125135,123896,0,prof
@@ -8475,6 +8624,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2018,college of liberal arts & sciences,music & theatre,martinic-jercic_bori,assoc prof,M,66228,60572,2141.39,assoc prof
 2018,college of liberal arts & sciences,music & theatre,royston_natalie,assoc prof,F,68573,69882.24,2376.05,assoc prof
 2018,college of liberal arts & sciences,music & theatre,creswell_mary,assoc prof,F,69199,68514,0,assoc prof
+2018,college of liberal arts & sciences,music & theatre,huang_meihsuan,assoc prof,F,69440,64252,4884.95,assoc prof
 2018,college of liberal arts & sciences,music & theatre,hopkins_christopher,assoc prof,M,70632,69933,1818.35,assoc prof
 2018,college of liberal arts & sciences,music & theatre,sunderman_robert,assoc prof,M,70949,70247,1969.63,assoc prof
 2018,college of liberal arts & sciences,music & theatre,giles_sonja,assoc prof,F,72927,72205,630.76,assoc prof
@@ -8483,6 +8633,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2018,college of liberal arts & sciences,music & theatre,sharp_jonathan,asst prof,M,61297,60510,348.21,asst prof
 2018,college of liberal arts & sciences,music & theatre,svec_christina,asst prof,F,61297,58710,1964.01,asst prof
 2018,college of liberal arts & sciences,music & theatre,oakes_gregory,prof,M,75531,68793,1972,prof
+2018,college of liberal arts & sciences,music & theatre,tam_tinshi,prof,F,77234,88405.37,0,prof
 2018,college of liberal arts & sciences,music & theatre,work_george,prof,M,86008,80206,3464.02,prof
 2018,college of liberal arts & sciences,music & theatre,sturm_jonathan,prof,M,89417,84081,666.96,prof
 2018,college of liberal arts & sciences,music & theatre,golemo_michael,prof,M,94624,99381.04,2396.46,prof
@@ -8511,6 +8662,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2018,college of liberal arts & sciences,physics/astron,wetstein_matthew,asst prof,M,85093,121694.45,10732.58,asst prof
 2018,college of liberal arts & sciences,physics/astron,orth_peter,asst prof,M,85850,103888.92,6980.12,asst prof
 2018,college of liberal arts & sciences,physics/astron,johnston_david,distg prof,M,156759,172451.7,0,awarded prof
+2018,college of liberal arts & sciences,physics/astron,ho_kaiming,distg prof,M,162593,214644,7774.39,awarded prof
 2018,college of liberal arts & sciences,physics/astron,canfield_paul,distg prof,M,187356,242696.98,3923.04,awarded prof
 2018,college of liberal arts & sciences,physics/astron,goldman_alan,distg prof,M,196671,248814,8327.52,awarded prof
 2018,college of liberal arts & sciences,physics/astron,soukoulis_costas,distg prof,M,199218,263344.68,12085.08,awarded prof
@@ -8592,6 +8744,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2018,college of liberal arts & sciences,statistics,nordman_daniel,prof,M,124231,119383.33,3768.81,prof
 2018,college of liberal arts & sciences,statistics,dorman_karin,prof,F,124582,123348,1720.56,prof
 2018,college of liberal arts & sciences,statistics,kaiser_mark,prof,M,138997,168203.44,0,prof
+2018,college of liberal arts & sciences,statistics,kim_jaekwang,prof,M,143048,118025.89,13040.26,prof
 2018,college of liberal arts & sciences,statistics,vardeman_stephen,univ prof,M,148572,151727.67,1063.71,awarded prof
 2018,college of liberal arts & sciences,statistics,dixon_philip,univ prof,M,158793,185885.14,1790.09,awarded prof
 2018,college of liberal arts & sciences,world lang/cult,hill_christina,assoc prof,F,66743,61082,4313.62,assoc prof
@@ -8653,6 +8806,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2018,college of veterinary medicine,vet clinical sc,berger_darren,asst prof,M,131623,130320,0,asst prof
 2018,college of veterinary medicine,vet clinical sc,musser_margaret,asst prof,F,131840,112695.58,3563.56,asst prof
 2018,college of veterinary medicine,vet clinical sc,zellner_eric,asst prof,M,134871,133536,4882.28,asst prof
+2018,college of veterinary medicine,vet clinical sc,palerme_jeansebasti,asst prof,M,136906,135550,13414.64,asst prof
 2018,college of veterinary medicine,vet clinical sc,johannes_chad,asst prof,M,138587,134550,12089.73,asst prof
 2018,college of veterinary medicine,vet clinical sc,ward_jessica,asst prof,F,141122,139725,4977.92,asst prof
 2018,college of veterinary medicine,vet clinical sc,noxon_james,morrill prof,M,166329,164682,0,awarded prof
@@ -8682,6 +8836,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2018,college of veterinary medicine,vet diag/prod,kreuder-krull_amanda,asst prof,F,125442,124200,5122.47,asst prof
 2018,college of veterinary medicine,vet diag/prod,opriessnig_tanja,prof,F,44546,47655,5025.56,prof
 2018,college of veterinary medicine,vet diag/prod,hartline_suzanne,prof,F,127716,123996,6618.63,prof
+2018,college of veterinary medicine,vet diag/prod,yoon_kyoungjin,prof,M,127838,126572,1092.49,prof
 2018,college of veterinary medicine,vet diag/prod,stevenson_gregory,prof,M,140751,139357,0,prof
 2018,college of veterinary medicine,vet diag/prod,rumbeiha_wilson,prof,M,142112,140705,9724.41,prof
 2018,college of veterinary medicine,vet diag/prod,zimmerman_jeffrey,prof,M,142826,137525,1714.97,prof
@@ -8742,6 +8897,7 @@ fiscal_year,college,dept,name,position,gender,base_salary,total_salary_paid,trav
 2018,NA,bioch/bioph,honzatko_richard,prof,M,144187,142759,881.62,prof
 2018,NA,bioch/bioph,peters_reuben,prof,M,148020,179458.8,4160.55,prof
 2018,NA,bioch/bioph,myers_alan,prof,M,149257,147779,0,prof
+2018,NA,bioch/bioph,shin_yeonkyun,prof,M,168112,212683.64,1499.96,prof
 2018,NA,bioch/bioph,andreotti_amy,univ prof,F,174488,209213.94,144.4,awarded prof
 2018,NA,economics,quirmbach_herman,assoc prof,M,84058,49722,0,assoc prof
 2018,NA,economics,gallagher_paul,assoc prof,M,102870,101852,2090.64,assoc prof

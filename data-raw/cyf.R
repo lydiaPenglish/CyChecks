@@ -13,6 +13,7 @@
 #                           spelling errors, punctuation in names, collaborating professor title
 #                           (probably doesn't have a dept assignment?)
 #               Oct 16 GN: updated prof categories based on Akelo mtg
+#               Oct 24 GN: get list of employees associated w/a center, eliminated 'functions', they were a pain
 #
 # purpose: make CyChecks2 functions in a safe place
 # 
@@ -63,15 +64,17 @@ library("tidyverse")
 #-filter out when we don't have a position or a gender
 #-only keep professors (makes trouble shooting name issues easier)
 
+
+# Des moines register data
+#-------------
 cyd_salsraw <- read_csv("data-raw/_tidy/td_rawsals.csv")
-#salraw2 <- salraw %>% filter(fiscal_year == 2015)
 
 
-cyf_TidySals <- function(mydata = cyd_salsraw){
-  
+# tidy this data
+#--------------
   cyd_salstidy <- 
     
-    mydata %>% 
+    cyd_salsraw %>% 
     
     #--deal with dates
     mutate(fiscal_year = as.numeric(fiscal_year),
@@ -111,47 +114,42 @@ cyf_TidySals <- function(mydata = cyd_salsraw){
     
     
     #--expand the name out, I think we have to
-    separate(name, into = c("last_name", "first_name", "other"), sep = " ")
+    separate(name, into = c("last_name", "first_name", "other"), sep = " ") %>% 
+    
+    #--remove punctuation from the first name (?not sure if this is a good way to do this....)
   
-  return(cyd_salstidy)
-  
-}
-
-
-cyd_salstidy <- cyf_TidySals() %>%
-  mutate(first_name = str_remove_all(first_name, "[[:punct:]]"))
+   mutate(first_name = str_remove_all(first_name, "[[:punct:]]"))
 
 
 # cyf_salsdeptmerge -------------------------------------------------------
-# this one will
-#-associate each employee with a department
-#-anonymize names, with a consistent identification throughout time
 
 # proof the digest is working:
 tibble(name = c("Mary D", "Mary D", "Mary A")) %>%
   mutate(anon = name %>% map(digest)) %>%
   unnest()
 
-# removing these from departments
-patterns <- c("-agls|-las|-hsci")
+# define things to remove from department endings
+patterns <- c("-agls|-las|-hsci|-a|-e")
 
+# data we got from cindy
+#-----------
 cyd_dept <- 
   read_csv("data-raw/_tidy/td_empl-dept-key.csv") %>%
   
-  # recoding redundant departments
-  mutate(dept = recode(dept,
-                       "ag/biosys eng-a" = "ag/biosys eng",
-                       "ag/biosys eng-e" = "ag/biosys eng")) %>%
+  #--recoding redundant departments
   mutate(dept = str_remove_all(dept, patterns)) %>%
   
   #--remove punctuation from people's names (e. anderson should be e anderson)
   mutate(first_name = str_remove_all(first_name, "[[:punct:]]"))
   
-
+# what depts do we have? 
+# REMEMBER: these have not been filtered by prof yet, we prob don't care about most of these
+#--------------
 depts <- cyd_dept %>%
   pull(dept) %>%
   unique() 
-
+# how many centers are there?
+depts[grepl("ctr", depts)]
 
 ######################
 # Data cleaning to merge cyd_dept and cyd_salstidy
@@ -161,6 +159,8 @@ depts <- cyd_dept %>%
 #   2. Missing from the directory for no good reason - ex. Lloyd Anderson, should be listed in Animal Science - SEEMS LIKE A LOT OF PEOPLE
 ####################
 
+# people in this list appear in des moines' data, but not in cindy's
+#-------------
 problems <- cyd_salstidy %>%
   filter(fiscal_year > 2010) %>%
   select(last_name, first_name, position) %>%
@@ -188,6 +188,18 @@ fixme_first <- cyd_salstidy %>%
 # Tackling the spelling errors first...I truncated the directory so that it stops after the same amount of characters as
 # the register, but there are still 187 people that aren't merging...are all of them missing from the directory??
 
+# let's see how many are in a position we actually care about?
+
+a <- problems %>% 
+  filter(!grepl("chair|adj|affil|emer|vstg|chr|clin|collab|res", position))
+
+a %>% write_csv("data-raw/_raw/rd_akelo-missing-fac.csv")
+
+cyd_salstidy %>%
+  filter(grepl("alekel", last_name))
+
+##############################################################################################
+##############################################################################################
 # --- messing around w/filtering people -- #
 
 # This person changed her name spelling
@@ -249,8 +261,9 @@ cyd_dept %>%
 
   
 ##FUUUUUUUUUUUUUUUUUUUUUUUUUUUUCK
-# NOTE: future improvement, if it doesn't appear in this list it should get lumped into another one (ex. ag/biosys eng)
 
+##############################################################################################
+##############################################################################################
 
 cyd_college <- read_csv("data-raw/_tidy/td_org-dept-key.csv")
 
@@ -319,12 +332,12 @@ cyd_salstidy2 <-
 
 # --- Merging everything together
 
-cyf_SalsDeptMerge <- function(mydata = cyd_salstidy, mydept = cyd_dept, mycollege = cyd_college) {
+#cyf_SalsDeptMerge <- function(mydata = cyd_salstidy, mydept = cyd_dept, mycollege = cyd_college) {
   
   
-  cyd_saldept <-
-    mydata %>%
-    left_join(mydept, by = c("fiscal_year", "last_name", "first_name")) %>%
+ cyd_saldept <-
+    cyd_salstidy2 %>%
+    left_join(cyd_dept, by = c("fiscal_year", "last_name", "first_name")) %>%
     
     select(-base_salary_year) %>%
     
@@ -334,7 +347,7 @@ cyf_SalsDeptMerge <- function(mydata = cyd_salstidy, mydept = cyd_dept, mycolleg
     #unnest() %>%
     
     # add college
-    left_join(mycollege, by = "dept") %>%
+    left_join(cyd_college, by = "dept") %>%
     select(
       fiscal_year,
       college,
@@ -350,11 +363,11 @@ cyf_SalsDeptMerge <- function(mydata = cyd_salstidy, mydept = cyd_dept, mycolleg
     
     arrange(fiscal_year, college, dept, position, base_salary)
   
-  return(cyd_saldept)
+  #return(cyd_saldept)
   
-}
+#}
 
-cyd_saldept <- cyf_SalsDeptMerge(mydata = cyd_salstidy2)
+#cyd_saldept <- cyf_SalsDeptMerge(mydata = cyd_salstidy2)
 
 
 cyd_saldept %>%
@@ -363,52 +376,36 @@ cyd_saldept %>%
 
 
 # cyf_simpprofs -------------------------------------------------------
-# this one will
-#-make 4 general categories of professors positions:
+# make 4 general categories of professors positions:
 #  awarded prof, asst, assoc, and prof
 
-cyd_saldept %>%
-  filter(!grepl("chair|adj|affil|emer|vstg|chr|clin|collab|res", position)) %>%
-  filter(grepl("prof", position)) %>%
-  pull(position) %>% as.factor() %>% summary()
+awardprof <- c("distg prof", "univ prof", "morrill prof")
+  
+cyd_salprofs <- 
+  
+  cyd_saldept %>%
+  
+  # eliminate department chairs, they are weird
+  # eliminate adjuncts, things with 'adj' or 'affil' or 'emer' or 'vstg', they are paid strangely
 
-cy_SimpProfs <- function(mydata = cyd_saldept){
-  
-  # assertthat::assert_that(is.data.frame(data))
-  # assertthat::assert_that("position" %in% names(data))
-  # 
-  # Define simple categories to keep
-  
-  # NOTE: eliminate department chairs, they are weird
-  #       eliminate adjuncts, things with 'adj' or 'affil' or 'emer' or 'vstg', they are paid strangely
-  
-  awardprof <- c("distg prof", "univ prof", "morrill prof")
-  # 
-  cyd_salprofs <- 
-    cyd_saldept %>%
     filter(!grepl("chair|adj|affil|emer|vstg|chr|clin|collab|res", position)) %>%
     filter(grepl("prof", position)) %>%
     
     mutate(
-      prof_simp = ifelse(position %in% awardprof, "awarded prof", position)) 
-  
-  return(cyd_salprofs)
-  
-  
-}
-
-
-cyd_salprofs <- cy_SimpProfs() %>%
-filter(!is.na(dept)) %>%
-mutate(prof_simp = factor(prof_simp, levels = c("asst prof", "assoc prof", "prof", "awarded prof")))
-
+      prof_simp = ifelse(position %in% awardprof, "awarded prof", position)) %>% 
+  filter(!is.na(dept))
 
 cyd_salprofs %>% write_csv("data-raw/_tidy/cyd_salprofs.csv")
 
 
-cyd_salprofs %>%
-  filter(dept == "agronomy",
-         fiscal_year == 2018)
+######################
+# get list of profs associated w/a ctr (added 10/24)
+#
+cyd_salprofs %>% 
+  filter(grepl("ctr", dept)) %>% 
+  select(fiscal_year:gender) %>% 
+  write_csv("data-raw/_raw/rd_akelo-ctr-faculty.csv")
+
 
 
 # let's look at this shit -------------------------------------------------
