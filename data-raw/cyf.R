@@ -186,7 +186,7 @@ fixme_first <- cyd_salstidy %>%
   pull(first_name)
 
 # Tackling the spelling errors first...I truncated the directory so that it stops after the same amount of characters as
-# the register, but there are still 187 people that aren't merging...are all of them missing from the directory??
+# the register, but there are still 167 people that aren't merging...are all of them missing from the directory??
 
 # let's see how many are in a position we actually care about?
 
@@ -399,12 +399,16 @@ cyd_salprofs %>% write_csv("data-raw/_tidy/cyd_salprofs.csv")
 
 
 ######################
-# get list of profs associated w/a ctr (added 10/24)
+# get list of profs associated w/a ctr (added 10/24, updated LE 10/25)
 #
 cyd_salprofs %>% 
   filter(grepl("ctr", dept)) %>% 
   select(fiscal_year:gender) %>% 
-  write_csv("data-raw/_raw/rd_akelo-ctr-faculty.csv")
+  separate(name, c("last_name", "first_name"), sep = "_", remove = TRUE) %>%
+  arrange(last_name, first_name) %>%
+  distinct(last_name, first_name, .keep_all = TRUE)%>%
+  select(-fiscal_year) %>%
+  write_csv("data-raw/_raw/rd_akelo-ctr-faculty_2.csv")
 
 
 
