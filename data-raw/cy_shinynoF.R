@@ -59,7 +59,7 @@ ui <- fluidPage(
   
   # prof salaries tab
   mainPanel(tabsetPanel(
-    tabPanel("Positions Without Equal Gender Representation",
+    tabPanel("Positions Without Both Genders Present",
              plotOutput("plotgenrep")
              # fluidRow(
              #   splitLayout(cellWidths = c("50%", "50%"),
