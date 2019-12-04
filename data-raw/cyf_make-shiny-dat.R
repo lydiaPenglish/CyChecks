@@ -8,7 +8,7 @@
 #########################
 
 library(tidyverse)
-
+library(ggpubr)
 
 exraw <- read_csv("data-raw/_tidy/cyd_salprofs.csv") %>% 
   #Just keep 'colleges'
@@ -35,40 +35,73 @@ coldept <- exraw %>%
   select(fiscal_year, college, dept) %>% 
   distinct()
 
+
+coldept2 <- exraw %>% 
+  select(college, dept) %>% 
+  distinct()
+
 # assign ------------------------------------------------------------------
+# 
+# nomf <- 
+#   exraw %>% 
+#   mutate(id = ifelse(is.na(`F`), "All Males",
+#                      ifelse(is.na(M), "All Females", NA))) %>% 
+#   select(fiscal_year, dept, prof_simp, id) 
+# 
+# 
+# 
+# dat <- combs %>% 
+#   left_join(nomf) %>% 
+#   left_join(coldept) 
+# 
+# 
+# dat %>% 
+#   filter(fiscal_year == 2018) %>% 
+#   ggplot(aes(dept, prof_simp)) + 
+#   geom_tile(aes(fill = id)) + 
+#   coord_flip()
 
-nomf <- 
-  exraw %>% 
-  mutate(id = ifelse(is.na(`F`), "No Females",
-                     ifelse(is.na(M), "No Males", NA))) %>% 
-  select(fiscal_year, dept, prof_simp, id) 
+# write it ----------------------------------------------------------------
 
-dat <- combs %>% 
-  left_join(nomf) %>% 
-  left_join(coldept) 
+#dat %>% write_csv("data-raw/_tidy/cyd_missing-genders.csv")
 
 
-dat %>% 
-  filter(fiscal_year == 2018) %>% 
-  ggplot(aes(dept, prof_simp)) + 
-  geom_tile(aes(fill = id)) + 
-  coord_flip()
+# trying something new ----------------------------------------------------
+
+dat <- 
+  # Get all combinations of prof/depts
+  combs %>% 
+  left_join(exraw) %>% 
+  select(-college) %>% 
+  # assign college
+  left_join(coldept2) %>% 
+  # assign gender verdict
+  mutate(id = ifelse((is.na(`F`) & is.na(M)), "No One",
+                     ifelse(is.na(`F`), "All Males",
+                            ifelse(is.na(M), "All Females", "Both Genders Present")))) %>% 
+  mutate(ndisplay = ifelse(id == "Both Genders Present", M + `F`,
+                           ifelse( id == "No One", NA, 
+                                   ifelse(id == "All Males", M, `F`)))) %>% 
+  mutate(isone = ifelse(ndisplay == 1, "1", ">1"),
+         isone = ifelse(is.na(isone), ">1", isone))
 
 
 # write it ----------------------------------------------------------------
 
 dat %>% write_csv("data-raw/_tidy/cyd_missing-genders.csv")
 
-library(ggpubr)
-# practice shiny plot -----------------------------------------------------
 
 dat %>% 
   filter(grepl("ag", college)) %>% 
   filter(fiscal_year == 2018) %>% 
   ggplot(aes(x = dept, y = prof_simp)) +
-geom_tile(aes(fill = id)) +
-  scale_fill_manual(values = c(`No Males` = "darkorchid1",
-                               `No Females` = "goldenrod")) +
+  geom_tile(aes(fill = id)) +
+  geom_point(aes(size = ndisplay, pch = isone)) +
+  scale_fill_manual(values = c(`All Females` = "darkorchid1",
+                               `All Males` = "goldenrod", 
+                               `Both Genders Present` = "gray90",
+                               `No One` = "gray10")) +
+  scale_shape_manual(values = c(19, 1)) +
   coord_flip() +
   labs(
     x = NULL,
@@ -82,5 +115,7 @@ geom_tile(aes(fill = id)) +
         strip.background = element_rect(fill = "black"),
         axis.title = element_text(size = rel(1.3)),
         axis.text.x = element_text(size = rel(1.3)),
-        legend.position = "top",
+        legend.position = "right",
         legend.background = element_rect(linetype = "solid", color = "black"))
+
+

@@ -90,13 +90,20 @@ server <- function(input, output) {
            ) +
       
       geom_tile(aes(fill = id), color = "black", size = 1.5) +
-      scale_fill_manual(values = c(`No Males` = "darkorchid1",
-                                   `No Females` = "goldenrod")) +
+      geom_point(aes(size = ndisplay, pch = isone)) +
+      scale_fill_manual(values = c(`All Females` = "goldenrod",
+                                   `All Males` = "deepskyblue3", 
+                                   `Both Genders Present` = "gray90",
+                                   `No One` = "gray10")) +
+      scale_shape_manual(values = c(19, 1)) +
+      
       coord_flip() +
       labs(
         x = NULL,
         y = NULL,
-        fill = NULL) +
+        fill = NULL, 
+        size = "Number of Faculty",
+        shape = NULL) +
       theme_pubclean() +
       facet_grid(~ college) + 
       
@@ -104,7 +111,7 @@ server <- function(input, output) {
             strip.background = element_rect(fill = "black"),
             axis.title = element_text(size = rel(1.3)),
             axis.text.x = element_text(size = rel(1.3)),
-            legend.position = "top",
+            legend.position = "right",
           legend.background = element_rect(linetype = "solid", color = "black"))
   })
   
@@ -112,5 +119,6 @@ server <- function(input, output) {
 
 
 shinyApp(ui, server)
+
 
 
