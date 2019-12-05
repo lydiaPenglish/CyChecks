@@ -19,7 +19,7 @@ library(tidyverse)
 library(shiny)
 library(ggpubr)
 
-cyd_base <- read_csv("_tidy/cyd_missing-genders.csv") %>% 
+cyd_base <- read_csv("data-raw/_tidy/cyd_missing-genders.csv") %>% 
   mutate_if(is.character, str_to_title) %>% 
   mutate(prof_simp = factor(prof_simp,
                              levels = c("Asst Prof", "Assoc Prof", "Prof", "Awarded Prof")))

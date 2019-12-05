@@ -65,6 +65,14 @@ coldept2 <- exraw %>%
 
 #dat %>% write_csv("data-raw/_tidy/cyd_missing-genders.csv")
 
+<<<<<<< HEAD
+=======
+
+
+dat <- combs %>% 
+  left_join(nomf) %>% 
+  left_join(coldept) 
+>>>>>>> d5e367b96e33100e0a9ae0a414a1eeba4d512f62
 
 # trying something new ----------------------------------------------------
 
@@ -85,11 +93,65 @@ dat <-
   mutate(isone = ifelse(ndisplay == 1, "1", ">1"),
          isone = ifelse(is.na(isone), ">1", isone))
 
+# write it ----------------------------------------------------------------
+
+dat %>% write_csv("data-raw/_tidy/cyd_missing-genders.csv")
+
+
+# trying something new ----------------------------------------------------
+
+dat <- 
+  # Get all combinations of prof/depts
+  combs %>% 
+  left_join(exraw) %>% 
+  select(-college) %>% 
+  # assign college
+  left_join(coldept2) %>% 
+  # assign gender verdict
+  mutate(id = ifelse((is.na(`F`) & is.na(M)), "No One",
+                     ifelse(is.na(`F`), "No Females",
+                            ifelse(is.na(M), "No Males", "Both Genders Present")))) %>% 
+  mutate(ndisplay = ifelse(id == "Both Genders Present", M + `F`,
+                           ifelse( id == "No One", NA, 
+                                   ifelse(id == "No Females", M, `F`))))
+
 
 # write it ----------------------------------------------------------------
 
 dat %>% write_csv("data-raw/_tidy/cyd_missing-genders.csv")
 
+<<<<<<< HEAD
+=======
+dat %>% 
+  filter(grepl("ag", college)) %>% 
+  filter(fiscal_year == 2018) %>% 
+  ggplot(aes(x = dept, y = prof_simp)) +
+  geom_tile(aes(fill = id)) +
+  geom_point(aes(size = ndisplay)) +
+  scale_fill_manual(values = c(`No Males` = "darkorchid1",
+                               `No Females` = "goldenrod", 
+                               `Both Genders Present` = "gray90",
+                               `No One` = "gray10")) +
+  coord_flip() +
+  labs(
+    x = NULL,
+    y = NULL,
+    fill = NULL) +
+  #theme_bw() +
+  theme_pubclean() +
+  facet_grid(~ college) + 
+  
+  theme(strip.text = element_text(size = rel(1.3), color = "white"),
+        strip.background = element_rect(fill = "black"),
+        axis.title = element_text(size = rel(1.3)),
+        axis.text.x = element_text(size = rel(1.3)),
+        legend.position = "top",
+        legend.background = element_rect(linetype = "solid", color = "black"))
+
+
+library(ggpubr)
+# practice shiny plot -----------------------------------------------------
+>>>>>>> d5e367b96e33100e0a9ae0a414a1eeba4d512f62
 
 dat %>% 
   filter(grepl("ag", college)) %>% 
