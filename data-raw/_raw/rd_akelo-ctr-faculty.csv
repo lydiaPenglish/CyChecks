@@ -1,23 +1,23 @@
-fiscal_year,college,dept,name,position,gender
-2011,college of agriculture & life sciences,ctr crops ut rs,johnson_lawrence,prof,M
-2011,college of agriculture & life sciences,seed sc ctr xp,goggi_alcira,assoc prof,F
-2011,NA,ctr sust env tc,brown_robert,distg prof,M
-2011,NA,ctr tch learn,niederhauser_dale,assoc prof,M
-2011,NA,ctr tch learn,thompson_elizabeth,univ prof,F
-2011,NA,mcroelc rs ctr,tuttle_gary,assoc prof,M
-2011,NA,mcroelc rs ctr,dalal_vikram,prof,M
-2012,college of agriculture & life sciences,ctr crops ut rs,johnson_lawrence,prof,M
-2012,college of agriculture & life sciences,seed sc ctr xp,goggi_alcira,assoc prof,F
-2012,NA,ctr sust env tc,brown_robert,distg prof,M
-2012,NA,mcroelc rs ctr,tuttle_gary,assoc prof,M
-2012,NA,mcroelc rs ctr,dalal_vikram,prof,M
-2013,college of agriculture & life sciences,ctr crops ut rs,johnson_lawrence,prof,M
-2013,college of agriculture & life sciences,seed sc ctr xp,goggi_alcira,assoc prof,F
-2013,NA,mcroelc rs ctr,tuttle_gary,assoc prof,M
-2013,NA,mcroelc rs ctr,dalal_vikram,prof,M
-2014,college of agriculture & life sciences,ctr crops ut rs,johnson_lawrence,prof,M
-2014,college of agriculture & life sciences,seed sc ctr xp,goggi_alcira,assoc prof,F
-2015,college of agriculture & life sciences,seed sc ctr xp,goggi_alcira,assoc prof,F
-2016,college of agriculture & life sciences,seed sc ctr xp,goggi_alcira,assoc prof,F
-2017,college of agriculture & life sciences,seed sc ctr xp,goggi_alcira,prof,F
-2018,college of agriculture & life sciences,seed sc ctr xp,goggi_alcira,prof,F
+fiscal_year,dept,name,position,gender
+2011,ctr sust env tc,brown_robert,distg prof,M
+2012,ctr sust env tc,brown_robert,distg prof,M
+2011,mcroelc rs ctr,dalal_vikram,prof,M
+2012,mcroelc rs ctr,dalal_vikram,prof,M
+2013,mcroelc rs ctr,dalal_vikram,prof,M
+2011,seed sc ctr xp,goggi_alcira,assoc prof,F
+2012,seed sc ctr xp,goggi_alcira,assoc prof,F
+2013,seed sc ctr xp,goggi_alcira,assoc prof,F
+2014,seed sc ctr xp,goggi_alcira,assoc prof,F
+2015,seed sc ctr xp,goggi_alcira,assoc prof,F
+2016,seed sc ctr xp,goggi_alcira,assoc prof,F
+2017,seed sc ctr xp,goggi_alcira,prof,F
+2018,seed sc ctr xp,goggi_alcira,prof,F
+2011,ctr crops ut rs,johnson_lawrence,prof,M
+2012,ctr crops ut rs,johnson_lawrence,prof,M
+2013,ctr crops ut rs,johnson_lawrence,prof,M
+2014,ctr crops ut rs,johnson_lawrence,prof,M
+2011,ctr tch learn,niederhauser_dale,assoc prof,M
+2011,ctr tch learn,thompson_elizabeth,univ prof,F
+2011,mcroelc rs ctr,tuttle_gary,assoc prof,M
+2012,mcroelc rs ctr,tuttle_gary,assoc prof,M
+2013,mcroelc rs ctr,tuttle_gary,assoc prof,M

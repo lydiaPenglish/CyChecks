@@ -64,13 +64,11 @@ library("tidyverse")
 #-filter out when we don't have a position or a gender
 #-only keep professors (makes trouble shooting name issues easier)
 
-
 # Des moines register data
 #-------------
 cyd_salsraw <- read_csv("data-raw/_tidy/td_rawsals.csv")
 
-
-# tidy this data
+# tidy DSR data
 #--------------
   cyd_salstidy <- 
     
@@ -120,19 +118,12 @@ cyd_salsraw <- read_csv("data-raw/_tidy/td_rawsals.csv")
   
    mutate(first_name = str_remove_all(first_name, "[[:punct:]]"))
 
-
+# Directory Data from Cindy
 # cyf_salsdeptmerge -------------------------------------------------------
-
-# proof the digest is working:
-tibble(name = c("Mary D", "Mary D", "Mary A")) %>%
-  mutate(anon = name %>% map(digest)) %>%
-  unnest()
 
 # define things to remove from department endings
 patterns <- c("-agls|-las|-hsci|-a|-e")
 
-# data we got from cindy
-#-----------
 cyd_dept <- 
   read_csv("data-raw/_tidy/td_empl-dept-key.csv") %>%
   
@@ -142,14 +133,6 @@ cyd_dept <-
   #--remove punctuation from people's names (e. anderson should be e anderson)
   mutate(first_name = str_remove_all(first_name, "[[:punct:]]"))
   
-# what depts do we have? 
-# REMEMBER: these have not been filtered by prof yet, we prob don't care about most of these
-#--------------
-depts <- cyd_dept %>%
-  pull(dept) %>%
-  unique() 
-# how many centers are there?
-depts[grepl("ctr", depts)]
 
 ######################
 # Data cleaning to merge cyd_dept and cyd_salstidy
@@ -159,120 +142,22 @@ depts[grepl("ctr", depts)]
 #   2. Missing from the directory for no good reason - ex. Lloyd Anderson, should be listed in Animal Science - SEEMS LIKE A LOT OF PEOPLE
 ####################
 
-# people in this list appear in des moines' data, but not in cindy's
-#-------------
-problems <- cyd_salstidy %>%
-  filter(fiscal_year > 2010) %>%
-  select(last_name, first_name, position) %>%
-  unique() %>%
-  full_join(cyd_dept, by = c("last_name", "first_name")) %>%
-  filter(is.na(dept)) %>%
-  arrange(last_name)
-
-fixme_last <- cyd_salstidy %>%
-  filter(fiscal_year > 2010) %>%
-  select(last_name, first_name) %>%
-  unique() %>%
-  full_join(cyd_dept, by = c("last_name", "first_name")) %>%
-  filter(is.na(dept)) %>%
-  pull(last_name)
-
-fixme_first <- cyd_salstidy %>%
-  filter(fiscal_year > 2010) %>%
-  select(last_name, first_name) %>%
-  unique() %>%
-  full_join(cyd_dept, by = c("last_name", "first_name")) %>%
-  filter(is.na(dept)) %>%
-  pull(first_name)
-
 # Tackling the spelling errors first...I truncated the directory so that it stops after the same amount of characters as
 # the register, but there are still 167 people that aren't merging...are all of them missing from the directory??
 
 # let's see how many are in a position we actually care about?
 
-a <- problems %>% 
-  filter(!grepl("chair|adj|affil|emer|vstg|chr|clin|collab|res", position))
+# a <- problems %>% 
+#   filter(!grepl("chair|adj|affil|emer|vstg|chr|clin|collab|res", position))
+# 
+# a %>% write_csv("data-raw/_raw/rd_akelo-missing-fac.csv")
 
-a %>% write_csv("data-raw/_raw/rd_akelo-missing-fac.csv")
-
-cyd_salstidy %>%
-  filter(grepl("alekel", last_name))
-
-##############################################################################################
-##############################################################################################
-# --- messing around w/filtering people -- #
-
-# This person changed her name spelling
-cyd_salstidy %>%
-  filter(str_detect(last_name, "^garasky")) %>%
-  select(fiscal_year, last_name, first_name, other, position)
-cyd_dept %>%
-  filter(str_detect(last_name, "^garasky")) %>%
-  select(fiscal_year, last_name, first_name, dept)
-
-cyd_dept %>%
-  filter(last_name == fixme_last[3]) %>%
-  mutate(fl = str_sub(first_name, 1, 1)) %>%
-  filter(fl == "l") %>%
-  arrange(first_name) %>%
-  filter(first_name != "laura")
-
-andersons <- cyd_dept %>%
-  filter(last_name == "")
-
-# alekel d, a professor, no record of her
-cyd_salstidy %>%
-  filter(last_name == "alekel") 
-cyd_dept %>%
-  filter(str_detect(last_name, "^alek")) %>%
-  select(fiscal_year, last_name, first_name)
-
-# What the hell is a collab assoc prof? She is probably missing for a good reason then. 
-cyd_salstidy %>%
-  filter(last_name == "wickrama") %>%
-  select(fiscal_year, last_name, first_name, position)
-cyd_dept %>%
-  filter(last_name == "wickrama") 
-
-# she doesn't exist
-cyd_salstidy %>%
-  filter(last_name == fixme_last[6],
-         first_name == fixme_first[6]) %>%
-  select(fiscal_year, last_name, first_name, position)
-
-cyd_dept %>%
-  filter(last_name == fixme_last[6]) %>%
-  mutate(first_name_letter = str_sub(first_name, 1, 1)) %>%
-  filter(first_name_letter == "b") %>%
-  arrange(first_name)
-
-# he doesn't exist
-cyd_salstidy %>%
-  filter(last_name == fixme_last[7],
-         first_name == fixme_first[7]) %>%
-  select(fiscal_year, last_name, first_name, position)
-
-cyd_dept %>%
-  filter(last_name == fixme_last[7])
-
-cyd_dept %>%
-  filter(first_name == "gaya")
-
-
-  
-##FUUUUUUUUUUUUUUUUUUUUUUUUUUUUCK
-
-##############################################################################################
-##############################################################################################
 
 cyd_college <- read_csv("data-raw/_tidy/td_org-dept-key.csv")
 
-
 #--PROBLEM: we only have 2 names from Cynthia - so adams sarah l and adams sarah k both get grouped with adams sarah.
 # how many times is this a problem?
-# 66 people have the same name as someone else. I have no idea what to do with them. 
-# I guess remove them? Keep them? No idea. For now we keep them. 
-# NO!!!!! Let's remove them. 
+# 66 people have the same name 
 
 ### solving the duplicate issue ### 
 
@@ -306,11 +191,12 @@ name_mid <- right_join(cyd_salstidy, select(good_dupes, -position), by = c("last
   filter(!is.na(other)) %>%
   distinct()
 
+# Reconciled duplicates to enter back into the data
 all_prof_dupes <- bind_rows(name_pos, name_mid) %>%
-  arrange(fiscal_year, last_name, first_name)
+  arrange(fiscal_year, last_name, first_name) %>%
+  select(-c(other.x, other.y))
 
-
-# create list of names w/duplicates to filter against
+# In order to add them back in, need to first delete all the duplicates from the original data
 dupes2 <- 
   cyd_dept %>%
   group_by(fiscal_year, last_name, first_name) %>%
@@ -324,6 +210,7 @@ dupes2 <-
   distinct() %>%
   as_vector()
 
+# dataset without duplicates! 
 cyd_salstidy2 <- 
   cyd_salstidy %>%
   unite(last_name, first_name, col = "name", sep = "_") %>%
@@ -332,47 +219,108 @@ cyd_salstidy2 <-
 
 # --- Merging everything together
 
-#cyf_SalsDeptMerge <- function(mydata = cyd_salstidy, mydept = cyd_dept, mycollege = cyd_college) {
-  
-  
- cyd_saldept <-
+cyd_saldept_x <-
     cyd_salstidy2 %>%
     left_join(cyd_dept, by = c("fiscal_year", "last_name", "first_name")) %>%
+   # adding in duplicates who have been reconciled 
+    bind_rows(., all_prof_dupes) %>%
     
     select(-base_salary_year) %>%
     
-    #--anonymize names
-    unite(last_name, first_name, col = "name", sep = "_") %>%
-    #mutate(anon = name %>% map(digest)) %>%
-    #unnest() %>%
+    unite(last_name, first_name, other, col = "name", sep = "_", remove = FALSE) %>% # keeping the rest of the columns too 
     
     # add college
     left_join(cyd_college, by = "dept") %>%
-    select(
-      fiscal_year,
-      college,
-      dept,
-      #anon,
-      name,
-      position,
-      gender,
-      base_salary,
-      total_salary_paid,
-      travel_subsistence
-    ) %>%
+    # select(
+    #   fiscal_year,
+    #   college,
+    #   dept,
+    #   #anon,
+    #   name,
+    #   position,
+    #   gender,
+    #   base_salary,
+    #   total_salary_paid,
+    #   travel_subsistence
+    # ) %>%
     
-    arrange(fiscal_year, college, dept, position, base_salary)
+    arrange(fiscal_year, college, dept, position, base_salary) %>%
+  # fill in department info for years before we had directory info and impute any other missing values....
+    group_by(name) %>%
+    fill(dept, college, .direction = "downup") %>%
+    ungroup()
+
+# # Now we have a full dataset, reconciled for duplicate names. Now lets address some issues. 
   
-  #return(cyd_saldept)
+# 1. 7 people who are professors in a center, updating their department info. DONE
+
+# list of people...
+good_ctr <- read_csv("data-raw/_raw/ctr-faculty-reconciled.csv")
+# ugh sorry recoding by hand bc there are only 7...
+cyd_saldept_x <- cyd_saldept_x %>%
+  mutate(dept = if_else(name == "brown_robert_c", "mechanical eng", dept),
+         dept = if_else(name == "dalal_vikram_l" | name == "tuttle_gary_l", "elec eng/cp eng", dept),
+         dept = if_else(name == "goggi_alcira_s", "agronomy", dept),
+         dept = if_else(name == "johnson_lawrence_a", "food sci/hn", dept),
+         dept = if_else(name == "niederhauser_dale_s", "curr/instr", dept),
+         dept = if_else(name == "thompson_elizabeth_a", "school of ed", dept)) %>%
+  # recoding anthro old dept to anthropology, confused as to the difference
+  # curr/inst becomes school of ed
+  mutate(dept = dplyr::recode(dept, "anthro old" = "anthropology",
+                                    "curr/instr" = "school of ed",
+                               "ed ldshp pol st" = "school of ed"))
+
+# 2. Finding people who still don't have a department listed - not going to go through these, but trying to get a head count
+
+probs <- cyd_saldept_x %>%
+  filter(is.na(dept), fiscal_year > 2010) %>%
+  select(last_name, first_name, other, name, position) %>%
+  unique() %>%
+  arrange(last_name, first_name)
+
+
+# 3. Addressing people who have two different departments listed throughout their tenure. Ok if they change departments, 
+# but looking for departments that change names (eg. curr/inst becomes school of ed, fixed above)
+
+two_depts <- cyd_saldept_x %>%
+  distinct(last_name, first_name, other, dept) %>%
+  group_by(last_name, first_name, other) %>%
+  mutate(numDept = n()) %>%
+  ungroup() %>%
+  filter(numDept > 1) %>%
+  arrange(last_name, first_name, dept)
+# ^^ seems like art/design becomes a couple of different things....not sure how to fix this. Going to leave the rest for now....
+
+# 4. Anonymizing people
+
+# function first
+cy_Anonymize <- function(df, col_to_anon = "name", algo = "crc32"){
   
-#}
+  assertthat::not_empty(df)
+  assertthat::see_if(col_to_anon %in% names(df), msg = "The selected column isn't in the dataframe")
+  assertthat::assert_that(is.data.frame(df),
+                          is.character(algo),
+                          nrow(df) > 0)
+  
+  to_anon <- dplyr::select(df, col_to_anon)
+  
+  ids <- unname(apply(to_anon, 1, digest::digest, algo = algo))
+  
+  df2 <- df %>%
+    dplyr::mutate(id = ids)
+  
+  return(df2)
+}
 
-#cyd_saldept <- cyf_SalsDeptMerge(mydata = cyd_salstidy2)
+cyd_saldept <- cy_Anonymize(cyd_saldept_x) %>%
+  select(-name)
 
+#looks like it made one for everyone
+unique(cyd_saldept_x$name) %>% length(.)
+unique(cyd_saldept$id) %>% length(.)
 
-cyd_saldept %>%
-  filter(name == "salas-fernandez_maria")
-
+# # USING cyd_saldept as more complete/messy dataset, saving to data folder! 
+usethis::use_data(cyd_saldept, overwrite = TRUE)
 
 
 # cyf_simpprofs -------------------------------------------------------
@@ -397,20 +345,27 @@ cyd_salprofs <-
 
 cyd_salprofs %>% write_csv("data-raw/_tidy/cyd_salprofs.csv")
 
+# Saving to data folder! 
+usethis::use_data(cyd_salprofs, overwrite = TRUE)
+
+# ----------------------------------------------------
+
+# can we delete everything below here?
 
 ######################
 # get list of profs associated w/a ctr (added 10/24, updated LE 10/25)
 #
-cyd_salprofs %>% 
+cyd_saldept%>% 
   filter(grepl("ctr", dept)) %>% 
-  select(fiscal_year:gender) %>% 
-  separate(name, c("last_name", "first_name"), sep = "_", remove = TRUE) %>%
+  select(fiscal_year:position) %>% 
+  #separate(name, c("last_name", "first_name"), sep = "_", remove = TRUE) %>%
   arrange(last_name, first_name) %>%
   distinct(last_name, first_name, .keep_all = TRUE)%>%
   select(-fiscal_year) %>%
   write_csv("data-raw/_raw/rd_akelo-ctr-faculty_2.csv")
 
-
+cyd_saldept %>%
+  filter(name == "tuttle_gary_l")
 
 # let's look at this shit -------------------------------------------------
 
@@ -597,3 +552,12 @@ ggplot(aes(fiscal_year, base_lrat)) +
   facet_grid(~pos_simp) + 
   theme_classic() + 
   theme(axis.text.x = element_blank())
+
+# what depts do we have? 
+# REMEMBER: these have not been filtered by prof yet, we prob don't care about most of these
+#--------------
+depts <- cyd_dept %>%
+  pull(dept) %>%
+  unique() 
+# how many centers are there?
+depts[grepl("ctr", depts)]

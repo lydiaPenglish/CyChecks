@@ -1,36 +1,95 @@
 ---
-title: ".right[![](./figures/CyChecks_hexsticker.png)] CyChecks"
+title: "![](./figures/CyChecks_hexsticker.png)CyChecks"
 subtitle: "Examining pay patterns across Iowa State University"
 author: "Gina Nichols and Lydia English"
 date: "12/13/2019"
-output: ioslides_presentation
+output: 
+  ioslides_presentation
+--- 
+
+<style>
+
+.remark-slide-content {
+  background-color: #FFFFFF;
+  border-top: 80px solid #404040;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.5;
+  padding: 1em 2em 1em 2em
+}
+
+.inverse {
+  background-color: #404040;
+  text-shadow: none;
+}
+
+.title-slide {
+  background-color: #FFFFFF;
+  border-top: 80px solid #FFFFFF;
+}
+
+.remark-slide-number {
+  position: inherit;
+}
+
+.remark-slide-number .progress-bar-container {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  display: block;
+  left: 0;
+  right: 0;
+}
+
+.remark-slide-number .progress-bar {
+  height: 100%;
+  background-color: #0D06C0;
+}
+
+</style>
+
+```{r setup, include = FALSE}
+
+knitr::opts_chunk$set(echo = TRUE,  
+                      fig.align = 'center', 
+                      message = FALSE)
+
+# Load packages
+library(ggplot2)
+
+```
+
+# Overview
+
+1. Motivation
+
+2. Data cleaning
+
+3. Data visualization
+
+4. Data modeling (help!)
+
+
+
+# Motivation
+
+> - Package for class in spring of 2019 (STAT 585)
+> - How does pay compare for women and men in the Agronomy department?
+
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
+Cleaning the data
 
-## R Markdown
-
-This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
-
-## Slide with Bullets
-
-- Bullet 1
-- Bullet 2
-- Bullet 3
-
-## Slide with R Output
-
-```{r cars, echo = TRUE}
-summary(cars)
-```
-
-## Slide with Plot
-
-```{r pressure}
-plot(pressure)
-```
+- Got rid of pay in hourly format
+- Eliminated people with no gender or position listed
+  - Biased towards binary gender standard
+- Some departments are funded by two different colleges
+  - EEOB las vs EEOB agls
+  - Usually one has more people than the other - combined! 
+  
+Problems 
+- More people in salary database than in Iowa State directory
+  - 229 people with "prof" in their title. Not sure why, span various years and positions. Perhaps opted out of the directory. 
+- Duplicate names! Directory doesn't include middle initials....
+- Some departments have changed names..
 
