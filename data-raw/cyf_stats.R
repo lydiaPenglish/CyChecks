@@ -80,16 +80,17 @@ badboy <-
 
 ex2 <- 
   goodcmp %>% 
-  left_join(ex)
+  left_join(ex) %>% 
+  filter(fiscal_year == 2018)
 
 # gender by pos interaction? --------------------------------------------------------
 
 # yes.   
-m1a <- lmerTest::lmer(lsal ~ prof_simp + gender + (1 | dept) + (1 | name), data = ex2, REML = F)
+m1a <- lmerTest::lmer(lsal ~ prof_simp + gender + (gender | dept), data = ex2, REML = F)
 m1 <- lmerTest::lmer(lsal ~ prof_simp * gender + (1 | dept) + (1 | name), data = ex2, REML = F)
 anova(m1a, m1)
 
-summary(m1)
+summary(m1a)
 
 # male professors make more than females, everyone else is equal
 exp(fixef(m1)[8])
@@ -104,12 +105,13 @@ lrat <- ex2 %>%
   summarise(base_salary = mean(base_salary)) %>% 
   spread(gender, base_salary) %>% 
   mutate(rat = M/`F`,
-         lrat = log(rat))
+         lrat = log(rat)) %>%
+  filter(fiscal_year == 2018)
 
  
 m2 <- lmerTest::lmer(lrat ~ 1 + prof_simp + (1 | dept), data = lrat)
 summary(m2)
-exp(fixef(m2)[7])
+exp(fixef(m2)[4])
 
 # which depts have biggest effects on lrat?
 as_tibble(ranef(m2)) %>% 

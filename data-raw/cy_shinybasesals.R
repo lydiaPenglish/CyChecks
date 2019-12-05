@@ -22,19 +22,19 @@ library(shiny)
 
 # create data -------------------------------------------------------------
 
-cyd_base <- read_csv("cyd_salprofs.csv") %>%
+cyd_base <- read_csv("_tidy/cyd_salprofs.csv") %>%
   mutate(gender = recode(gender,
                          `F` = "Female",
                          M = "Male"),
          gender = factor(gender,
                          levels = c("Female", "Male"))) %>%
-  select(fiscal_year, college, dept, name, gender, base_salary, prof4_simp) %>%
+  select(fiscal_year, college, dept, name, gender, base_salary, prof_simp) %>%
   
   mutate(college = str_to_title(college),
          dept = str_to_title(dept),
-         prof4_simp  = str_to_title(prof4_simp),
+         prof_simp  = str_to_title(prof_simp),
          
-         prof4_simp = factor(prof4_simp,
+         prof_simp = factor(prof_simp,
                              levels = c("Asst Prof", "Assoc Prof", "Prof", "Named Prof")))
 
 
@@ -115,7 +115,7 @@ server <- function(input, output) {
       
       geom_col(
         data = liq_sals() %>%
-          group_by(prof4_simp, gender) %>%
+          group_by(prof_simp, gender) %>%
           summarise(base_salary = mean(base_salary)),
         aes(
           x = gender,
@@ -140,7 +140,7 @@ server <- function(input, output) {
       theme_bw() +
       guides(color = F, fill = F, pch = F) +
       scale_shape_manual(values = c(22, 21)) +
-      facet_grid(~ prof4_simp) + 
+      facet_grid(~ prof_simp) + 
       
       theme(strip.text = element_text(size = rel(1.3), color = "white"),
             strip.background = element_rect(fill = "black"),
