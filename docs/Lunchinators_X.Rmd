@@ -2,12 +2,13 @@
 title: "CyChecks"
 subtitle: "Examining pay patterns across Iowa State University"
 author: "Lydia English and Gina Nichols"
-date: "12/12/2019"
+date: "12/13/2019"
 output:
   xaringan::moon_reader:
-    css: [default]
+    css: [style.css, default]
     lib_dir: libs
     nature:
+      titleSlideClass: ["left", "top", "my-title"]
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
@@ -26,13 +27,13 @@ library(tidyverse)
 # Overview
 .pull-left[
 
-1. Motivation
+.large[ 1. Motivation
 
-2. Data cleaning
+2. Data cleaning & issues
 
-3. Data visualization
+3. Data visualization with Shiny
 
-4. Data modeling (help!) ]
+4. Data modeling (help!) ]]
 
 .pull-right[
 ![](figures/CyChecks_hexsticker.png)
@@ -40,10 +41,31 @@ library(tidyverse)
 
 ---
 
+class: center
+
+# Motivation
+
+```{r, echo = FALSE}
+knitr::include_graphics("figures/phdcomics.gif")
+```
+
+---
+
+class: center
+
+# Motivation
+
+```{r, echo = FALSE, out.height= "50%", out.width="50%", fig.align='center'}
+knitr::include_graphics("figures/CyChecks-comic.png")
+```
+
+---
+
+class: center
+
 # Motivation
 
 - Package for class in spring of 2019 (STAT 585)
---
 
 - How does pay compare for women and men in the Agronomy department?
 

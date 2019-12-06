@@ -1,4 +1,16 @@
-.title-slide{
-  background-image: url("figures/CyChecks_hexsticker.png");
-  background-size: contain;
+.large { font-size: 130% }
+.medium {font-size: 100%;}
+.small { font-size: 70% }
+
+.remark-inline-code { font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace; }
+
+body { font-family: 'Droid Serif', 'Palatino Linotype', 'Book Antiqua', 'Palatino', 'Microsoft YaHei', 'Songti SC', serif; }
+
+h1, h2, h3 {
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: bold;
+}
+
+.title-slide .remark-slide-number {
+  display: none;
 }
