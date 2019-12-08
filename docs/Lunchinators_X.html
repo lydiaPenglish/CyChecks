@@ -6,6 +6,7 @@
     <meta name="author" content="Lydia English and Gina Nichols" />
     <meta name="date" content="2019-12-13" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
     <link rel="stylesheet" href="style.css" type="text/css" />
   </head>
   <body>
@@ -21,10 +22,8 @@ class: left, top, my-title, title-slide
 
 
 
-
-
-
-# Overview
+### Overview
+*** 
 .pull-left[
 
 .large[ 1. Motivation
@@ -41,65 +40,277 @@ class: left, top, my-title, title-slide
 
 ---
 
-class: center
-
-# Motivation
-
+### Motivation
+*** 
 &lt;img src="figures/phdcomics.gif" style="display: block; margin: auto;" /&gt;
 
 ---
 
-class: center
-
-# Motivation
-
-&lt;img src="figures/CyChecks-comic.png" width="50%" height="50%" style="display: block; margin: auto;" /&gt;
+### Motivation
+*** 
+.center[&lt;img src="./figures/CyChecks-comic.png" width="375"&gt;]
 
 ---
 
-class: center
+### Motivation
+*** 
+.large[ 
+- Final project for STAT 585, Spring 2019]
 
-# Motivation
-
-- Package for class in spring of 2019 (STAT 585)
-
+--
+.large[
 - How does pay compare for women and men in the Agronomy department?
+]
 
 ---
 
-# Where does this data come from?
+### Data cleaning &amp; issues
+*** 
+.large[Where does this data come from?]
 
+[database](https://data.iowa.gov/Government-Employees/State-of-Iowa-Salary-Book/s3p7-wy6w/data)
 
+.center[&lt;img src="./figures/salary_website.PNG" width="800"&gt;]
 
-You (maybe) need an API to access it all
 
 ---
 
-# Cleaning the data
+### Data cleaning &amp; issues
+*** 
+#### Where does this data come from?
+.tiny[
 
-### Two datasets
+```r
+sal_df&lt;- function(limit= 1000, offset = 0, fiscal_year = 2007, token = NULL){
+  checkmate::assertNumber(limit, lower = 0)
+  checkmate::assertNumber(offset, lower = 0)
+  checkmate::assertNumber(fiscal_year, lower =2007, upper = 2018)
+  if (!is.null(token)){
+*    url &lt;- sprintf("https://data.iowa.gov/resource/s3p7-wy6w.json?%s&amp;$limit=%d&amp;$offset=%d&amp;$order=:id&amp;department=Iowa%%20State%%20University&amp;fiscal_year=%d", token, limit, offset, fiscal_year) 
+  }
+  else {
+    url &lt;- sprintf("https://data.iowa.gov/resource/s3p7-wy6w.json?$limit=%d&amp;$offset=%d&amp;$order=:id&amp;department=Iowa%%20State%%20University&amp;fiscal_year=%d", limit, offset, fiscal_year)
+  }
+  s &lt;- tibble::as_tibble(jsonlite::fromJSON(url))
+  checkmate::assertTibble(s, min.rows = 1, ncols =10)
 
-- Got rid of pay in hourly format
-- Eliminated people with no gender or position listed
-- Some departments are funded by two different colleges
+  sals &lt;- s %&gt;%
+    dplyr::select(-c(base_salary,department))%&gt;%
+    dplyr::mutate(base_salary_date = lubridate::ymd_hms(base_salary_date))%&gt;%
+    dplyr::mutate_at(dplyr::vars(fiscal_year, total_salary_paid, travel_subsistence), as.numeric)%&gt;%
+    dplyr::mutate(name = gsub(",","",name)) %&gt;%
+    dplyr::mutate(position = stringr::str_trim(position, side = "right"))
+
+  checkmate::assertTibble(sals, min.rows = 1, ncols = 8)
+  return(sals)
+}
+```
+]
+---
+### Data cleaning &amp; issues
+*** 
+#### Where does this data come from?
+.tiny[
+
+```r
+*ex &lt;- sal_df(limit = 15, offset = 1000, fiscal_year = 2018)
+knitr::kable(ex %&gt;% select(fiscal_year, name, gender, position, total_salary_paid), align = 'c', 'html') %&gt;%
+  kableExtra::kable_styling(font_size = 11, full_width = FALSE)
+```
+
+&lt;table class="table" style="font-size: 11px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:center;"&gt; fiscal_year &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; name &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; gender &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; position &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; total_salary_paid &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; BREER KARI LYNN &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; COOK I &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 24410.43 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; BREER TAMMY LYNN &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; CUSTODIAN I &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 29248.47 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; BREHM JERRY LEE &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; M &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; CUSTODIAN I &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 40094.72 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; BREHM-STECHER BYRON &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; M &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; ASSOC PROF &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 101190.00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; BREIDER MARISSA KATE &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; ** &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1100.00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; BREITBARTH ERIC D &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; M &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; CUSTODIAN I &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 28206.61 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; BREKKE JOSEPH EDMUND &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; M &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; PROGRAM MGR I &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 6575.00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; BREKKE MICHAEL &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; M &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; SYS ANALYST II &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 81774.00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; BREKKE ROBIN S &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; PROGRAM MGR I &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 76521.00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; BRELLENTHIN ANGELIQU &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; POSTDOC RES ASSOC &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 46600.00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; BREMER JEFF ROBERT &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; M &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; ASSOC PROF &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 79386.00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; BREMER JOSHUA &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; M &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; SYS CONTROL TECH &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 63777.15 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; BREMER SANDY &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; PROGRAM COORD II &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 63000.00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; BRENDEN JAMES A &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; M &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; BAKER I &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 7799.14 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; BRENIZER BENJAMIN DA &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; M &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; RES ASSOC II &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 34337.88 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+---
+###  Data cleaning &amp; issues
+***
+.large[Tidying government salary data]
+
+--
+
+- Got rid of pay in hourly format.
+
+--
+
+- Eliminated people with no gender or position listed.
+
+--
+
+- Filtered for _PROF_ titles only 
+
+--
+
+- Some departments are funded by two different colleges:
   - EEOB-las vs EEOB-agls
-  - Usually one has more people than the other - combined! 
-- Filtered for 'PROF' titles only 
   
+  
+
+
 ---
-  
-# Problems 
+###  Data cleaning &amp; &lt;span style="color:red"&gt;issues&lt;/span&gt;
+***
+
+- Directory database from Iowa State University (2012 - 2019)
+
+--
+
 - More people in salary database than in Iowa State directory
-  - 229 people with "prof" in their title. Not sure why, span various years and positions. Perhaps opted out of the directory. 
-- Duplicate names! Directory doesn't include middle initials....
-- Some departments have changed names..
+  - 229 people with "prof" in their title. Not sure why, span various years and positions. Perhaps opted out of the directory? 
+
+--
+
+- **Duplicate names!** ISU directory doesn't include middle initials....
+  - Went through by hand and googled those people
+
+--
+
+- Some departments have changed names over time
+  - Ex. "curr/instr" is now "school of ed"
+
+--
+
+- 7 professors have a department listing of a center, but have a different "tenure home"  
+
+---
+### Data visualization with Shiny
+***
+
+```r
+# CyChecks2::cy_RunShiny()
+```
+
+---
+### Data modeling (help!)
+***
+- Variables: Position, gender, department
+
+- Not every department has M &amp; F employed in all positions
+
+- We want to know which departments don't have great pay equity
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
 "highlightLines": true,
-"countIncrementalSlides": false
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));

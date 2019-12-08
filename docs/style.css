@@ -4,13 +4,24 @@
 
 .remark-inline-code { font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace; }
 
-body { font-family: 'Droid Serif', 'Palatino Linotype', 'Book Antiqua', 'Palatino', 'Microsoft YaHei', 'Songti SC', serif; }
+.tiny .remark-code {
+  font-size: 75%;
+}
+
+body { font-family: 'Arial' }
 
 h1, h2, h3 {
-  font-family: 'Yanone Kaffeesatz';
+  font-family: 'Arial' ;
   font-weight: bold;
+  margin-top: 10px;
+}
+
+pre { 
+  white-space: pre-wrap;
 }
 
 .title-slide .remark-slide-number {
   display: none;
 }
+
+

@@ -12,19 +12,20 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
+      slideNumberFormat: "%current%"
 ---
-
-
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(echo = TRUE,  
                       fig.align = 'center', 
                       message = FALSE)
 # Load packages
 library(tidyverse)
+library(CyChecks)
+library(CyChecks2)
 ```
 
-
-# Overview
+### Overview
+*** 
 .pull-left[
 
 .large[ 1. Motivation
@@ -41,60 +42,148 @@ library(tidyverse)
 
 ---
 
-class: center
-
-# Motivation
-
+### Motivation
+*** 
 ```{r, echo = FALSE}
 knitr::include_graphics("figures/phdcomics.gif")
 ```
 
 ---
 
-class: center
+### Motivation
+*** 
+.center[<img src="./figures/CyChecks-comic.png" width="375">]
 
-# Motivation
+---
 
-```{r, echo = FALSE, out.height= "50%", out.width="50%", fig.align='center'}
-knitr::include_graphics("figures/CyChecks-comic.png")
+### Motivation
+*** 
+.large[ 
+- Final project for STAT 585, Spring 2019]
+
+--
+.large[
+- How does pay compare for women and men in the Agronomy department?
+]
+
+---
+
+### Data cleaning & issues
+*** 
+.large[Where does this data come from?]
+
+[database](https://data.iowa.gov/Government-Employees/State-of-Iowa-Salary-Book/s3p7-wy6w/data)
+
+.center[<img src="./figures/salary_website.PNG" width="800">]
+
+
+---
+
+### Data cleaning & issues
+*** 
+#### Where does this data come from?
+.tiny[
+```{r, tidy = TRUE, opts_chunk$set(tidy.opts=list(blank=FALSE, width.cutoff=60,size = 'tiny'))}
+sal_df<- function(limit= 1000, offset = 0, fiscal_year = 2007, token = NULL){
+  checkmate::assertNumber(limit, lower = 0)
+  checkmate::assertNumber(offset, lower = 0)
+  checkmate::assertNumber(fiscal_year, lower =2007, upper = 2018)
+  if (!is.null(token)){
+   {{ url <- sprintf("https://data.iowa.gov/resource/s3p7-wy6w.json?%s&$limit=%d&$offset=%d&$order=:id&department=Iowa%%20State%%20University&fiscal_year=%d", token, limit, offset, fiscal_year) }}
+  }
+  else {
+    url <- sprintf("https://data.iowa.gov/resource/s3p7-wy6w.json?$limit=%d&$offset=%d&$order=:id&department=Iowa%%20State%%20University&fiscal_year=%d", limit, offset, fiscal_year)
+  }
+  s <- tibble::as_tibble(jsonlite::fromJSON(url))
+  checkmate::assertTibble(s, min.rows = 1, ncols =10)
+
+  sals <- s %>%
+    dplyr::select(-c(base_salary,department))%>%
+    dplyr::mutate(base_salary_date = lubridate::ymd_hms(base_salary_date))%>%
+    dplyr::mutate_at(dplyr::vars(fiscal_year, total_salary_paid, travel_subsistence), as.numeric)%>%
+    dplyr::mutate(name = gsub(",","",name)) %>%
+    dplyr::mutate(position = stringr::str_trim(position, side = "right"))
+
+  checkmate::assertTibble(sals, min.rows = 1, ncols = 8)
+  return(sals)
+}
+```
+]
+---
+### Data cleaning & issues
+*** 
+#### Where does this data come from?
+.tiny[
+```{r}
+{{ex <- sal_df(limit = 15, offset = 1000, fiscal_year = 2018)}}
+knitr::kable(ex %>% select(fiscal_year, name, gender, position, total_salary_paid), align = 'c', 'html') %>%
+  kableExtra::kable_styling(font_size = 11, full_width = FALSE)
+```
+]
+---
+###  Data cleaning & issues
+***
+.large[Tidying government salary data]
+
+--
+
+- Got rid of pay in hourly format.
+
+--
+
+- Eliminated people with no gender or position listed.
+
+--
+
+- Filtered for _PROF_ titles only 
+
+--
+
+- Some departments are funded by two different colleges:
+  - EEOB-las vs EEOB-agls
+  
+  
+
+
+---
+###  Data cleaning & <span style="color:red">issues</span>
+***
+
+- Directory database from Iowa State University (2012 - 2019)
+
+--
+
+- More people in salary database than in Iowa State directory
+  - 229 people with "prof" in their title. Not sure why, span various years and positions. Perhaps opted out of the directory? 
+
+--
+
+- **Duplicate names!** ISU directory doesn't include middle initials....
+  - Went through by hand and googled those people
+
+--
+
+- Some departments have changed names over time
+  - Ex. "curr/instr" is now "school of ed"
+
+--
+
+- 7 professors have a department listing of a center, but have a different "tenure home"  
+
+---
+### Data visualization with Shiny
+***
+```{r}
+# CyChecks2::cy_RunShiny()
 ```
 
 ---
+### Data modeling (help!)
+***
+- Variables: Position, gender, department
 
-class: center
+- Not every department has M & F employed in all positions
 
-# Motivation
+- We want to know which departments don't have great pay equity
 
-- Package for class in spring of 2019 (STAT 585)
-
-- How does pay compare for women and men in the Agronomy department?
-
----
-
-# Where does this data come from?
-
-
-
-You (maybe) need an API to access it all
-
----
-
-# Cleaning the data
-
-### Two datasets
-
-- Got rid of pay in hourly format
-- Eliminated people with no gender or position listed
-- Some departments are funded by two different colleges
-  - EEOB-las vs EEOB-agls
-  - Usually one has more people than the other - combined! 
-- Filtered for 'PROF' titles only 
-  
----
-  
-# Problems 
-- More people in salary database than in Iowa State directory
-  - 229 people with "prof" in their title. Not sure why, span various years and positions. Perhaps opted out of the directory. 
-- Duplicate names! Directory doesn't include middle initials....
-- Some departments have changed names..
 
