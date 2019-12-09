@@ -232,7 +232,7 @@ ui <- fluidPage(
                       mainPanel(fluidRow(column(
                           width = 12,
                           align = "center",
-                          h1(em(abouttext)),
+                          h1(em(abouttext))
                         ))
                       ))
              
