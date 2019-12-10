@@ -15,9 +15,9 @@ cyd_salprofs %>%
 
 cyd_base <- 
   cyd_salprofs %>% 
-  filter(fiscal_year > 2011) %>%  #--we don't have dept data before then
-  #Just keep 'colleges', not the weird things
-  filter(grepl("college", college)) %>% 
+#  filter(fiscal_year > 2011) %>%  #--we don't have dept data before then; not true! I filled that in....(LE)
+  #Just keep 'colleges', not the weird things 
+  filter(grepl("college", college) | is.na(college)) %>% # added in keeping departments a NA college...deal with later?
   # who gets paid 0? eliminate them
   filter(base_salary > 0) %>% 
   # get rid of centers and centers

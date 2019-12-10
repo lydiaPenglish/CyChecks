@@ -18,6 +18,14 @@ output:
 knitr::opts_chunk$set(echo = TRUE,  
                       fig.align = 'center', 
                       message = FALSE)
+
+# Copying code to highlight lines
+hook_source <- knitr::knit_hooks$get('source')
+knitr::knit_hooks$set(source = function(x, options) {
+  x <- stringr::str_replace(x, "^[[:blank:]]?([^*].+?)[[:blank:]]*#<<[[:blank:]]*$", "*\\1")
+  hook_source(x, options)
+})
+
 # Load packages
 library(tidyverse)
 library(CyChecks)
@@ -89,8 +97,9 @@ sal_df<- function(limit= 1000, offset = 0, fiscal_year = 2007, token = NULL){
   checkmate::assertNumber(offset, lower = 0)
   checkmate::assertNumber(fiscal_year, lower =2007, upper = 2018)
   if (!is.null(token)){
-   {{ url <- sprintf("https://data.iowa.gov/resource/s3p7-wy6w.json?%s&$limit=%d&$offset=%d&$order=:id&department=Iowa%%20State%%20University&fiscal_year=%d", token, limit, offset, fiscal_year) }}
-  }
+ url <- sprintf("https://data.iowa.gov/resource/s3p7-wy6w.json?%s&$limit=%d&$offset=%d&$order=:id&department=Iowa%%20State%%20University&fiscal_year=%d", #<<
+                token, limit, offset, fiscal_year) #<<
+  } 
   else {
     url <- sprintf("https://data.iowa.gov/resource/s3p7-wy6w.json?$limit=%d&$offset=%d&$order=:id&department=Iowa%%20State%%20University&fiscal_year=%d", limit, offset, fiscal_year)
   }
@@ -170,6 +179,10 @@ knitr::kable(ex %>% select(fiscal_year, name, gender, position, total_salary_pai
 
 - 7 professors have a department listing of a center, but have a different "tenure home"  
 
+--
+
+- Majority of people don't have a base salary listed, just a total salary paid. 
+
 ---
 ### Data visualization with Shiny
 ***
@@ -184,6 +197,17 @@ knitr::kable(ex %>% select(fiscal_year, name, gender, position, total_salary_pai
 
 - Not every department has M & F employed in all positions
 
-- We want to know which departments don't have great pay equity
+- We want to know which departments don't have good gender representation or pay equity
+
+---
+### Data modeling (help!)
+***
+
+```{r, eval = FALSE}
+
+
+
+```
+
 
 

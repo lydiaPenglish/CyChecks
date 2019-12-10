@@ -86,8 +86,9 @@ sal_df&lt;- function(limit= 1000, offset = 0, fiscal_year = 2007, token = NULL){
   checkmate::assertNumber(offset, lower = 0)
   checkmate::assertNumber(fiscal_year, lower =2007, upper = 2018)
   if (!is.null(token)){
-*    url &lt;- sprintf("https://data.iowa.gov/resource/s3p7-wy6w.json?%s&amp;$limit=%d&amp;$offset=%d&amp;$order=:id&amp;department=Iowa%%20State%%20University&amp;fiscal_year=%d", token, limit, offset, fiscal_year) 
-  }
+*url &lt;- sprintf("https://data.iowa.gov/resource/s3p7-wy6w.json?%s&amp;$limit=%d&amp;$offset=%d&amp;$order=:id&amp;department=Iowa%%20State%%20University&amp;fiscal_year=%d",
+*               token, limit, offset, fiscal_year)
+  } 
   else {
     url &lt;- sprintf("https://data.iowa.gov/resource/s3p7-wy6w.json?$limit=%d&amp;$offset=%d&amp;$order=:id&amp;department=Iowa%%20State%%20University&amp;fiscal_year=%d", limit, offset, fiscal_year)
   }
@@ -287,6 +288,10 @@ knitr::kable(ex %&gt;% select(fiscal_year, name, gender, position, total_salary_
 
 - 7 professors have a department listing of a center, but have a different "tenure home"  
 
+--
+
+- Majority of people don't have a base salary listed, just a total salary paid. 
+
 ---
 ### Data visualization with Shiny
 ***
@@ -302,7 +307,11 @@ knitr::kable(ex %&gt;% select(fiscal_year, name, gender, position, total_salary_
 
 - Not every department has M &amp; F employed in all positions
 
-- We want to know which departments don't have great pay equity
+- We want to know which departments don't have good gender representation or pay equity
+
+---
+### Data modeling (help!)
+***
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
