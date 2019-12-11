@@ -1,0 +1,12 @@
+name: CyChecks2_app
+title: CyChecks2_app
+username:
+account: vanichols
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1590605
+bundleId: 2659983
+url: https://vanichols.shinyapps.io/CyChecks2_app/
+when: 1576094681.85
+asMultiple: FALSE
+asStatic: FALSE

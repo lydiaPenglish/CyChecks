@@ -6,10 +6,6 @@ library(tidyr)
 library(ggpubr)
 library(CyChecks2)
 
-# problem: eeob is not assigned a college
-cyd_salprofs %>% 
-  filter(dept == "eeob") %>% 
-  select(dept, college)
 
 # clean up basic data -----------------------------------------------------
 
@@ -17,12 +13,12 @@ cyd_base <-
   cyd_salprofs %>% 
   # filter(fiscal_year > 2011) %>%  #--we don't have dept data before then; not true! I filled that in....(LE)
   # making NA in college into misc category
-  mutate(college = replace_na(college, "college of combos")) %>%
-  #Just keep 'colleges', not the weird things 
+  mutate(college = replace_na(college, "multi-college")) %>%
+  #Just keep 'colleges', not the weird things like library
   filter(grepl("college", college)) %>% 
   # who gets paid 0? eliminate them
   filter(base_salary > 0) %>% 
-  # get rid of centers and centers
+  # get rid of centers and centers if they are still lurking
   filter(!grepl('ctr', dept)) %>%
   filter(!grepl('center', dept)) %>% 
   mutate_if(is.character, str_to_title) %>% 
@@ -154,7 +150,7 @@ ui <- fluidPage(
                         column(
                           width = 6,
                           selectInput(
-                            "myyear",
+                            "myyear1",
                             label = ("Year"),
                             # - Based on gender
                             choices = dd_year1,
@@ -215,7 +211,7 @@ ui <- fluidPage(
                         column(
                           width = 6,
                           selectInput(
-                            "myyear",
+                            "myyear2",
                             label = ("Year"),
                             # - Based on gender
                             choices = dd_year2,
@@ -255,9 +251,8 @@ server <- function(input, output){
 
 liq_mg <- reactive({
     cyd_mgd %>%
-    #filter(fiscal_year == 2018) %>% 
-      filter(college == input$mycollege,
-             fiscal_year == input$myyear
+    filter(college == input$mycollege,
+             fiscal_year == input$myyear2
              )
   })
   
@@ -284,7 +279,7 @@ liq_mg <- reactive({
         fill = NULL, 
         size = "Number of Faculty",
         shape = NULL, 
-        title = "Lack of gender representation in 2018\n(drop down doesn't work)") +
+        title = "Lack of gender representation in selected year") +
       theme_pubclean() +
       facet_grid(~ college) + 
       
@@ -304,13 +299,13 @@ liq_mg <- reactive({
   liq_rat <- reactive({
     cyd_rat %>%
       filter(dept == input$mydept,
-             fiscal_year == input$myyear)
+             fiscal_year == input$myyear1)
   })
   
   liq_prof <- reactive({
     cyd_prof %>%
       filter(dept == input$mydept,
-             fiscal_year == input$myyear)
+             fiscal_year == input$myyear1)
   })
   
  liq_profns <- reactive({
@@ -330,10 +325,20 @@ liq_mg <- reactive({
      geom_col(aes(fill = id), size = 5) +
      scale_fill_manual(values = c("Males Make More" = malecolor,
                                   "Females Make More" = femalecolor)) +
+     geom_text(x = 2.5, y = 0.7, 
+               label = "Males Make More", 
+               fontface = "italic", 
+               #hjust = 0, 
+               color = "gray60") +
+     geom_text(x = 2.5, y = -0.7, 
+               label = "Females Make More", 
+               fontface = "italic", 
+               #hjust = 0, 
+               color = "gray60") +
      labs(x = NULL,
-          y = "Log (Male Salary / Female Salary",
+          y = "Salary Equity Index",
           color = NULL,
-          title = "Salary ratios by position in a given year") +
+          title = "Salary equity index by position in a given year") +
      coord_cartesian(y = c(-0.7, 0.7)) +
      geom_hline(yintercept = 0, color = "red") +
      
