@@ -46,7 +46,7 @@ ex_all <- # including ALL years
 # models
 
 # This works
-m1a <- lmerTest::lmer(lsal ~ prof_simp * gender + (1 + gender|dept), data = ex_all, REML = F)
+m1a <- lmerTest::lmer(lsal ~ prof_simp + gender + (1 + gender|dept), data = ex_all, REML = F)
 
 # Trying to add name or fiscal year
 m1e <- lmerTest::lmer(lsal ~ prof_simp * gender + (1 + gender|dept) + (1|id), data = ex_all, REML = F)
@@ -95,6 +95,10 @@ as_tibble(ranef(m2a)) %>%
   ggplot(aes(grp, condval)) +
   geom_col() + 
   coord_flip()
+fixef(m2a)
+
+as_tibble(ranef(m2a)) %>%
+  mutate(avg_c = condval + )
 
 ex_all %>% 
   filter(dept %in% c("agronomy", "statistics", "ag/biosys eng", "mechanical eng")) %>% 

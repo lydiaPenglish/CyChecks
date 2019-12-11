@@ -8,6 +8,10 @@
   font-size: 75%;
 }
 
+.tinyer .remark-code {
+  font-size: 60%;
+}
+
 body { font-family: 'Arial' }
 
 h1, h2, h3 {

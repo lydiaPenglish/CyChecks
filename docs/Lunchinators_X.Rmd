@@ -28,6 +28,8 @@ knitr::knit_hooks$set(source = function(x, options) {
 
 # Load packages
 library(tidyverse)
+library(lme4)
+library(lmerTest)
 library(CyChecks)
 library(CyChecks2)
 ```
@@ -84,8 +86,8 @@ knitr::include_graphics("figures/phdcomics.gif")
 ### Data cleaning & issues
 *** 
 #### Where does this data come from?
-.tiny[
-```{r, tidy = TRUE, opts_chunk$set(tidy.opts=list(blank=FALSE, width.cutoff=60,size = 'tiny'))}
+.tinyer[
+```{r, tidy = TRUE}
 sal_df<- function(limit= 1000, offset = 0, fiscal_year = 2007, token = NULL){
   checkmate::assertNumber(limit, lower = 0)
   checkmate::assertNumber(offset, lower = 0)
@@ -119,7 +121,7 @@ sal_df<- function(limit= 1000, offset = 0, fiscal_year = 2007, token = NULL){
 .tiny[
 ```{r}
 {{ex <- sal_df(limit = 15, offset = 1000, fiscal_year = 2018)}}
-knitr::kable(ex %>% select(fiscal_year, name, gender, position, total_salary_paid), align = 'c', 'html') %>%
+knitr::kable(ex %>% select(-base_salary_date), align = 'c', 'html') %>%
   kableExtra::kable_styling(font_size = 11, full_width = FALSE)
 ```
 ]
@@ -181,20 +183,19 @@ knitr::kable(ex %>% select(fiscal_year, name, gender, position, total_salary_pai
 ---
 ### Data visualization with Shiny
 ***
-```{r}
-# CyChecks2::cy_RunShiny()
-```
+
+[shiny!](https://vanichols.shinyapps.io/CyChecks2/)
 
 ---
 ### Data modeling (help!)
 ***
-- Variables: Base salary ; position, gender, department, fiscal year
+- Variables: Base salary; position, gender, department, fiscal year
 
 --
 
 
-- We want to know which departments don't have good gender representation or pay equity
-  - Ideally we want to rank departments by equity or lack there of
+- We want to know which departments don't have good gender representation or pay equity.
+  - **Ideally we want to rank departments by (lack of) equity.**
   
 --
 
@@ -205,7 +206,7 @@ knitr::kable(ex %>% select(fiscal_year, name, gender, position, total_salary_pai
 ---
 ### Data modeling (help!)
 ***
-.large[*Response variables:*]
+.large[*Response variable:*]
 .pull-left[
 .large[log(Salary)]
 - Gender needs to be included in the model
@@ -219,22 +220,96 @@ knitr::kable(ex %>% select(fiscal_year, name, gender, position, total_salary_pai
 ### Data modeling (help!)
 ***
 
-.large[*Response variables = log(salary) *]
+.large[*Response variable = log(salary) *]
 
-```{r, eval = FALSE}
-lmerTest::lmer(log_sal ~ position * gender + (1 + gender | dept), data = ex_all, REML = F)
+```{r, echo = FALSE}
+data("cyd_salprofs")
+ex <- cyd_salprofs %>% 
+  mutate(college = replace_na(college, "college of combos")) %>% # added this so we can include soc, eeob, etc. 
+  filter(grepl("college", college)) %>% 
+  mutate(lsal = log(base_salary)) %>% 
+  filter(base_salary > 0) 
+
+goodcmp <- 
+  ex %>% 
+  # make it so each person only counts once per position
+  group_by(college, dept, prof_simp, gender, id) %>% 
+  summarise(base_salary = mean(base_salary)) %>% 
+  # keep only depts w/m and f in both positions AT SOME POINT in the dataset
+  group_by(college, dept, prof_simp, gender) %>% 
+  summarise(n = n()) %>% 
+  spread(gender, value = n) %>% 
+  # if NA get rid of that line
+  filter(!is.na(`F`)) %>% 
+  filter(!is.na(M)) %>% 
+  select(college, dept, prof_simp)
+
+ex_all <- # including ALL years
+  goodcmp %>% 
+  left_join(ex)
+
+```
+
+
+```{r}
+m1a <- lmerTest::lmer(lsal ~ prof_simp * gender + (1 + gender|dept), data = ex_all)
 ```
 
 - Filtered out position/department combos without both genders. 
-- Repeated sampling of fiscal year encompassed within department...(?)
-  - Adding name or fiscal year as a random effect doesn't work
+
+- Repeated sampling of fiscal year encompassed within "dept" random effect...(?)
+  - Adding name or fiscal year as a random effect doesn't work (model fails to converge)
 
 ---
 ### Data modeling (help!)
 ***
-.large[*Response variables = log(salary) *]
 
-```{r, eval = FALSE}
-lmerTest::lmer(log_ratio ~ position + (1 | dept), data = lrat_all)
+```{r, echo = FALSE}
+sjPlot::tab_model(m1a, show.df = TRUE, show.aic = TRUE)
+```
+
+---
+### Data modeling (help!)
+***
+.large[*Response variable = log(salary) *]
+
+```{r, echo = FALSE}
+# making ratio table
+lrat_all <- ex %>% 
+  group_by(fiscal_year, college, dept, prof_simp, gender) %>% 
+  summarise(base_salary = mean(base_salary)) %>% 
+  spread(gender, base_salary) %>% 
+  mutate(rat = M/`F`,
+         lrat = log(rat))
+```
+
+```{r}
+m2a <- lmerTest::lmer(lrat ~ prof_simp + (1 | dept), data = lrat_all)
+```
+
+- Filtered out position/department combos without both genders. 
+
+- Department is now just a random intercept term
+
+---
+### Data modeling (help!)
+***
+
+```{r, echo = FALSE}
+sjPlot::tab_model(m2a, show.df = TRUE, show.aic = TRUE)
+```
+
+
+---
+### Data modeling (help!)
+***
+```{r, echo = FALSE, dpi = 100, fig.height= 5.5}
+# which depts have biggest effects on lrat? Show this...??!
+as_tibble(ranef(m2a)) %>% 
+  ggplot(aes(grp, condval)) +
+  geom_col() + 
+  labs(x = NULL, y = "Conditional Variance")+
+  coord_flip()+
+  theme_bw()
 ```
 

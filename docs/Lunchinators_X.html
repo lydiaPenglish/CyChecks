@@ -72,7 +72,7 @@ class: left, top, my-title, title-slide
 ### Data cleaning &amp; issues
 *** 
 #### Where does this data come from?
-.tiny[
+.tinyer[
 
 ```r
 sal_df&lt;- function(limit= 1000, offset = 0, fiscal_year = 2007, token = NULL){
@@ -109,7 +109,7 @@ sal_df&lt;- function(limit= 1000, offset = 0, fiscal_year = 2007, token = NULL){
 
 ```r
 *ex &lt;- sal_df(limit = 15, offset = 1000, fiscal_year = 2018)
-knitr::kable(ex %&gt;% select(fiscal_year, name, gender, position, total_salary_paid), align = 'c', 'html') %&gt;%
+knitr::kable(ex %&gt;% select(-base_salary_date), align = 'c', 'html') %&gt;%
   kableExtra::kable_styling(font_size = 11, full_width = FALSE)
 ```
 
@@ -119,8 +119,10 @@ knitr::kable(ex %&gt;% select(fiscal_year, name, gender, position, total_salary_
    &lt;th style="text-align:center;"&gt; fiscal_year &lt;/th&gt;
    &lt;th style="text-align:center;"&gt; name &lt;/th&gt;
    &lt;th style="text-align:center;"&gt; gender &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; place_of_residence &lt;/th&gt;
    &lt;th style="text-align:center;"&gt; position &lt;/th&gt;
    &lt;th style="text-align:center;"&gt; total_salary_paid &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; travel_subsistence &lt;/th&gt;
   &lt;/tr&gt;
  &lt;/thead&gt;
 &lt;tbody&gt;
@@ -128,106 +130,136 @@ knitr::kable(ex %&gt;% select(fiscal_year, name, gender, position, total_salary_
    &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; BREER KARI LYNN &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; STORY &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; COOK I &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 24410.43 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.00 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; BREER TAMMY LYNN &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; STORY &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; CUSTODIAN I &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 29248.47 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.00 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; BREHM JERRY LEE &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; M &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; BOONE &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; CUSTODIAN I &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 40094.72 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.00 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; BREHM-STECHER BYRON &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; M &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; STORY &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; ASSOC PROF &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 101190.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1874.11 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; BREIDER MARISSA KATE &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; OLMSTED &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; ** &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 1100.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.00 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; BREITBARTH ERIC D &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; M &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; BOONE &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; CUSTODIAN I &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 28206.61 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.00 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; BREKKE JOSEPH EDMUND &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; M &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; STORY &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; PROGRAM MGR I &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 6575.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 37.99 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; BREKKE MICHAEL &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; M &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; POLK &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; SYS ANALYST II &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 81774.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.00 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; BREKKE ROBIN S &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; STORY &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; PROGRAM MGR I &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 76521.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 772.50 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; BRELLENTHIN ANGELIQU &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; POLK &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; POSTDOC RES ASSOC &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 46600.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2889.46 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; BREMER JEFF ROBERT &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; M &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; BOONE &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; ASSOC PROF &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 79386.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 6895.27 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; BREMER JOSHUA &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; M &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; STORY &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; SYS CONTROL TECH &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 63777.15 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 48.15 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; BREMER SANDY &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; STORY &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; PROGRAM COORD II &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 63000.00 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 967.68 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; BRENDEN JAMES A &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; M &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; STORY &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; BAKER I &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 7799.14 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 0.00 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; BRENIZER BENJAMIN DA &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; M &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; STORY &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; RES ASSOC II &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 34337.88 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 453.00 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -291,31 +323,29 @@ knitr::kable(ex %&gt;% select(fiscal_year, name, gender, position, total_salary_
 ### Data visualization with Shiny
 ***
 
-```r
-# CyChecks2::cy_RunShiny()
-```
+[shiny!](https://vanichols.shinyapps.io/CyChecks2/)
 
 ---
 ### Data modeling (help!)
 ***
-- Variables: Position, gender, department, fiscal year
+- Variables: Base salary; position, gender, department, fiscal year
 
 --
 
 
-- We want to know which departments don't have good gender representation or pay equity
-  - Ideally we want to rank departments by equity or lack there of
+- We want to know which departments don't have good gender representation or pay equity.
+  - **Ideally we want to rank departments by (lack of) equity.**
   
 --
 
 
 - Not every department has M &amp; F employeees in all positions 
-  - How do we include those departments with no gender representation...
+  - How do we include those departments with no gender representation. NAs are meaningful!
 
 ---
 ### Data modeling (help!)
 ***
-.large[*Response variables:*]
+.large[*Response variable:*]
 .pull-left[
 .large[log(Salary)]
 - Gender needs to be included in the model
@@ -329,38 +359,234 @@ knitr::kable(ex %&gt;% select(fiscal_year, name, gender, position, total_salary_
 ### Data modeling (help!)
 ***
 
-Fixed effects:
-  - Position
-    - 4 levels (Asst Prof, Assoc Prof, Prof, Awarded Prof)
-    
-  - Gender? (if not using a ratio)
-  
-Random effect:
-  - Department 
+.large[*Response variable = log(salary) *]
+
+
+
+
+
+```r
+m1a &lt;- lmerTest::lmer(lsal ~ prof_simp * gender + (1 + gender|dept), data = ex_all)
+```
+
+- Filtered out position/department combos without both genders. 
+
+- Repeated sampling of fiscal year encompassed within "dept" random effect...(?)
+  - Adding name or fiscal year as a random effect doesn't work (model fails to converge)
 
 ---
 ### Data modeling (help!)
 ***
 
+&lt;table style="border-collapse:collapse; border:none;"&gt;
+&lt;tr&gt;
+&lt;th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; "&gt;&amp;nbsp;&lt;/th&gt;
+&lt;th colspan="4" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; "&gt;lsal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; "&gt;Predictors&lt;/td&gt;
+&lt;td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  "&gt;Estimates&lt;/td&gt;
+&lt;td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  "&gt;CI&lt;/td&gt;
+&lt;td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  "&gt;p&lt;/td&gt;
+&lt;td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  "&gt;df&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; "&gt;(Intercept)&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;11.38&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;11.32&amp;nbsp;&amp;ndash;&amp;nbsp;11.44&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;&lt;strong&gt;&amp;lt;0.001&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;59.34&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; "&gt;prof simp: awarded prof&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;0.46&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;0.43&amp;nbsp;&amp;ndash;&amp;nbsp;0.49&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;&lt;strong&gt;&amp;lt;0.001&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;11942.42&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; "&gt;gender: M&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;0.01&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;-0.01&amp;nbsp;&amp;ndash;&amp;nbsp;0.03&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;0.555&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;70.61&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; "&gt;prof_simpawarded prof:genderM&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;0.00&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;-0.03&amp;nbsp;&amp;ndash;&amp;nbsp;0.03&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;0.980&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;11777.46&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; "&gt;prof simp: asst prof&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;-0.12&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;-0.13&amp;nbsp;&amp;ndash;&amp;nbsp;-0.11&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;&lt;strong&gt;&amp;lt;0.001&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;12026.01&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; "&gt;prof simp: prof&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;0.22&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;0.20&amp;nbsp;&amp;ndash;&amp;nbsp;0.23&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;&lt;strong&gt;&amp;lt;0.001&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;11888.59&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; "&gt;prof_simpasst prof:genderM&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;-0.01&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;-0.03&amp;nbsp;&amp;ndash;&amp;nbsp;0.00&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;0.082&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;12015.46&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; "&gt;prof_simpprof:genderM&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;0.03&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;0.01&amp;nbsp;&amp;ndash;&amp;nbsp;0.04&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;&lt;strong&gt;0.001&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;11813.79&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan="5" style="font-weight:bold; text-align:left; padding-top:.8em;"&gt;Random Effects&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;"&gt;&amp;sigma;&lt;sup&gt;2&lt;/sup&gt;&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="4"&gt;0.02&lt;/td&gt;
+
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;"&gt;&amp;tau;&lt;sub&gt;00&lt;/sub&gt; &lt;sub&gt;dept&lt;/sub&gt;&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="4"&gt;0.05&lt;/td&gt;
+
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;"&gt;&amp;tau;&lt;sub&gt;11&lt;/sub&gt; &lt;sub&gt;dept.genderM&lt;/sub&gt;&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="4"&gt;0.00&lt;/td&gt;
+
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;"&gt;&amp;rho;&lt;sub&gt;01&lt;/sub&gt; &lt;sub&gt;dept&lt;/sub&gt;&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="4"&gt;-0.15&lt;/td&gt;
+
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;"&gt;ICC&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="4"&gt;0.69&lt;/td&gt;
+
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;"&gt;N &lt;sub&gt;dept&lt;/sub&gt;&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="4"&gt;59&lt;/td&gt;
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;"&gt;Observations&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="4"&gt;12151&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;"&gt;Marginal R&lt;sup&gt;2&lt;/sup&gt; / Conditional R&lt;sup&gt;2&lt;/sup&gt;&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="4"&gt;0.267 / 0.772&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;"&gt;AIC&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="4"&gt;-9980.361&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;/table&gt;
+
+---
+### Data modeling (help!)
+***
+.large[*Response variable = log(salary) *]
+
+
+
 
 ```r
-lmerTest::lmer(log_sal ~ position + gender + (gender | dept), data = data, REML = F)
+m2a &lt;- lmerTest::lmer(lrat ~ prof_simp + (1 | dept), data = lrat_all)
 ```
 
-Problems with this model
-1. Singular fit (why....?)
-2. Doesn't take into account repeated measure
+- Filtered out position/department combos without both genders. 
+
+- Department is now just a random intercept term
 
 ---
 ### Data modeling (help!)
 ***
 
-- Ratio of male:female salarys as response variable
+&lt;table style="border-collapse:collapse; border:none;"&gt;
+&lt;tr&gt;
+&lt;th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; "&gt;&amp;nbsp;&lt;/th&gt;
+&lt;th colspan="4" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; "&gt;lrat&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; "&gt;Predictors&lt;/td&gt;
+&lt;td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  "&gt;Estimates&lt;/td&gt;
+&lt;td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  "&gt;CI&lt;/td&gt;
+&lt;td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  "&gt;p&lt;/td&gt;
+&lt;td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  "&gt;df&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; "&gt;(Intercept)&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;0.01&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;-0.01&amp;nbsp;&amp;ndash;&amp;nbsp;0.04&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;0.278&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;76.07&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; "&gt;prof simp: asst prof&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;-0.01&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;-0.03&amp;nbsp;&amp;ndash;&amp;nbsp;0.01&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;0.185&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;1481.63&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; "&gt;prof simp: awarded prof&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;-0.05&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;-0.08&amp;nbsp;&amp;ndash;&amp;nbsp;-0.02&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;&lt;strong&gt;0.001&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;1494.48&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; "&gt;prof simp: prof&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;0.04&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;0.02&amp;nbsp;&amp;ndash;&amp;nbsp;0.06&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;&lt;strong&gt;&amp;lt;0.001&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "&gt;1488.96&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan="5" style="font-weight:bold; text-align:left; padding-top:.8em;"&gt;Random Effects&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;"&gt;&amp;sigma;&lt;sup&gt;2&lt;/sup&gt;&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="4"&gt;0.02&lt;/td&gt;
+
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;"&gt;&amp;tau;&lt;sub&gt;00&lt;/sub&gt; &lt;sub&gt;dept&lt;/sub&gt;&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="4"&gt;0.01&lt;/td&gt;
+
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;"&gt;ICC&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="4"&gt;0.27&lt;/td&gt;
+
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;"&gt;N &lt;sub&gt;dept&lt;/sub&gt;&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="4"&gt;59&lt;/td&gt;
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;"&gt;Observations&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="4"&gt;1521&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;"&gt;Marginal R&lt;sup&gt;2&lt;/sup&gt; / Conditional R&lt;sup&gt;2&lt;/sup&gt;&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="4"&gt;0.025 / 0.287&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;"&gt;AIC&lt;/td&gt;
+&lt;td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="4"&gt;-1700.611&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;/table&gt;
 
 
-```r
-lmerTest::lmer(lrat ~ 1 + prof_simp + (1 | dept), data = lrat)
-```
+---
+### Data modeling (help!)
+***
+&lt;img src="Lunchinators_X_files/figure-html/unnamed-chunk-10-1.png" style="display: block; margin: auto;" /&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
