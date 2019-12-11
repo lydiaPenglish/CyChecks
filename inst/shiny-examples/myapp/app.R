@@ -15,9 +15,11 @@ cyd_salprofs %>%
 
 cyd_base <- 
   cyd_salprofs %>% 
-#  filter(fiscal_year > 2011) %>%  #--we don't have dept data before then; not true! I filled that in....(LE)
+  # filter(fiscal_year > 2011) %>%  #--we don't have dept data before then; not true! I filled that in....(LE)
+  # making NA in college into misc category
+  mutate(college = replace_na(college, "college of combos")) %>%
   #Just keep 'colleges', not the weird things 
-  filter(grepl("college", college) | is.na(college)) %>% # added in keeping departments a NA college...deal with later?
+  filter(grepl("college", college)) %>% 
   # who gets paid 0? eliminate them
   filter(base_salary > 0) %>% 
   # get rid of centers and centers
@@ -121,8 +123,8 @@ abouttext <- "This data is a combination of publicly-available data (PD; linked 
 # drop-down menus
 dd_dept <- c(sort(unique(as.character(cyd_base$dept))))
 dd_col <- c(sort(unique(as.character(cyd_base$college))))
-dd_year <- c(sort(unique(as.character(cyd_base$fiscal_year))))
-
+dd_year1 <- c(sort(unique(as.character(cyd_base$fiscal_year))))
+dd_year2 <- c(sort(unique(as.character(cyd_base$fiscal_year))))
 
 # user interface ----------------------------------------------------------
 
@@ -155,7 +157,7 @@ ui <- fluidPage(
                             "myyear",
                             label = ("Year"),
                             # - Based on gender
-                            choices = dd_year,
+                            choices = dd_year1,
                             selected = "2018"
                           )
                         )
@@ -216,7 +218,7 @@ ui <- fluidPage(
                             "myyear",
                             label = ("Year"),
                             # - Based on gender
-                            choices = dd_year,
+                            choices = dd_year2,
                             selected = "2018"
                           )
                         )),
@@ -253,9 +255,9 @@ server <- function(input, output){
 
 liq_mg <- reactive({
     cyd_mgd %>%
-    filter(fiscal_year == 2018) %>% 
-      filter(college == input$mycollege#,
-             #fiscal_year == input$myyear
+    #filter(fiscal_year == 2018) %>% 
+      filter(college == input$mycollege,
+             fiscal_year == input$myyear
              )
   })
   

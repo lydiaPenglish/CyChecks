@@ -60,12 +60,6 @@ knitr::include_graphics("figures/phdcomics.gif")
 
 ### Motivation
 *** 
-.center[<img src="./figures/CyChecks-comic.png" width="375">]
-
----
-
-### Motivation
-*** 
 .large[ 
 - Final project for STAT 585, Spring 2019]
 
@@ -182,6 +176,7 @@ knitr::kable(ex %>% select(fiscal_year, name, gender, position, total_salary_pai
 --
 
 - Majority of people don't have a base salary listed, just a total salary paid. 
+  - Most profs had base salary listed. 
 
 ---
 ### Data visualization with Shiny
@@ -193,21 +188,35 @@ knitr::kable(ex %>% select(fiscal_year, name, gender, position, total_salary_pai
 ---
 ### Data modeling (help!)
 ***
-- Variables: Position, gender, department
+- Variables: Position, gender, department, fiscal year
 
-- Not every department has M & F employed in all positions
+- Not every department has M & F employeees in all positions 
+  - How do we include those departments with no gender representation...
 
 - We want to know which departments don't have good gender representation or pay equity
+  - Ideally we want to rank departments by equity or lack there of
 
 ---
 ### Data modeling (help!)
 ***
 
+- Is salary response variable and gender a fixed effect?
+  - How to include department? 
+
 ```{r, eval = FALSE}
 
-
+lmerTest::lmer(lsal ~ prof_simp + gender + (gender | dept), data = ex2, REML = F)
+# singular fit
+# not taking into account repeated measures
 
 ```
 
+
+- Ratio of male:female salarys as response variable
+
+```{r, eval = FALSE}
+lmerTest::lmer(lrat ~ 1 + prof_simp + (1 | dept), data = lrat)
+
+```
 
 

@@ -313,7 +313,8 @@ cy_Anonymize <- function(df, col_to_anon = "name", algo = "crc32"){
 }
 
 cyd_saldept <- cy_Anonymize(cyd_saldept_x) %>%
-  select(-name)
+  # taking all identifying names
+  select(-c(name, last_name, first_name, other))
 
 #looks like it made one for everyone
 unique(cyd_saldept_x$name) %>% length(.)
