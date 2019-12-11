@@ -188,35 +188,53 @@ knitr::kable(ex %>% select(fiscal_year, name, gender, position, total_salary_pai
 ---
 ### Data modeling (help!)
 ***
-- Variables: Position, gender, department, fiscal year
+- Variables: Base salary ; position, gender, department, fiscal year
 
-- Not every department has M & F employeees in all positions 
-  - How do we include those departments with no gender representation...
+--
+
 
 - We want to know which departments don't have good gender representation or pay equity
   - Ideally we want to rank departments by equity or lack there of
+  
+--
+
+
+- Not every department has M & F employeees in all positions 
+  - How do we include those departments with no gender representation. NAs are meaningful!
+
+---
+### Data modeling (help!)
+***
+.large[*Response variables:*]
+.pull-left[
+.large[log(Salary)]
+- Gender needs to be included in the model
+]  
+.pull-right[
+.large[log(Ratio of Salaries)]
+- Gender "effect" emcompassed in the response term
+]  
 
 ---
 ### Data modeling (help!)
 ***
 
-- Is salary response variable and gender a fixed effect?
-  - How to include department? 
+.large[*Response variables = log(salary) *]
 
 ```{r, eval = FALSE}
-
-lmerTest::lmer(lsal ~ prof_simp + gender + (gender | dept), data = ex2, REML = F)
-# singular fit
-# not taking into account repeated measures
-
+lmerTest::lmer(log_sal ~ position * gender + (1 + gender | dept), data = ex_all, REML = F)
 ```
 
+- Filtered out position/department combos without both genders. 
+- Repeated sampling of fiscal year encompassed within department...(?)
+  - Adding name or fiscal year as a random effect doesn't work
 
-- Ratio of male:female salarys as response variable
+---
+### Data modeling (help!)
+***
+.large[*Response variables = log(salary) *]
 
 ```{r, eval = FALSE}
-lmerTest::lmer(lrat ~ 1 + prof_simp + (1 | dept), data = lrat)
-
+lmerTest::lmer(log_ratio ~ position + (1 | dept), data = lrat_all)
 ```
-
 

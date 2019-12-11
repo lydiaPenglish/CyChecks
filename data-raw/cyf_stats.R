@@ -3,24 +3,27 @@ rm(list = ls())
 library(tidyverse)
 library(lme4)
 library(lmerTest)
-#mess with stats
+library(CyChecks2)
 
-exraw <- read_csv("data-raw/_tidy/cyd_salprofs.csv")
+# # messing with stats - I've reorganized this to be able to reference easily within presentation # # 
 
-# who gets paid 0? Just keep 'colleges'
-ex <- exraw %>% 
+# use updated data
+data("cyd_salprofs")
+data("cyd_saldept")
+
+# who gets paid 0? 
+ex <- cyd_salprofs %>% 
+  mutate(college = replace_na(college, "college of combos")) %>% # added this so we can include soc, eeob, etc. 
   filter(grepl("college", college)) %>% 
   mutate(lsal = log(base_salary)) %>% 
   filter(base_salary > 0) %>% 
   arrange(base_salary)
 
-
-
 # not every dept has both m and f. get a list of things that have at least 1 of each
 goodcmp <- 
   ex %>% 
   # make it so each person only counts once per position
-  group_by(college, dept, prof_simp, gender, name) %>% 
+  group_by(college, dept, prof_simp, gender, id) %>% 
   summarise(base_salary = mean(base_salary)) %>% 
   # keep only depts w/m and f in both positions AT SOME POINT in the dataset
   group_by(college, dept, prof_simp, gender) %>% 
@@ -31,6 +34,88 @@ goodcmp <-
   filter(!is.na(M)) %>% 
   select(college, dept, prof_simp)
 
+ex_18 <- 
+  goodcmp %>% 
+  left_join(ex) %>% 
+  filter(fiscal_year == 2018)
+
+ex_all <- # including ALL years
+  goodcmp %>% 
+  left_join(ex)
+
+# models
+
+# This works
+m1a <- lmerTest::lmer(lsal ~ prof_simp * gender + (1 + gender|dept), data = ex_all, REML = F)
+
+# Trying to add name or fiscal year
+m1e <- lmerTest::lmer(lsal ~ prof_simp * gender + (1 + gender|dept) + (1|id), data = ex_all, REML = F)
+
+# This doesn't - why...? Fails to converge
+m1b <- lmerTest::lmer(lsal ~ prof_simp + gender + (1 + gender|dept), data = ex_all, REML = F) 
+
+# Without position
+m1c <-lmerTest::lmer(lsal ~ gender + (1 + gender|dept), data = ex_all, REML = F)
+
+# without random slope
+m1d <- lmerTest::lmer(lsal ~ prof_simp * gender + (1|dept), data = ex_all, REML = F)
+
+anova(m1d, m1a) # idk this suggests that we shouldn't do random slope
+
+# male professors make more than females, everyone else is equal
+exp(fixef(m1d)[8])
+
+# ratio of salaries -------------------------------------------------------
+# what if I take the ratio of M and F salaries
+
+# 2018 only
+lrat_18 <- ex %>% 
+  group_by(fiscal_year, college, dept, prof_simp, gender) %>% 
+  summarise(base_salary = mean(base_salary)) %>% 
+  spread(gender, base_salary) %>% 
+  mutate(rat = M/`F`,
+         lrat = log(rat)) %>%
+  filter(fiscal_year == 2018)
+
+# all years
+lrat_all <- ex %>% 
+  group_by(fiscal_year, college, dept, prof_simp, gender) %>% 
+  summarise(base_salary = mean(base_salary)) %>% 
+  spread(gender, base_salary) %>% 
+  mutate(rat = M/`F`,
+         lrat = log(rat))
+
+# models
+m2a <- lmerTest::lmer(lrat ~ 1 + prof_simp + (1 | dept), data = lrat_all)
+summary(m2a)
+exp(fixef(m2a)[4])
+
+# which depts have biggest effects on lrat? Show this...??!
+as_tibble(ranef(m2a)) %>% 
+  ggplot(aes(grp, condval)) +
+  geom_col() + 
+  coord_flip()
+
+ex_all %>% 
+  filter(dept %in% c("agronomy", "statistics", "ag/biosys eng", "mechanical eng")) %>% 
+  ggplot(aes(gender, base_salary)) + 
+  geom_point(aes(color = prof_simp), alpha = 0.2) +
+  facet_wrap(~dept)
+
+lrat_all %>%
+  filter(dept == "agronomy" | dept == "eeob" | dept == "ag education/st" | dept == "finance") %>%
+  filter(!(is.na(lrat))) %>%
+  ggplot(aes(prof_simp, lrat))+
+  geom_boxplot(aes(group = prof_simp))+
+  facet_wrap(~dept)+
+  geom_hline(yintercept = 0, lty = 2)+
+  theme_bw()
+
+
+
+
+## Previous work....needs to be organized at some point...probably 
+
 badgirl <- 
   ex %>% 
   # get rid of centers
@@ -38,7 +123,7 @@ badgirl <-
   # just look at 2018
   filter(fiscal_year == 2018) %>% 
   # make it so each person only counts once per position
-  group_by(college, dept, prof_simp, gender, name) %>% 
+  group_by(college, dept, prof_simp, gender, id) %>% 
   summarise(base_salary = mean(base_salary)) %>% 
   # keep only depts w/m and f in both positions AT SOME POINT in the dataset
   group_by(college, dept, prof_simp, gender) %>% 
@@ -67,7 +152,7 @@ badboy <-
   # get rid of centers
   filter(!grepl('ctr', dept)) %>% 
   # make it so each person only counts once per position
-  group_by(college, dept, prof_simp, gender, name) %>% 
+  group_by(college, dept, prof_simp, gender, id) %>% 
   summarise(base_salary = mean(base_salary)) %>% 
   # keep only depts w/m and f in both positions AT SOME POINT in the dataset
   group_by(college, dept, prof_simp, gender) %>% 
@@ -78,16 +163,17 @@ badboy <-
   select(college, dept, prof_simp)
 
 
-ex2 <- 
-  goodcmp %>% 
-  left_join(ex) %>% 
-  filter(fiscal_year == 2018)
-
 # gender by pos interaction? --------------------------------------------------------
 
 # yes.   
-m1a <- lmerTest::lmer(lsal ~ prof_simp + gender + (gender | dept), data = ex2, REML = F)
-m1 <- lmerTest::lmer(lsal ~ prof_simp * gender + (1 | dept) + (1 | name), data = ex2, REML = F)
+m1a <- lmerTest::lmer(lsal ~ prof_simp * gender + (gender | dept), data = ex_all, REML = F)
+
+m1b <- lmerTest::lmer(lsal ~ prof_simp*  gender + (1| dept), data = ex_18, REML = F) # this model works
+
+m1c <-  lmerTest::lmer(lsal ~ prof_simp + (gender | dept), data = ex_18, REML = F)
+
+m1 <- lmerTest::lmer(lsal ~ prof_simp * gender + (1 | dept) + (1 |id), data = ex_18, REML = F)
+
 anova(m1a, m1)
 
 summary(m1a)
@@ -100,16 +186,21 @@ exp(fixef(m1)[8])
 # ratio of salaries -------------------------------------------------------
 # what if I take the ratio of M and F salaries
 
-lrat <- ex2 %>% 
+lrat <- ex %>% 
   group_by(fiscal_year, college, dept, prof_simp, gender) %>% 
   summarise(base_salary = mean(base_salary)) %>% 
   spread(gender, base_salary) %>% 
   mutate(rat = M/`F`,
          lrat = log(rat)) %>%
   filter(fiscal_year == 2018)
+lrat_all <- ex %>% 
+  group_by(fiscal_year, college, dept, prof_simp, gender) %>% 
+  summarise(base_salary = mean(base_salary)) %>% 
+  spread(gender, base_salary) %>% 
+  mutate(rat = M/`F`,
+         lrat = log(rat))
 
- 
-m2 <- lmerTest::lmer(lrat ~ 1 + prof_simp + (1 | dept), data = lrat)
+m2 <- lmerTest::lmer(lrat ~ 1 + prof_simp + (1 | dept), data = lrat_all)
 summary(m2)
 exp(fixef(m2)[4])
 

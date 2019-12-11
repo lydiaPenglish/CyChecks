@@ -285,6 +285,7 @@ knitr::kable(ex %&gt;% select(fiscal_year, name, gender, position, total_salary_
 --
 
 - Majority of people don't have a base salary listed, just a total salary paid. 
+  - Most profs had base salary listed. 
 
 ---
 ### Data visualization with Shiny
@@ -297,15 +298,69 @@ knitr::kable(ex %&gt;% select(fiscal_year, name, gender, position, total_salary_
 ---
 ### Data modeling (help!)
 ***
-- Variables: Position, gender, department
+- Variables: Position, gender, department, fiscal year
 
-- Not every department has M &amp; F employed in all positions
+--
+
 
 - We want to know which departments don't have good gender representation or pay equity
+  - Ideally we want to rank departments by equity or lack there of
+  
+--
+
+
+- Not every department has M &amp; F employeees in all positions 
+  - How do we include those departments with no gender representation...
 
 ---
 ### Data modeling (help!)
 ***
+.large[*Response variables:*]
+.pull-left[
+.large[log(Salary)]
+- Gender needs to be included in the model
+]  
+.pull-right[
+.large[log(Ratio of Salaries)]
+- Gender "effect" emcompassed in the response term
+]  
+
+---
+### Data modeling (help!)
+***
+
+Fixed effects:
+  - Position
+    - 4 levels (Asst Prof, Assoc Prof, Prof, Awarded Prof)
+    
+  - Gender? (if not using a ratio)
+  
+Random effect:
+  - Department 
+
+---
+### Data modeling (help!)
+***
+
+
+```r
+lmerTest::lmer(log_sal ~ position + gender + (gender | dept), data = data, REML = F)
+```
+
+Problems with this model
+1. Singular fit (why....?)
+2. Doesn't take into account repeated measure
+
+---
+### Data modeling (help!)
+***
+
+- Ratio of male:female salarys as response variable
+
+
+```r
+lmerTest::lmer(lrat ~ 1 + prof_simp + (1 | dept), data = lrat)
+```
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
