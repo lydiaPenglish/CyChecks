@@ -103,8 +103,7 @@ sal_df<- function(limit= 1000, offset = 0, fiscal_year = 2007, token = NULL){
   checkmate::assertTibble(s, min.rows = 1, ncols =10)
 
   sals <- s %>%
-    dplyr::select(-c(base_salary,department))%>%
-    dplyr::mutate(base_salary_date = lubridate::ymd_hms(base_salary_date))%>%
+    dplyr::select(-c(base_salary_date,department))%>%
     dplyr::mutate_at(dplyr::vars(fiscal_year, total_salary_paid, travel_subsistence), as.numeric)%>%
     dplyr::mutate(name = gsub(",","",name)) %>%
     dplyr::mutate(position = stringr::str_trim(position, side = "right"))
@@ -120,8 +119,8 @@ sal_df<- function(limit= 1000, offset = 0, fiscal_year = 2007, token = NULL){
 #### Where does this data come from?
 .tiny[
 ```{r}
-{{ex <- sal_df(limit = 15, offset = 1000, fiscal_year = 2018)}}
-knitr::kable(ex %>% select(-base_salary_date), align = 'c', 'html') %>%
+{{ex <- sal_df(limit = 15, offset = 4500, fiscal_year = 2018)}}
+knitr::kable(ex %>% select(-travel_subsistence), align = 'c', 'html') %>%
   kableExtra::kable_styling(font_size = 11, full_width = FALSE)
 ```
 ]
@@ -142,12 +141,12 @@ knitr::kable(ex %>% select(-base_salary_date), align = 'c', 'html') %>%
 
 - Filtered for _PROF_ titles only 
 
+
 --
 
-- Some departments are funded by two different colleges:
-  - EEOB-las vs EEOB-agls
-  
-  
+- Majority of people don't have a base salary listed, just a total salary paid. 
+  - Most profs had base salary listed. 
+
 
 
 ---
@@ -177,8 +176,9 @@ knitr::kable(ex %>% select(-base_salary_date), align = 'c', 'html') %>%
 
 --
 
-- Majority of people don't have a base salary listed, just a total salary paid. 
-  - Most profs had base salary listed. 
+- Some departments are funded by two different colleges:
+  - EEOB-las vs EEOB-agls
+
 
 ---
 ### Data visualization with Shiny
