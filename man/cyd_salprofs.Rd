@@ -8,7 +8,7 @@
 \describe{
 \item{fiscal_year}{fiscal year as defined by the state of Iowa (July 1 - June 30), currently includes 2007-2018}
 \item{gender}{M (male), F (female), all other categories have been removed in this dataset}
-\item{position}{position titles in one of 6 categories including
+\item{position}{position titles in one of 6 categories including}
 \item{total_salary_paid}{total salary, to the penny, is not simply base plus travel}
 \item{travel_subsistence}{travel allowances paid, to the penny}
 \item{base_salary}{base salary paid, to the penny}
