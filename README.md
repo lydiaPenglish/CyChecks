@@ -48,7 +48,7 @@ not easily accessible. ISU’s Human Resources Department kindly provided
 a list of employees with their home departments and associated colleges
 valid from January 1 2008 - January 1 2018. Since acquiring this
 information is not reproducible to the average user, we’ve included a
-full dataset (with names anonymized) of all salary info (2007 - 2018)
+full dataset (with names anonymized) of all salary info (2007 - 2019)
 cross-referenced by department in the CyChecks2 package. Many employees
 (XX) appeared in the public data, but were not included in the list
 provided to us by ISU. This isn’t ideal, and we hope ISU will provide
