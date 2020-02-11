@@ -1,0 +1,45 @@
+---
+title: "CyChecks2 Package Outline"
+author: "Lydia English and Gina Nichols"
+date: "September 12, 2019"
+output: html_document
+---
+
+### Internal data/code
+* Raw departmental affiliation data as received from HR, code to process them into cyd_dept
+* Code to create cyd_deptsals from cyd_sals and cyd_depts? Or should this be a function?
+
+### Package data
+
+*Department-organization key*
+
+* cyd_deptcolkey - This will need to be updated periodically, as new departments are added or whatever
+
+*Department affiliations (not anonymized)*
+
+* cyd_dept - For 2012-2019, we will continue to update this file each year
+
+*Salary data (not anonymized)*
+
+* cyd_salsraw - Has data for 2012-2019, we will continue to update this file each year
+
+*Tidied salary data (not anonymized)*
+
+* cyd_salstidy - Complete for 2012-2019 (output from cyf_TidySals function)
+
+*Merged, anonymized data (output from cyf_SalsDeptMerge function)*
+
+* cyd_salsdept - Complete for 2012-2019
+
+*Merged, anonymized professor data (output from cyf_xx  function)*
+
+* cyd_ - Complete for 2012-2019
+
+
+### Functions
+
+1. Function to get data for a given year: cyf_getsals
+2. Function to tidy the raw data into OUR format: cyf_tidysals
+3. Function to do our stats (?): cyf_genderstats
+4. Function to launch our shiny app: cyf_runshiny
+5. Function to merge cyd_sals and cyd_dept?
