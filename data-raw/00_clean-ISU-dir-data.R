@@ -77,6 +77,7 @@ dat <-
   mutate_if(is_character, tolower) %>%
   # merging name columns together and then trimming them down to 20 characters long
   unite(name, last_name, first_name, sep = " ")%>%
+  # truncating names after 20 characters
   mutate(name = str_trunc(name, 20, ellipsis = ""))%>%
   separate(name, c("last_name", "first_name"), sep = " ") %>%
   arrange(fiscal_year, dept, last_name, first_name)
@@ -84,5 +85,3 @@ dat <-
 dat %>%
   write_csv("data-raw/_tidy/td_empl-dept-key.csv")
 
-# What if there is more than one sarah adams?
-filter(dat, first_name == "sarah" & last_name == "adams")

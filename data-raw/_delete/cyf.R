@@ -356,7 +356,7 @@ usethis::use_data(cyd_salprofs, overwrite = TRUE)
 ######################
 # get list of profs associated w/a ctr (added 10/24, updated LE 10/25)
 #
-cyd_saldept%>% 
+cyd_saldept_x %>% 
   filter(grepl("ctr", dept)) %>% 
   select(fiscal_year:position) %>% 
   #separate(name, c("last_name", "first_name"), sep = "_", remove = TRUE) %>%
@@ -365,8 +365,8 @@ cyd_saldept%>%
   select(-fiscal_year) %>%
   write_csv("data-raw/_raw/rd_akelo-ctr-faculty_2.csv")
 
-cyd_saldept %>%
-  filter(name == "tuttle_gary_l")
+cyd_saldept_x %>%
+  filter(name == "tuttle gary l")
 
 # let's look at this shit -------------------------------------------------
 
