@@ -22,10 +22,8 @@ rm(list = ls())
 library(tidyverse)
 library(janitor) #--cleans things nicely
 library(readxl) #--reads excel spreadsheets
-library(here) #--helps w/wd things
-
 library(fuzzyjoin) #--so Jon H. Lee is the same as Jon Lee, not used but could be useful
-setwd(here())
+
 
 
 

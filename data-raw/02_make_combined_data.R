@@ -86,11 +86,16 @@ good_dupes <- read_csv("data-raw/_raw/duplicate_name_reconciliation.csv")%>%
 
 # -- Given that the dupes were reconciled by either middle initial or position we need to join them in two different ways
 # ppl we joined by posiiton
-name_pos <- right_join(cyd_salstidy, good_dupes, by = c("last_name", "first_name", "position"), copy = FALSE, keep = FALSE) %>%
+name_pos <- right_join(cyd_salstidy, 
+                       good_dupes, 
+                       by = c("last_name", "first_name", "position"),
+                       copy = FALSE, keep = FALSE) %>%
   filter(total_salary_paid > 0) %>%
   distinct()
 # ppl we joined by middle name
-name_mid <- right_join(cyd_salstidy, select(good_dupes, -position), by = c("last_name", "first_name", "other")) %>%
+name_mid <- right_join(cyd_salstidy, 
+                       select(good_dupes, -position), 
+                       by = c("last_name", "first_name", "other")) %>%
   filter(total_salary_paid > 0) %>%
   filter(!is.na(other)) %>%
   distinct()
