@@ -3,7 +3,7 @@
 #' A dataset containing the prices and other attributes of almost 54,000
 #' diamonds.
 #'
-#' @format A data frame with 16570 rows and 9 variables:
+#' @format A data frame with 18033 rows and 9 variables:
 #' \describe{
 #'   \item{fiscal_year}{fiscal year as defined by the state of Iowa (July 1 - June 30), currently includes 2007-2018}
 #'   \item{gender}{M (male), F (female), all other categories have been removed in this dataset}
@@ -23,7 +23,7 @@
 #'
 #' cyd_saldept, but filtered to only contain on of six tenured categories (assoc prof, asst prof, distg prof, morrill prof, prof, univ prof). Department heads were also eliminated for this dataset. Around 3000 entries were removed during this filtering. 
 #'
-#' @format A data frame with 13453 rows and 10 variables:
+#' @format A data frame with 14680 rows and 10 variables:
 #' \describe{
 #'   \item{fiscal_year}{fiscal year as defined by the state of Iowa (July 1 - June 30), currently includes 2007-2018}
 #'   \item{gender}{M (male), F (female), all other categories have been removed in this dataset}

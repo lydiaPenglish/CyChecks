@@ -4,7 +4,7 @@
 \name{cyd_saldept}
 \alias{cyd_saldept}
 \title{Salaries of Iowa State University employees with 'prof' in their position title}
-\format{A data frame with 16570 rows and 9 variables:
+\format{A data frame with 18033 rows and 9 variables:
 \describe{
 \item{fiscal_year}{fiscal year as defined by the state of Iowa (July 1 - June 30), currently includes 2007-2018}
 \item{gender}{M (male), F (female), all other categories have been removed in this dataset}
