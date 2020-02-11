@@ -65,7 +65,7 @@ This package currently includes:
 You can install the developmental version CyChecks2 from [github](https://CRAN.R-project.org) with:
 
 ``` r
-devtools::install_github("https://github.com/lenglish/CyChecks2")
+devtools::install_github("lydiaPenglish/CyChecks2")
 ```
 
 ## Examples
