@@ -17,69 +17,75 @@
 #
 ########################
 
-
-rm(list = ls())
 library(tidyverse)
 library(janitor) #--cleans things nicely
 library(readxl) #--reads excel spreadsheets
-library(fuzzyjoin) #--so Jon H. Lee is the same as Jon Lee, not used but could be useful
+# library(fuzzyjoin) #--so Jon H. Lee is the same as Jon Lee, not used but could be useful
 
 
 
 
 # Clean and write dept-org info -------------------------------------------
 
-orgraw <- read_excel("data-raw/_raw/Employees with Department and Org 4-8-19.xlsx")
+orgraw <- readxl::read_excel("data-raw/_raw/Employees with Department and Org 4-8-19.xlsx")
 
 # just keep org and dept as a key
 org <- 
   orgraw %>%
-  clean_names() %>%
-  select(org_short_name, drcty_dept_name) %>%
-  rename("college" = 1,
+  janitor::clean_names() %>%
+  dplyr::select(org_short_name, drcty_dept_name) %>%
+  dplyr::rename("college" = 1,
          "dept" = 2) %>%
-  mutate_if(is_character, tolower) %>%
-  distinct() %>%
+  dplyr::mutate_if(is_character, tolower) %>%
+  dplyr::distinct() %>%
   arrange(college, dept)
 
-org %>% write_csv("data-raw/_tidy/td_org-dept-key.csv")
+org %>% readr::write_csv("data-raw/_tidy/td_org-dept-key.csv")
 
 
 # read name-dept data from tabs-------------------------------------------
 
 
 #-- the last tab is not in the same format as the others, must be dealt with separately, or we get a 
+# JBN:  ^^^^ first?
+# JBN: how about using readxl::excel_sheets
+# JBN: or since this would be a one time change perhaps just fix the sheet to be like the others?
 
-tyear <- c(2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018)
-rawdat <- read_excel("data-raw/_raw/January snapshot data for GN 2012-2019.xlsx", sheet = 1) %>%
-  mutate(year  = tyear[1])
+tyear <- 2011:2018
+rawdat <- readxl::read_excel("data-raw/_raw/January snapshot data for GN 2012-2019.xlsx", 
+                             sheet = 1) %>%
+  dplyr::mutate(year  = tyear[1])
 
 for (i in 2:length(tyear)){
   
-  tdat <- read_excel("data-raw/_raw/January snapshot data for GN 2012-2019.xlsx", sheet = i) %>%
-    mutate(year  = tyear[i])
+  tdat <- readxl::read_excel("data-raw/_raw/January snapshot data for GN 2012-2019.xlsx", 
+                             sheet = i) %>%
+    dplyr::mutate(year  = tyear[i])
 
   rawdat <- rawdat %>%
-    rbind(tdat)
+    rbind(tdat) # maybe use dplyr::bind_rows
 }
 
 dat <- 
   rawdat %>%
-  select(year, DEPT_SHORT_NAME, LAST_NAME, FIRST_NAME) %>%
-  arrange(year, DEPT_SHORT_NAME, LAST_NAME) %>%
-  rename("dept" = DEPT_SHORT_NAME,
+  dplyr::select(year, DEPT_SHORT_NAME, LAST_NAME, FIRST_NAME) %>%
+  dplyr::arrange(year, DEPT_SHORT_NAME, LAST_NAME) %>%
+  dplyr::rename("dept" = DEPT_SHORT_NAME,
          "last_name" = LAST_NAME,
          "first_name" = FIRST_NAME,
          "fiscal_year" = year) %>%
-  filter(!is.na(dept)) %>%
-  mutate_if(is_character, tolower) %>%
-  # merging name columns together and then trimming them down to 20 characters long
-  unite(name, last_name, first_name, sep = " ")%>%
+  
+  dplyr::filter(!is.na(dept)) %>%  # JBN: do we want to filter at this point?
+  
+  dplyr::mutate_if(is_character, tolower) %>%
+  
+  # merging name columns together
+  tidyr::unite(name, last_name, first_name, sep = " ") %>%
+  
   # truncating names after 20 characters
-  mutate(name = str_trunc(name, 20, ellipsis = ""))%>%
-  separate(name, c("last_name", "first_name"), sep = " ") %>%
-  arrange(fiscal_year, dept, last_name, first_name)
+  dplyr::mutate(name = str_trunc(name, 20, ellipsis = "")) %>%
+  tidyr::separate(name, c("last_name", "first_name"), sep = " ") %>% # JBN: I received a bunch of warnings messages here
+  dplyr::arrange(fiscal_year, dept, last_name, first_name)
 
 dat %>%
-  write_csv("data-raw/_tidy/td_empl-dept-key.csv")
-
+  readr::write_csv("data-raw/_tidy/td_empl-dept-key.csv")
