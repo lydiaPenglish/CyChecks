@@ -23,43 +23,46 @@ cyd_salsraw <- read_csv("data-raw/_tidy/td_rawsals.csv")
 cyd_salstidy <- cyd_salsraw %>% 
   
   # -- get rid of unwanted columns 
-  select(fiscal_year, name, gender, position, total_salary_paid, travel_subsistence, base_salary) %>%
+  dplyr::select(fiscal_year, name, gender, position, total_salary_paid, 
+                travel_subsistence, base_salary) %>%
   
   # -- eliminate things that are per hour and people who don't have a position or a gender 
-  filter(!grepl("HR", base_salary),
+  dplyr::filter(!grepl("HR", base_salary),
          !grepl("\\*", position),
          !grepl("\\*", gender)) %>%
   
   # -- update columns
-  mutate(base_salary = as.numeric(gsub(",", "", base_salary)),            # note: warning about NAs introduced by coercion
-         position    = stringr::str_trim(position, side = "right"),       # get rid of any white space in character cols
-         name        = stringr::str_trim(name, side = "right"),           # 
-         name        = tolower(name),                                     # make name/position lower case
-         position    = tolower(position),                                 #
-         name        = gsub(",", "", name)) %>%                           # getting rid of commas
+  dplyr::mutate(
+    base_salary = as.numeric(gsub(",", "", base_salary)),            # note: warning about NAs introduced by coercion, JBN: and?
+    position    = stringr::str_trim(position, side = "right"),       # get rid of any white space in character cols
+    name        = stringr::str_trim(name, side = "right"),           # 
+    name        = tolower(name),                                     # make name/position lower case
+    position    = tolower(position),                                 #
+    name        = gsub(",", "", name)) %>%                           # getting rid of commas
   
   # -- only keep professors (!!! this can be commented out if anyone wants to make a larger dataset...)
-  filter(grepl("prof", position)) %>%
+  dplyr::filter(grepl("prof", position)) %>%
   
   # -- Keep name column, but also expand into first, last, and middle     # note: warning about some columns with 4 things (usually ppl with Jr at end of name)
-  separate(name, into = c("last_name", "first_name", "other"), sep = " ", remove = FALSE) %>% 
+  tidyr::separate(name, into = c("last_name", "first_name", "other"), sep = " ", remove = FALSE) %>% 
   
   #--remove punctuation from the first name 
-  mutate(first_name = str_remove_all(first_name, "[[:punct:]]"))
+  dplyr::mutate(first_name = str_remove_all(first_name, "[[:punct:]]"))
 
 # ii.  ---- Clean up directory data from Cindy ----
 
 # -- Endings to remove from departments that span two different colleges (we want to combine these into one department!)
+# JBN: do we want to combine them? 
 patterns <- c("-agls|-las|-hsci|-a|-e")
 
 cyd_dept <- 
-  read_csv("data-raw/_tidy/td_empl-dept-key.csv") %>%
+  readr::read_csv("data-raw/_tidy/td_empl-dept-key.csv") %>%
   
   # recoding redundant departments
-  mutate(dept = str_remove_all(dept, patterns)) %>%
+  dplyr::mutate(dept = str_remove_all(dept, patterns)) %>%
   
   # remove punctuation from people's names (e. anderson should be e anderson)
-  mutate(first_name = str_remove_all(first_name, "[[:punct:]]"))
+  dplyr::mutate(first_name = str_remove_all(first_name, "[[:punct:]]"))
 
 # iii. ---- Addressing problems pre merge: duplicate names ----
 #     problem: In the directory data there is no middle name initial so `adams sarah l` and `adams sarah k` 
@@ -68,47 +71,48 @@ cyd_dept <-
 # first - get duplicates from the department directory
 dupes <- 
   cyd_dept %>%
-  group_by(fiscal_year, last_name, first_name) %>%
-  mutate(n = n()) %>%
-  filter(n > 1) %>%
-  arrange(last_name, first_name, dept) %>%
-  ungroup() %>%
-  distinct() 
+  dplyr::group_by(fiscal_year, last_name, first_name) %>%
+  dplyr::mutate(n = n()) %>%
+  dplyr::filter(n > 1) %>%
+  dplyr::arrange(last_name, first_name, dept) %>%
+  dplyr::ungroup() %>%
+  dplyr::distinct() 
 # write.csv(dupes, "data-raw/_raw/duplicate_name_reconciliation.csv")
 
 # second - reconcile duplicate names to the best of our ability. This was done outside of R (sorry...). 
 #          The process of how duplicates were reconciled can be found in "~/data-raw/_raw/duplicate_reconciliation_process.txt"
 
-good_dupes <- read_csv("data-raw/_raw/duplicate_name_reconciliation.csv")%>%
+good_dupes <- readr::read_csv("data-raw/_raw/duplicate_name_reconciliation.csv")%>%
   # getting rid of names that couldn't be reconciled
-  filter(!grepl(pattern = "^\\**", reason_to_delete)) %>%
-  select(-c(n, reason_to_delete, fiscal_year))
+  dplyr::filter(!grepl(pattern = "^\\**", reason_to_delete)) %>%
+  dplyr::select(-c(n, reason_to_delete, fiscal_year))
 
 # -- Given that the dupes were reconciled by either middle initial or position we need to join them in two different ways
 # ppl we joined by posiiton
-name_pos <- right_join(cyd_salstidy, 
-                       good_dupes, 
-                       by = c("last_name", "first_name", "position"),
-                       copy = FALSE, keep = FALSE) %>%
-  filter(total_salary_paid > 0) %>%
-  distinct()
+name_pos <- dplyr::right_join(cyd_salstidy, 
+                              good_dupes, 
+                              by = c("last_name", "first_name", "position"),
+                              copy = FALSE, keep = FALSE) %>%
+  dplyr::filter(total_salary_paid > 0) %>%
+  dplyr::distinct()
+
 # ppl we joined by middle name
-name_mid <- right_join(cyd_salstidy, 
+name_mid <- dplyr::right_join(cyd_salstidy, 
                        select(good_dupes, -position), 
                        by = c("last_name", "first_name", "other")) %>%
-  filter(total_salary_paid > 0) %>%
-  filter(!is.na(other)) %>%
-  distinct()
+  dplyr::filter(total_salary_paid > 0) %>%
+  dplyr::filter(!is.na(other)) %>%
+  dplyr::distinct()
 
 # Combining the two types of joins - now we have a dataframe that can be added to our merge by binding rows
-all_prof_dupes <- bind_rows(name_pos, name_mid) %>%
-  arrange(fiscal_year, last_name, first_name) %>%
-  select(-c(other.x, other.y))
+all_prof_dupes <- dplyr::bind_rows(name_pos, name_mid) %>%
+  dplyr::arrange(fiscal_year, last_name, first_name) %>%
+  dplyr::select(-c(other.x, other.y))
 
 dupe_names <- dupes %>%
-  unite(last_name, first_name, col = "short_name", sep = " ") %>%
-  select(short_name) %>%
-  distinct() %>%
+  tidyr::unite(last_name, first_name, col = "short_name", sep = " ") %>%
+  dplyr::select(short_name) %>%
+  dplyr::distinct() %>%
   as_vector()
 
 # iv.  ---- Merging datasets ----
@@ -117,24 +121,24 @@ dupe_names <- dupes %>%
 # dataset that deleted duplicate names and then added back in the reconciled ones
 cyd_salstidy2 <- 
   cyd_salstidy %>%
-  unite(last_name, first_name, col = "short_name", sep = " ", remove = FALSE) %>%
+  tidyr::unite(last_name, first_name, col = "short_name", sep = " ", remove = FALSE) %>%
   # get rid of all duplicate names...we will add back in the good ones
-  filter(!short_name %in% dupe_names) %>%
-  select(-short_name) 
+  dplyr::filter(!short_name %in% dupe_names) %>%
+  dplyr::select(-short_name) 
 
 # merging with directory data, then adding in duplicates
 cyd_saldept_x <-
   cyd_salstidy2 %>%
-  left_join(cyd_dept, by = c("fiscal_year", "last_name", "first_name")) %>%
+  dplyr::left_join(cyd_dept, by = c("fiscal_year", "last_name", "first_name")) %>%
   # adding in duplicates who have been reconciled 
-  bind_rows(., all_prof_dupes) %>%
+  dplyr::bind_rows(., all_prof_dupes) %>%
   # add college
-  left_join(cyd_college, by = "dept") %>%
+  dplyr::left_join(cyd_college, by = "dept") %>%
 
   # fill in department info for years before/after we had directory info (i.e before 2011 and after 2018)
-  group_by(name) %>%
-  fill(dept, college, .direction = "downup") %>%             # this is obviously assuming people haven't changed departments...
-  ungroup()
+  dplyr::group_by(name) %>%
+  tidyr::fill(dept, college, .direction = "downup") %>%             # this is obviously assuming people haven't changed departments...
+  dplyr::ungroup()
 
 # v.   ---- Addressing problems post merge: people listed in center, people missing from the directory ----
 
@@ -143,26 +147,29 @@ cyd_saldept_x <-
 
 cyd_saldept_x <- cyd_saldept_x %>%
   # Ugh sorry did this manually because there were only 7 instances...
-  mutate(dept = if_else(name == "brown_robert_c", "mechanical eng", dept),
-         dept = if_else(name == "dalal_vikram_l" | name == "tuttle_gary_l", "elec eng/cp eng", dept),
-         dept = if_else(name == "goggi_alcira_s", "agronomy", dept),
-         dept = if_else(name == "johnson_lawrence_a", "food sci/hn", dept),
-         dept = if_else(name == "niederhauser_dale_s", "curr/instr", dept),
-         dept = if_else(name == "thompson_elizabeth_a", "school of ed", dept)) %>%
+  dplyr::mutate(
+    dept = if_else(name == "brown_robert_c", "mechanical eng", dept),
+    dept = if_else(name == "dalal_vikram_l" | name == "tuttle_gary_l", "elec eng/cp eng", dept),
+    dept = if_else(name == "goggi_alcira_s", "agronomy", dept),
+    dept = if_else(name == "johnson_lawrence_a", "food sci/hn", dept),
+    dept = if_else(name == "niederhauser_dale_s", "curr/instr", dept),
+    dept = if_else(name == "thompson_elizabeth_a", "school of ed", dept)) %>%
   # recoding anthro old dept to anthropology, confused as to the difference
   # curr/inst becomes school of ed
-  mutate(dept = dplyr::recode(dept, "anthro old"      = "anthropology",
-                                    "curr/instr"      = "school of ed",
-                                    "ed ldshp pol st" = "school of ed"))
+  dplyr::mutate(dept = dplyr::recode(dept, 
+                                     "anthro old"      = "anthropology",
+                                     "curr/instr"      = "school of ed",
+                                     "ed ldshp pol st" = "school of ed"))
+
 # TO DO: are there other deparments that have changed names? Are there other departments that are missing from the database?
 
 # -- People who still don't have a department listed (i.e. PROFS in salary database, but not in directory) 
 
 no_dept <- cyd_saldept_x %>%
-  filter(is.na(dept), fiscal_year > 2010) %>%                  # while we've imputed departments, anyone who has left before 2010 will not have a dept listed      
-  select(last_name, first_name, other, name, position) %>%
+  dplyr::filter(is.na(dept), fiscal_year > 2010) %>%                  # while we've imputed departments, anyone who has left before 2010 will not have a dept listed      
+  dplyr::select(last_name, first_name, other, name, position) %>%
   unique() %>%
-  arrange(last_name, first_name)
+  dplyr::arrange(last_name, first_name)
 
 # TO DO: how to deal with these... it's a lot. 
 

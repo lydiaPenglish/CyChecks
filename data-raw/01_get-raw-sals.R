@@ -14,14 +14,12 @@
 # notes: 
 ########################
 
-
-rm(list = ls())
 library("jsonlite")
 library("tidyverse")
 
 
 # Right now this is Lydia's token...
-token <- "$$app_token=GJISvIEj4Jg2KmwRkV3oCGJrj"
+token <- "$$app_token=GJISvIEj4Jg2KmwRkV3oCGJrj" # JBN: hey, thanks for the token
 limit <- 200000 # Max number of entries
 offset <- 0 # Where to start gathering from (0 = the beginning)
 fiscal_year <- "2018" # Will we just have different dataframes for each year?
