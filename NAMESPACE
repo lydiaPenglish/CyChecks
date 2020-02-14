@@ -2,4 +2,5 @@
 
 export("%>%")
 export(cy_RunShiny)
+export(cyf_getsals)
 importFrom(magrittr,"%>%")

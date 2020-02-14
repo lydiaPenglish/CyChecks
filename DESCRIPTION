@@ -24,4 +24,5 @@ Imports:
     magrittr,
     dplyr,
     tidyr,
-    ggplot2
+    ggplot2,
+    jsonlite
