@@ -1,8 +1,5 @@
 #' Salaries of Iowa State University employees with 'prof' in their position title
 #'
-#' A dataset containing the prices and other attributes of almost 54,000
-#' diamonds.
-#'
 #' @format A data frame with 18033 rows and 9 variables:
 #' \describe{
 #'   \item{fiscal_year}{fiscal year as defined by the state of Iowa (July 1 - June 30), currently includes 2007-2018}
@@ -39,3 +36,20 @@
 #' }
 #' @source \url{https://data.iowa.gov/}
 "cyd_salprofs"
+
+
+#' Male and female representation in departments by fiscal year
+#'
+#'
+#' @format A data frame with 952 rows and 6 variables:
+#' \describe{
+#'   \item{fiscal_year}{fiscal year as defined by the state of Iowa (July 1 - June 30), currently includes 2007-2018}
+#'   \item{college}{Iowa State University college the department is housed in}
+#'   \item{dept}{Iowa State University department}
+#'   \item{M}{number of male tenure-track professors}
+#'   \item{F}{number of female tenure-track professors}
+#'   \item{tot}{total number of tenure-track professors}
+#'   \item{fracF}{fraction of total professors that are female}
+#'   ...
+#' }
+"cyd_gendept"

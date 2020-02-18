@@ -24,7 +24,6 @@
 cyd_saldept
 }
 \description{
-A dataset containing the prices and other attributes of almost 54,000
-diamonds.
+Salaries of Iowa State University employees with 'prof' in their position title
 }
 \keyword{datasets}
