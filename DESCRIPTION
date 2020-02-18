@@ -1,5 +1,5 @@
 Package: CyChecks2
-Title: What the Package Does (One Line, Title Case)
+Title: Provides access to Iowa State University professor salary data
 Version: 0.0.0.9000
 Authors@R: 
     c(person(given = "Gina",
@@ -11,7 +11,7 @@ Authors@R:
              family = "English",
              role = c("aut", "cre"),
              email = "lenglish@iastate.edu"))
-Description: What the package does (one paragraph).
+Description: Provides cleaned and simplified salary data for Iowa State University employees with the word 'professor' in their position title. 
 License: MIT + file LICENSE
 Encoding: UTF-8
 Language: es

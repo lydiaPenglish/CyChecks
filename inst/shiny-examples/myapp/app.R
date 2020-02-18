@@ -11,7 +11,6 @@ library(CyChecks2)
 
 cyd_base <- 
   cyd_salprofs %>% 
-  # filter(fiscal_year > 2011) %>%  #--we don't have dept data before then; not true! I filled that in....(LE)
   # making NA in college into misc category
   mutate(college = replace_na(college, "multi-college")) %>%
   #Just keep 'colleges', not the weird things like library
@@ -23,7 +22,10 @@ cyd_base <-
   filter(!grepl('center', dept)) %>% 
   mutate_if(is.character, str_to_title) %>% 
   mutate(prof_simp = factor(prof_simp,
-                            levels = c("Asst Prof", "Assoc Prof", "Prof", "Awarded Prof"))) %>% 
+                            levels = c("Asst Prof", 
+                                       "Assoc Prof", 
+                                       "Prof", 
+                                       "Awarded Prof"))) %>% 
   select(fiscal_year, college, dept, gender, prof_simp, total_salary_paid, base_salary)
 
 malecolor <- "deepskyblue3"
@@ -37,7 +39,9 @@ mgdraw <-
   group_by(fiscal_year, college, dept, prof_simp, gender) %>% 
   summarise(n = n()) %>% 
   spread(gender, value = n) %>% 
-  ungroup()
+  ungroup() %>% 
+  mutate_if(is.numeric, replace_na, 0) %>% 
+  mutate(fracM = M/(`F` + M))
 
 #--need to get every combo so things are explicitly missing 
 yrs <- mgdraw %>% pull(fiscal_year) %>% unique()
@@ -64,16 +68,16 @@ cyd_mgd <-
   # assign college
   left_join(coldept2) %>% 
   # assign gender verdict
-  mutate(id = ifelse((is.na(`F`) & is.na(M)), "No One",
-                     ifelse(is.na(`F`), "All Males",
-                            ifelse(is.na(M), "All Females", "Both Genders Present")))) %>% 
-  mutate(ndisplay = ifelse(id == "Both Genders Present", NA,
-                           ifelse( id == "No One", NA, 
-                                   ifelse(id == "All Males", M, `F`)))) %>% 
+  mutate(id = case_when(
+    (is.na(`F`) & is.na(M)) ~ "No One",
+     (`F` == 0) ~ "All Males",
+     (M == 0) ~ "All Females",
+     TRUE ~ "Both Genders Present")) %>% 
+  mutate(ndisplay = ifelse(id == "All Males", M,
+                           ifelse(id == "All Females", `F`,
+                                  NA))) %>% 
   mutate(isone = ifelse(ndisplay == 1, "1", ">1"),
          isone = ifelse(is.na(isone), ">1", isone)) 
-
-
 
 # create data for ratios fig (cyd_rat) ------------------------------------
 
@@ -82,21 +86,21 @@ ratraw <-
   group_by(fiscal_year, college, dept, gender, prof_simp) %>% 
   summarise(mean_base_salary = mean(base_salary)) %>%
   spread(gender, mean_base_salary) %>% 
-  mutate(rat = log(M / `F`)) %>% 
-  filter(!is.na(rat)) %>% 
+  mutate(ratM = log(M / `F`)) %>% 
+  filter(!is.na(ratM)) %>% 
   ungroup()
   
 
 
 # Get all combinations of prof/depts
-cyd_rat <- 
+cyd_ratM <- 
   combs %>% 
   left_join(ratraw) %>% 
   select(-college) %>% 
   # assign college
   left_join(coldept2) %>% 
   # assign colors
-  mutate(id = ifelse(rat > 0, "Males Make More", "Females Make More"))
+  mutate(id = ifelse(ratM > 0, "Males Make More", "Females Make More"))
 
 # make professor salary data ---------------------------------------------------
 
@@ -110,6 +114,22 @@ cyd_prof <-
   
 
 
+# make salary ratio and fracF tibble --------------------------------------
+
+cyd_fracM <- cyd_mgd %>% 
+  filter(!is.na(fracM)) %>% 
+  select(fiscal_year, college, dept, prof_simp, fracM)
+
+cyd_compM <- 
+  cyd_ratM %>% 
+  filter(!is.na(ratM)) %>% 
+  select(fiscal_year, college, dept, prof_simp, ratM) %>% 
+  left_join(cyd_fracM) %>% 
+  mutate(prof_simp = factor(prof_simp,
+                            levels = c("Asst Prof", 
+                                       "Assoc Prof", 
+                                       "Prof", 
+                                       "Awarded Prof")))
 
 # about text -------------------------------------------------------------
 abouttext <- "This data is a combination of publicly-available data (PD; linked names to salaries)\n, and ISU-provided data (ISUD; linked names to departments). \nThe reliance on linking these data presented problems. \nSome people appeared in the PD but not in the ISUD, and are therefore omitted from the final dataset. \nOther faculty were linked to centers rather than their tenure-home departments. \nAs of Dec 6 2019 those faculty are also not included."
@@ -121,6 +141,7 @@ dd_dept <- c(sort(unique(as.character(cyd_base$dept))))
 dd_col <- c(sort(unique(as.character(cyd_base$college))))
 dd_year1 <- c(sort(unique(as.character(cyd_base$fiscal_year))))
 dd_year2 <- c(sort(unique(as.character(cyd_base$fiscal_year))))
+dd_year3 <- c(sort(unique(as.character(cyd_base$fiscal_year))))
 
 # user interface ----------------------------------------------------------
 
@@ -226,6 +247,25 @@ ui <- fluidPage(
                           fluidRow(plotOutput("fig_mg"))
                         ))
                       )),
+             tabPanel("Gender Rep and Salary Bi-plot",
+                      mainPanel(
+                        fluidRow(
+                        column(
+                          width = 6,
+                          selectInput(
+                            "myyear3",
+                            label = ("Year"),
+                            choices = dd_year3,
+                            selected = "2018"
+                          )
+                        )),
+                        
+                        fluidRow(column(
+                          width = 12,
+                          align = "center",
+                          fluidRow(plotOutput("fig_biplot"))
+                        ))
+                      )),
              tabPanel("About",
                       mainPanel(fluidRow(column(
                           width = 12,
@@ -244,7 +284,60 @@ ui <- fluidPage(
 # server ------------------------------------------------------------------
 
 server <- function(input, output){
+
+
+# biplot ------------------------------------------------------------------
+
+  #######---liq_biplot---##############
   
+  liq_biplot <- reactive({
+    cyd_compM %>%
+      filter(fiscal_year == input$myyear3
+      )
+  })
+  
+  
+  #######---fig_biplot---##############
+  
+  output$fig_biplot <- renderPlot({
+    
+    ggplot(data = liq_biplot(),
+           aes(x = ratM,
+               y = fracM)) +
+      geom_hline(yintercept = 0.5, color = "red") +
+      geom_vline(xintercept = 0, color = "red") +
+      geom_text(x = 0, y = 1, 
+                label = "More Men", 
+                color = malecolor) +
+      geom_text(x = -0, y = 0, 
+                label = "More Women", 
+                color = femalecolor) +
+      geom_text(x = -0.75, y = 0.5, 
+                label = "Women Make More $", 
+                color = femalecolor) +
+      geom_text(x = 0.75, y = 0.5, 
+                label = "Men Make More $", 
+                color = malecolor) +
+      geom_point(size = 3) +
+      scale_x_continuous(limits = c(-1.5, 1.5)) + 
+      scale_y_continuous(limits = c(0, 1)) +
+      labs(
+        x = "Log Ratio of Male Salaries to Female Salaries",
+        y = "Fraction of Faculty That Are Men",
+        title = "Gender and salary equality in selected year") +
+      theme_pubclean() +
+      facet_wrap(~ prof_simp) + 
+      
+      theme(strip.text = element_text(size = rel(1.3), color = "black"),
+            strip.background = element_rect(fill = "white"),
+            axis.title = element_text(size = rel(1.3)),
+            axis.text.x = element_text(size = rel(1.3))) + 
+      theme(plot.title = element_text(face = "bold", size = 12, hjust = 0.5))
+    
+  })
+  
+  
+    
 # gender rep --------------------------------------------------------------
 
 #######---liq_mg---##############
@@ -321,7 +414,7 @@ liq_mg <- reactive({
    
    ggplot(data = liq_rat(),
           aes(x = prof_simp,
-              y = rat)) +
+              y = ratM)) +
      geom_col(aes(fill = id), size = 5) +
      scale_fill_manual(values = c("Males Make More" = malecolor,
                                   "Females Make More" = femalecolor)) +
