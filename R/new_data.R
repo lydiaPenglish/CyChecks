@@ -42,3 +42,18 @@
 #' @source \url{https://db.desmoinesregister.com/state-salaries-for-iowa}
 #' 
 "salaries"
+
+
+#' Department affiliations
+#' 
+#' Provides the link between individuals (by name) and their department 
+#' (by numeric code) from 2012-2019.
+#' 
+#' @format A data.frame with the following columns:
+#' \describe{
+#'   \item{year}{integer, fiscal year}
+#'   \item{NUMERIC CODE}{integer, department code}
+#'   \item{name}{character, last_name first_name}
+#' }
+#' 
+affiliation
