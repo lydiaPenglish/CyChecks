@@ -140,12 +140,15 @@ cyd_saldept_x <-
   tidyr::fill(dept, college, .direction = "downup") %>%             # this is obviously assuming people haven't changed departments...
   dplyr::ungroup()
 
-# v.   ---- Addressing problems post merge: people listed in center, people missing from the directory ----
+# v.   ---- Addressing problems post merge: changed, column, names, people listed in center, people missing from the directory ----
 
 # -- 7 people who are professors in a center, updating their department info 
 #    List of ppl can be found at `~/data-raw/_raw/ctr-faculty-reconciled.csv`
 
 cyd_saldept <- cyd_saldept_x %>%
+  # changing column names
+  dplyr::rename("year"  = "fiscal_year",
+                "title" = "position") %>%
   # Ugh sorry did this manually because there were only 7 instances...
   dplyr::mutate(
     dept = if_else(name == "brown_robert_c", "mechanical eng", dept),
@@ -186,7 +189,7 @@ two_depts <- cyd_saldept_x %>%
 # ^^ seems like art/design becomes a couple of different things....not sure how to fix this. Going to leave the rest for now...
 
 
-# vi  ---- Making cy_simpprof, simplified professor titles -----
+# vi  ---- Making cy_simpprof, simplified professor titles (will delete this eventually, moved to function) -----
 
 awardprof <- c("distg prof", "univ prof", "morrill prof")
 
