@@ -1,0 +1,32 @@
+# Creates these data/
+#   salaries
+
+# See salaries/salaries.R if you want to update the csv
+
+salaries <- readr::read_csv("salaries/salaries.csv",
+                            col_types = readr::cols(
+                              fiscal_year        = col_integer(),
+                              department         = col_character(),
+                              name               = col_character(),
+                              gender             = col_character(),
+                              place_of_residence = col_character(),
+                              position           = col_character(),
+                              base_salary_date   = col_datetime(format = ""),
+                              total_salary_paid  = col_double(),
+                              travel_subsistence = col_double(),
+                              base_salary        = col_character()
+                            )) %>%
+  
+  # Deal with hourly pay and non-numeric characters in base_salary
+  mutate(pay_period = ifelse(is.na(base_salary), NA, "year"),
+         pay_period = ifelse(grepl("HR", base_salary), "hour", pay_period),
+         
+         base_salary = gsub("/HR", "", base_salary),
+         base_salary = gsub(" HR", "", base_salary),
+         base_salary = gsub(",","", base_salary),    # deal with commas, e.g. 99,999.99
+         base_salary = gsub("-","", base_salary),    # deal with dashes, e.g. -0-
+         base_salary = as.numeric(base_salary)) %>%
+  
+  select(-department) # department is "Iowa State University" for everyone
+
+usethis::use_data(salaries, overwrite = TRUE)

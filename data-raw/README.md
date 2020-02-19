@@ -4,10 +4,11 @@ directory.
 
 ## Folders
 
-- _raw/       raw data including department affiliations
-- _tidy/      for intermediate files constructed by scripts
-- _delete/    files to be deleted
-- department/ contains raw department data
+- _raw/        raw data including department affiliations
+- _tidy/       for intermediate files constructed by scripts
+- _delete/     files to be deleted
+- departments/ contains raw department data
+- salaries/    contains raw salary data
 
 ## Files
 
@@ -17,6 +18,9 @@ directory.
 - 03_calc_gender_fracs_by_dept.R ?
 - 03_calc-gender-pcts-by-dept.R  ?
 - 03_run_stats.R                 ?
-- department.R                   constructs department data set
-- run_all.R                      sources all other scripts in the proper order
+
+
+- run_all.R         sources all other scripts in the proper order
+  - departments.R   constructs departments data set
+  - salaries.R      constructs salaries data set               
 
