@@ -30,7 +30,7 @@ A data.frame containing the following columns:
 \item{base_salary_date}{Date}
 \item{total_salary_paid}{numeric, total salary including bonuses and summer salary}
 \item{travel_subsistence}{numeric, payment for travel}
-\item{base_salary}{numeric, base salary}
+\item{base_salary}{character, base salary per year or hour}
 }
 }
 \description{
