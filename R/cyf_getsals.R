@@ -6,12 +6,15 @@
 #' 
 #' Each row contains a person-year. 
 #' 
-#' @param token API token
-#' @param limit max number of entries
-#' @param offset where to start gathering (useful if you need to get the data in batches)
+#' @param token character, API token
+#' @param department character, department name as listed in Des Moines Register database
+#' @param limit integer, max number of entries
+#' @param offset integer, where to start gathering (useful if you need to get the data in batches)
+#' 
 #' @return A data.frame containing the following columns:
 #' \describe{
 #'   \item{fiscal_year}{numeric, fiscal year for this observation}
+#'   \item{department}{character, department name as listed in Des Moines Register database}
 #'   \item{name}{character, individual's name}
 #'   \item{gender}{character, Male, Female, or *}
 #'   \item{position}{character, position}
@@ -24,11 +27,16 @@
 #' @source <https://db.desmoinesregister.com/state-salaries-for-iowa/>
 #' @export
 #' 
-cyf_getsals <- function(token, limit = 200000, offset = 0) {
-  url <- sprintf("https://data.iowa.gov/resource/s3p7-wy6w.json?%s&$limit=%d&$offset=%d&$order=:id&department=Iowa%%20State%%20University", 
+cyf_getsals <- function(token, 
+                        department = "Iowa%20State%20University", 
+                        limit = 200000, 
+                        offset = 0) {
+  
+  url <- sprintf("https://data.iowa.gov/resource/s3p7-wy6w.json?%s&$limit=%d&$offset=%d&$order=:id&department=%s", 
                  token = token, 
                  limit = limit, 
-                 offset = offset)
+                 offset = offset,
+                 department = department)
   
   
   jsonlite::fromJSON(url)

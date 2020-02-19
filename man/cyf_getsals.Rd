@@ -7,19 +7,23 @@
 \url{https://db.desmoinesregister.com/state-salaries-for-iowa/}
 }
 \usage{
-cyf_getsals(token, limit = 2e+05, offset = 0)
+cyf_getsals(token, department = "Iowa\%20State\%20University",
+  limit = 2e+05, offset = 0)
 }
 \arguments{
-\item{token}{API token}
+\item{token}{character, API token}
 
-\item{limit}{max number of entries}
+\item{department}{character, department name as listed in Des Moines Register database}
 
-\item{offset}{where to start gathering (useful if you need to get the data in batches)}
+\item{limit}{integer, max number of entries}
+
+\item{offset}{integer, where to start gathering (useful if you need to get the data in batches)}
 }
 \value{
 A data.frame containing the following columns:
 \describe{
 \item{fiscal_year}{numeric, fiscal year for this observation}
+\item{department}{character, department name as listed in Des Moines Register database}
 \item{name}{character, individual's name}
 \item{gender}{character, Male, Female, or *}
 \item{position}{character, position}
