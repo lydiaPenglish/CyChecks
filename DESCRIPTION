@@ -10,7 +10,11 @@ Authors@R:
       person(given = "Lydia",
              family = "English",
              role = c("aut", "cre"),
-             email = "lenglish@iastate.edu"))
+             email = "lenglish@iastate.edu"),
+      person(given = "Jarad",
+             family = "Niemi",
+             role = c("aut"),
+             email = "niemi@iastate.edu"))
 Description: Provides cleaned and simplified salary data for Iowa State University employees with the word 'professor' in their position title. 
 License: MIT + file LICENSE
 Encoding: UTF-8
@@ -25,4 +29,7 @@ Imports:
     dplyr,
     tidyr,
     ggplot2,
-    jsonlite
+    jsonlite,
+    shiny,
+    digest,
+    assertthat
