@@ -145,7 +145,7 @@ cyd_saldept_x <-
 # -- 7 people who are professors in a center, updating their department info 
 #    List of ppl can be found at `~/data-raw/_raw/ctr-faculty-reconciled.csv`
 
-cyd_saldept_x <- cyd_saldept_x %>%
+cyd_saldept <- cyd_saldept_x %>%
   # Ugh sorry did this manually because there were only 7 instances...
   dplyr::mutate(
     dept = if_else(name == "brown_robert_c", "mechanical eng", dept),
@@ -185,36 +185,8 @@ two_depts <- cyd_saldept_x %>%
   arrange(last_name, first_name, dept)
 # ^^ seems like art/design becomes a couple of different things....not sure how to fix this. Going to leave the rest for now...
 
-# vi.  ---- Anonymizing people ----
 
-# -- function to anonymize
-cy_Anonymize <- function(df, col_to_anon = "name", algo = "crc32"){
-  
-  assertthat::not_empty(df)
-  assertthat::see_if(col_to_anon %in% names(df), msg = "The selected column isn't in the dataframe")
-  assertthat::assert_that(is.data.frame(df),
-                          is.character(algo),
-                          nrow(df) > 0)
-  
-  to_anon <- dplyr::select(df, col_to_anon)
-  
-  ids <- unname(apply(to_anon, 1, digest::digest, algo = algo))
-  
-  df2 <- df %>%
-    dplyr::mutate(id = ids)
-  
-  return(df2)
-}
-
-cyd_saldept <- cy_Anonymize(cyd_saldept_x) %>%
-  # taking all identifying names
-  select(-c(name, last_name, first_name, other))
-
-#looks like it worked and made one for everyone - this should go into the tests eventually...
-unique(cyd_saldept_x$name) %>% length(.)
-unique(cyd_saldept$id) %>% length(.)
-
-# vii  ---- Making cy_simpprof, simplified professor titles -----
+# vi  ---- Making cy_simpprof, simplified professor titles -----
 
 awardprof <- c("distg prof", "univ prof", "morrill prof")
 
