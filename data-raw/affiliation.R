@@ -1,11 +1,13 @@
+library("dplyr") # for %>%
+
 read_affiliation_csv = function(f, into) {
   readr::read_csv(f,
                   col_types = readr::cols(
-                    DEPT1           = col_character(),
-                    ORG_SHORT_NAME  = col_character(),
-                    DEPT_SHORT_NAME = col_character(),
-                    LAST_NAME       = col_character(),
-                    FIRST_NAME      = col_character()
+                    DEPT1           = readr::col_character(),
+                    ORG_SHORT_NAME  = readr::col_character(),
+                    DEPT_SHORT_NAME = readr::col_character(),
+                    LAST_NAME       = readr::col_character(),
+                    FIRST_NAME      = readr::col_character()
                   )) %>%
     dplyr::mutate(file=f) %>%
     tidyr::separate(file, into) 

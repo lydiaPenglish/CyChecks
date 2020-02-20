@@ -28,7 +28,7 @@
 #' 
 #' @format A data.frame with the following columns:
 #' \describe{
-#'   \item{fiscal_year}{integer, fiscal year for this salary}
+#'   \item{year}{integer, fiscal year for this salary}
 #'   \item{name}{character, individual's name}
 #'   \item{gender}{character, [M]ale, [F]emale, or [*]}
 #'   \item{place_of_residence}{character, county}
@@ -44,7 +44,7 @@
 "salaries"
 
 
-#' Department affiliations
+#' Department affiliation
 #' 
 #' Provides the link between individuals (by name) and their department 
 #' (by numeric code) from 2012-2019.

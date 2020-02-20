@@ -3,18 +3,20 @@
 
 # See salaries/salaries.R if you want to update the csv
 
+library("dplyr") # for %>%, should it be mag
+
 salaries <- readr::read_csv("salaries/salaries.csv",
                             col_types = readr::cols(
-                              fiscal_year        = col_integer(),
-                              department         = col_character(),
-                              name               = col_character(),
-                              gender             = col_character(),
-                              place_of_residence = col_character(),
-                              position           = col_character(),
-                              base_salary_date   = col_datetime(format = ""),
-                              total_salary_paid  = col_double(),
-                              travel_subsistence = col_double(),
-                              base_salary        = col_character()
+                              fiscal_year        = readr::col_integer(),
+                              department         = readr::col_character(),
+                              name               = readr::col_character(),
+                              gender             = readr::col_character(),
+                              place_of_residence = readr::col_character(),
+                              position           = readr::col_character(),
+                              base_salary_date   = readr::col_datetime(format = ""),
+                              total_salary_paid  = readr::col_double(),
+                              travel_subsistence = readr::col_double(),
+                              base_salary        = readr::col_character()
                             )) %>%
   
   # Deal with hourly pay and non-numeric characters in base_salary
@@ -26,6 +28,9 @@ salaries <- readr::read_csv("salaries/salaries.csv",
          base_salary = gsub(",","", base_salary),    # deal with commas, e.g. 99,999.99
          base_salary = gsub("-","", base_salary),    # deal with dashes, e.g. -0-
          base_salary = as.numeric(base_salary)) %>%
+  
+  rename(year = fiscal_year,
+         title = position) %>%
   
   select(-department) # department is "Iowa State University" for everyone
 
