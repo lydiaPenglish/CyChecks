@@ -56,4 +56,4 @@
 #'   \item{name}{character, last_name first_name}
 #' }
 #' 
-affiliation
+"affiliation"

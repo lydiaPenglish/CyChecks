@@ -6,7 +6,7 @@
 \title{Salaries}
 \format{A data.frame with the following columns:
 \describe{
-\item{fiscal_year}{integer, fiscal year for this salary}
+\item{year}{integer, fiscal year for this salary}
 \item{name}{character, individual's name}
 \item{gender}{character, \link{M}ale, \link{F}emale, or \link{*}}
 \item{place_of_residence}{character, county}

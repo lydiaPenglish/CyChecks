@@ -7,8 +7,12 @@
 \url{https://db.desmoinesregister.com/state-salaries-for-iowa/}
 }
 \usage{
-cyf_getsals(token, department = "Iowa\%20State\%20University",
-  limit = 2e+05, offset = 0)
+cyf_getsals(
+  token,
+  department = "Iowa\%20State\%20University",
+  limit = 2e+05,
+  offset = 0
+)
 }
 \arguments{
 \item{token}{character, API token}
