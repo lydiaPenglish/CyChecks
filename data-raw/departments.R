@@ -35,8 +35,8 @@ usethis::use_data(departments, overwrite = TRUE)
 # department_rename
 department_rename <- readr::read_csv("departments/department_rename.csv",
                                      col_types = readr::cols(
-                                       old_name = col_character(),
-                                       current_name = col_character()
+                                       old_name = readr::col_character(),
+                                       current_name = readr::col_character()
                                      ))
 
 usethis::use_data(department_rename, overwrite = TRUE)

@@ -20,18 +20,20 @@ salaries <- readr::read_csv("salaries/salaries.csv",
                             )) %>%
   
   # Deal with hourly pay and non-numeric characters in base_salary
-  mutate(pay_period = ifelse(is.na(base_salary), NA, "year"),
-         pay_period = ifelse(grepl("HR", base_salary), "hour", pay_period),
-         
-         base_salary = gsub("/HR", "", base_salary),
-         base_salary = gsub(" HR", "", base_salary),
-         base_salary = gsub(",","", base_salary),    # deal with commas, e.g. 99,999.99
-         base_salary = gsub("-","", base_salary),    # deal with dashes, e.g. -0-
-         base_salary = as.numeric(base_salary)) %>%
+  dplyr::mutate(
+    pay_period = ifelse(is.na(base_salary), NA, "year"),
+    pay_period = ifelse(grepl("HR", base_salary), "hour", pay_period),
+    
+    base_salary = gsub("/HR", "", base_salary),
+    base_salary = gsub(" HR", "", base_salary),
+    base_salary = gsub(",","", base_salary),    # deal with commas, e.g. 99,999.99
+    base_salary = gsub("-","", base_salary),    # deal with dashes, e.g. -0-
+    base_salary = as.numeric(base_salary)) %>%
   
-  rename(year = fiscal_year,
-         title = position) %>%
+  dplyr::rename(
+    year = fiscal_year,
+    title = position) %>%
   
-  select(-department) # department is "Iowa State University" for everyone
+  dplyr::select(-department) # department is "Iowa State University" for everyone
 
 usethis::use_data(salaries, overwrite = TRUE)
