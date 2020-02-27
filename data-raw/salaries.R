@@ -28,7 +28,9 @@ salaries <- readr::read_csv("salaries/salaries.csv",
     base_salary = gsub(" HR", "", base_salary),
     base_salary = gsub(",","", base_salary),    # deal with commas, e.g. 99,999.99
     base_salary = gsub("-","", base_salary),    # deal with dashes, e.g. -0-
-    base_salary = as.numeric(base_salary)) %>%
+    base_salary = as.numeric(base_salary),
+    
+    name = gsub(",", "", name)) %>% # names in 2017 and later have commas between last name and first name
   
   dplyr::rename(
     year = fiscal_year,
