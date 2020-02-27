@@ -23,15 +23,31 @@ read_affiliation_dir = function(path, pattern, into) {
 
 ##############################################################################
 
+middle_names <- readr::read_delim("affiliation/middle_names.txt",
+                                  delim = "\t",
+                                col_types = readr::cols(
+                                  DEPT1           = readr::col_character(),
+                                  ORG_SHORT_NAME  = readr::col_character(),
+                                  DEPT_SHORT_NAME = readr::col_character(),
+                                  LAST_NAME       = readr::col_character(),
+                                  FIRST_NAME      = readr::col_character(),
+                                  MID_NAME        = readr::col_character()
+                                ))
+
+
+
 affiliation <- read_affiliation_dir("affiliation/",
                                     pattern = "*csv",
                                     into = c("affiliation",
                                              "year","month","day",
                                              "extension")) %>%
   
+  left_join(middle_names, by = c("DEPT1", "ORG_SHORT_NAME", "DEPT_SHORT_NAME", 
+                                 "LAST_NAME", "FIRST_NAME")) %>%
+  
   dplyr::rename(`NUMERIC CODE` = DEPT1) %>% # To match departments data.frame
   
-  dplyr::mutate(name           = paste(LAST_NAME, FIRST_NAME), # To match salaries data.frame
+  dplyr::mutate(name           = paste(LAST_NAME, FIRST_NAME, MID_NAME), # To match salaries data.frame
                 year           = as.integer(year),
                 `NUMERIC CODE` = as.integer(`NUMERIC CODE`)) %>% 
   
