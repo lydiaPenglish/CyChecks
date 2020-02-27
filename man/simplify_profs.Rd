@@ -2,21 +2,26 @@
 % Please edit documentation in R/simplify_profs.R
 \name{simplify_profs}
 \alias{simplify_profs}
-\title{Simplify professor titles}
+\title{Simplify professor titles for easy interpretation}
 \usage{
-simplify_profs(data = cyd_saldept)
+simplify_profs(data = data)
 }
 \arguments{
-\item{data}{A dataframe that can be simplified.}
+\item{data}{A dataframe with professor titles.}
 }
 \value{
 A dataframe without adjunct, affiliation, emeritus, visiting, collaborating or department chairs,
-as their salaries tend to be weird.
+as their salaries tend to be weird, and a new column named \code{prof_simp} that has simplified names, see below.
 }
 \description{
-Simplify professor titles
+Simplify professor titles for easy interpretation
+}
+\details{
+This function filters all titles to only include \code{PROF}, \verb{ASSOC PROF}, and \verb{ASST PROF}, and creates
+a new category called \verb{AWARDED PROF} which includes distinguished, morrill or university professors.
 }
 \examples{
-
+data(salaries)
+simplify_profs(data = salaries)
 
 }
