@@ -45,12 +45,11 @@ affiliation <- read_affiliation_dir("affiliation/",
   left_join(middle_names, by = c("DEPT1", "ORG_SHORT_NAME", "DEPT_SHORT_NAME", 
                                  "LAST_NAME", "FIRST_NAME")) %>%
   
-  dplyr::rename(`NUMERIC CODE` = DEPT1) %>% # To match departments data.frame
+  # dplyr::rename(`NUMERIC CODE` = DEPT1) %>% # To match departments data.frame, except that it doesn't
   
   dplyr::mutate(name           = paste(LAST_NAME, FIRST_NAME, MID_NAME), # To match salaries data.frame
-                year           = as.integer(year),
-                `NUMERIC CODE` = as.integer(`NUMERIC CODE`)) %>% 
+                year           = as.integer(year)) %>% 
   
-  select(year, `NUMERIC CODE`, name)
+  select(year, name, DEPT1, ORG_SHORT_NAME, DEPT_SHORT_NAME)
 
 usethis::use_data(affiliation, overwrite = TRUE)
