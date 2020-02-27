@@ -47,8 +47,9 @@ affiliation <- read_affiliation_dir("affiliation/",
   
   # dplyr::rename(`NUMERIC CODE` = DEPT1) %>% # To match departments data.frame, except that it doesn't
   
-  dplyr::mutate(name           = paste(LAST_NAME, FIRST_NAME, MID_NAME), # To match salaries data.frame
-                year           = as.integer(year)) %>% 
+  dplyr::mutate(name = paste(LAST_NAME, FIRST_NAME), # To match salaries data.frame
+                name = ifelse(is.na(MID_NAME), name, paste(name, MID_NAME)),     
+                year = as.integer(year)) %>% 
   
   select(year, name, DEPT1, ORG_SHORT_NAME, DEPT_SHORT_NAME)
 
