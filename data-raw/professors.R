@@ -1,6 +1,9 @@
 # Merge salaries and affiliations based on a key constructed from the 
 # last_name first_name middle_initial
 # 
+
+library("dplyr") # for %>%
+
 key_from_name <- function(x) {
   tolower(sub("^(\\S*\\s+\\S+\\s+\\S+).*", "\\1", x)) # keep up to 3rd space
 }
