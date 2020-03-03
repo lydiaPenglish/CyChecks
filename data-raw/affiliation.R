@@ -34,6 +34,8 @@ middle_names <- readr::read_delim("affiliation/middle_names.txt",
                                   MID_NAME        = readr::col_character()
                                 ))
 
+# LPE: proof of concept that csv works but txt file doesn't
+middle_names_csv <- readr::read_csv("mid_names/middle_names.csv")
 
 
 affiliation <- read_affiliation_dir("affiliation/",
@@ -42,11 +44,14 @@ affiliation <- read_affiliation_dir("affiliation/",
                                              "year","month","day",
                                              "extension")) %>%
   
-  left_join(middle_names, by = c("DEPT1", "ORG_SHORT_NAME", "DEPT_SHORT_NAME", 
+  # left_join(middle_names, by = c("DEPT1", "ORG_SHORT_NAME", "DEPT_SHORT_NAME", 
+  #                                    "LAST_NAME", "FIRST_NAME")) %>%
+  
+  # LPE: if we join with the csv file then middle names are not NA values
+  left_join(middle_names_csv, by = c("DEPT1", "ORG_SHORT_NAME", "DEPT_SHORT_NAME", 
                                  "LAST_NAME", "FIRST_NAME")) %>%
   
-  # LPE: It looks like all MID_NAMES are NA's after the join. Why is that? 
-  
+   
   # dplyr::rename(`NUMERIC CODE` = DEPT1) %>% # To match departments data.frame, except that it doesn't
   
   dplyr::mutate(name = paste(LAST_NAME, FIRST_NAME), # To match salaries data.frame
