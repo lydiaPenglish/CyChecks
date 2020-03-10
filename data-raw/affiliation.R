@@ -3,7 +3,7 @@ library("dplyr") # for %>%
 read_affiliation_csv = function(f, into) {
   readr::read_csv(f,
                   col_types = readr::cols(
-                    DEPT1           = readr::col_character(),
+                    DEPT1           = readr::col_integer(),
                     ORG_SHORT_NAME  = readr::col_character(),
                     DEPT_SHORT_NAME = readr::col_character(),
                     LAST_NAME       = readr::col_character(),
@@ -26,7 +26,7 @@ read_affiliation_dir = function(path, pattern, into) {
 middle_names <- readr::read_delim("affiliation/middle_names.txt",
                                   delim = "\t",
                                 col_types = readr::cols(
-                                  DEPT1           = readr::col_character(),
+                                  DEPT1           = readr::col_integer(),
                                   ORG_SHORT_NAME  = readr::col_character(),
                                   DEPT_SHORT_NAME = readr::col_character(),
                                   LAST_NAME       = readr::col_character(),
@@ -34,7 +34,8 @@ middle_names <- readr::read_delim("affiliation/middle_names.txt",
                                   MID_NAME        = readr::col_character()
                                 )) %>%
   as.data.frame(.) %>%                      # LE - not sure this helps, but it doesn't hurt!
-  mutate_all(~stringr::str_trim(.))         # LE - this seemed to be the issue. Got rid of white space
+  mutate_if(is.character, ~stringr::str_trim(.))         
+                                            # LE - this seemed to be the issue. Got rid of white space
 
 
 affiliation <- read_affiliation_dir("affiliation/",
