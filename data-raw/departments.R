@@ -7,7 +7,7 @@ if (!require(readr))
   stop("Install `readr` package.")
 
 departments <- readr::read_csv("departments/dept_title.csv", 
-                               skip = 3, n_max =261,
+                               skip = 3, #n_max =261,        # LE - Why are we not reading all the depts?
                                
                                col_types = readr::cols(
                                  `NUMERIC CODE`             = readr::col_integer(),
@@ -18,7 +18,10 @@ departments <- readr::read_csv("departments/dept_title.csv",
                                  PHONE                      = readr::col_character(),
                                  `RMM RESOURCE UNIT NUMBER` = readr::col_integer(),
                                  `PARENT DEPT NUMBER`       = readr::col_integer()
-                               ))
+                               )) %>%
+  # LE I want to rename these columns so they are the same as affiliation.rda
+  dplyr::rename(DEPT1 = `NUMERIC CODE`,
+                DEPT_SHORT_NAME = `DIRECTORY NAME`)
 
 # There doesn't seem to be anything wrong, but I get the following warning for 
 # the EOADV (30145)
