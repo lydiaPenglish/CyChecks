@@ -53,6 +53,8 @@ affiliation <- read_affiliation_dir("affiliation/",
                 name = ifelse(is.na(MID_NAME), name, paste(name, MID_NAME)),     
                 year = as.integer(year)) %>% 
   
-  select(year, name, DEPT1, ORG_SHORT_NAME, DEPT_SHORT_NAME)
+  select(year, name, DEPT1, ORG_SHORT_NAME, DEPT_SHORT_NAME) %>%
+  # LE trimming name to 20 characters to match salary data...
+  dplyr::mutate(name = stringr::str_trunc(name, 20, ellipsis = ""))
 
 usethis::use_data(affiliation, overwrite = TRUE)
