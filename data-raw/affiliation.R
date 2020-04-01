@@ -57,6 +57,6 @@ affiliation <- read_affiliation_dir("affiliation/",
   # LE trimming name to 20 characters to match salary data...
   dplyr::mutate(name = stringr::str_trunc(name, 20, ellipsis = "")) %>%
   # removing periods/punctuation from names
-  dplyr::mutate(name = stringr::str_remove_all(name, "[[:punct:]]"))
+  dplyr::mutate(name = stringr::str_remove_all(name, "\\."))
 
 usethis::use_data(affiliation, overwrite = TRUE)

@@ -30,7 +30,8 @@ salaries <- readr::read_csv("salaries/salaries.csv",
     base_salary = gsub("-","", base_salary),    # deal with dashes, e.g. -0-
     base_salary = as.numeric(base_salary),
     
-    name = gsub(",", "", name)) %>% # names in 2017 and later have commas between last name and first name
+    name = gsub(",", "", name), # names in 2017 and later have commas between last name and first name
+    name = stringr::str_remove_all(name, "JR")) %>% # got rid of "JR" because it's not in affiliation
   
   dplyr::rename(
     year = fiscal_year,
