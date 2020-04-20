@@ -67,6 +67,36 @@ unkns %>%
 
 # 657 people don't still don't have a department...??!?
 
+#--how many of them are actual professors?
+unkns %>% 
+  ungroup() %>% 
+  filter(!grepl("emer", title),
+         !grepl("vstg", title),
+         !grepl("res", title),
+         !grepl("adj", title),
+         !grepl("affil", title),
+         !grepl("collab", title),
+         !grepl("clin", title)) %>% 
+  select(title) %>% 
+  distinct(title)
+
+
+
+#--how many of them are actual professors?
+unkns %>% 
+  ungroup() %>% 
+  filter(!grepl("emer", title),
+         !grepl("vstg", title),
+         !grepl("res", title),
+         !grepl("adj", title),
+         !grepl("affil", title),
+         !grepl("collab", title),
+         !grepl("clin", title)) %>% 
+  select(name, title)
+
+unkns %>% 
+  select(name, title)
+
 # Ok it seems like an issue is that some people still don't have middle names so we should make a 
 # function that does a partial join...?
 
