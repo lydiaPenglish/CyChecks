@@ -22,13 +22,9 @@ sal_profs <-
 
   mutate(key = key_from_name(name))  %>% 
   # GN I know this is ugly but it works
-  filter(!grepl("emer", title),
-         !grepl("vstg", title),
-         !grepl("res", title),
-         !grepl("adj", title),
-         !grepl("affil", title),
-         !grepl("collab", title),
-         !grepl("clin", title)) 
+  filter(!grepl("emer|vstg|res|adj|affil|collab|clin", title)) 
+
+
 
 # do we have only what we want?
 sal_profs %>% 
@@ -46,6 +42,35 @@ professors <-
             by = c("key","year")) %>% 
   select(year, key, gender, place_of_residence, title, base_salary, total_salary_paid, everything())
 
+
+#--what does the distribution look like over years?
+professors %>% 
+  filter(year > 2011) %>% 
+  group_by(year, DEPT1, ORG_SHORT_NAME, DEPT_SHORT_NAME) %>% 
+  summarise(n = n()) %>% 
+  filter(!is.na(DEPT1)) %>% 
+  ggplot(aes(n)) + 
+  geom_freqpoly(aes(color = as.factor(year)), binwidth = 1)
+
+#--about the same - picking one year should be fine
+
+professors %>% 
+  filter(year == 2019) %>% 
+  group_by(year, DEPT1, ORG_SHORT_NAME, DEPT_SHORT_NAME) %>% 
+  summarise(n = n()) %>% 
+  filter(!is.na(DEPT1))  %>% 
+  arrange(-n)
+#--picking only depts w/5 or more would eliminate some problems, but we'd still have ~60. 
+#--I'm ok keeping ones w/5 or more. 
+  
+#--I think there are ORGs we could eliminate too (LIBRARY?)
+professors %>% 
+  filter(year == 2019) %>% 
+  group_by(ORG_SHORT_NAME) %>% 
+  summarise(n = n()) %>%  
+  arrange(-n)
+
+a %>% 
 # Check to make sure professors are unique
 tmp <- professors %>%
   group_by(year,key,name, total_salary_paid) %>%
