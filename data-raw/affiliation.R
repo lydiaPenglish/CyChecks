@@ -57,6 +57,8 @@ affiliation <- read_affiliation_dir("affiliation/",
   # LE trimming name to 20 characters to match salary data...
   dplyr::mutate(name = stringr::str_trunc(name, 20, ellipsis = "")) %>%
   # removing periods/punctuation from names
-  dplyr::mutate(name = stringr::str_remove_all(name, "\\."))
+  dplyr::mutate(name = stringr::str_remove_all(name, "\\.")) %>% 
+  # Getting rid of David Peterson in DEPT1 12170, which is probably a typo as it has no dept assigned
+  dplyr::filter(!(stringr::str_detect("Peterson David", name) & DEPT1 == 12170))
 
 usethis::use_data(affiliation, overwrite = TRUE)
