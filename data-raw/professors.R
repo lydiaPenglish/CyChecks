@@ -40,6 +40,21 @@ professors <-
             by = c("key","year")) %>% 
   select(year, key, gender, place_of_residence, title, base_salary, total_salary_paid, everything())
 
+################ NOTE
+#--a lot of people are just missing DEPT info for one year - we have info for other years. 
+#--ex mcnicholl timothy
+professors %>% 
+  filter(key == "mcnicholl timothy") %>% 
+  select(key, DEPT1)
+
+# Could we do a group_by and fill at some point in this?
+professors %>% 
+  group_by(key, gender, place_of_residence, title) %>% 
+  tidyr::fill(DEPT1, .direction = c("updown")) %>% 
+  filter(key == "mcnicholl timothy") %>% 
+  select(key, DEPT1)
+
+#####################
 
 #--what does the distribution look like over years?
 professors %>% 
