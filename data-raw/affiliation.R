@@ -59,6 +59,10 @@ affiliation <- read_affiliation_dir("affiliation/",
   # removing periods/punctuation from names
   dplyr::mutate(name = stringr::str_remove_all(name, "\\.")) %>% 
   # Getting rid of David Peterson in DEPT1 12170, which is probably a typo as it has no dept assigned
-  dplyr::filter(!(stringr::str_detect("Peterson David", name) & DEPT1 == 12170))
-
+  dplyr::filter(!(stringr::str_detect("Peterson David", name) & DEPT1 == 12170)) %>% 
+  # Dept 7090 existed 2013-2015 and has no DEPT_SHORT_NAME
+  # The people associated w/7090 all transitioned to 7040 in 2016, which is ART/VISUAL CULT
+  # This assigns the name from 7040 to 7090
+  dplyr::mutate(DEPT_SHORT_NAME = ifelse(DEPT1 == 7090, "ART/VISUAL CULT", DEPT_SHORT_NAME))
+    
 usethis::use_data(affiliation, overwrite = TRUE)
