@@ -4,6 +4,7 @@
 library("dplyr") # for %>%
 library("ggplot2")
 
+# form: last first middle
 key_from_name <- function(x) {
   tolower(sub("^(\\S*\\s+\\S+\\s+\\S+).*", "\\1", x)) # keep up to 3rd space
 }
@@ -11,6 +12,12 @@ key_from_name <- function(x) {
 load("../data/affiliation.rda")
 load("../data/departments.rda")
 load("../data/salaries.rda")
+
+############### sick of doing this manually every time
+affiliation <- affiliation  %>%
+  mutate(key = key_from_name(name)) %>% 
+  select(-name)
+#######################
 
 sal_profs <- 
   salaries %>%
@@ -34,9 +41,7 @@ sal_profs %>%
 # try joining based on key
 professors <- 
   sal_profs %>% 
-  left_join(affiliation  %>%
-              mutate(key = key_from_name(name)) %>% 
-              select(-name),
+  left_join(affiliation,
             by = c("key","year")) %>% 
   select(year, key, gender, place_of_residence, title, base_salary, total_salary_paid, everything())
 
@@ -55,36 +60,6 @@ professors %>%
   select(key, DEPT1)
 
 #####################
-
-#--what does the distribution look like over years?
-professors %>% 
-  filter(year > 2011) %>% 
-  group_by(year, DEPT1, ORG_SHORT_NAME, DEPT_SHORT_NAME) %>% 
-  summarise(n = n()) %>% 
-  filter(!is.na(DEPT1)) %>% 
-  ggplot(aes(n)) + 
-  geom_freqpoly(aes(color = as.factor(year)), binwidth = 1)
-
-#--about the same - picking one year should be fine
-
-professors %>% 
-  filter(year == 2019) %>% 
-  group_by(year, DEPT1, ORG_SHORT_NAME, DEPT_SHORT_NAME) %>% 
-  summarise(n = n()) %>% 
-  filter(!is.na(DEPT1))  %>% 
-  arrange(-n)
-#--picking only depts w/5 or more would eliminate some problems, but we'd still have ~60. 
-#--I'm ok keeping ones w/5 or more. 
-
-# LE - I think we should make the cutoff higher (like 15 - 20), so that we will likely
-# have representation from both genders. 
-  
-#--I think there are ORGs we could eliminate too (LIBRARY?)
-professors %>% 
-  filter(year == 2019) %>% 
-  group_by(ORG_SHORT_NAME) %>% 
-  summarise(n = n()) %>%  
-  arrange(-n)
 
 
 # LE - OK! so step 1 is picking a cutoff threshold for number of profs and 
@@ -125,10 +100,26 @@ tmp %>%
   filter(n > 1) %>% 
   left_join(professors) %>% 
   select(year, key, name, total_salary_paid, DEPT1, DEPT_SHORT_NAME)
-# ^ LE - This doesn't solve the issue actually, we end up with duplicate salaries for
-# ppl like David Peterson
 
-# ii. Professors in affiliation who don't have a department
+#--this seems like a list of people where in the affiliation there are at least two people with that name?
+
+dupes <- tmp %>%
+  filter(n > 1) %>% 
+  left_join(professors) %>% 
+  select(key) %>%
+  distinct() %>% 
+  pull()
+
+#--No idea how to fix this one. 
+affiliation %>% 
+  filter(key == dupes[2])
+
+sal_profs %>% 
+  filter(key == dupes[2]) %>% 
+  select(year, key, gender, title, total_salary_paid)
+
+
+# ii. Professors in affiliation who don't have a department FIXED! GN 4/26
 
 no_depts <-
   affiliation %>%
@@ -140,11 +131,27 @@ no_depts <-
 # join no_depts with sal_profs - i.e. how many profs have no dept listed
 unkn_profs <- inner_join(no_depts, sal_profs, by = c("year", "key")) 
 
-distinct(unkn_profs, key) # ok, if I did this right then there are only 6 "profs" who are
+no_depts_list <- distinct(unkn_profs, key) %>% pull() # ok, if I did this right then there are only 6 "profs" who are
 # in the affiliation dataframe but have `NA` as their department.
+no_depts_list
 # This is good! We have to be careful here though - David Peterson
 # is on this list  and we already know he's a duplicate and that
 # he is listed in POL SCI as a prof
+# GN- I filtered out the 'typo' dept in the affilition code to get rid of the wrog David Peterson
+# GN - I assigned DEPT1 7090 to be "ART/VISUAL CULT" in affiliation data. See note in that code.
+
+#--Prashant Jha
+affiliation %>%   
+  mutate(key = key_from_name(name)) %>% 
+  filter(grepl("prashant", key)) %>% 
+  select(name, key)
+
+# He is in the salary database. 
+sal_profs %>% 
+  filter(grepl("jha prashant", key)) %>% 
+  select(name, key)
+# He might be missing from affiliation bc of his hire date. 
+
 
 # iii. How many people have been merged unsuccesfully?
 
@@ -183,4 +190,24 @@ still_unknown <-
 # ^ seems like these people are actually absent from affiliation, but perhaps they are new like 
 # Prashant Jha...or they were just never listed...
 
+#--how many seem to be a middle name merge problem?
+# 1783. 
+# let me investigate fuzzy joining them in professors_test_merge2
+# GN UPDATE: I think we can do a fuzzy join using for each to do it on multiple cores. 
+# let me play with it, but the fuzzy join using regex seems to work?
+unkns %>% 
+  select(-(DEPT1:DEPT_SHORT_NAME)) %>% 
+  tidyr::separate(name, into = c("last", "first", "middle")) %>% 
+  mutate(name = paste(last, first, sep = " "),
+         key = key_from_name(name)) %>%
+  select(-name, -middle, -last, -first) %>%
+  left_join(affiliation2,
+            by = c("key","year")) %>% 
+  select(year, key, DEPT_SHORT_NAME)
+
+
+# ackerman, ralph
+professors %>% 
+  filter(grepl("ackerman", key)) %>% 
+  select(year, key)
 # usethis::use_data(professors, overwrite = TRUE)
