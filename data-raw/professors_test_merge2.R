@@ -27,32 +27,32 @@ sal_profs <-
   filter(!grepl("emer|vstg|res|adj|affil|collab|clin", title),
          year > 2011)                                 # LE - let's just focus on where we have directory data from 
 
-
-
+profs_affil  <- 
+  affiliation %>%
+  mutate(key = key_from_name(name)) %>% 
+  select(-name)
 
 # example of problem merge ------------------------------------------------
 
-#--ugh I need to find a good example
+ralph <- 
+  sal_profs %>% 
+  filter(key == "ackerman ralph a") %>% 
+  select(year, name, key) 
 
+ralph
+
+#--mostly, affiliations will be missing a middle 'name'
+ralph_aff <- 
+  profs_affil %>% 
+  filter(grepl("ackerman ralph", key)) %>% 
+  mutate(key_regex = paste0(key, "*")) %>% 
+  select(year, DEPT1, DEPT_SHORT_NAME, key_regex)
+
+ralph_aff  
 
 # try fuzzy join? ---------------------------------------------------------
 
-library(dplyr)
-library(fuzzyjoin)
-library(ggplot2)
-data(diamonds)
+ralph %>% 
+  regex_left_join(ralph_aff, by = c(key = "key_regex", year = "year"))
 
-d <- tibble(approximate_name = c("Idea", "Premiums", "Premioom",
-                                 "VeryGood", "VeryGood", "Faiir"),
-            type = 1:6)
 
-# no matches when they are inner-joined:
-diamonds %>%
-  inner_join(d, by = c(cut = "approximate_name"))
-
-# but we can match when they're fuzzy joined
-diamonds %>%
-  stringdist_inner_join(d, by = c(cut = "approximate_name"))
-
-affil_tim %>% 
-  stringdist_left_join(sal_tim, by = c(key = "key"))
