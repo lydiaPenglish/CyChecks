@@ -3,6 +3,7 @@
 
 library("dplyr") # for %>%
 library("ggplot2")
+library(fuzzyjoin) #--what's the difference betweeen loading w/quotes?
 
 key_from_name <- function(x) {
   tolower(sub("^(\\S*\\s+\\S+\\s+\\S+).*", "\\1", x)) # keep up to 3rd space

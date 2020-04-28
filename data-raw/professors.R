@@ -13,6 +13,7 @@ load("../data/affiliation.rda")
 load("../data/departments.rda")
 load("../data/salaries.rda")
 
+
 ############### sick of doing this manually every time
 affiliation <- affiliation  %>%
   mutate(key = key_from_name(name)) %>% 
@@ -124,9 +125,7 @@ sal_profs %>%
 no_depts <-
   affiliation %>%
   filter(is.na(DEPT_SHORT_NAME)) %>%
-  mutate(key = key_from_name(name)) %>%
-  mutate(key = stringr::str_trim(key)) %>%
-  select(-name)
+  mutate(key = stringr::str_trim(key))
 
 # join no_depts with sal_profs - i.e. how many profs have no dept listed
 unkn_profs <- inner_join(no_depts, sal_profs, by = c("year", "key")) 
