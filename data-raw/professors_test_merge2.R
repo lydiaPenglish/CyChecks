@@ -42,11 +42,15 @@ sal_profs <-
   filter(!grepl("emer|vstg|res|adj|affil|collab|clin", title),
          year > 2011)                                 # LE - let's just focus on where we have directory data from 
 
+# getting rid of endings that distinguish college
+patterns <- c("-AGLS|-LAS|-HSCI|-A|-E")
+
 profs_affil  <- 
   affiliation %>%
   mutate(key = key_from_name(name),
     # same here, second key without hyphens     
-         key2 = stringr::str_replace_all(key, "-", " ")) %>% 
+         key2 = stringr::str_replace_all(key, "-", " "),
+         DEPT_SHORT_NAME = stringr::str_remove_all(DEPT_SHORT_NAME, patterns)) %>% 
   select(-name)
 
 # trying with top 4 departments  ------------------------------------------
@@ -90,7 +94,65 @@ fj_joins %>%                              # we get two more people from the fuzz
 
 # numbers are still off by 1 sometimes (and 3 extra in MECH ENG?, oh well)
 
+# any duplicates?
+tmp <- fj_joins %>%
+  group_by(year.x,key2, total_salary_paid) %>%
+  summarize(n = n()) %>%
+  ungroup()
+
+tmp  %>%
+  summarize(maxn = max(n)) # 1! good! 
+
 # LE- I say we progress onwards with fuzzy join! 
+
+# going to try with even MORE departments... ----------------------------------
+
+#Codes for depts
+top_10_depts <- dept_nums %>%          # it's actually 11...
+  arrange(-TOTAL) %>%
+  top_n(10) %>%              
+  select(DEPT_SHORT_NAME) %>%
+  unlist() %>% unname()
+
+# filter profs affiliation for these depts and make ready for join
+top10_dept_affs <- 
+  profs_affil  %>%
+  filter(DEPT_SHORT_NAME %in% top_10_depts) %>%
+  mutate(key_regex = paste0(key2, "*")) %>%
+  select(-key, -key2)
+
+# join 'em!
+top10_fj <- 
+  regex_left_join(sal_profs, top10_dept_affs, by = c(key2 = "key_regex", year = "year"))
+
+# get rid of everyone else...
+top10_joins <- top10_fj %>% filter(!(is.na(DEPT_SHORT_NAME)))
+
+top10_joins %>%                              # we get two more people from the fuzzy join, worth it!
+  group_by(year.x, DEPT_SHORT_NAME) %>%
+  tally() %>%
+  filter(year.x == 2019) %>%
+  arrange(-n) %>%
+  left_join(dept_nums)
+# most of our numbers are over...we are missing 3 in school of ed. Idk i think it's ok
+
+# checking for dupes
+tmp <- top10_joins %>%
+  group_by(year.x, key , total_salary_paid) %>%
+  summarize(n = n()) %>%
+  ungroup()
+
+tmp  %>%
+  summarize(maxn = max(n)) # Uh, oh....
+
+tmp %>%
+  filter(n == 2)
+
+# hmm Marc Anderson is a prof in MANAGEMENT and shouldn't have been chosen so this isn't great...
+# somehow Mary Anderson and E anderson are getting linked to him...
+
+# LE - I will come back to this
+
 
 # example of problem merge ------------------------------------------------
 
