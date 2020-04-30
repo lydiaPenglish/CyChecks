@@ -47,7 +47,9 @@ patterns <- c("-AGLS|-LAS|-HSCI|-A|-E")
 
 profs_affil  <- 
   affiliation %>%
-  mutate(key = key_from_name(name),
+  # I'm going to mannually recode this E. Walter Anderson, who is a problem in the fuzzy join
+  mutate(name = recode(name, "Anderson E" = "Anderson E Walter"),
+         key = key_from_name(name),
     # same here, second key without hyphens     
          key2 = stringr::str_replace_all(key, "-", " "),
          DEPT_SHORT_NAME = stringr::str_remove_all(DEPT_SHORT_NAME, patterns)) %>% 
@@ -118,17 +120,14 @@ top_10_depts <- dept_nums %>%          # it's actually 11...
 top10_dept_affs <- 
   profs_affil  %>%
   filter(DEPT_SHORT_NAME %in% top_10_depts) %>%
-  mutate(key_regex = paste0(key2, "*")) %>%
+  mutate(key_regex = paste0("^", key2, "*")) %>%
   select(-key, -key2)
 
-# join 'em!
+# join 'em! - use inner join!
 top10_fj <- 
-  regex_left_join(sal_profs, top10_dept_affs, by = c(key2 = "key_regex", year = "year"))
+  regex_inner_join(sal_profs, top10_dept_affs, by = c(key2 = "key_regex", year = "year"))
 
-# get rid of everyone else...
-top10_joins <- top10_fj %>% filter(!(is.na(DEPT_SHORT_NAME)))
-
-top10_joins %>%                              # we get two more people from the fuzzy join, worth it!
+top10_fj %>%                              
   group_by(year.x, DEPT_SHORT_NAME) %>%
   tally() %>%
   filter(year.x == 2019) %>%
@@ -137,7 +136,7 @@ top10_joins %>%                              # we get two more people from the f
 # most of our numbers are over...we are missing 3 in school of ed. Idk i think it's ok
 
 # checking for dupes
-tmp <- top10_joins %>%
+tmp <- top10_fj %>%
   group_by(year.x, key , total_salary_paid) %>%
   summarize(n = n()) %>%
   ungroup()
@@ -148,10 +147,19 @@ tmp  %>%
 tmp %>%
   filter(n == 2)
 
-# hmm Marc Anderson is a prof in MANAGEMENT and shouldn't have been chosen so this isn't great...
-# somehow Mary Anderson and E anderson are getting linked to him...
+# Current issues:
+# David Zimmerman L is also getting matched with David Zimmerman C....which is weird
+#     We just want David Zimmerman L who is an assoc prof in ENG, DCZ is not a prof but in Agronomy
+# The correct Hongwei Zhang should be in Electrical Enginering, NOT AGRONOMY, that person is a postdoc (this is a duplicate name)
+# Jianming Yu is also being joined with Jie Yu...so that's a problem with the join
+# Zhao Zhang is joined with Zhan Zhang in one year....that's a problem with the join
 
-# LE - I will come back to this
+
+# So in general we need fuzzy join to be a little more exact. I wonder if we should just go through 
+# duplicates by hand and fix them...?
+
+# or we could do something like "^lastname firstname$ middleinitial*" to show that last and firstname
+# are exact strings...
 
 
 # example of problem merge ------------------------------------------------
