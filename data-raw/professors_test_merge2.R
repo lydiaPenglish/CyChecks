@@ -1,6 +1,8 @@
 # Merge salaries and affiliations based on a key constructed from the 
 # last_name first_name middle_initial
 
+# I changed things so this just worked in the project directory
+
 library("dplyr") # for %>%
 library("ggplot2")
 library(fuzzyjoin) #--what's the difference betweeen loading w/quotes?
@@ -9,12 +11,12 @@ key_from_name <- function(x) {
   tolower(sub("^(\\S*\\s+\\S+\\s+\\S+).*", "\\1", x)) # keep up to 3rd space
 }
 
-load("../data/affiliation.rda")
-load("../data/departments.rda")
-load("../data/salaries.rda")
+data("affiliation")
+data("departments")
+data("salaries")
 
 # LE - going to try fuzzy join on 4 largest departments
-dept_nums <- readr::read_csv("departments/department_numbers.csv")
+dept_nums <- readr::read_csv("data-raw/departments/department_numbers.csv")
   
 top_depts <- dept_nums %>%
   arrange(-TOTAL) %>%
@@ -84,20 +86,18 @@ dept_affs_FJ <-
   select(-key, -key2)
 
 test_fj <- 
-  regex_left_join(sal_profs, dept_affs_FJ, by = c(key2 = "key_regex", year = "year"))
+  regex_inner_join(sal_profs, dept_affs_FJ, by = c(key2 = "key_regex", year = "year"))
 
-# get rid of everyone who didn't join
-fj_joins <- test_fj %>% filter(!(is.na(DEPT_SHORT_NAME)))
-
-fj_joins %>%                              # we get two more people from the fuzzy join, worth it!
+test_fj %>%                              # we get two more people from the fuzzy join, worth it!
   group_by(year.x, DEPT_SHORT_NAME) %>%
   tally() %>%
-  filter(year.x == 2019)
+  filter(year.x == 2019) %>%
+  left_join(dept_nums, by = "DEPT_SHORT_NAME")
 
 # numbers are still off by 1 sometimes (and 3 extra in MECH ENG?, oh well)
 
 # any duplicates?
-tmp <- fj_joins %>%
+tmp <- test_fj %>%
   group_by(year.x,key2, total_salary_paid) %>%
   summarize(n = n()) %>%
   ungroup()
@@ -120,10 +120,11 @@ top_10_depts <- dept_nums %>%          # it's actually 11...
 top10_dept_affs <- 
   profs_affil  %>%
   filter(DEPT_SHORT_NAME %in% top_10_depts) %>%
-  mutate(key_regex = paste0("^", key2, "*")) %>%
+  # adding a starts with regex...
+  mutate(key_regex = paste0("^", key2, "*+")) %>%
   select(-key, -key2)
 
-# join 'em! - use inner join!
+# join 'em! 
 top10_fj <- 
   regex_inner_join(sal_profs, top10_dept_affs, by = c(key2 = "key_regex", year = "year"))
 
@@ -136,7 +137,7 @@ top10_fj %>%
 # most of our numbers are over...we are missing 3 in school of ed. Idk i think it's ok
 
 # checking for dupes
-tmp <- top10_fj %>%
+tmp <- top10_fj2 %>%
   group_by(year.x, key , total_salary_paid) %>%
   summarize(n = n()) %>%
   ungroup()
@@ -158,9 +159,91 @@ tmp %>%
 # So in general we need fuzzy join to be a little more exact. I wonder if we should just go through 
 # duplicates by hand and fix them...?
 
-# or we could do something like "^lastname firstname$ middleinitial*" to show that last and firstname
-# are exact strings...
+# 5/11/20 ^ I now think this is our best move
 
+# Going to move forward with all departments with at least 20 faculty in them
+
+dept_focus <- dept_nums %>%
+  select(DEPT_SHORT_NAME) %>%
+  unlist() %>% unname() %>%
+  stringr::str_remove("-AGLS") %>%
+  stringr::str_remove("-LAS")
+
+# quick trying two different ways to fuzzy join first with "*" and second without;
+# trying to figure out where I can get less errors 
+
+dept_affs <- 
+  profs_affil  %>%
+  filter(DEPT_SHORT_NAME %in% dept_focus) %>%
+  # adding a starts with regex...
+  mutate(key_regex = paste0("^", key2)) %>%
+  select(-key, -key2) %>%
+  mutate(key_regex = stringr::str_trim(key_regex, side = "right"),
+         key_regex = paste0(key_regex, "*"))
+
+prof_depts_fj <- 
+  regex_inner_join(sal_profs, dept_affs, by = c(key2 = "key_regex", year = "year"))
+
+tmp <- prof_depts_fj %>%
+  group_by(year.x, key , total_salary_paid) %>%
+  summarize(n = n()) %>%
+  ungroup()
+
+problems <- tmp %>%
+  filter(n == 2) %>%
+  arrange(key)
+# 14 people we need to fix 
+
+# second type
+
+dept_affs2 <- 
+  profs_affil  %>%
+  filter(DEPT_SHORT_NAME %in% dept_focus) %>%
+  # adding a starts with regex...
+  mutate(key_regex = paste0("^", key2)) %>%
+  select(-key, -key2) %>%
+  mutate(key_regex = stringr::str_trim(key_regex, side = "right"))
+
+prof_depts_fj2 <- 
+  regex_inner_join(sal_profs, dept_affs2, by = c(key2 = "key_regex", year = "year"))
+
+# how many problems are there? 
+
+tmp2 <- prof_depts_fj2 %>%
+  group_by(year.x, key , total_salary_paid) %>%
+  summarize(n = n()) %>%
+  ungroup()
+
+problems2 <- tmp2 %>%
+  filter(n == 2) %>%
+  arrange(key)
+# 4 people we need to fix - huzzah! 
+
+# i. get rid of andrews james, only want to keep andrews james t  
+# ii. wang li - only want to keep STATS
+# iii. wang lizhi - get rid of, matched with wang li but a prof in DEPT we aren't considering...
+# iv. zhang hongwei keep ELEC ENG/CP ENG, get rid of Agronomy, post doc! 
+
+# let's just look at where the two joins differ
+discrep <- 
+  anti_join(prof_depts_fj %>% select(year.x, title, key2, DEPT_SHORT_NAME, key_regex) %>%
+              mutate(key_regex = stringr::str_remove_all(key_regex, "\\*")),
+          prof_depts_fj2 %>% select(year.x, title, key2, DEPT_SHORT_NAME, key_regex))
+# ^ Awesome, so it looks like all the discrepancies between the two types of fuzzy joins
+# are actually spelling errors. 
+
+
+anti_join(prof_depts_fj2 %>% select(year.x, title, key2, DEPT_SHORT_NAME),
+          prof_depts_fj %>% select(year.x, title, key2, DEPT_SHORT_NAME)) # ok! 
+
+# compare our numbers with the university 
+prof_depts_fj2 %>%                              
+  group_by(year.x, DEPT_SHORT_NAME, title) %>%
+  tally() %>%
+  filter(year.x == 2019) %>%
+  arrange(-n) %>%
+  left_join(dept_nums)
+# in most cases we have higher numbers than the official record 
 
 # example of problem merge ------------------------------------------------
 
