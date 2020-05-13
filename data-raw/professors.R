@@ -17,7 +17,7 @@ data("salaries")
 # Breakdown of professor numbers from departments with over 20 professors (from Institutional Research)
 dept_nums <- readr::read_csv("data-raw/departments/department_numbers.csv")
 
-# salary data filterd for professors positions only
+# salary data filtered for professors positions only
 sal_profs <- 
   salaries %>%
   
@@ -41,7 +41,7 @@ patterns <- c("-AGLS|-LAS|-HSCI|-A|-E")
 # department data 
 profs_affil  <- 
   affiliation %>%
-  # I'm going to mannually recode this E. Walter Anderson person, their name was matching with too many other ppl
+  # I'm going to mannually recode these ppl who I found to be issues
   mutate(name = recode(name, "Anderson E" = "Anderson E Walter",
                              "Windus Theresa Lynn" = "Windus Theresa L"),
          key = key_from_name(name),
@@ -88,27 +88,27 @@ professors <-
   professors_fj %>%
 # i. get rid of andrews james, only want to keep andrews james t  
   filter(!(key == "andrews james t" & DEPT_SHORT_NAME == "ENGLISH"),
-# ii. wang li - get rid of EEOB
+# ii. wang li - get rid of EEOB, keep stats
          !(key == "wang li" & DEPT_SHORT_NAME == "EEOB"),
-# iii. wang lizhi - get rid of this person altogether matched with wang li but they are a prof in DEPT we aren't considering...
+# iii. wang lizhi - get rid of this person altogether, they matched with wang li but they are a prof in DEPT we aren't considering...
          !(key == "wang lizhi"),
-# iv. zhang hongwei keep ELEC ENG/CP ENG, get rid of Agronomy - they are post doc!
+# iv. zhang hongwei keep ELEC ENG/CP ENG, get rid of Agronomy (post doc!)
          !(key == "zhang hongwei" & DEPT_SHORT_NAME == "AGRONOMY"))
 
 
 # Was anything joined incorrectly bc of using fuzzy? Comparing key and key_regex...
 name_diffs <- 
-  professors_fj %>% 
+  professors %>% 
   select(year.x, key, key_regex) %>%
   mutate(key_regex = stringr::str_remove_all(key_regex, "\\^"),
          same_name = if_else(key == key_regex, "yes", "no")) %>%
   filter(same_name == "no")
-# I looked through these and they look good. Everything here is diff bc of a middle name absence
+# I looked through these and I think they look good. Different bc of a middle initial
 
 
 # Did we get everyone?? (This will be the hardest...focusing on 2019 first)
 
-# We already know we need to add Prashant Jha to Agronomy
+# We already know we need to add Prashant Jha to Agronomy - haven't done this yet!! (5/13 LE)
 
 # Compare our numbers with institutional research 
 # our numbers
@@ -125,7 +125,7 @@ fj_nums <-
   mutate(tot = sum(prof, assoc_prof, asst_prof, na.rm = TRUE))
 
 compare_nums <- left_join(fj_nums, dept_nums, by = "DEPT_SHORT_NAME")
-# The majority of cases we have more ppl in our dataset than reported by IR, ok!
+# The majority of cases we have more ppl in our dataset than reported by IR, hmmm, ok!
 
 # Here is where we are missing 2 or more ppl 
 # school of ed - missing 3 ppl
@@ -133,6 +133,7 @@ compare_nums <- left_join(fj_nums, dept_nums, by = "DEPT_SHORT_NAME")
 # (BBMB - missing half of profs (!!), probably a bug somewhere) - LE fixed this earlier in the script
 # MUSIC & THEATRE - missing 2 ppl 
 
+# selecting columns for dataset
 professors <- 
   professors %>%
   select(year = year.x, ORG_SHORT_NAME, DEPT_SHORT_NAME, name, gender, title, base_salary, 
