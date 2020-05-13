@@ -1,126 +1,152 @@
 # Merge salaries and affiliations based on a key constructed from the 
-# last_name first_name middle_initial
+# last_name first_name middle_initial; use fuzzy join to account for missing middle initials
 
-library("dplyr") # for %>%
-library("ggplot2")
+library(dplyr) # for %>%
+library(fuzzyjoin)
 
 # form: last first middle
 key_from_name <- function(x) {
   tolower(sub("^(\\S*\\s+\\S+\\s+\\S+).*", "\\1", x)) # keep up to 3rd space
 }
 
-load("../data/affiliation.rda")
-load("../data/departments.rda")
-load("../data/salaries.rda")
+# Load the data ------------------------------------------------------------
 
+data("affiliation")
+data("salaries")
 
-############### sick of doing this manually every time
-affiliation <- affiliation  %>%
-  mutate(key = key_from_name(name)) %>% 
-  select(-name)
-#######################
+# Breakdown of professor numbers from departments with over 20 professors (from Institutional Research)
+dept_nums <- readr::read_csv("data-raw/departments/department_numbers.csv")
 
+# salary data filterd for professors positions only
 sal_profs <- 
   salaries %>%
   
   mutate(title = tolower(title)) %>%
   
   filter(grepl("prof", title)) %>% 
-
-  mutate(key = key_from_name(name))  %>% 
+  
+  mutate(key = key_from_name(name),
+  
+  # LE I found hyphens to be a problem, they are in the salary data, 
+  # but not in affiliation, so I'm getting rid of them
+         key = stringr::str_replace_all(key, "-", " ")) %>%
+  
   # GN get rid of "special" profs, not interested in them
   filter(!grepl("emer|vstg|res|adj|affil|collab|clin", title),
          year > 2011)                                 # LE - let's just focus on where we have directory data from 
 
-# do we have only what we want?
-sal_profs %>% 
-  select(title) %>% 
-  arrange(title) %>% 
-  distinct()
-# yes
+# getting rid of department endings that distinguish college, let's lump them together
+patterns <- c("-AGLS|-LAS|-HSCI|-A|-E")
 
-# try joining based on key
+# department data 
+profs_affil  <- 
+  affiliation %>%
+  # I'm going to mannually recode this E. Walter Anderson person, their name was matching with too many other ppl
+  mutate(name = recode(name, "Anderson E" = "Anderson E Walter",
+                             "Windus Theresa Lynn" = "Windus Theresa L"),
+         key = key_from_name(name),
+         # same here, key without hyphens     
+         key = stringr::str_replace_all(key, "-", " "),
+         # getting rid of patterns listed above
+         DEPT_SHORT_NAME = stringr::str_remove_all(DEPT_SHORT_NAME, patterns),
+         # recoding BBMB to be the same name (las and agls named them differently)
+         DEPT_SHORT_NAME = recode(DEPT_SHORT_NAME, "BIOCH/BIOPH" = "BBMB")) %>% 
+  # need to recode the people who are housed in centers so they are in the correct tenure home - sorry gross manual edits
+  mutate(
+    DEPT_SHORT_NAME = if_else(key == "goggi alcira susana", "AGRONOMY", DEPT_SHORT_NAME),
+    DEPT_SHORT_NAME = if_else(key == "johnson lawrence", "FOOD SC/HN", DEPT_SHORT_NAME),
+    DEPT_SHORT_NAME = if_else(key == "niederhauser dale s" | key == "thompson elizabeth a", 
+                              "SCHOOL OF ED", DEPT_SHORT_NAME)) %>%
+  select(-name)
+
+# Getting a merged dataset for all departments with over 20 professors -----
+
+dept_affs <- 
+  profs_affil  %>%
+  # filter for select departments
+  filter(DEPT_SHORT_NAME %in% dept_nums$DEPT_SHORT_NAME) %>%
+  # add to regex for fuzzy joining
+  mutate(key_regex = paste0("^", key)) %>%
+  select(-key) %>%
+  # trim any white space on the end of a name
+  mutate(key_regex = stringr::str_trim(key_regex, side = "right"))
+
+# join together - inner join (nb this takes a minute)
+professors_fj <- 
+  regex_inner_join(sal_profs, dept_affs, by = c(key = "key_regex", year = "year"))
+
+# Trouble shooting - is this data correct??!? --------------------------------
+
+# Duplicates - 4 people will need to be fixed
+dupes <- professors_fj %>%
+  group_by(year.x, key , total_salary_paid) %>%
+  summarize(n = n()) %>%
+  ungroup() %>%
+  filter(n > 1)
+# Manual fixes for these four people: 
 professors <- 
-  sal_profs %>% 
-  left_join(affiliation,
-            by = c("key","year")) %>% 
-  select(year, key, gender, place_of_residence, title, base_salary, total_salary_paid, everything())
-
-################ NOTE
-#--a lot of people are just missing DEPT info for one year - we have info for other years. 
-#--ex mcnicholl timothy
-professors %>% 
-  filter(key == "mcnicholl timothy") %>% 
-  select(key, DEPT1)
-
-# Could we do a group_by and fill at some point in this?
-professors %>% 
-  group_by(key, gender, place_of_residence, title) %>% 
-  tidyr::fill(DEPT1, .direction = c("updown")) %>% 
-  filter(key == "mcnicholl timothy") %>% 
-  select(key, DEPT1)
-
-#####################
+  professors_fj %>%
+# i. get rid of andrews james, only want to keep andrews james t  
+  filter(!(key == "andrews james t" & DEPT_SHORT_NAME == "ENGLISH"),
+# ii. wang li - get rid of EEOB
+         !(key == "wang li" & DEPT_SHORT_NAME == "EEOB"),
+# iii. wang lizhi - get rid of this person altogether matched with wang li but they are a prof in DEPT we aren't considering...
+         !(key == "wang lizhi"),
+# iv. zhang hongwei keep ELEC ENG/CP ENG, get rid of Agronomy - they are post doc!
+         !(key == "zhang hongwei" & DEPT_SHORT_NAME == "AGRONOMY"))
 
 
-# LE - OK! so step 1 is picking a cutoff threshold for number of profs and 
-# filtering by those departments...
- 
-# Step 2 is dealing with any merge issues, for example:
-#      i. Duplicate names
-#      ii. Professors in affiliation who don't have a department (easy to figure out)
-#      iii. Professors not listed in affiliation (not as easy to figure out...)
-#             iiib. Or professors who's names aren't matching 
+# Was anything joined incorrectly bc of using fuzzy? Comparing key and key_regex...
+name_diffs <- 
+  professors_fj %>% 
+  select(year.x, key, key_regex) %>%
+  mutate(key_regex = stringr::str_remove_all(key_regex, "\\^"),
+         same_name = if_else(key == key_regex, "yes", "no")) %>%
+  filter(same_name == "no")
+# I looked through these and they look good. Everything here is diff bc of a middle name absence
 
 
-#. i. Duplicates - update this section once we filter for departments first
+# Did we get everyone?? (This will be the hardest...focusing on 2019 first)
 
-# Check to make sure professors are unique
-tmp <- professors %>%
-  group_by(year,key,name, total_salary_paid) %>%
-  summarize(n = n()) %>%
-  ungroup()
+# We already know we need to add Prashant Jha to Agronomy
 
-tmp  %>%
-  summarize(maxn = max(n)) # should be 1
+# Compare our numbers with institutional research 
+# our numbers
+fj_nums <- 
+  professors %>%
+  filter(year.x == 2019) %>%
+  group_by(DEPT_SHORT_NAME, title) %>%
+  tally() %>%
+  tidyr::pivot_wider(id_cols = DEPT_SHORT_NAME, names_from = title, values_from = n) %>%
+  rowwise(.) %>%
+  mutate(prof = sum(c(prof, `distg prof`, `morrill prof`, `prof & chair`,
+                      `univ prof`), na.rm = TRUE)) %>%
+  select(DEPT_SHORT_NAME, prof, assoc_prof = `assoc prof`, asst_prof = `asst prof`) %>%
+  mutate(tot = sum(prof, assoc_prof, asst_prof, na.rm = TRUE))
 
-tmp %>%
-  arrange(-n)
+compare_nums <- left_join(fj_nums, dept_nums, by = "DEPT_SHORT_NAME")
+# The majority of cases we have more ppl in our dataset than reported by IR, ok!
 
-# GN - add DEPT1 to grouping - shows it's 100% a department code problem
-tmp2 <- professors %>%
-  group_by(year,key,name, total_salary_paid, DEPT1) %>%
-  summarize(n = n()) %>%
-  ungroup()
+# Here is where we are missing 2 or more ppl 
+# school of ed - missing 3 ppl
+# chemistry - missing 3 ppl (fixed this so now only missing 2, idk!)
+# (BBMB - missing half of profs (!!), probably a bug somewhere) - LE fixed this earlier in the script
+# MUSIC & THEATRE - missing 2 ppl 
 
-tmp2  %>%
-  summarize(maxn = max(n)) # should be 1 (GN it is if you include DEPT1)
+professors <- 
+  professors %>%
+  select(year = year.x, ORG_SHORT_NAME, DEPT_SHORT_NAME, name, gender, title, base_salary, 
+         total_salary_paid, travel_subsistence)
 
-#  -- so this is problem that needs to be addressed earlier
-tmp %>%
-  filter(n > 1) %>% 
-  left_join(professors) %>% 
-  select(year, key, name, total_salary_paid, DEPT1, DEPT_SHORT_NAME)
-
-#--this seems like a list of people where in the affiliation there are at least two people with that name?
-
-dupes <- tmp %>%
-  filter(n > 1) %>% 
-  left_join(professors) %>% 
-  select(key) %>%
-  distinct() %>% 
-  pull()
-
-#--No idea how to fix this one. 
-affiliation %>% 
-  filter(key == dupes[2])
-
-sal_profs %>% 
-  filter(key == dupes[2]) %>% 
-  select(year, key, gender, title, total_salary_paid)
+usethis::use_data(professors, overwrite = TRUE)
 
 
-# ii. Professors in affiliation who don't have a department FIXED! GN 4/26
+# Past work worth keeping -------------------------------------------------------
+# Professors in affiliation who don't have a department FIXED! GN 4/26
+
+affiliation <- affiliation  %>%
+  mutate(key = key_from_name(name)) %>% 
+  select(-name)
 
 no_depts <-
   affiliation %>%
@@ -139,74 +165,4 @@ no_depts_list
 # GN- I filtered out the 'typo' dept in the affilition code to get rid of the wrog David Peterson
 # GN - I assigned DEPT1 7090 to be "ART/VISUAL CULT" in affiliation data. See note in that code.
 
-#--Prashant Jha
-affiliation %>%   
-  mutate(key = key_from_name(name)) %>% 
-  filter(grepl("prashant", key)) %>% 
-  select(name, key)
 
-# He is in the salary database. 
-sal_profs %>% 
-  filter(grepl("jha prashant", key)) %>% 
-  select(name, key)
-# He might be missing from affiliation bc of his hire date. 
-
-
-# iii. How many people have been merged unsuccesfully?
-
-unkns <- 
-  professors %>%
-  filter(is.na(DEPT_SHORT_NAME)) 
-
-# GN If we take the ppl w/unkn dept and merge by first and last, we get
-affiliation2 <- 
-  affiliation %>% 
-  tidyr::separate(name, into = c("last", "first", "middle")) %>%
-  tidyr::unite(last, first, col = "name", sep = " ", remove= TRUE) %>% 
-  mutate(key = key_from_name(name)) %>% 
-  select(-name, -middle)
-
-# then we can try joining the subset of unknowns by this new "key"
-new_unkns <- 
-  unkns %>% 
-  select(-(DEPT1:DEPT_SHORT_NAME)) %>% 
-  tidyr::separate(name, into = c("last", "first", "middle")) %>% 
-  mutate(name = paste(last, first, sep = " "),
-         key = key_from_name(name)) %>%
-  select(-name, -middle, -last, -first) %>%
-  left_join(affiliation2,
-            by = c("key","year")) %>% 
-  filter(is.na(DEPT1)) 
-
-still_unknown <-                
-  distinct(new_unkns, key) %>%   # these are unknown people 
-  # LE - but now I'm going to join them with affiliation without looking at year bc it seems like
-  # some people were just not listed in the correct year
-  left_join(affiliation2 %>% select(-year) %>% distinct()) %>%
-  # filter again for unknowns --- these are the REAL problems
-  filter(is.na(DEPT_SHORT_NAME))
-
-# ^ seems like these people are actually absent from affiliation, but perhaps they are new like 
-# Prashant Jha...or they were just never listed...
-
-#--how many seem to be a middle name merge problem?
-# 1783. 
-# let me investigate fuzzy joining them in professors_test_merge2
-# GN UPDATE: I think we can do a fuzzy join using for each to do it on multiple cores. 
-# let me play with it, but the fuzzy join using regex seems to work?
-unkns %>% 
-  select(-(DEPT1:DEPT_SHORT_NAME)) %>% 
-  tidyr::separate(name, into = c("last", "first", "middle")) %>% 
-  mutate(name = paste(last, first, sep = " "),
-         key = key_from_name(name)) %>%
-  select(-name, -middle, -last, -first) %>%
-  left_join(affiliation2,
-            by = c("key","year")) %>% 
-  select(year, key, DEPT_SHORT_NAME)
-
-
-# ackerman, ralph
-professors %>% 
-  filter(grepl("ackerman", key)) %>% 
-  select(year, key)
-# usethis::use_data(professors, overwrite = TRUE)
