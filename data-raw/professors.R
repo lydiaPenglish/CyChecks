@@ -136,11 +136,37 @@ compare_nums <- left_join(fj_nums, dept_nums, by = "DEPT_SHORT_NAME")
 # selecting columns for dataset
 professors <- 
   professors %>%
-  select(year = year.x, ORG_SHORT_NAME, DEPT_SHORT_NAME, name, gender, title, base_salary, 
+  select(year = year.x, ORG_SHORT_NAME, DEPT_SHORT_NAME, name = key, gender, title, base_salary, 
          total_salary_paid, travel_subsistence)
 
 usethis::use_data(professors, overwrite = TRUE)
 
+
+
+# Comparing this dataset with our very initial attempt at joining -----------------
+
+data("cyd_salprofs")
+
+# tweaking our initial attempt to match new professors dataframe
+init_merge <- cyd_salprofs %>%
+  mutate(DEPT_SHORT_NAME = stringr::str_to_upper(dept),
+         DEPT_SHORT_NAME = recode(DEPT_SHORT_NAME, "BIOCH/BIOPH" = "BBMB")) %>%
+  filter(DEPT_SHORT_NAME %in% dept_nums$DEPT_SHORT_NAME) %>%
+  filter(fiscal_year > 2011) %>%
+  select(year = fiscal_year, name, DEPT_SHORT_NAME, title = position) %>%
+  mutate(name = key_from_name(name),
+         name = stringr::str_replace_all(name, "-", " "),
+         name = stringr::str_remove_all(name, "jr"))
+
+6024 - 5938   # our dataset has 86 more ppl, which is good! 
+
+not_joined <- anti_join(professors %>% select(year, name, DEPT_SHORT_NAME, title),
+          init_merge)
+
+# We didn't include chairs in our initial attempt at joining so I'm filtering those out
+nj2 <- not_joined %>%
+  filter(!(stringr::str_detect(title, "chair")))
+# ^ idk why these ppl aren't (for the most part) in our initial attempts, but glad we have them now! 
 
 # Past work worth keeping -------------------------------------------------------
 # Professors in affiliation who don't have a department FIXED! GN 4/26
