@@ -1,4 +1,4 @@
-Package: CyChecks2
+Package: CyChecks3
 Title: Provides access to Iowa State University professor salary data
 Version: 0.0.0.9000
 Authors@R: 
@@ -15,13 +15,13 @@ Authors@R:
              family = "Niemi",
              role = c("aut"),
              email = "niemi@iastate.edu"))
-Description: Provides cleaned and simplified salary data for Iowa State University employees with the word 'professor' in their position title. 
+Description: Provides cleaned and simplified salary data for Iowa State University with the word 'professor' in their position title. 
 License: MIT + file LICENSE
 Encoding: UTF-8
 Language: es
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.1
 Depends: 
     R (>= 3.2.1)
 Imports: 

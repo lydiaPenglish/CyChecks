@@ -1,529 +1,239 @@
-library(tidyverse)
 library(shiny)
 library(ggplot2)
 library(dplyr)
 library(tidyr)
 library(ggpubr)
-library(CyChecks2)
+library(shinythemes)
+library(plotly)
+library(scales) #--to get $ on y axis, so easy!
+library(stringr)
+library(CyChecks3)
 
 
-# clean up basic data -----------------------------------------------------
+# create data and dropdowns -----------------------------------------------------
 
-cyd_base <- 
-  cyd_salprofs %>% 
-  # making NA in college into misc category
-  mutate(college = replace_na(college, "multi-college")) %>%
-  #Just keep 'colleges', not the weird things like library
-  filter(grepl("college", college)) %>% 
-  # who gets paid 0? eliminate them
+#--salaries
+
+sals <- 
+  professors %>%
   filter(base_salary > 0) %>% 
-  # get rid of centers and centers if they are still lurking
-  filter(!grepl('ctr', dept)) %>%
-  filter(!grepl('center', dept)) %>% 
   mutate_if(is.character, str_to_title) %>% 
-  mutate(prof_simp = factor(prof_simp,
+  mutate(title_simp = factor(title_simp,
                             levels = c("Asst Prof", 
                                        "Assoc Prof", 
                                        "Prof", 
                                        "Awarded Prof"))) %>% 
-  select(fiscal_year, college, dept, gender, prof_simp, total_salary_paid, base_salary)
+  pivot_longer(cols = base_salary:total_salary_paid,
+               names_repair = "minimal",
+               names_to = "salary_type",
+               values_to = "amount") %>% 
+  mutate(salary_type_nice = str_replace_all(salary_type, "_", " ") %>% str_to_title(.),
+         year = as.character(year))
 
 malecolor <- "deepskyblue3"
 femalecolor <- "goldenrod"
 
-# create data for missing genders tab (cyd_mgd) -------------------------------------------------------
+dd_college <- sals %>% arrange(college) %>% pull(college) %>% unique()
+dd_dept <-  sals %>% arrange(dept) %>% pull(dept) %>% unique()
+dd_year <-  sals %>% arrange(year) %>% pull(year) %>% unique() %>% as.character()
 
-mgdraw <- 
-  cyd_base %>% 
-  # keep fiscal year
-  group_by(fiscal_year, college, dept, prof_simp, gender) %>% 
-  summarise(n = n()) %>% 
-  spread(gender, value = n) %>% 
-  ungroup() %>% 
-  mutate_if(is.numeric, replace_na, 0) %>% 
-  mutate(fracM = M/(`F` + M))
 
-#--need to get every combo so things are explicitly missing 
-yrs <- mgdraw %>% pull(fiscal_year) %>% unique()
-dept <- mgdraw %>% pull(dept) %>% unique()
-prof_simp <- mgdraw %>% pull(prof_simp) %>% unique()
-combs <- 
-  expand_grid(yrs, dept, prof_simp) %>% 
-  rename("fiscal_year" = 1)
+#--practice graph
 
-coldept <- mgdraw %>% 
-  select(fiscal_year, college, dept) %>% 
-  distinct()
+sals %>%
+  filter(college == dd_college[1]) %>%
+  select(year, college, dept, gender, name, title, title_simp) %>%
+  distinct() %>%
+  group_by(year, college, dept, gender, title_simp) %>%
+  summarise(n = n()) %>%
+  filter(dept == "Agronomy") %>%
+  ggplot(aes(dept, title_simp)) +
+  geom_point(color = "white", size = 15, stroke = 2) +
+  geom_point(aes(color = gender, size = n, pch = gender), stroke = 2) +
+  guides(size = F) +
+  scale_color_manual(values = c(`F` = femalecolor, 'M' = malecolor)) +
+  scale_shape_manual(values = c(`F` = 16, 'M' = 21)) +
+  scale_size(range = c(1, 10)) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        panel.grid.major.x = element_line(size = 1.2, color = "black")) +
+  labs(x = NULL,
+       y = NULL)
 
-coldept2 <- mgdraw %>% 
-  select(college, dept) %>% 
-  distinct()
-
-#--make data for shiny
-cyd_mgd <- 
-  # Get all combinations of prof/depts
-  combs %>% 
-  left_join(mgdraw) %>% 
-  select(-college) %>% 
-  # assign college
-  left_join(coldept2) %>% 
-  # assign gender verdict
-  mutate(id = case_when(
-    (is.na(`F`) & is.na(M)) ~ "No One",
-     (`F` == 0) ~ "All Males",
-     (M == 0) ~ "All Females",
-     TRUE ~ "Both Genders Present")) %>% 
-  mutate(ndisplay = ifelse(id == "All Males", M,
-                           ifelse(id == "All Females", `F`,
-                                  NA))) %>% 
-  mutate(isone = ifelse(ndisplay == 1, "1", ">1"),
-         isone = ifelse(is.na(isone), ">1", isone)) 
-
-# create data for ratios fig (cyd_rat) ------------------------------------
-
-ratraw <- 
-  cyd_base %>%
-  group_by(fiscal_year, college, dept, gender, prof_simp) %>% 
-  summarise(mean_base_salary = mean(base_salary)) %>%
-  spread(gender, mean_base_salary) %>% 
-  mutate(ratM = log(M / `F`)) %>% 
-  filter(!is.na(ratM)) %>% 
-  ungroup()
   
-
-
-# Get all combinations of prof/depts
-cyd_ratM <- 
-  combs %>% 
-  left_join(ratraw) %>% 
-  select(-college) %>% 
-  # assign college
-  left_join(coldept2) %>% 
-  # assign colors
-  mutate(id = ifelse(ratM > 0, "Males Make More", "Females Make More"))
-
-# make professor salary data ---------------------------------------------------
-
-
-cyd_prof <- 
-  combs %>% 
-  left_join(cyd_base) %>% 
-  select(-college) %>% 
-  # assign college
-  left_join(coldept2) 
-  
-
-
-# make salary ratio and fracF tibble --------------------------------------
-
-cyd_fracM <- cyd_mgd %>% 
-  filter(!is.na(fracM)) %>% 
-  select(fiscal_year, college, dept, prof_simp, fracM)
-
-cyd_compM <- 
-  cyd_ratM %>% 
-  filter(!is.na(ratM)) %>% 
-  select(fiscal_year, college, dept, prof_simp, ratM) %>% 
-  left_join(cyd_fracM) %>% 
-  mutate(prof_simp = factor(prof_simp,
-                            levels = c("Asst Prof", 
-                                       "Assoc Prof", 
-                                       "Prof", 
-                                       "Awarded Prof")))
-
-# about text -------------------------------------------------------------
-abouttext <- "This data is a combination of publicly-available data (PD; linked names to salaries)\n, and ISU-provided data (ISUD; linked names to departments). \nThe reliance on linking these data presented problems. \nSome people appeared in the PD but not in the ISUD, and are therefore omitted from the final dataset. \nOther faculty were linked to centers rather than their tenure-home departments. \nAs of Dec 6 2019 those faculty are also not included."
-
-# make drop down menus ----------------------------------------------------
-
-# drop-down menus
-dd_dept <- c(sort(unique(as.character(cyd_base$dept))))
-dd_col <- c(sort(unique(as.character(cyd_base$college))))
-dd_year1 <- c(sort(unique(as.character(cyd_base$fiscal_year))))
-dd_year2 <- c(sort(unique(as.character(cyd_base$fiscal_year))))
-dd_year3 <- c(sort(unique(as.character(cyd_base$fiscal_year))))
 
 # user interface ----------------------------------------------------------
 
-ui <- fluidPage(
-  # App Title
-  titlePanel("CyChecks2"),
-  # Navigation panes for dept, organzation, etc...
-  
-  
-  navbarPage("Iowa State Salary Data",
-             
-             tabPanel("Base Salaries",
-                      mainPanel(
-                        
-                        ####
-                        fluidRow(
-                        column(
-                          width = 6,
-                          selectInput(
-                            "mydept",
-                            label = ("Department"),
-                            # - Based on gender
-                            choices = dd_dept,
-                            selected = "Agronomy"
-                          )
-                        ),
-                        column(
-                          width = 6,
-                          selectInput(
-                            "myyear1",
-                            label = ("Year"),
-                            # - Based on gender
-                            choices = dd_year1,
-                            selected = "2018"
-                          )
-                        )
-                      ),
-                      #######
-                      
 
-                      #######
-                      fluidRow(
-                        column(
-                          width = 12,
-                          align = "center",
-                          #h3(em("Professors")),
-                          fluidRow(
-                            splitLayout(
-                              cellWidths = c("50%", "50%"),
-                              plotOutput("fig_bsden"),
-                              plotOutput("fig_bsbar")
-                            )
-                            )
-                          )
-                        ),
-                      ##########
-                      br(),
-                      #######
-                      fluidRow(
-                        column(
-                          width = 12,
-                          align = "center",
-                          #h3(em("Professors")),
-                          fluidRow(
-                            splitLayout(
-                              cellWidths = c("50%", "50%"),
-                              plotOutput("fig_nline"),
-                              plotOutput("fig_rat")
-                            )
-                          )
-                        )
-                      )
-                      ##########
-                      )),
-             
-             tabPanel("Gender Representation",
-                      mainPanel(
-                        fluidRow(column(
-                          width = 6,
-                          selectInput(
-                            "mycollege",
-                            label = ("College"),
-                            # - Based on gender
-                            choices = dd_col,
-                            selected = "College Of Agriculture & Life Sciences"
-                          )
-                        ),
-                        column(
-                          width = 6,
-                          selectInput(
-                            "myyear2",
-                            label = ("Year"),
-                            # - Based on gender
-                            choices = dd_year2,
-                            selected = "2018"
-                          )
-                        )),
-                        
-                        fluidRow(column(
-                          width = 12,
-                          align = "center",
-                          #h3(em("Tenure-Track Faculty Positions")),
-                          fluidRow(plotOutput("fig_mg"))
-                        ))
-                      )),
-             tabPanel("Gender Rep and Salary Bi-plot",
-                      mainPanel(
-                        fluidRow(
-                        column(
-                          width = 6,
-                          selectInput(
-                            "myyear3",
-                            label = ("Year"),
-                            choices = dd_year3,
-                            selected = "2018"
-                          )
-                        )),
-                        
-                        fluidRow(column(
-                          width = 12,
-                          align = "center",
-                          fluidRow(plotOutput("fig_biplot"))
-                        ))
-                      )),
-             tabPanel("About",
-                      mainPanel(fluidRow(column(
-                          width = 12,
-                          align = "center",
-                          h1(em(abouttext))
-                        ))
-                      ))
-             
-             
-             )
-)
+
+ui <- fluidPage(theme = shinytheme("united"),
+                
+                # Application title
+                navbarPage(
+                  "CyChecks3 Professor Explorer",
+                  
+                  #--start tab
+                  tabPanel("Salaries by Department",
+                           fluidRow(
+                             column(
+                               width = 4,
+                               #--input, select dept
+                               selectInput(
+                                   "sel_dept_sals",
+                                   label = ("Department:"),
+                                   choices = dd_dept,
+                                   selected = dd_dept[6]),
+                               #--input, select year
+                               selectInput(
+                                   "sel_year_sals",
+                                   label = ("Year:"),
+                                   choices = dd_year,
+                                   selected = dd_year[1]),
+                               #--download data
+                               downloadButton("downloadData", "Download")
+                              ),
+                             column(width = 8,
+                                    plotlyOutput("fig_sals", height = "800px", width = "1000px"))
+                           )),
+                  #--end sals tab-
+                  
+                  #--start gender rep tab-
+                  tabPanel("Gender Makeup By Department",
+                           fluidRow(
+                             column(
+                               width = 3,
+                               #--input, select college
+                               selectInput(
+                                 "sel_college_gend",
+                                 label = ("College:"),
+                                 choices = dd_college,
+                                 selected = dd_college[1]),
+                               #--input, select dept
+                               # selectInput(
+                               #   "sel_dept_gend",
+                               #   label = ("Department:"),
+                               #   choices = dd_dept,
+                               #   selected = dd_dept[6]),
+                               #--input, select year
+                               selectInput(
+                                 "sel_year_gend",
+                                 label = ("Year:"),
+                                 choices = dd_year,
+                                 selected = dd_year[1])
+                               ),
+                             column(width = 9,
+                                    fluidRow(
+                                    plotOutput("fig_gend",  height = "500px", width = '1200px')
+                                    )#,
+                                    #fluidRow(
+                                    #  plotOutput("fig_gend_dept")
+                           ))
+                  )
+                  #--end gender rep tab-
+                  
+                  
+                )
+                )
 
 
 
 
 # server ------------------------------------------------------------------
 
-server <- function(input, output){
-
-
-# biplot ------------------------------------------------------------------
-
-  #######---liq_biplot---##############
+server <- function(input, output) {
+ 
   
-  liq_biplot <- reactive({
-    cyd_compM %>%
-      filter(fiscal_year == input$myyear3
-      )
+  #--salary tab-------------------
+  
+   liq_sals <- reactive({
+    sals %>%
+      filter(
+      #  college == input$sel_college_sals,
+         dept == input$sel_dept_sals,
+         year == input$sel_year_sals)
   })
   
-  
-  #######---fig_biplot---##############
-  
-  output$fig_biplot <- renderPlot({
+  output$fig_sals <- renderPlotly({
     
-    ggplot(data = liq_biplot(),
-           aes(x = ratM,
-               y = fracM)) +
-      geom_hline(yintercept = 0.5, color = "red") +
-      geom_vline(xintercept = 0, color = "red") +
-      geom_text(x = 0, y = 1, 
-                label = "More Men", 
-                color = malecolor) +
-      geom_text(x = -0, y = 0, 
-                label = "More Women", 
-                color = femalecolor) +
-      geom_text(x = -0.75, y = 0.5, 
-                label = "Women Make More $", 
-                color = femalecolor) +
-      geom_text(x = 0.75, y = 0.5, 
-                label = "Men Make More $", 
-                color = malecolor) +
-      geom_point(size = 3) +
-      scale_x_continuous(limits = c(-1.5, 1.5)) + 
-      scale_y_continuous(limits = c(0, 1)) +
-      labs(
-        x = "Log Ratio of Male Salaries to Female Salaries",
-        y = "Fraction of Faculty That Are Men",
-        title = "Gender and salary equality in selected year") +
+    p1 <-
+      liq_sals() %>%
+      ggplot(
+        aes(gender, amount, group = 1,
+        text = paste("Name:", name, "(", gender, ")",
+          "<br>Salary: $", round(amount / 1000, digits = 0), "thou"))
+        ) +
+      stat_summary(fun = mean, geom = "bar", aes(fill = gender)) +
+      geom_jitter(aes(color = dept_chair, pch = dept_chair), width = 0.15, size = 2) +
+      guides(fill = F,
+             color = F,
+             pch = F) +
+      scale_y_continuous(labels = label_dollar()) +
+      scale_fill_manual(values = c(`F` = femalecolor, "M" = malecolor)) +
+      scale_color_manual(values = c("N" = "black", "Y" = "red4")) +
+      scale_shape_manual(values = c(16, 17)) +
+      facet_grid(salary_type_nice ~ title_simp,
+                 scales = "free_y",
+                 switch = "y") +
       theme_pubclean() +
-      facet_wrap(~ prof_simp) + 
-      
-      theme(strip.text = element_text(size = rel(1.3), color = "black"),
-            strip.background = element_rect(fill = "white"),
-            axis.title = element_text(size = rel(1.3)),
-            axis.text.x = element_text(size = rel(1.3))) + 
-      theme(plot.title = element_text(face = "bold", size = 12, hjust = 0.5))
+      theme(panel.border = element_rect(size = 1, fill = NA)) +
+      labs(x = NULL, y = NULL)
+    
+    ggplotly(p1, tooltip = "text")
+    
     
   })
   
+  output$downloadData <- downloadHandler(
+    filename = function() {
+      paste("ISUProfSals_", input$sel_dept_sals, "-", input$sel_year_sals, ".csv", sep = "")
+    },
+    content = function(file) {
+      write.csv(liq_sals(), file, row.names = FALSE)
+    }
+  )
   
-    
-# gender rep --------------------------------------------------------------
-
-#######---liq_mg---##############
-
-liq_mg <- reactive({
-    cyd_mgd %>%
-    filter(college == input$mycollege,
-             fiscal_year == input$myyear2
-             )
+  #--gender tab---------------
+  
+  liq_gend1 <- reactive({
+    sals %>%
+      filter(
+        college == input$sel_college_gend,
+        year == input$sel_year_gend) %>% 
+      select(year, college, dept, gender, name, title, title_simp) %>% 
+      distinct() %>% 
+      group_by(year, college, dept, gender, title_simp) %>% 
+      summarise(n = n())
+      
   })
   
-
-#######---fig_mg---##############
-
-  output$fig_mg <- renderPlot({
+  output$fig_gend <- renderPlot({
     
-    ggplot(data = liq_mg(),
-           aes(x = dept,
-               y = prof_simp)) +
-      
-      geom_tile(aes(fill = id), color = "black", size = 1) +
-      geom_point(aes(size = ndisplay, pch = isone)) +
-      scale_fill_manual(values = c(`All Females` = femalecolor,
-                                   `All Males` = malecolor, 
-                                   `Both Genders Present` = "gray90",
-                                   `No One` = "gray10")) +
-      scale_shape_manual(values = c(19, 0)) +
-      coord_flip() +
-      labs(
-        x = NULL,
-        y = NULL,
-        fill = NULL, 
-        size = "Number of Faculty",
-        shape = NULL, 
-        title = "Lack of gender representation in selected year") +
-      theme_pubclean() +
-      facet_grid(~ college) + 
-      
-      theme(strip.text = element_text(size = rel(1.3), color = "black"),
-            strip.background = element_rect(fill = "white"),
-            axis.title = element_text(size = rel(1.3)),
-            axis.text.x = element_text(size = rel(1.3)),
+    liq_gend1() %>% 
+      ggplot(aes(dept, title_simp)) + 
+      geom_point(color = "gray90", size = 15, stroke = 2) +
+      geom_point(aes(color = gender, size = n, pch = gender), stroke = 2) + 
+      guides(pch = F) +
+      scale_color_manual(values = c(`F` = femalecolor, 'M' = malecolor)) +
+      scale_shape_manual(values = c(`F` = 20, 'M' = 21)) +
+      scale_size(range = c(1, 20)) +
+      theme_minimal() + 
+      theme(axis.text.x = element_text(angle = 45, hjust = 1),
+            axis.text = element_text(size = rel(1.5)),
+            panel.grid.major.x = element_line(size = 1, color = "black"),
+            panel.background = element_rect(fill = "gray90", 
+                                            colour = NA),
             legend.position = "right",
-            legend.direction = "vertical",
-            legend.background = element_rect(linetype = "solid", color = "black")) + 
-      theme(plot.title = element_text(face = "bold", size = 12, hjust = 0.5))
-  })
-  
-  
-  #######---liq_pbase---##############
-  
-  liq_rat <- reactive({
-    cyd_rat %>%
-      filter(dept == input$mydept,
-             fiscal_year == input$myyear1)
-  })
-  
-  liq_prof <- reactive({
-    cyd_prof %>%
-      filter(dept == input$mydept,
-             fiscal_year == input$myyear1)
-  })
-  
- liq_profns <- reactive({
-   cyd_prof %>% 
-   filter(dept == input$mydept) %>%
-     group_by(fiscal_year, gender) %>%
-     summarise(n = n())
-   }) 
- 
- 
- #######---fig_rat---##############
- output$fig_rat <- renderPlot({
-   
-   ggplot(data = liq_rat(),
-          aes(x = prof_simp,
-              y = ratM)) +
-     geom_col(aes(fill = id), size = 5) +
-     scale_fill_manual(values = c("Males Make More" = malecolor,
-                                  "Females Make More" = femalecolor)) +
-     geom_text(x = 2.5, y = 0.7, 
-               label = "Males Make More", 
-               fontface = "italic", 
-               #hjust = 0, 
-               color = "gray60") +
-     geom_text(x = 2.5, y = -0.7, 
-               label = "Females Make More", 
-               fontface = "italic", 
-               #hjust = 0, 
-               color = "gray60") +
-     labs(x = NULL,
-          y = "Salary Equity Index",
-          color = NULL,
-          title = "Salary equity index by position in a given year") +
-     coord_cartesian(y = c(-0.7, 0.7)) +
-     geom_hline(yintercept = 0, color = "red") +
-     
-     geom_hline(yintercept = 0.095, color = malecolor, linetype = "dashed") +
-     geom_hline(yintercept = -0.095, color = femalecolor, linetype = "dashed") +
-     theme_bw() +
-     guides(color = F, fill = F) +
-     theme(plot.title = element_text(face = "bold", size = 12, hjust = 0.5))
- })
- 
- #######---fig_bsbar---##############
-output$fig_bsbar <- renderPlot({
-  
-     ggplot(data = liq_prof(),
-           aes(x = gender,
-               y = base_salary/1000)) +
-      geom_col(data = liq_prof() %>%
-                 group_by(prof_simp, gender) %>%
-                 summarise(base_salary = mean(base_salary)),
-               aes(x = gender,
-                   y = base_salary/1000,
-                   fill = gender)) +
-       geom_point(color = "white", size = 2, pch = 21, fill = "black") +
-       scale_fill_manual(values = c(M = malecolor,
-                                    `F` = femalecolor)) +
+            #legend.direction = "horizontal",
+            legend.text = element_text(size = rel(1.5)),
+            legend.title = element_text(size = rel(1.5))) +
       labs(x = NULL,
-           y = "Base Salary Paid\nthousands of $",
-           color = NULL,
-           title = "Base salaries by position and gender") +
-      theme_bw() +
-      guides(color = F, fill = F) +
-      facet_grid(~prof_simp) +
-      theme(plot.title = element_text(face = "bold", size = 12, hjust = 0.5))
-})
-  
- 
- #######---fig_nline---############## 
-  
-output$fig_nline <- renderPlot({
-     
-  ggplot(data = liq_profns(),
-           aes(x = fiscal_year,
-               y = n,
-               color = gender,
-               group = gender)) +
-      geom_line() +
-      geom_point(size = 2) +
-      theme_bw() +
-      labs(x = "Fiscal Year",
-           y = "Number",
-           color = "Gender",
-           title = "Number of total tenure-track faculty\nby gender over time") +
-      scale_color_manual(values = c(M = malecolor,
-                                    `F` = femalecolor)) +
-    geom_hline(yintercept = 0, color = "gray70") +
-      theme(
-        legend.position = c(0.01, 0.99),
-        legend.justification = c(0, 1),
-        legend.background = element_rect(linetype = "solid", color = "black"),
-        plot.title = element_text(face = "bold", size = 12, hjust = 0.5))
-
-
+           y = NULL,
+           size = "Number of Faculty",
+           color = "Gender")
   })
- 
- #######---fig_bsden---##############
- 
- output$fig_bsden <- renderPlot({
-    ggplot(data = liq_prof(),
-           aes(x = base_salary/1000,
-               fill = gender)) +
-      geom_density(alpha = 0.5, color = "black") +
-      labs(x = "Salary (in thousands of $)", y = "Density", fill = "Gender",
-           title = "Density plot of professor salaries by gender") +
-      theme_bw() +
-      scale_fill_manual(values = c(M = malecolor,
-                                  `F` = femalecolor)) +
-     theme(legend.position = c(0.99, 0.99),
-           legend.justification = c(1, 1),
-           legend.background = element_rect(linetype = "solid",
-                                            color = "black"),
-           plot.title = element_text(face = "bold", size = 12, hjust = 0.5))
-
- })
- 
- 
- 
- 
-
- 
   
   
+
 }
 
 shinyApp(ui, server)
-  
