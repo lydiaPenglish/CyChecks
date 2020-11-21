@@ -1,0 +1,12 @@
+name: CyChecks2020
+title: CyChecks2020
+username:
+account: vanichols
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3279592
+bundleId: 3888835
+url: https://vanichols.shinyapps.io/CyChecks2020/
+when: 1605980231.62248
+asMultiple: FALSE
+asStatic: FALSE
