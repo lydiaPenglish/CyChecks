@@ -5,7 +5,6 @@ year,name_lfm20,gender,place_of_residence,title,total_salary_paid,travel_subsist
 2012,abbott eric alan,m,story,prof,91002,3305.2,92252,year
 2012,abbott karen c,f,polk,asst prof,80527.8,2220.4,68175,year
 2012,abendroth robert e,m,story,assoc prof,91291,0,99618,year
-2012,adeleke raimi olatun,m,story,prof,120243.33,5286.67,109301,year
 2012,aduri pavankumar r,m,story,assoc prof,113888.66,2081.82,95393,year
 2012,agarwal sanjeev,m,story,prof,133470,0,136970,year
 2012,ahn dong uk,m,story,prof,86672,2437.56,87539,year
@@ -1240,7 +1239,6 @@ year,name_lfm20,gender,place_of_residence,title,total_salary_paid,travel_subsist
 2013,abbott karen c,f,cuyahoga,asst prof,87112.5,998.89,0,year
 2013,abendroth robert e,m,story,assoc prof,79278.79,0,100613,year
 2013,adams dean,m,story,prof,117917.45,5543.44,95531,year
-2013,adeleke raimi olatun,m,story,prof,121445.55,5497.23,111213,year
 2013,aduri pavankumar r,m,story,assoc prof,100692.61,2292.07,96923,year
 2013,agarwal sanjeev,m,story,prof,144579.44,3664.29,139770,year
 2013,ahn dong uk,m,story,prof,92538.92,8551.38,89290,year
@@ -2491,7 +2489,6 @@ year,name_lfm20,gender,place_of_residence,title,total_salary_paid,travel_subsist
 2014,abendroth robert e,m,story,assoc prof,39730.02,0,0,year
 2014,acevedo nuria cristi,f,story,asst prof,99283.34,1275.02,80050,year
 2014,ackerman ralph a,m,story,prof,80570,0,81376,year
-2014,adeleke raimi olatun,m,story,prof,123570,6443.09,113437,year
 2014,aduri pavankumar r,m,story,assoc prof,99370.55,347.96,98929,year
 2014,agarwal sanjeev,m,story,prof,155300,0,142470,year
 2014,ahn dong uk,m,story,prof,94290,7916.92,91076,year
@@ -3734,7 +3731,6 @@ year,name_lfm20,gender,place_of_residence,title,total_salary_paid,travel_subsist
 2015,ackermann mark r,m,story,prof,161897,2906.13,152911,year
 2015,adams dean,m,story,prof,120081.07,7288.51,101423,year
 2015,adams ross exo,m,story,asst prof,73888.88,2912.71,70490,year
-2015,adeleke raimi olatun,m,story,prof,126041.11,11462.06,114571,year
 2015,adelman james stephe,m,story,asst prof,41250,716.97,68175,year
 2015,aduri pavankumar r,m,story,assoc prof,111593.83,2811.36,99918,year
 2015,agarwal sanjeev,m,story,prof,144470,972.42,143895,year
@@ -5007,7 +5003,6 @@ year,name_lfm20,gender,place_of_residence,title,total_salary_paid,travel_subsist
 2016,acevedo nuria cristi,f,story,asst prof,84732,3772.99,83419,year
 2016,adams dean,m,story,prof,90153.86,22747.92,104212,year
 2016,adams ross exo,m,story,asst prof,78322.22,6968.72,72957,year
-2016,adeleke raimi olatun,m,story,prof,123574.94,1957.98,120516,year
 2016,adelman james stephe,m,story,asst prof,71962.55,2400.94,69573,year
 2016,aduri pavankumar r,m,story,prof,116274.7,1271.85,108718,year
 2016,agarwal sanjeev,m,story,prof,145895,587.75,146447,year
@@ -6311,7 +6306,6 @@ year,name_lfm20,gender,place_of_residence,title,total_salary_paid,travel_subsist
 2017,acevedo nuria cristi,f,story,asst prof,92135,4470.25,83419,year
 2017,adams dean,m,story,prof,127370.22,1110.53,106212,year
 2017,adams ross exo,m,polk,asst prof,73349.16,5243.14,72957,year
-2017,adeleke raimi olatun,m,story,prof,127211.33,10891.34,120516,year
 2017,adelman james stephe,m,story,asst prof,80303.69,2645.64,69573,year
 2017,aduri pavankumar r,m,story,prof,126837.81,3644.45,108718,year
 2017,agarwal sanjeev,m,story,prof,54917.5,0,146447,year
@@ -7609,7 +7603,6 @@ year,name_lfm20,gender,place_of_residence,title,total_salary_paid,travel_subsist
 2018,acevedo nuria cristi,f,story,asst prof,88018,2489.51,84253,year
 2018,adams dean,m,story,prof,134872.48,7437.27,109774,year
 2018,adams ross exo,m,polk,asst prof,72957,2634.07,73686,year
-2018,adeleke raimi olatun,m,story,prof,127211.33,6142.33,121721,year
 2018,adelman james stephe,m,story,asst prof,79438.36,0,70268,year
 2018,aduri pavankumar r,m,story,prof,108718,1517.39,109805,year
 2018,agarwal sanjeev,m,story,prof,109835,0,147910,year
@@ -8897,7 +8890,6 @@ year,name_lfm20,gender,place_of_residence,title,total_salary_paid,travel_subsist
 2019,acevedo nuria cristi,f,story,asst prof,85991,745.14,85095,year
 2019,adams dean,m,story,prof,146865.42,7638.81,110872,year
 2019,adams ross exo,m,polk,asst prof,80744,2457.65,0,year
-2019,adeleke raimi olatun,m,story,prof,128416.33,1937.6,122939,year
 2019,adelman james stephe,m,story,asst prof,79772.77,1080.78,0,year
 2019,aduri pavankumar r,m,story,prof,117054.52,4268.2,110904,year
 2019,agarwal sanjeev,m,story,prof,110933,0,149389,year

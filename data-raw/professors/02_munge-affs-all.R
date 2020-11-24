@@ -22,7 +22,6 @@ clean_punc(test)
 
 data("affiliation")
 
-
 # keep only colelges, simplify depts----------------------------------------
 
 patterns <- c("-agls|-las|-hsci-a|-e")
@@ -204,7 +203,8 @@ aff6  <-
     grepl("kirschenmann frederi", name_lfm20) ~ "college of liberal arts & sciences",
     grepl("johnson lawrence", name_lfm20) ~ "college of human sciences",
     TRUE ~ org_short_name)
-  )
+  ) 
+
 
   
 # 7 manual clean up ---------------------------------------------------------

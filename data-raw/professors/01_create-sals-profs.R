@@ -38,17 +38,23 @@ s2 <-
 #--holly bender is an admin thing at celt
 #--gary taylor switched to outreach, which is not a college, in 2017
 #--elena cotos is listed as being part of the grad college, google says she's english
+#--adeleke raimi olatun is an administrator 2012-2019
+
 s3 <- 
   s2 %>% 
   filter(!(grepl("crecelius", name_lfm20) & year == 2019)) %>% 
   filter(!(grepl("lerman", name_lfm20) & year == 2019)) %>% 
   filter(!(grepl("bender holly", name_lfm20))) %>% 
   filter(!(grepl("taylor gary", name_lfm20) & year > 2016)) %>% 
-  filter(!(grepl("cotos elena", name_lfm20))) 
+  filter(!(grepl("cotos elena", name_lfm20))) %>% 
+  filter(!(grepl("adeleke raimi olatun", name_lfm20)))
+
+
 
 # write final -------------------------------------------------------------
 
 sal_profs <- s3
+
 write_csv(sal_profs, "data-raw/professors/sals-profs.csv")
 
 
