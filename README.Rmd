@@ -19,52 +19,42 @@ knitr::opts_chunk$set(
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
-*Overview*
+## FOIA anyone?
 
-The goal of CyChecks3 is to allow users easy access to the publicly available Iowa State University (the Cyclones) employee salary data (their checks). 
+Iowa State University recently conducted an internal review of salaries and possible discrepencies based on race and/or gender. The public is not being offered access to the data nor the analyses, but rather a [scant summary](https://www.inside.iastate.edu/article/2020/11/12/facultysenate). While the Freedom of Information Act (FOIA) probably covers this information, requesting data is [not super easy](https://www.foia.gov/how-to.html).
 
-Some of the services this access could offer include:
+## Use what we've got
 
-1. Aid job seekers in negotiating starting salaries.
-2. Shed light on possible pay inequities with respect to gender.
-3. Identify positions that are lacking gender diversity.
+*Publicly available data*
 
-*Background*
+The goal of CyChecks3 is to complement their findings using publicly available data. Iowa state employee salaries are available at [this site](https://data.iowa.gov/State-Finances/State-of-Iowa-Salary-Book/s3p7-wy6w). You can access the data with or without an API token, but can sign up for one [here](https://dev.socrata.com/foundry/data.iowa.gov/s3p7-wy6w).
 
-The state of Iowa offers a large amount of public data at [this site](https://data.iowa.gov/). You can access the data with or without an API token, but can sign up for one [here](https://dev.socrata.com/foundry/data.iowa.gov/s3p7-wy6w). 
-Iowa state employee salaries are available at [this site](https://data.iowa.gov/State-Finances/State-of-Iowa-Salary-Book/s3p7-wy6w). **CyChecks2 provides a function to easily scrape this data for any given year** 
+This data only reports genders, and only does so in a binary fashion. We therefore cannot analyze the data with respect to race. 
 
-The data from this site does not include the employee's home department. Unfortunately, to our knowledge the data linking names to departments is not easily accessible. ISU's Human Resources Department kindly provided a list of employees with their home departments and associated colleges valid from January 1 2008 - January 1 2018. Since acquiring this information is not reproducible to the average user, we've included a full dataset (with names anonymized) of all salary info (2007 - 2019) cross-referenced by department in the CyChecks2 package. Many employees (XX) appeared in the public data, but were not included in the list provided to us by ISU. This isn't ideal, and we hope ISU will provide complete public access to department affiliations in the future. 
+*Less publicly available data*
 
-*Summary*
+Salaries are department specific, and without accounting for these effects comparisons of salaries by gender could be misleading. We received department affiliations from Human Resources, but this data is, strangely, not public. Additionally, matching salary data names to affiliation data names was troublesome on several accounts, and required a fair amount of googling and hand edits. We have done what we think is the best job we can for 2019 data. 
 
-This package currently includes:
+*What you get*
 
-1. Data from:
-    (i) Salary data for all employees for fiscal years 2007-2019.
-This data is accessed by calling **salaries**
-    (ii) ISU affiliations, as received from HR.
-This data is accessed by calling **affiliation**
-    (iii) Salary/department dataset for employees with the string 'prof' in their position title, currently for fiscal years 2012-2019, containing only the following categories:
-    - assoc prof
-    - asst prof
-    - distg prof
-    - morrill prof
-    - prof
-    - univ prof
-This data is accessed by calling **professors**. Note this data is the result of merging salary data with affiliation data, and required a fair amount of manual manipulation due to spelling errors, inconsistencies, etc. 
+This package contains:
 
+1. Raw salary data (**salaries**)
+2. Raw affiliation data (**affiliations**)
+3. An internally-created dataset with only tenure-track faculty data from 2019 (**professors**)
 
-2. A shiny app for visualizing data (still in the works)
 
 ## Installation
 
-You can install the developmental version CyChecks3 from [github](https://CRAN.R-project.org) with:
+You can install the developmental version CyChecks3 from [github](https://github.com/vanichols/CyChecks3) with:
 
 ``` r
-#devtools::install_github("vanichols/CyChecks3")
+devtools::install_github("vanichols/CyChecks3")
 ```
 
 ## Examples
 
-Coming soon. 
+Shiny coming soon!
+
+
+

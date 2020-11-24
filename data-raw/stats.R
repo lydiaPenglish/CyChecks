@@ -42,8 +42,7 @@ bsal %>%
 #--dang who makes more than $150thou as an asst
 #--oh. business.
 professors %>% 
-  filter(gender == "f",
-         base_salary > 150000,
+  filter(base_salary > 150000,
          title_simp == "asst prof") %>% 
   select(college, dept, gender, name, title)
 
@@ -95,7 +94,11 @@ get_prior(
 #--test new ones
 p0 <- prior(student_t(3, 11.5, 2.5), class = "b",  coef = "default") + 
   prior(student_t(3, 11.5, 2), class = "b", coef = "tighter") + 
-  prior(student_t(3, 11.5, 1), class = "b", coef = "even tighter") 
+  prior(student_t(3, 11.5, 1), class = "b", coef = "even tighter") +
+  prior(student_t(2, 11.5, 1), class = "b", coef = "lower dof") + 
+  prior(student_t(6, 11.5, 1), class = "b", coef = "higher dog") 
+
+
 
 p0 %>% 
   parse_dist(prior) %>% #--a tidybayes function
@@ -103,13 +106,13 @@ p0 %>%
   stat_dist_halfeye() +
   theme(axis.text=element_text(size=15))
 
-exp(10)
-exp(11)
-exp(15)
+exp(10.5)
+exp(11.5)
+exp(12.5)
 
-#--I think the sd of 1 is reasonable
+#--I think the sd of 1 is reasonable. The right tail should probably be longer. 
 
-m1pr <- prior(student_t(3, 11.5, 1), class = "b")
+m1pr <- prior(student_t(6, 11.5, 1), class = "b")
   
 m1 <- brm(
   lsal ~  gender * title_simp + gender + (1 | dept),
@@ -119,10 +122,6 @@ m1 <- brm(
 
 #--oof the intercept still had a hard time. I'll have to think about why that is
 summary(m1)
-
-bsal_brms %>% 
-  ggplot(aes(lsal)) + 
-  geom_density()
 
 #--look at the intercept
 #--should I restrict it to positive values? No one should make less than $1. 
@@ -153,77 +152,72 @@ m1 %>%
   geom_pointinterval()
 
 
+#--the effect of being male:
+m1 %>%
+  gather_draws(`b_.*`, regex = TRUE) %>%
+  ungroup() %>%
+  mutate(
+    .variable = str_remove_all(.variable, "b_|gender|title_simp")) %>% 
+  dplyr::filter(.variable != "Intercept",
+                .variable != "Prof",
+                .variable != "AssocProf",
+                .variable != "AwardedProf") %>%
+  mutate(
+    .variable = ifelse(.variable == "M", "M:AsstProf", .variable),
+    .variable = fct_reorder(.variable, .value)) %>% 
+  ggplot(aes(x = .value, y = .variable)) +
+  geom_vline(xintercept = 0, color = "gray50", size = 1.2, lty = 2, alpha = 0.5) +
+  geom_halfeyeh(aes(fill = .variable)) +
+  stat_pointintervalh(.width = c(.66, .95), size = 2) +
+  theme(legend.position = "none") +
+  labs(title = "The effect of being male")
+
+
 
 # try with 0 intercept ----------------------------------------------------
 
 #--mcelreath talks about how using the above assigns unequal uncertainty to m vs f
 
-#--hmm they're all flat. I could probably constrain them. Try without defining them
+#--I could probably constrain them. Try without defining them
 get_prior(
   lsal ~  0 + gender * title_simp + gender + (1 | dept),
   data = bsal_brms
 )
 
-mypriors <- prior(student_t(3, 11.5, 2), class = b, coef = genderM) + 
-  prior(student_t(3, 11.5, 2), class = b, coef = genderF)  
-
-get_prior(
-  lsal ~  0 + gender * title_simp + gender + (1 | dept),
-  prior = mypriors,
-  data = bsal_brms
-)
-
-# #--anabelle's for ref
-# mypriors <-
-#   prior(student_t(10, 0, 0.1), class = "sd", group = "exp_ID") +
-#   prior(
-#     student_t(10,-4.4, 0.1),
-#     class = "b",
-#     coef = "plot_scaleOFT",
-#     dpar = "sigma"
-#   ) +
-#   prior(
-#     student_t(5,-3.2, 0.5),
-#     class = "b",
-#     coef = "plot_scaleSPT",
-#     dpar = "sigma"
-#   ) +
-#   prior(normal(0, 0.2), class = b, coef = plot_scaleOFT) +
-#   prior(normal(0, 0.2), class = b, coef = plot_scaleSPT)
-
+#--these priors are for asst profs. 
+p2 <- prior(student_t(3, 11.5, 2), class = "b", coef = "genderM") + 
+  prior(student_t(3, 11.5, 2), class = "b", coef = "genderF")  
 
 m2 <- brm(
   lsal ~  0 + gender * title_simp + gender + (1 | dept),
-  prior = mypriors,
+  prior = p2,
   data = bsal,
   sample_prior = T
 )
 
-#--man those intercept!
+#--man those intercepts!
 summary(m2)
+
+#--I'm not sure how to interpret these results
 
 #--look at terms
 #--b_Intercept is female-assistprof. 
 #--the r_dept are offsets from the intercept for each dept. 
-get_variables(b1a)
+get_variables(m2)
 
-#--since we only had random intercept effects, just get it by dept
-# note: spread_draws does wide, gather_draws does long format
-b1a %>%
-  spread_draws(r_dept[dept,]) %>%
-  head(10)
-
-#--which departments have the highest salaries?
-b1a %>%
-  spread_draws(b_Intercept, r_dept[dept,]) %>%
-  median_qi(condition_mean = b_Intercept + r_dept) %>%
-  ggplot(aes(y = reorder(dept, condition_mean), x = condition_mean, xmin = .lower, xmax = .upper)) +
-  geom_pointinterval()
+m2 %>%
+  gather_draws(`b_.*`, regex = TRUE) %>%
+  ungroup() %>%
+  mutate(
+    .variable = str_remove_all(.variable, "b_|gender|title_simp")) %>% 
+  dplyr::filter(.variable %in% c("F", "M")) %>%
+  ggplot(aes(x = .value, y = .variable)) +
+  geom_halfeyeh(fill = "gray80") +
+  stat_pointintervalh(.width = c(.66, .95)) +
+  theme(legend.position = "none") 
 
 
-
-
-b1a %>%
+m2 %>%
   gather_draws(`b_.*`, regex = TRUE) %>%
   ungroup() %>%
   mutate(
