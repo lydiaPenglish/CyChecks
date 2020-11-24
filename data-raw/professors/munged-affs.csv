@@ -2480,7 +2480,7 @@ year,dept1,org_short_name,dept_short_name,first_name,mid_name,last_name,name_lfm
 2012,4050,college of liberal arts & sciences,english,robert,NA,tremmel,tremmel robert
 2012,4170,college of liberal arts & sciences,computer sc,soma,NA,chaudhuri,chaudhuri soma
 2012,4030,college of liberal arts & sciences,chemistry,kimberly,NA,linenberger,linenberger kimberly
-2012,4730,college of liberal arts & sciences,lbrl art/sc cds,horabail,NA,venkatagiri,venkatagiri horabail
+2012,4730,college of liberal arts & sciences,psychology,horabail,NA,venkatagiri,venkatagiri horabail
 2012,4110,college of liberal arts & sciences,world lang/cult,margaret,susan,mook,mook margaret susan
 2012,4330,college of liberal arts & sciences,phil/relig st,john,william clark,wolf,wolf john william cl
 2012,4030,college of liberal arts & sciences,chemistry,young jin,NA,lee,lee young jin
@@ -5617,7 +5617,7 @@ year,dept1,org_short_name,dept_short_name,first_name,mid_name,last_name,name_lfm
 2013,4050,college of liberal arts & sciences,english,john,michael,levis,levis john michael
 2013,4060,college of liberal arts & sciences,geol/atmosph sc,mark,e,mathison,mathison mark e
 2013,4420,college of liberal arts & sciences,eeob,glene,NA,mynhardt,mynhardt glene
-2013,4730,college of liberal arts & sciences,lbrl art/sc cds,horabail,NA,venkatagiri,venkatagiri horabail
+2013,4730,college of liberal arts & sciences,psychology,horabail,NA,venkatagiri,venkatagiri horabail
 2013,4110,college of liberal arts & sciences,world lang/cult,margaret,susan,mook,mook margaret susan
 2013,4730,college of liberal arts & sciences,lbrl art/sc cds,loreto,NA,prieto,prieto loreto
 2013,4140,college of liberal arts & sciences,physics/astron,marzia,NA,rosati,rosati marzia
@@ -8611,7 +8611,7 @@ year,dept1,org_short_name,dept_short_name,first_name,mid_name,last_name,name_lfm
 2014,4330,college of liberal arts & sciences,phil/relig st,john,william clark,wolf,wolf john william cl
 2014,4170,college of liberal arts & sciences,computer sc,deborah,NA,martin,martin deborah
 2014,4140,college of liberal arts & sciences,physics/astron,john,NA,rundle,rundle john
-2014,4730,college of liberal arts & sciences,lbrl art/sc cds,horabail,NA,venkatagiri,venkatagiri horabail
+2014,4730,college of liberal arts & sciences,psychology,horabail,NA,venkatagiri,venkatagiri horabail
 2014,4090,college of liberal arts & sciences,mathematics,james,walter,cliber,cliber james walter
 2014,4320,college of liberal arts & sciences,political sc,james,m,mccormick,mccormick james m
 2014,4120,college of liberal arts & sciences,music & theatre,mary,NA,creswell,creswell mary
@@ -12547,7 +12547,7 @@ year,dept1,org_short_name,dept_short_name,first_name,mid_name,last_name,name_lfm
 2015,4700,college of liberal arts & sciences,lbrl art/sc adm,amanda,NA,rasmusson,rasmusson amanda
 2015,4700,college of liberal arts & sciences,lbrl art/sc adm,douglas,NA,bull,bull douglas
 2015,4700,college of liberal arts & sciences,lbrl art/sc adm,taren,kate reker,crow,crow taren kate reke
-2015,4730,college of liberal arts & sciences,lbrl art/sc cds,horabail,NA,venkatagiri,venkatagiri horabail
+2015,4730,college of liberal arts & sciences,psychology,horabail,NA,venkatagiri,venkatagiri horabail
 2015,4730,college of liberal arts & sciences,lbrl art/sc cds,kristin,NA,hopper losenicky,hopper losenicky kri
 2015,4730,college of liberal arts & sciences,lbrl art/sc cds,michael,NA,goebel,goebel michael
 2015,4730,college of liberal arts & sciences,lbrl art/sc cds,dean,NA,biechler,biechler dean
@@ -16566,7 +16566,7 @@ year,dept1,org_short_name,dept_short_name,first_name,mid_name,last_name,name_lfm
 2016,4250,college of liberal arts & sciences,anthro old,yalem,NA,teshome,teshome yalem
 2016,4640,college of liberal arts & sciences,ctr survey stat,sugam,kumar,sharma,sharma sugam kumar
 2016,4420,college of liberal arts & sciences,eeob,tracy,anne,heath,heath tracy anne
-2016,4730,college of liberal arts & sciences,lbrl art/sc cds,horabail,NA,venkatagiri,venkatagiri horabail
+2016,4730,college of liberal arts & sciences,psychology,horabail,NA,venkatagiri,venkatagiri horabail
 2016,4310,college of liberal arts & sciences,history,tao,NA,wang,wang tao
 2016,4150,college of liberal arts & sciences,psychology,katherine,ann,rafferty,rafferty katherine a
 2016,4050,college of liberal arts & sciences,english,lori,jean,peterson,peterson lori jean
@@ -19801,7 +19801,7 @@ year,dept1,org_short_name,dept_short_name,first_name,mid_name,last_name,name_lfm
 2017,4500,college of liberal arts & sciences,gdcb,hua,NA,bai,bai hua
 2017,4090,college of liberal arts & sciences,mathematics,kristopher,NA,lee,lee kristopher
 2017,4060,college of liberal arts & sciences,geol/atmosph sc,jenq dar,NA,tsay,tsay jenq dar
-2017,4730,college of liberal arts & sciences,lbrl art/sc cds,horabail,NA,venkatagiri,venkatagiri horabail
+2017,4730,college of liberal arts & sciences,psychology,horabail,NA,venkatagiri,venkatagiri horabail
 2017,4700,college of liberal arts & sciences,lbrl art/sc adm,david,harm,hemken,hemken david harm
 2017,4110,college of liberal arts & sciences,world lang/cult,margaret,susan,mook,mook margaret susan
 2017,4170,college of liberal arts & sciences,computer sc,andrew,s,miner,miner andrew s
@@ -23801,7 +23801,7 @@ year,dept1,org_short_name,dept_short_name,first_name,mid_name,last_name,name_lfm
 2018,4700,college of liberal arts & sciences,lbrl art/sc adm,samone,monique,whitfield,whitfield samone mon
 2018,4700,college of liberal arts & sciences,lbrl art/sc adm,xuefeng,NA,zhao,zhao xuefeng
 2018,4730,college of liberal arts & sciences,lbrl art/sc cds,kristin,NA,hopper losenicky,hopper losenicky kri
-2018,4730,college of liberal arts & sciences,lbrl art/sc cds,horabail,NA,venkatagiri,venkatagiri horabail
+2018,4730,college of liberal arts & sciences,psychology,horabail,NA,venkatagiri,venkatagiri horabail
 2018,4720,college of liberal arts & sciences,lbrl art/sc sas,bruce,NA,allen,allen bruce
 2018,4720,college of liberal arts & sciences,lbrl art/sc sas,mason,NA,babcock,babcock mason
 2018,4720,college of liberal arts & sciences,lbrl art/sc sas,tamara,NA,blakeley,blakeley tamara
@@ -27128,7 +27128,7 @@ year,dept1,org_short_name,dept_short_name,first_name,mid_name,last_name,name_lfm
 2019,4720,college of liberal arts & sciences,lbrl art/sc sas,dawn,shae,walker chalmers,walker chalmers dawn
 2019,4720,college of liberal arts & sciences,lbrl art/sc sas,teela,danielle,wilmes,wilmes teela daniell
 2019,4720,college of liberal arts & sciences,lbrl art/sc sas,elizabeth,dorothea,zimmerman,zimmerman elizabeth 
-2019,4730,college of liberal arts & sciences,lbrl art/sc cds,horabail,NA,venkatagiri,venkatagiri horabail
+2019,4730,college of liberal arts & sciences,psychology,horabail,NA,venkatagiri,venkatagiri horabail
 2019,5030,college of veterinary medicine,vet mic/prv med,ashley,ann,adam,adam ashley ann
 2019,5030,college of veterinary medicine,vet mic/prv med,bryan,howard,bellaire,bellaire bryan howar
 2019,5030,college of veterinary medicine,vet mic/prv med,bradley,john,blitvich,blitvich bradley joh

@@ -186,6 +186,12 @@ aff5 <- aff4
 
 # 6 center reassignments ------------------------------------------------
 
+#--only one prof in cds, google says this guy is in psychology
+professors %>% 
+  filter(grepl("lbrl art/sc cds", dept)) %>% 
+  select(year, college, dept, gender, name, title, dept_chair, base_salary)
+
+
 aff6  <- 
   aff5 %>% 
   mutate(
@@ -196,6 +202,7 @@ aff6  <-
       grepl("niederhauser dale s", name_lfm20) ~ "school of ed",
       grepl("thompson elizabeth a", name_lfm20) ~ "school of ed",
       grepl("kedrowski karen m", name_lfm20) ~ "political sc",
+      grepl("venkatagiri horabail", name_lfm20) ~ "psychology",
       TRUE ~ dept_short_name)
     ) %>% 
   mutate(
